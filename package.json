@@ -2,11 +2,13 @@
   "name": "housemaster",
   "private": true,
   "version": "0.1.0",
-  "packageManager": "pnpm@10",
+  "packageManager": "pnpm@11.5.2",
   "scripts": {
     "dev": "echo Development",
     "build": "echo Build",
-    "lint": "echo Lint",
-    "test": "echo Test"
+    "lint": "echo Lint"
+  },
+  "devDependencies": {
+    "turbo": "^2.10.5"
   }
 }
