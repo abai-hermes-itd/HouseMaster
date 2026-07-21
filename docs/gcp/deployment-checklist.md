@@ -159,7 +159,7 @@ terraform output
   # аналогично: google-client-id, google-client-secret, database-url
   ```
   До этого ревизия Cloud Run с секретными env не стартует — ожидаемо.
-- [ ] Создать OAuth-клиент Google Workspace, значения → в секреты (Phase 1)
+- [ ] Создать OAuth-клиент админ-контура (тип **Internal**, в организации abay-germes.kz), значения → в секреты (HM-005); клиент контура Users и SMTP — при HM-006
 - [ ] Первая сборка образа через Cloud Build → Artifact Registry → выкатка
 - [ ] Проверить `cloud_run_service_url` из outputs в браузере
 - [ ] prod: повторить чек-лист; убедиться, что `alert_email` задан и алерты созданы

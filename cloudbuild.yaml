@@ -1,0 +1,38 @@
+# =============================================================================
+# HouseMaster — Cloud Build pipeline (СКЕЛЕТ, реализация на фазе развёртывания)
+# =============================================================================
+# Целевой конвейер (см. docs/architecture/002-gcp-architecture.md, раздел 5):
+#
+#   GitHub push (main) → Cloud Build → Artifact Registry → Cloud Run
+#
+# Шаги, которые будут реализованы:
+#
+# 1. Build
+#    - pnpm install --frozen-lockfile
+#    - turbo run build (кэш Turborepo → Cloud Storage)
+#
+# 2. Tests
+#    - turbo run lint
+#    - turbo run test
+#    - сборка падает при любой ошибке — в Artifact Registry попадают
+#      только проверенные образы
+#
+# 3. Docker
+#    - docker build по /Dockerfile (multi-stage, turbo prune, standalone)
+#    - тег образа = $COMMIT_SHA (неизменяемые артефакты)
+#
+# 4. Artifact Registry
+#    - docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/housemaster/web:$COMMIT_SHA
+#
+# 5. Cloud Run
+#    - gcloud run deploy next-web --image ...:$COMMIT_SHA
+#    - сервисный аккаунт: sa-cloudbuild (только push + deploy, без доступа к данным)
+#    - секреты монтируются из Secret Manager, не передаются через build
+#
+# Переменные подстановки (будут заданы в триггере):
+#   _REGION, _SERVICE_NAME, _REPOSITORY
+# =============================================================================
+
+steps: []
+# options:
+#   logging: CLOUD_LOGGING_ONLY
