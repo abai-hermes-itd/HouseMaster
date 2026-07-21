@@ -4,9 +4,9 @@
   "version": "0.1.0",
   "packageManager": "pnpm@11.5.2",
   "scripts": {
-    "dev": "echo Development",
-    "build": "echo Build",
-    "lint": "echo Lint"
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint"
   },
   "devDependencies": {
     "turbo": "^2.10.5"

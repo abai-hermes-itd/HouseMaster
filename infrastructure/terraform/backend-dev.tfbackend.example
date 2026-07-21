@@ -1,0 +1,4 @@
+# Скопируйте в backend-dev.tfbackend (не коммитится) и подставьте bucket.
+# Bucket состояния создаётся вручную до первого init (см. backend.tf).
+bucket = "housemaster-dev-tfstate"
+prefix = "terraform/state"

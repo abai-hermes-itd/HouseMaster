@@ -1,0 +1,38 @@
+# ============================================================================
+# Окружение DEV — ПОЛНЫЙ набор переменных (HM-GCP-004).
+# Скопируйте в dev.tfvars и подставьте реальные значения.
+# Файлы *.tfvars не коммитятся (см. .gitignore).
+# ============================================================================
+
+# --- Обязательные ---
+project_id  = "housemaster-dev"
+region      = "europe-west1"
+environment = "dev"
+
+artifact_registry_name = "housemaster"
+cloud_run_service_name = "next-web"
+
+# Имена бакетов глобально уникальны — префиксуем project id
+storage_bucket_images    = "housemaster-dev-images"
+storage_bucket_documents = "housemaster-dev-documents"
+storage_bucket_media     = "housemaster-dev-media"
+
+vertex_location = "europe-west1"
+
+# --- Cloud Run ---
+# Образ-заглушка по умолчанию (us-docker.pkg.dev/cloudrun/container/hello);
+# после первой сборки CI/CD можно указать свой:
+# cloud_run_container_image = "europe-west1-docker.pkg.dev/housemaster-dev/housemaster/web:<sha>"
+cloud_run_min_instances         = 0     # scale-to-zero: dev бесплатен в простое
+cloud_run_max_instances         = 3
+cloud_run_cpu                   = "1"
+cloud_run_memory                = "512Mi"
+cloud_run_allow_unauthenticated = true
+
+# --- Наблюдаемость ---
+log_retention_days = 30
+# Пусто = алерты в dev не создаются; укажите e-mail, чтобы включить
+alert_email                = ""
+alert_5xx_rate_threshold   = 0.1
+alert_latency_ms_threshold = 2000
+alert_error_logs_threshold = 20

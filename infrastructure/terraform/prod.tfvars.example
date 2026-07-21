@@ -1,0 +1,33 @@
+# ============================================================================
+# Окружение PROD — ПОЛНЫЙ набор переменных (HM-GCP-004).
+# Скопируйте в prod.tfvars и подставьте реальные значения.
+# Файлы *.tfvars не коммитятся (см. .gitignore).
+# ============================================================================
+
+# --- Обязательные ---
+project_id  = "housemaster-prod"
+region      = "europe-west1"
+environment = "prod"
+
+artifact_registry_name = "housemaster"
+cloud_run_service_name = "next-web"
+
+storage_bucket_images    = "housemaster-prod-images"
+storage_bucket_documents = "housemaster-prod-documents"
+storage_bucket_media     = "housemaster-prod-media"
+
+vertex_location = "europe-west1"
+
+# --- Cloud Run ---
+cloud_run_min_instances         = 1     # тёплый инстанс против cold start
+cloud_run_max_instances         = 10
+cloud_run_cpu                   = "1"
+cloud_run_memory                = "1Gi"
+cloud_run_allow_unauthenticated = true
+
+# --- Наблюдаемость (в prod алерты ОБЯЗАТЕЛЬНЫ) ---
+log_retention_days         = 90
+alert_email                = "ops@example.kz" # заменить на реальный
+alert_5xx_rate_threshold   = 0.05
+alert_latency_ms_threshold = 1500
+alert_error_logs_threshold = 10

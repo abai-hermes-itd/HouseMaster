@@ -1,0 +1,3 @@
+# Скопируйте в backend-prod.tfbackend (не коммитится) и подставьте bucket.
+bucket = "housemaster-prod-tfstate"
+prefix = "terraform/state"

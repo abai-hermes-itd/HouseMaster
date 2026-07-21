@@ -1,0 +1,14 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Реальные конфигурации окружений (коммитятся только *.example)
+*.tfvars
+!*.tfvars.example
+*.tfbackend
+!*.tfbackend.example
+
+# Ключи SA — их не должно существовать в принципе
+*.json
