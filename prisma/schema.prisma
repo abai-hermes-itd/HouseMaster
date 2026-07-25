@@ -1,0 +1,248 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum OrganizationType {
+  OSI
+  KSK
+  MANAGEMENT_COMPANY
+  SERVICE_COMPANY
+}
+
+enum UserRole {
+  SUPER_ADMIN
+  ADMIN
+  HOUSEMASTER
+  TECHNICIAN
+  DISPATCHER
+  ACCOUNTANT
+  RESIDENT
+}
+
+enum AssetType {
+  ELEVATOR
+  PUMP
+  VALVE
+  HEATING
+  ELECTRICAL_PANEL
+  ROOF
+  BASEMENT
+  WATER_METER
+  FIRE_SYSTEM
+}
+
+enum AssetStatus {
+  ACTIVE
+  INACTIVE
+  MAINTENANCE
+  DECOMMISSIONED
+}
+
+enum InspectionStatus {
+  PASSED
+  FAILED
+  REQUIRES_ACTION
+}
+
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+  EMERGENCY
+}
+
+enum WorkOrderStatus {
+  OPEN
+  IN_PROGRESS
+  DONE
+  CANCELLED
+}
+
+model Organization {
+  id          String           @id @default(uuid()) @db.Uuid
+  type        OrganizationType
+  name        String
+  bin         String           @unique @db.VarChar(12)
+  address     String
+  createdAt   DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime         @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt   DateTime?        @map("deleted_at") @db.Timestamptz(3)
+  users       User[]
+  houses      House[]
+  entrances   Entrance[]
+  apartments  Apartment[]
+  assets      Asset[]
+  inspections Inspection[]
+  workOrders  WorkOrder[]
+
+  @@index([type])
+  @@index([deletedAt])
+  @@map("organizations")
+}
+
+model User {
+  id             String        @id @default(uuid()) @db.Uuid
+  email          String        @unique
+  fullName       String        @map("full_name")
+  phone          String?
+  role           UserRole
+  organizationId String?       @map("organization_id") @db.Uuid
+  createdAt      DateTime      @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime      @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt      DateTime?     @map("deleted_at") @db.Timestamptz(3)
+  organization   Organization? @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  inspections    Inspection[]
+  createdOrders  WorkOrder[]   @relation("WorkOrderCreator")
+  assignedOrders WorkOrder[]   @relation("WorkOrderAssignee")
+
+  @@unique([id, organizationId])
+  @@index([organizationId])
+  @@index([role])
+  @@index([deletedAt])
+  @@map("users")
+}
+
+model House {
+  id              String       @id @default(uuid()) @db.Uuid
+  organizationId  String       @map("organization_id") @db.Uuid
+  cadastralNumber String       @unique @map("cadastral_number")
+  address         String
+  city            String
+  region          String
+  yearBuilt       Int?         @map("year_built")
+  floors          Int
+  entranceCount   Int          @map("entrances")
+  apartmentCount  Int          @map("apartments")
+  createdAt       DateTime     @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime     @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt       DateTime?    @map("deleted_at") @db.Timestamptz(3)
+  organization    Organization @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  entranceRecords Entrance[]
+  apartmentUnits  Apartment[]
+  assets          Asset[]
+  workOrders      WorkOrder[]
+
+  @@unique([id, organizationId])
+  @@index([organizationId])
+  @@index([city, region])
+  @@index([deletedAt])
+  @@map("houses")
+}
+
+model Entrance {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @map("organization_id") @db.Uuid
+  houseId        String       @map("house_id") @db.Uuid
+  number         Int
+  createdAt      DateTime     @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime     @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt      DateTime?    @map("deleted_at") @db.Timestamptz(3)
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  house          House        @relation(fields: [houseId, organizationId], references: [id, organizationId], onDelete: Restrict)
+  apartmentUnits Apartment[]
+
+  @@unique([houseId, number])
+  @@unique([id, houseId, organizationId])
+  @@index([organizationId])
+  @@index([deletedAt])
+  @@map("entrances")
+}
+
+model Apartment {
+  id              String       @id @default(uuid()) @db.Uuid
+  organizationId  String       @map("organization_id") @db.Uuid
+  houseId         String       @map("house_id") @db.Uuid
+  entranceId      String       @map("entrance_id") @db.Uuid
+  apartmentNumber String       @map("apartment_number")
+  floor           Int
+  createdAt       DateTime     @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime     @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt       DateTime?    @map("deleted_at") @db.Timestamptz(3)
+  organization    Organization @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  house           House        @relation(fields: [houseId, organizationId], references: [id, organizationId], onDelete: Restrict)
+  entrance        Entrance     @relation(fields: [entranceId, houseId, organizationId], references: [id, houseId, organizationId], onDelete: Restrict)
+
+  @@unique([houseId, apartmentNumber])
+  @@index([organizationId])
+  @@index([entranceId, houseId, organizationId])
+  @@index([deletedAt])
+  @@map("apartments")
+}
+
+model Asset {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @map("organization_id") @db.Uuid
+  houseId        String       @map("house_id") @db.Uuid
+  type           AssetType
+  location       String
+  serialNumber   String?      @map("serial_number")
+  status         AssetStatus  @default(ACTIVE)
+  createdAt      DateTime     @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime     @updatedAt @map("updated_at") @db.Timestamptz(3)
+  deletedAt      DateTime?    @map("deleted_at") @db.Timestamptz(3)
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  house          House        @relation(fields: [houseId, organizationId], references: [id, organizationId], onDelete: Restrict)
+  inspections    Inspection[]
+  workOrders     WorkOrder[]
+
+  @@unique([id, organizationId])
+  @@unique([id, houseId, organizationId])
+  @@index([organizationId])
+  @@index([houseId, type])
+  @@index([status])
+  @@index([serialNumber])
+  @@index([deletedAt])
+  @@map("assets")
+}
+
+model Inspection {
+  id             String           @id @default(uuid()) @db.Uuid
+  organizationId String           @map("organization_id") @db.Uuid
+  assetId        String           @map("asset_id") @db.Uuid
+  inspectorId    String           @map("inspector_id") @db.Uuid
+  inspectionDate DateTime         @map("inspection_date") @db.Timestamptz(3)
+  status         InspectionStatus
+  notes          String?
+  createdAt      DateTime         @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime         @updatedAt @map("updated_at") @db.Timestamptz(3)
+  organization   Organization     @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  asset          Asset            @relation(fields: [assetId, organizationId], references: [id, organizationId], onDelete: Restrict)
+  inspector      User             @relation(fields: [inspectorId, organizationId], references: [id, organizationId], onDelete: Restrict)
+
+  @@index([organizationId])
+  @@index([assetId, inspectionDate])
+  @@index([inspectorId, inspectionDate])
+  @@index([status])
+  @@map("inspections")
+}
+
+model WorkOrder {
+  id             String          @id @default(uuid()) @db.Uuid
+  organizationId String          @map("organization_id") @db.Uuid
+  houseId        String          @map("house_id") @db.Uuid
+  assetId        String?         @map("asset_id") @db.Uuid
+  createdById    String          @map("created_by") @db.Uuid
+  assignedToId   String?         @map("assigned_to") @db.Uuid
+  priority       Priority        @default(NORMAL)
+  status         WorkOrderStatus @default(OPEN)
+  description    String
+  createdAt      DateTime        @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt      DateTime        @updatedAt @map("updated_at") @db.Timestamptz(3)
+  organization   Organization    @relation(fields: [organizationId], references: [id], onDelete: Restrict)
+  house          House           @relation(fields: [houseId, organizationId], references: [id, organizationId], onDelete: Restrict)
+  asset          Asset?          @relation(fields: [assetId, houseId, organizationId], references: [id, houseId, organizationId], onDelete: Restrict)
+  creator        User            @relation("WorkOrderCreator", fields: [createdById, organizationId], references: [id, organizationId], onDelete: Restrict)
+  assignee       User?           @relation("WorkOrderAssignee", fields: [assignedToId, organizationId], references: [id, organizationId], onDelete: Restrict)
+
+  @@index([organizationId])
+  @@index([houseId, status])
+  @@index([assetId, status])
+  @@index([createdById, organizationId])
+  @@index([assignedToId, organizationId, status])
+  @@index([priority, status])
+  @@map("work_orders")
+}
