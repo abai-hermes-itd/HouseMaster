@@ -65,10 +65,11 @@ resource "google_sql_database_instance" "main" {
       disallow_username_substring = true
     }
 
-    maintenance_window {
-      day  = 0 # без предпочтения дня (GCP default)
-      hour = 0 # без предпочтения часа (GCP default)
-    }
+    # maintenance_window не задан: GCP API возвращает day=0/hour=0 как
+    # "нет явного предпочтения", но провайдер требует day в диапазоне 1-7 —
+    # это несовместимость схем API/провайдера, не отсутствие данных.
+    # Блок опущен намеренно; GCP продолжит применять патчи без предпочтения
+    # по времени (найдено terraform plan, HM-GCP-003D.4).
   }
 
   lifecycle {
