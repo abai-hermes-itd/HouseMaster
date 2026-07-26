@@ -45,7 +45,7 @@ resource "google_sql_database_instance" "main" {
     ip_configuration {
       ipv4_enabled = true
       ssl_mode     = "ENCRYPTED_ONLY"
-      require_ssl  = false # deprecated-поле; реальная защита через ssl_mode выше
+   
 
       authorized_networks {
         name  = "Home-PC"
@@ -75,7 +75,7 @@ resource "google_sql_database_instance" "main" {
     ignore_changes = [
       # Обновляется GCP автоматически при патчах PostgreSQL —
       # отслеживание через TF создавало бы постоянный ложный drift.
-      settings[0].maintenance_version,
+     maintenance_version,
 
       # Может изменяться вручную (добавление IP разработчиков) без PR —
       # операционное действие, не архитектурное решение.
