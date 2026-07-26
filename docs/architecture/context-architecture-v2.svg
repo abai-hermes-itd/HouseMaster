@@ -1,0 +1,157 @@
+<svg width="100%" viewBox="0 0 680 740" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>HouseMaster Context Architecture v2</title>
+<desc>Two-context architecture per ADR-0005: Service Context (GCP) and Personal Context (KZ Contour), separated by Context Boundary per Law RK №94-V</desc>
+
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <style>
+    text { font-family: sans-serif; }
+    .th  { font-size: 14px; font-weight: 500; fill: #1a1a18; }
+    .ts  { font-size: 12px; font-weight: 400; fill: #5f5e5a; }
+    .tc  { font-size: 11px; font-weight: 400; fill: #888780; }
+    .lbl-svc  { font-size: 13px; font-weight: 500; fill: #0c447c; }
+    .lbl-prs  { font-size: 13px; font-weight: 500; fill: #854f0b; }
+    .lbl-ext  { font-size: 11px; font-weight: 400; fill: #888780; }
+    @media (prefers-color-scheme: dark) {
+      .th  { fill: #c2c0b6; }
+      .ts  { fill: #888780; }
+      .tc  { fill: #5f5e5a; }
+      .lbl-svc { fill: #85b7eb; }
+      .lbl-prs { fill: #ef9f27; }
+      .lbl-ext { fill: #5f5e5a; }
+    }
+  </style>
+</defs>
+
+<!-- ══ SERVICE CONTEXT ══════════════════════════════════════ -->
+<rect x="20" y="16" width="460" height="380" rx="16"
+  fill="#e6f1fb" fill-opacity="0.25" stroke="#378add" stroke-width="1" stroke-opacity="0.6"/>
+<text class="lbl-svc" x="36" y="44">Service Context — GCP (europe-west3)</text>
+
+<!-- Cloud Run -->
+<rect x="40" y="60" width="160" height="56" rx="8"
+  fill="#e6f1fb" stroke="#185fa5" stroke-width="0.5"/>
+<text class="th" x="120" y="85" text-anchor="middle">Cloud Run</text>
+<text class="ts" x="120" y="103" text-anchor="middle">Next.js · API layer</text>
+
+<!-- Cloud SQL -->
+<rect x="40" y="148" width="160" height="56" rx="8"
+  fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+<text class="th" x="120" y="170" text-anchor="middle">Cloud SQL</text>
+<text class="ts" x="120" y="186" text-anchor="middle">Organization · House</text>
+<text class="ts" x="120" y="200" text-anchor="middle">Asset · Inspection · WorkOrder</text>
+
+<!-- AI Layer -->
+<rect x="240" y="60" width="160" height="56" rx="8"
+  fill="#eeedfe" stroke="#534ab7" stroke-width="0.5"/>
+<text class="th" x="320" y="85" text-anchor="middle">AI Layer</text>
+<text class="ts" x="320" y="103" text-anchor="middle">Vertex AI · Gemini · Vector Search</text>
+
+<!-- Knowledge Base -->
+<rect x="240" y="148" width="160" height="56" rx="8"
+  fill="#eeedfe" stroke="#534ab7" stroke-width="0.5"/>
+<text class="th" x="320" y="170" text-anchor="middle">Knowledge Base</text>
+<text class="ts" x="320" y="186" text-anchor="middle">Нормативы · СНиП · ГОСТ</text>
+<text class="ts" x="320" y="200" text-anchor="middle">Типовые дефекты</text>
+
+<!-- Platform Services -->
+<rect x="40" y="236" width="360" height="40" rx="8"
+  fill="#f1efe8" stroke="#888780" stroke-width="0.5"/>
+<text class="th" x="220" y="252" text-anchor="middle">Platform Services</text>
+<text class="ts" x="220" y="268" text-anchor="middle">Pub/Sub · Secret Manager · Logging · Monitoring · Artifact Registry</text>
+
+<!-- Reference Identity note -->
+<rect x="40" y="308" width="360" height="40" rx="8"
+  fill="#f1efe8" stroke="#888780" stroke-width="0.5" stroke-dasharray="4 3"/>
+<text class="th" x="220" y="324" text-anchor="middle">Reference Identity (UUID)</text>
+<text class="ts" x="220" y="340" text-anchor="middle">Cross-context identifier — без Personal Data</text>
+
+<!-- ══ EXTERNAL INTEGRATIONS ════════════════════════════════ -->
+<!-- Google Workspace — External -->
+<rect x="498" y="60" width="162" height="56" rx="8"
+  fill="#f1efe8" stroke="#888780" stroke-width="0.5" stroke-dasharray="5 3"/>
+<text class="th" x="579" y="79" text-anchor="middle">Google Workspace</text>
+<text class="ts" x="579" y="95" text-anchor="middle">abay-germes.kz</text>
+<text class="lbl-ext" x="579" y="109" text-anchor="middle">External Integration</text>
+
+<!-- Admin Portal -->
+<rect x="498" y="148" width="162" height="56" rx="8"
+  fill="#e1f5ee" stroke="#0f6e56" stroke-width="0.5"/>
+<text class="th" x="579" y="170" text-anchor="middle">Admin Portal</text>
+<text class="ts" x="579" y="186" text-anchor="middle">/admin · HM-005</text>
+<text class="ts" x="579" y="200" text-anchor="middle">Service Context only</text>
+
+<!-- ══ CONTEXT BOUNDARY ═════════════════════════════════════ -->
+<line x1="20" y1="420" x2="660" y2="420"
+  stroke="#888780" stroke-width="1.5" stroke-dasharray="8 4"/>
+<text class="tc" x="340" y="413" text-anchor="middle">
+  Context Boundary — Закон РК №94-V · Personal Data не пересекает эту границу
+</text>
+
+<!-- ══ PERSONAL CONTEXT ═════════════════════════════════════ -->
+<rect x="20" y="432" width="460" height="228" rx="16"
+  fill="#faeeda" fill-opacity="0.25" stroke="#ba7517" stroke-width="1" stroke-opacity="0.6"/>
+<text class="lbl-prs" x="36" y="460">Personal Context — KZ Contour (РК)</text>
+
+<!-- Personal Data Store -->
+<rect x="40" y="476" width="200" height="68" rx="8"
+  fill="#faeeda" stroke="#854f0b" stroke-width="0.5"/>
+<text class="th" x="140" y="500" text-anchor="middle">Personal Data Store</text>
+<text class="ts" x="140" y="516" text-anchor="middle">Физические лица · Аутентификация</text>
+<text class="ts" x="140" y="532" text-anchor="middle">История обращений · Сессии</text>
+
+<!-- Auth Service -->
+<rect x="264" y="476" width="196" height="68" rx="8"
+  fill="#faece7" stroke="#993c1d" stroke-width="0.5"/>
+<text class="th" x="362" y="500" text-anchor="middle">Auth Service</text>
+<text class="ts" x="362" y="516" text-anchor="middle">Email · Google OAuth</text>
+<text class="ts" x="362" y="532" text-anchor="middle">JWT · HM-006</text>
+
+<!-- PWA -->
+<rect x="40" y="576" width="420" height="56" rx="8"
+  fill="#faeeda" stroke="#854f0b" stroke-width="0.5"/>
+<text class="th" x="250" y="599" text-anchor="middle">PWA — личные кабинеты жителей</text>
+<text class="ts" x="250" y="617" text-anchor="middle">Personal Data не покидает Personal Context</text>
+
+<!-- ══ EXTERNAL (bottom) ════════════════════════════════════ -->
+<rect x="498" y="476" width="162" height="156" rx="8"
+  fill="#f1efe8" stroke="#888780" stroke-width="0.5" stroke-dasharray="5 3"/>
+<text class="th"  x="579" y="500" text-anchor="middle">External</text>
+<text class="lbl-ext" x="579" y="516" text-anchor="middle">Integrations</text>
+<text class="ts"  x="579" y="540" text-anchor="middle">eGov RK</text>
+<text class="ts"  x="579" y="558" text-anchor="middle">Операторы связи</text>
+<text class="ts"  x="579" y="576" text-anchor="middle">Коммунальные платформы</text>
+<text class="ts"  x="579" y="594" text-anchor="middle">Нац. инф. системы</text>
+
+<!-- ══ CONNECTORS: Service Context internal ═════════════════ -->
+<line x1="120" y1="116" x2="120" y2="148"
+  stroke="#888780" stroke-width="1" fill="none" marker-end="url(#arrow)"/>
+<line x1="200" y1="88" x2="240" y2="88"
+  stroke="#888780" stroke-width="1" fill="none" marker-end="url(#arrow)"/>
+<line x1="320" y1="116" x2="320" y2="148"
+  stroke="#888780" stroke-width="1" fill="none" marker-end="url(#arrow)"/>
+<line x1="579" y1="116" x2="579" y2="148"
+  stroke="#888780" stroke-width="1" fill="none" marker-end="url(#arrow)"/>
+<line x1="498" y1="176" x2="400" y2="176"
+  stroke="#888780" stroke-width="1" fill="none" marker-end="url(#arrow)"/>
+<line x1="120" y1="276" x2="120" y2="308"
+  stroke="#888780" stroke-width="1" fill="none" marker-end="url(#arrow)"/>
+
+<!-- ══ Cross-context Communication ════════════════════════ -->
+<line x1="220" y1="400" x2="220" y2="432"
+  stroke="#185fa5" stroke-width="1.5" stroke-dasharray="5 3" fill="none"
+  marker-end="url(#arrow)"/>
+<text x="232" y="420" font-size="11" fill="#185fa5">Cross-context</text>
+<text x="232" y="432" font-size="11" fill="#185fa5">Reference Identity only</text>
+
+<!-- ══ CONNECTORS: Personal Context internal ════════════════ -->
+<line x1="264" y1="510" x2="240" y2="510"
+  stroke="#888780" stroke-width="1" fill="none" marker-end="url(#arrow)"/>
+<line x1="250" y1="576" x2="362" y2="544"
+  stroke="#888780" stroke-width="1" fill="none" marker-end="url(#arrow)"/>
+<line x1="460" y1="548" x2="498" y2="548"
+  stroke="#888780" stroke-width="1" fill="none" marker-end="url(#arrow)"/>
+
+</svg>
