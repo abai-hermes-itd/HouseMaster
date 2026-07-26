@@ -36,3 +36,10 @@ alert_email                = ""
 alert_5xx_rate_threshold   = 0.1
 alert_latency_ms_threshold = 2000
 alert_error_logs_threshold = 20
+
+# --- Cloud SQL (HM-GCP-003D) ---
+# Существующий instance, импортируется через terraform import.
+# region ОТДЕЛЬНО от var.region — реальный instance в europe-west3.
+cloud_sql_instance_name = "housemaster-db"
+cloud_sql_region        = "europe-west3"
+cloud_sql_tier          = "db-g1-small"

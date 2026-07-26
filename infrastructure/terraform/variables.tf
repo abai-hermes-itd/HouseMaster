@@ -125,3 +125,29 @@ variable "alert_error_logs_threshold" {
   type        = number
   default     = 20
 }
+
+# --- Cloud SQL (HM-GCP-003D) ---
+# Instance создан вручную до написания Terraform-кода (HM-004).
+# Импорт — HM-GCP-003D.3. Детали и обоснование — HM-GCP-003C.
+
+variable "cloud_sql_instance_name" {
+  description = "Имя существующего Cloud SQL instance"
+  type        = string
+  default     = "housemaster-db"
+}
+
+variable "cloud_sql_region" {
+  description = <<-DESC
+    Регион Cloud SQL instance. ОТДЕЛЬНО от var.region: реальный instance
+    находится в europe-west3, тогда как var.region (Cloud Run, Storage,
+    Artifact Registry) — europe-west1. Смешивать нельзя (HM-GCP-003C, п.9).
+  DESC
+  type        = string
+  default     = "europe-west3"
+}
+
+variable "cloud_sql_tier" {
+  description = "Machine tier существующего instance"
+  type        = string
+  default     = "db-g1-small"
+}
