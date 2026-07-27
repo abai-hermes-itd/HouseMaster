@@ -151,3 +151,32 @@ variable "cloud_sql_tier" {
   type        = string
   default     = "db-g1-small"
 }
+
+# HM-GCP-003E — Staged Infrastructure Deployment Pattern.
+#
+# Bootstrap flag.
+#
+# During the first infrastructure deployment:
+#
+#   false -> infrastructure only (service accounts, secrets, buckets,
+#            Pub/Sub, Artifact Registry, Logging). Cloud SQL is managed
+#            independently (already imported, HM-GCP-003D).
+#
+# After Secret Manager is populated with real values:
+#
+#   true  -> application layer (Cloud Run service + dependent IAM).
+#
+# For production this variable is expected to be TRUE — dev starts at
+# false only for the initial bootstrap sequence, then flips to true and
+# stays there. A "false" prod value is a red flag, not a valid steady
+# state.
+#
+# Retained permanently as a staged deployment mechanism, reusable for
+# other large components (e.g. a future deploy_kz_contour). Not specific
+# to Cloud Run, not a one-off workaround.
+#
+# Do not remove.
+variable "deploy_cloud_run" {
+  type    = bool
+  default = false
+}

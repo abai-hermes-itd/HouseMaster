@@ -9,6 +9,8 @@
 #     хотя бы одна версия (см. README, шаг 3), иначе ревизия не стартует.
 
 resource "google_cloud_run_v2_service" "web" {
+  count = var.deploy_cloud_run ? 1 : 0
+
   project  = var.project_id
   location = var.region
   name     = var.cloud_run_service_name
