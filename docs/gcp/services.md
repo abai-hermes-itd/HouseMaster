@@ -11,7 +11,7 @@
 > - data-classification.md
 
 Краткий справочник: какой сервис GCP для чего используется в HouseMaster.
-Целевая архитектура и связи между сервисами — в [`docs/architecture/002-gcp-architecture.md`](../architecture/002-gcp-architecture.md). Список согласован со стеком из `000-system-overview.md` (v1.1).
+Целевая архитектура и связи между сервисами — в [`docs/architecture/ADR-0005-final.md`](../architecture/ADR-0005-final.md).
 
 | Сервис | Для чего используется в HouseMaster |
 |---|---|

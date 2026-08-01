@@ -7,10 +7,6 @@
 - data-classification.md
 - boundary-contract.md
 
-## Proposed
-
-*(none)*
-
 ## Legacy (requires update)
 
 - 000-system-overview.md
