@@ -5,10 +5,11 @@
 - ADR-0005-final.md
 - Architecture-Principles.md
 - data-classification.md
+- boundary-contract.md
 
 ## Proposed
 
-- boundary-contract.md
+*(none)*
 
 ## Legacy (requires update)
 

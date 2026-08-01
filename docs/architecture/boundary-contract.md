@@ -1,15 +1,15 @@
 # HouseMaster — Boundary Contract
 
-> Status: Proposed
+> Status: Accepted
 >
 > This document supplements ADR-0005.
 >
-> It is not yet normative architecture.
+> It defines the operational cross-context transfer rules referenced in ADR-0005 Decision Scope.
 
 | Поле | Значение |
 |---|---|
 | Документ | docs/architecture/boundary-contract.md |
-| Статус | Proposed (при принятии ADR-0005) |
+| Статус | Accepted |
 | Дата | 2026-07-25 |
 | Связано | ADR-0005, data-classification.md, Architecture-Principles.md |
 
@@ -24,16 +24,18 @@
 ```
 GCP-контур                         KZ-контур
    │                                   │
-   │  Next.js API (Cloud Run)          │
-   │  ├── prismaGcp.*  ──────────────► Cloud SQL
-   │  └── prismaKz.*  ──────────────► KZ PostgreSQL
+   │  Application Runtime              │
+   │  ├── Service Context          ──► Cloud SQL
+   │  │   Persistence Adapter          │
+   │  └── Personal Context         ──► KZ PostgreSQL
+   │       Persistence Adapter         │
    │
-   └── Один процесс, два клиента.
+   └── Один процесс, два независимых адаптера.
        Приложение — единственная точка пересечения.
 ```
 
 Порядок вызовов при cross-contour операции:
-1. Запрос авторизуется (JWT верифицируется против `prismaKz`)
+1. Запрос авторизуется (JWT верифицируется против Personal Context)
 2. Бизнес-логика определяет нужные контуры
 3. Запросы выполняются последовательно или параллельно в зависимости от зависимостей
 4. Результат объединяется в приложении и возвращается клиенту
@@ -100,20 +102,16 @@ GCP-контур                         KZ-контур
 
 ## 5. Где проходит граница персональных данных
 
+Personal Data Boundary is defined by physical residency inside Personal Context.
+
 Граница ПДн — физическая граница KZ-контура. Формально:
 
 ```
-Всё, что записывается в KZ PostgreSQL — ПДн или данные аутентификации.
-Всё, что записывается в Cloud SQL — служебные данные без ПДн.
+Всё, что записывается в Personal Context (KZ) — ПДн или данные аутентификации.
+Всё, что записывается в Service Context (GCP) — служебные данные без ПДн.
 ```
 
-Исключений нет. Если данные нужны в обоих местах — они хранятся только в KZ-контуре, в GCP — только UUID-ссылка.
-
-**Граница в коде** — это выбор `prismaClient`:
-- `prismaKz.*` — любая операция с ПДн
-- `prismaGcp.*` — любая операция со служебными данными
-
-Code review policy: PR с `prismaKz.*` запросами, содержащими поля `email`, `fullName`, `phone` в `select` — автоматически блокируется, если данные передаются дальше чем в ответ на HTTP-запрос инициатора.
+Исключений нет. Если данные нужны в обоих контурах — они хранятся только в Personal Context; в Service Context передаётся только UUID-ссылка.
 
 ---
 
