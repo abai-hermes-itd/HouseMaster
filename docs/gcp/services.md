@@ -1,5 +1,15 @@
 # HouseMaster — GCP Services Reference
 
+> NOTE
+>
+> This document is an operational reference.
+>
+> Authoritative architecture is defined in:
+>
+> - ADR-0005-final.md
+> - Architecture-Principles.md
+> - data-classification.md
+
 Краткий справочник: какой сервис GCP для чего используется в HouseMaster.
 Целевая архитектура и связи между сервисами — в [`docs/architecture/002-gcp-architecture.md`](../architecture/002-gcp-architecture.md). Список согласован со стеком из `000-system-overview.md` (v1.1).
 

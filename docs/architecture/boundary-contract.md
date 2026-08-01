@@ -1,5 +1,11 @@
 # HouseMaster — Boundary Contract
 
+> Status: Proposed
+>
+> This document supplements ADR-0005.
+>
+> It is not yet normative architecture.
+
 | Поле | Значение |
 |---|---|
 | Документ | docs/architecture/boundary-contract.md |
@@ -107,7 +113,7 @@ GCP-контур                         KZ-контур
 - `prismaKz.*` — любая операция с ПДн
 - `prismaGcp.*` — любая операция со служебными данными
 
-Код review policy: PR с `prismaKz.*` запросами, содержащими поля `email`, `fullName`, `phone` в `select` — автоматически блокируется, если данные передаются дальше чем в ответ на HTTP-запрос инициатора.
+Code review policy: PR с `prismaKz.*` запросами, содержащими поля `email`, `fullName`, `phone` в `select` — автоматически блокируется, если данные передаются дальше чем в ответ на HTTP-запрос инициатора.
 
 ---
 

@@ -167,3 +167,9 @@ terraform output
 ## Откат
 
 Ошибка релиза → переключить трафик на предыдущую ревизию Cloud Run (консоль или `gcloud run services update-traffic`). Ошибка инфраструктуры → `terraform plan` покажет дрейф; state в GCS версионируется — восстановление возможно.
+
+---
+
+> TODO
+>
+> Legacy secret names require review after HM-GCP-003E.2.

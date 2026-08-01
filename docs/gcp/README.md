@@ -10,3 +10,15 @@
 | [`services.md`](./services.md) | Справочник: какой сервис GCP для чего используется |
 | *(будущее)* `runbooks/` | Операционные процедуры: откат релиза, восстановление БД, ротация секретов |
 | *(будущее)* `cost.md` | Модель затрат по окружениям |
+
+---
+
+## Architecture Reference
+
+Canonical architecture:
+
+- ../architecture/ADR-0005-final.md
+- ../architecture/Architecture-Principles.md
+- ../architecture/data-classification.md
+
+This folder contains operational implementation guides only.
