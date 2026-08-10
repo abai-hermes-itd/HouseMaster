@@ -1,6 +1,6 @@
 # HM-GCP-003E.2-B — Secret Readiness Gate
 
-**Статус:** Implemented / pending commit  
+**Статус:** Implemented / committed (576dee3)
 **Тип:** Operational preflight  
 **Scope:** GCP / Cloud Run / Secret Manager  
 **ADR:** не требуется  
