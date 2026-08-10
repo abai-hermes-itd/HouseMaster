@@ -1,38 +1,56 @@
-# =============================================================================
-# HouseMaster — Cloud Build pipeline (СКЕЛЕТ, реализация на фазе развёртывания)
-# =============================================================================
-# Целевой конвейер (см. docs/architecture/002-gcp-architecture.md, раздел 5):
-#
-#   GitHub push (main) → Cloud Build → Artifact Registry → Cloud Run
-#
-# Шаги, которые будут реализованы:
-#
-# 1. Build
-#    - pnpm install --frozen-lockfile
-#    - turbo run build (кэш Turborepo → Cloud Storage)
-#
-# 2. Tests
-#    - turbo run lint
-#    - turbo run test
-#    - сборка падает при любой ошибке — в Artifact Registry попадают
-#      только проверенные образы
-#
-# 3. Docker
-#    - docker build по /Dockerfile (multi-stage, turbo prune, standalone)
-#    - тег образа = $COMMIT_SHA (неизменяемые артефакты)
-#
-# 4. Artifact Registry
-#    - docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/housemaster/web:$COMMIT_SHA
-#
-# 5. Cloud Run
-#    - gcloud run deploy next-web --image ...:$COMMIT_SHA
-#    - сервисный аккаунт: sa-cloudbuild (только push + deploy, без доступа к данным)
-#    - секреты монтируются из Secret Manager, не передаются через build
-#
-# Переменные подстановки (будут заданы в триггере):
-#   _REGION, _SERVICE_NAME, _REPOSITORY
-# =============================================================================
+﻿serviceAccount: "projects/${PROJECT_ID}/serviceAccounts/sa-cloudbuild-dev@${PROJECT_ID}.iam.gserviceaccount.com"
 
-steps: []
-# options:
-#   logging: CLOUD_LOGGING_ONLY
+options:
+  logging: CLOUD_LOGGING_ONLY
+  dynamic_substitutions: true
+
+substitutions:
+  _REGION: europe-west1
+  _REPOSITORY: housemaster
+  _SERVICE_NAME: next-web
+  _IMAGE: ${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/web
+
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    id: "build-image"
+    args:
+      - build
+      - --tag
+      - "${_IMAGE}:${SHORT_SHA}"
+      - --tag
+      - "${_IMAGE}:latest"
+      - --cache-from
+      - "${_IMAGE}:latest"
+      - --build-arg
+      - "BUILDKIT_INLINE_CACHE=1"
+      - .
+    env:
+      - "DOCKER_BUILDKIT=1"
+
+  - name: "gcr.io/cloud-builders/docker"
+    id: "push-image"
+    args:
+      - push
+      - "--all-tags"
+      - "${_IMAGE}"
+
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    id: "deploy-cloud-run"
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - "${_SERVICE_NAME}"
+      - --image
+      - "${_IMAGE}:${SHORT_SHA}"
+      - --region
+      - "${_REGION}"
+      - --project
+      - "${PROJECT_ID}"
+      - --service-account
+      - "sa-web-dev@${PROJECT_ID}.iam.gserviceaccount.com"
+      - --quiet
+
+images:
+  - "${_IMAGE}:${SHORT_SHA}"
+  - "${_IMAGE}:latest"

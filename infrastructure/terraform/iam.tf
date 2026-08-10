@@ -1,4 +1,4 @@
-﻿# Разграничение прав: least privilege, без Owner/Editor.
+# Разграничение прав: least privilege, без Owner/Editor.
 # Правила:
 #   - гранты на уровне ресурса (bucket, secret, topic, service), где возможно;
 #   - project-level роли — только там, где ресурсного уровня нет (Vertex AI);
@@ -133,4 +133,36 @@ resource "google_cloud_run_v2_service_iam_member" "public_invoker" {
   name     = google_cloud_run_v2_service.web[0].name
   role     = "roles/run.invoker"
   member   = "allUsers"
+}
+# ─────────────────────────────────────────────────────────────────────────────
+# sa-cloudbuild — дополнительные права для CI/CD (HM-CI-001)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Доступ к Cloud Build source bucket
+resource "google_project_iam_member" "build_storage" {
+  project = var.project_id
+  role    = "roles/storage.objectAdmin"
+  member  = "serviceAccount:${google_service_account.cloud_build.email}"
+}
+
+# Чтение образов из Artifact Registry внутри Cloud Build
+resource "google_project_iam_member" "build_registry_read" {
+  project = var.project_id
+  role    = "roles/artifactregistry.reader"
+  member  = "serviceAccount:${google_service_account.cloud_build.email}"
+}
+
+# Деплой ревизий Cloud Run из Cloud Build
+resource "google_project_iam_member" "build_run_developer" {
+  count   = var.deploy_cloud_run ? 1 : 0
+  project = var.project_id
+  role    = "roles/run.developer"
+  member  = "serviceAccount:${google_service_account.cloud_build.email}"
+}
+
+# actAs на sa-web для выпуска ревизий
+resource "google_service_account_iam_member" "build_act_as_web" {
+  service_account_id = google_service_account.cloud_run.name
+  role               = "roles/iam.serviceAccountUser"
+  member             = "serviceAccount:${google_service_account.cloud_build.email}"
 }
