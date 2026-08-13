@@ -152,17 +152,12 @@ resource "google_project_iam_member" "build_registry_read" {
   member  = "serviceAccount:${google_service_account.cloud_build.email}"
 }
 
-# Деплой ревизий Cloud Run из Cloud Build
-resource "google_project_iam_member" "build_run_developer" {
-  count   = var.deploy_cloud_run ? 1 : 0
-  project = var.project_id
-  role    = "roles/run.developer"
-  member  = "serviceAccount:${google_service_account.cloud_build.email}"
-}
-
-# actAs на sa-web для выпуска ревизий
-resource "google_service_account_iam_member" "build_act_as_web" {
-  service_account_id = google_service_account.cloud_run.name
-  role               = "roles/iam.serviceAccountUser"
+# Право impersonate sa-deployer-dev для шага deploy-cloud-run в cloudbuild.yaml.
+# Деплой выполняется под identity cicd_deployer (least privilege), а не
+# build-SA — build-SA прав на Cloud Run/данные не имеет (HM-CI-001 fix).
+resource "google_service_account_iam_member" "build_impersonate_deployer" {
+  count              = var.deploy_cloud_run ? 1 : 0
+  service_account_id = google_service_account.cicd_deployer.name
+  role               = "roles/iam.serviceAccountTokenCreator"
   member             = "serviceAccount:${google_service_account.cloud_build.email}"
 }

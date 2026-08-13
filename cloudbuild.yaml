@@ -1,15 +1,12 @@
 ﻿serviceAccount: "projects/${PROJECT_ID}/serviceAccounts/sa-cloudbuild-dev@${PROJECT_ID}.iam.gserviceaccount.com"
-
 options:
   logging: CLOUD_LOGGING_ONLY
   dynamic_substitutions: true
-
 substitutions:
   _REGION: europe-west1
   _REPOSITORY: housemaster
   _SERVICE_NAME: next-web
   _IMAGE: ${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/web
-
 steps:
   - name: "gcr.io/cloud-builders/docker"
     id: "build-image"
@@ -26,14 +23,12 @@ steps:
       - .
     env:
       - "DOCKER_BUILDKIT=1"
-
   - name: "gcr.io/cloud-builders/docker"
     id: "push-image"
     args:
       - push
       - "--all-tags"
       - "${_IMAGE}"
-
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     id: "deploy-cloud-run"
     entrypoint: gcloud
@@ -49,8 +44,9 @@ steps:
       - "${PROJECT_ID}"
       - --service-account
       - "sa-web-dev@${PROJECT_ID}.iam.gserviceaccount.com"
+      - --impersonate-service-account
+      - "sa-deployer-dev@${PROJECT_ID}.iam.gserviceaccount.com"
       - --quiet
-
 images:
   - "${_IMAGE}:${SHORT_SHA}"
   - "${_IMAGE}:latest"
