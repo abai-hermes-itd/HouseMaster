@@ -39,7 +39,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token, profile }) {
       if (profile) {
         token.realm = "admin";
-        token.domain = profile.hd;
+        token.domain = profile.hd as string | undefined;
         token.picture = profile.picture as string | undefined;
       }
       return token;
