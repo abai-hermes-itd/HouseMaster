@@ -119,6 +119,18 @@ resource "google_service_account_iam_member" "deployer_act_as_web" {
   role               = "roles/iam.serviceAccountUser"
   member             = "serviceAccount:${google_service_account.cicd_deployer.email}"
 }
+# Чтение образов из Artifact Registry для валидации при деплое.
+# gcloud run deploy под impersonation проверяет доступность образа
+# от имени деплоящей identity (sa-deployer), не только runtime-SA.
+resource "google_artifact_registry_repository_iam_member" "deployer_registry_read" {
+  count = var.deploy_cloud_run ? 1 : 0
+
+  project    = var.project_id
+  location   = var.region
+  repository = google_artifact_registry_repository.docker.repository_id
+  role       = "roles/artifactregistry.reader"
+  member     = "serviceAccount:${google_service_account.cicd_deployer.email}"
+}
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Публичный HTTP-доступ к сервису (вход в приложение).
