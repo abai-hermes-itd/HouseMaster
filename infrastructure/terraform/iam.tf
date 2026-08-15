@@ -49,6 +49,16 @@ resource "google_pubsub_topic_iam_member" "web_publish_indexing" {
   member  = "serviceAccount:${google_service_account.cloud_run.email}"
 }
 
+# Подключение к Cloud SQL через connector (Unix socket) — HM-GCP-003F.1.
+# roles/cloudsql.client не поддерживает resource-level binding на конкретный
+# instance, поэтому грант неизбежно project-level (согласуется с обработкой
+# aiplatform.user выше — единственный доступный уровень для этой роли).
+resource "google_project_iam_member" "web_cloudsql_client" {
+  project = var.project_id
+  role    = "roles/cloudsql.client"
+  member  = "serviceAccount:${google_service_account.cloud_run.email}"
+}
+
 # ─────────────────────────────────────────────────────────────────────────────
 # sa-ai-worker — AI-конвейер
 # ─────────────────────────────────────────────────────────────────────────────
