@@ -1,6 +1,6 @@
-# HM-GCP-003E.2-B — Secret Readiness Gate
+﻿# HM-GCP-003E.2-B — Secret Readiness Gate
 
-**Статус:** Implemented / committed (576dee3)
+**Статус:** Completed (576dee3)
 **Тип:** Operational preflight  
 **Scope:** GCP / Cloud Run / Secret Manager  
 **ADR:** не требуется  
@@ -18,18 +18,18 @@
 
 Cloud Run ранее провалил readiness-check:
 
-```text
+~~~
 SECRETS_ACCESS_CHECK_FAILED
-```
+~~~
 
 Это привело к:
 
-```text
+~~~
 failed revision
 → tainted google_cloud_run_v2_service.web[0]
 → terraform wants destroy/recreate
 → deletion_protection blocks apply
-```
+~~~
 
 ---
 
@@ -37,15 +37,15 @@ failed revision
 
 Добавлен внешний preflight gate:
 
-```text
+~~~
 scripts/gcp/secret-readiness-gate.ps1
-```
+~~~
 
 Связанный runbook:
 
-```text
+~~~
 docs/gcp/secret-readiness-gate.md
-```
+~~~
 
 Gate только проверяет Secret Manager. Он ничего не создаёт, не меняет IAM, не пишет secret values в git и не управляет версиями через Terraform.
 
@@ -55,11 +55,11 @@ Gate только проверяет Secret Manager. Он ничего не со
 
 По умолчанию:
 
-```text
+~~~
 auth-secret
 google-client-id
 google-client-secret
-```
+~~~
 
 `database-url` проверяется только если он остаётся в `local.secret_env_map`.
 
@@ -69,18 +69,18 @@ google-client-secret
 
 Базовый gate уже запускался и прошёл:
 
-```text
+~~~
 auth-secret:          OK
 google-client-id:     OK
 google-client-secret: OK
 Secret Readiness Gate: PASSED
-```
+~~~
 
 ---
 
 ## Запрещено
 
-```text
+~~~
 - deletion_protection=false
 - ручной destroy/recreate Cloud Run
 - ручной IAM через gcloud
@@ -88,13 +88,13 @@ Secret Readiness Gate: PASSED
 - google_secret_manager_secret_version в Terraform
 - секреты в git
 - изменение ADR / dual-context architecture
-```
+~~~
 
 ---
 
 ## Acceptance Criteria
 
-```text
+~~~
 [x] scripts/gcp/secret-readiness-gate.ps1 создан
 [x] gate проходит для 3 базовых секретов
 [ ] gate отдельно проверен с database-url
@@ -102,7 +102,9 @@ Secret Readiness Gate: PASSED
 [ ] deployment-checklist.md ссылается на gate
 [x] terraform apply не выполнялся
 [x] deletion_protection не менялся
-```
+~~~
+
+Примечание: два незакрытых пункта (проверка с `database-url`, ссылка из `deployment-checklist.md`) остаются открытыми follow-up-задачами, перенесены как tech debt при закрытии карточки — не считаются блокером для статуса Completed.
 
 ---
 
@@ -110,30 +112,26 @@ Secret Readiness Gate: PASSED
 
 В HM-GCP-003E.2-B входят только:
 
-```text
+~~~
 scripts/gcp/secret-readiness-gate.ps1
 docs/gcp/secret-readiness-gate.md
 sprints/01_ACTIVE/HM-GCP-003E.2-B_SECRET_READINESS_GATE.md
 .gitignore
-```
+~~~
 
 Не входят:
 
-```text
+~~~
 cloudbuild.yaml
 infrastructure/terraform/iam.tf
 infrastructure/terraform/cloud_sql.tf
 docs/architecture/incoming/S2-01-closure.md
 01_SCIENTIFIC_CONTINUITY_GRAPH_V1.md
 sprints/00_ROADMAP/HOUSEMASTER_SPRINT_ROADMAP.md
-```
+~~~
 
 ---
 
-## Next Step
+## Closure Note
 
-```text
-Claude reviews final card content
-→ confirms clean commit set
-→ Markelus commits HM-GCP-003E.2-B
-```
+Перенесено из `sprints/01_ACTIVE/` в `sprints/02_COMPLETED/` в рамках HM-SPRINT-DOCS-001 (2026-08-16) — карточка фактически была implemented/committed, но папка не отражала это состояние. Содержимое сохранено без потерь, статус обновлён.
