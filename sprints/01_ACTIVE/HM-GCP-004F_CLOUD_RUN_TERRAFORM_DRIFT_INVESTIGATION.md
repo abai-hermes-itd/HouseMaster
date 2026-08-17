@@ -57,18 +57,22 @@ Terraform drift is a *reporting* discrepancy between declared config and live st
 
 1. **Label removal risk:** an unreviewed apply would strip `app`, `environment`, `goog-terraform-provisioned`, and `managed_by` — labels that look like they carry provisioning/ownership meaning (possibly used by tooling, cost allocation, or `goog-terraform-provisioned` conventions) and were not intentionally added by any approved task.
 2. **Scaling field uncertainty:** the origin and live effect of `scaling.manual_instance_count` are not yet confirmed (see "Likely causes" below). Applying `null` for it should be low-risk (a return to automatic scaling governed by `min_instance_count`/`max_instance_count`, which stay Terraform-managed), but "likely low-risk" is not sufficient justification for an unreviewed production-adjacent apply.
-3. **Root cause unconfirmed:** whether this predates HM-GCP-004X-2 or was introduced by it is not fully verified yet (see Investigation steps) — applying before understanding cause risks masking or compounding an unrelated pre-existing issue.
+3. **Root cause now confirmed (see below), but decision still pending:** the label drift was introduced by HM-GCP-004X-2 and the scaling drift predates it — both are now understood, but no fix option has been selected or approved yet, so applying remains premature.
 
 ---
 
-## Likely causes
+## Confirmed causes (updated after investigation steps 1 and 2)
 
-- **`template.labels`:** `cloud_run.tf` sets top-level `labels = local.common_labels` but never declares `template.labels` at all. Cloud Run's API appears to copy the service-level labels down onto the revision template at deploy time (possibly triggered specifically by `gcloud run services update --update-labels=...`, which forces a full revision rewrite). Since Terraform's config has zero opinion on `template.labels`, any value the API sets there reads as full-block drift.
-- **`scaling.manual_instance_count` / `min_instance_count`:** `cloud_run.tf`'s `scaling` block only sets `min_instance_count` and `max_instance_count` (via `var.cloud_run_min_instances`/`max_instances`); it never sets `manual_instance_count`, and the provider schema for this newer scaling-mode field may not align with what `cloud_run.tf` declares. Comparison of pre-refresh exported state (revision `-00003-`, Aug 15) shows the same `minScale: '0'`/`maxScale: '3'` Knative annotations as the current revision, suggesting the underlying instance counts haven't changed — but that export format doesn't surface this specific v2-API field, so it's not fully confirmed whether `manual_instance_count` was already implicitly set pre-refresh or newly materialized by the `services update` call.
+Both drift items were investigated via two read-only commands: `gcloud run revisions describe next-web-00003-567 --format=json` (pre-refresh revision) and `terraform state show 'google_cloud_run_v2_service.web[0]'` (last-applied state, dated 2026-08-15, also pre-refresh). Together they give a clean "before" snapshot to compare against the post-refresh live state.
+
+- **`template.labels` — INTRODUCED BY HM-GCP-004X-2.** Both the pre-refresh revision describe and the pre-refresh persisted Terraform state confirm `template.labels` was empty (`{}`) on revision `-00003-`, with no `app`, `environment`, `goog-terraform-provisioned`, or `managed_by` present. `cloud_run.tf` sets top-level `labels = local.common_labels` but never declares `template.labels` at all. The label-only `gcloud run services update --update-labels=secret-refresh=...` call (which forces a full revision rewrite) caused Cloud Run to newly propagate the service's top-level labels down onto the revision template, alongside the intended `secret-refresh` label. This was a genuine, previously-undocumented side effect of the refresh — not merely revealing pre-existing drift.
+- **`scaling.manual_instance_count` / `min_instance_count` — PREDATES HM-GCP-004X-2.** The persisted Terraform state (last apply, 2026-08-15, before the refresh) already contains a top-level `scaling { manual_instance_count = 0, min_instance_count = 0, scaling_mode = null }` block on the service resource — a block `cloud_run.tf` never declares in HCL (only `template.scaling` is declared, with `min_instance_count`/`max_instance_count`, no `manual_instance_count`). Since this value was already in the state file before HM-GCP-004X-2 ran, this drift is unrelated to the refresh and has existed since at least the prior `terraform apply`.
 
 ---
 
 ## Candidate fix options (none selected yet — for future approval)
+
+Now that root causes are confirmed and split, Option 2 is better-justified for the label drift (address at the source) and Option 1 is better-justified for the scaling drift (pre-existing, lower-urgency, safe to ignore pending step 3 above). No option has been selected or approved.
 
 **Option 1 — Extend `lifecycle.ignore_changes`:**
 Add `labels`, `template[0].labels`, and `template[0].scaling` (or the specific `manual_instance_count` sub-attribute, if separately targetable) to the existing `ignore_changes` list alongside `image`, `client`, `client_version`. Lowest-effort; accepts that `gcloud`-driven label/scaling changes will always diverge from Terraform state without reporting drift.
@@ -84,11 +88,11 @@ Accept current drift as informational-only, revisit only when an apply is next g
 
 ---
 
-## Recommended investigation steps (read-only, none run yet — future approval required)
+## Investigation steps
 
-1. `gcloud run revisions describe next-web-00003-567 --region=europe-west1 --project=housemaster-dev-503409 --format=json` — compare scaling/labels fields against `next-web-00004-4zk`'s equivalent describe output, to confirm whether the drift predates HM-GCP-004X-2 or was introduced by it.
-2. `terraform state show 'google_cloud_run_v2_service.web[0]'` — read-only, inspect Terraform's own recorded state for `template.labels`/`scaling` history.
-3. Review Terraform provider (`google`) changelog/schema for `scaling.manual_instance_count` to confirm intended semantics and default behavior when unset vs. explicitly `0`.
+1. ✅ **Done (2026-08-17).** `gcloud run revisions describe next-web-00003-567 --region=europe-west1 --project=housemaster-dev-503409 --format=json` — compared scaling/labels fields against the pre-refresh revision. Result: `template.labels` empty on `-00003-`; no `manual_instance_count` visible in this Knative-format output (inconclusive for scaling).
+2. ✅ **Done (2026-08-17).** `terraform state show 'google_cloud_run_v2_service.web[0]'` — read-only, inspected Terraform's own recorded state (last apply, 2026-08-15). Result: confirmed `template.labels = {}` pre-refresh (label drift introduced by HM-GCP-004X-2), and confirmed top-level `scaling.manual_instance_count = 0` already present pre-refresh (scaling drift predates HM-GCP-004X-2).
+3. **Still open (read-only, future approval required).** Review Terraform provider (`google`) changelog/schema for `scaling.manual_instance_count` to confirm intended semantics and default behavior when unset vs. explicitly `0` — needed before choosing between "ignore" vs. "declare explicitly" for the pre-existing scaling block.
 
 ---
 
