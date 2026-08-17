@@ -57,7 +57,7 @@ Terraform drift is a *reporting* discrepancy between declared config and live st
 
 1. **Label removal risk:** an unreviewed apply would strip `app`, `environment`, `goog-terraform-provisioned`, and `managed_by` — labels that look like they carry provisioning/ownership meaning (possibly used by tooling, cost allocation, or `goog-terraform-provisioned` conventions) and were not intentionally added by any approved task.
 2. **Scaling field uncertainty:** the origin and live effect of `scaling.manual_instance_count` are not yet confirmed (see "Likely causes" below). Applying `null` for it should be low-risk (a return to automatic scaling governed by `min_instance_count`/`max_instance_count`, which stay Terraform-managed), but "likely low-risk" is not sufficient justification for an unreviewed production-adjacent apply.
-3. **Root cause now confirmed (see below), but decision still pending:** the label drift was introduced by HM-GCP-004X-2 and the scaling drift predates it — both are now understood, but no fix option has been selected or approved yet, so applying remains premature.
+3. **Root cause and safety now fully confirmed, but decision still pending:** the label drift was introduced by HM-GCP-004X-2, and the scaling drift predates it and is confirmed inert/safe to defer — investigation is complete, but no fix option has been selected or approved yet, so applying remains premature until that decision is made explicitly.
 
 ---
 
@@ -72,7 +72,7 @@ Both drift items were investigated via two read-only commands: `gcloud run revis
 
 ## Candidate fix options (none selected yet — for future approval)
 
-Now that root causes are confirmed and split, Option 2 is better-justified for the label drift (address at the source) and Option 1 is better-justified for the scaling drift (pre-existing, lower-urgency, safe to ignore pending step 3 above). No option has been selected or approved.
+All three investigation steps are now complete. Option 2 is better-justified for the label drift (address at the source — introduced by HM-GCP-004X-2). Option 1 is better-justified for the scaling drift (pre-existing, confirmed inert/safe to defer — add to `ignore_changes`). No option has been selected or approved; a separate explicit approval is still required before any Terraform code change.
 
 **Option 1 — Extend `lifecycle.ignore_changes`:**
 Add `labels`, `template[0].labels`, and `template[0].scaling` (or the specific `manual_instance_count` sub-attribute, if separately targetable) to the existing `ignore_changes` list alongside `image`, `client`, `client_version`. Lowest-effort; accepts that `gcloud`-driven label/scaling changes will always diverge from Terraform state without reporting drift.
@@ -92,7 +92,7 @@ Accept current drift as informational-only, revisit only when an apply is next g
 
 1. ✅ **Done (2026-08-17).** `gcloud run revisions describe next-web-00003-567 --region=europe-west1 --project=housemaster-dev-503409 --format=json` — compared scaling/labels fields against the pre-refresh revision. Result: `template.labels` empty on `-00003-`; no `manual_instance_count` visible in this Knative-format output (inconclusive for scaling).
 2. ✅ **Done (2026-08-17).** `terraform state show 'google_cloud_run_v2_service.web[0]'` — read-only, inspected Terraform's own recorded state (last apply, 2026-08-15). Result: confirmed `template.labels = {}` pre-refresh (label drift introduced by HM-GCP-004X-2), and confirmed top-level `scaling.manual_instance_count = 0` already present pre-refresh (scaling drift predates HM-GCP-004X-2).
-3. **Still open (read-only, future approval required).** Review Terraform provider (`google`) changelog/schema for `scaling.manual_instance_count` to confirm intended semantics and default behavior when unset vs. explicitly `0` — needed before choosing between "ignore" vs. "declare explicitly" for the pre-existing scaling block.
+3. ✅ **Done (2026-08-17).** Reviewed `hashicorp/google` provider docs (pinned `6.50.0`) for `google_cloud_run_v2_service.scaling.manual_instance_count`/`scaling_mode`. Result: `manual_instance_count` only takes effect when `scaling_mode = "MANUAL"`; our state shows `scaling_mode = null`, so `manual_instance_count = 0` is inert — it does not govern runtime scaling while mode stays unset/`AUTOMATIC`. Actual scaling remains controlled by `template.scaling.min_instance_count`/`max_instance_count` (Terraform-declared, unaffected by this diff). A related provider issue (`terraform-provider-google` #25580, sibling `worker_pool` resource) documents the same class of computed-field drift, reinforcing this reads as a benign provider/API artifact rather than a behavioral risk. **Conclusion: scaling drift confirmed safe to defer.**
 
 ---
 
