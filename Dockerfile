@@ -41,6 +41,13 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # отдельный шаг перед сборкой, иначе `next build` падает на типах
 # (Module '"@prisma/client"' has no exported member 'PrismaClient').
 # Локально это маскировалось уже сгенерированным клиентом в node_modules.
+#
+# prisma.config.ts и prisma/ лежат в корне репо и не принадлежат ни
+# одному Turborepo-пакету — `turbo prune web --docker` их не сохраняет
+# в out/full (подтверждено реальным failed build: "schema.prisma: file
+# not found"). Копируем их явно из исходного build-контекста.
+COPY prisma.config.ts ./prisma.config.ts
+COPY prisma ./prisma
 RUN pnpm db:generate
 RUN pnpm turbo run build --filter=web
 
