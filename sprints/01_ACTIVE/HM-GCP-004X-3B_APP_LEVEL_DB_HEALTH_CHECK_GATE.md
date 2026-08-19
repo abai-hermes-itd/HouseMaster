@@ -111,6 +111,25 @@ Before any implementation:
 
 ---
 
+## Cloud Run deploy status check (2026-08-19, read-only)
+
+**Status: Commit not deployed. Deploy pending.**
+
+Read-only `gcloud` inspection of the live `next-web` Cloud Run service (`housemaster-dev-503409`, `europe-west1`):
+
+| Revision | Active | Ready | Created | Image digest |
+|---|---|---|---|---|
+| `next-web-00004-4zk` | yes (100% traffic) | True | 2026-08-17T04:50:35Z | `...web@sha256:afb49c1...29f5fa` |
+| `next-web-00003-567` | no | True | 2026-08-15T10:43:59Z | same digest as above |
+| `next-web-00002-fqb` | no | True | 2026-08-13T12:26:37Z | same digest as above |
+| `next-web-00001-6tc` | no | True | 2026-08-13T07:04:33Z | Google placeholder image |
+
+- Currently-serving revision: `next-web-00004-4zk`, `Ready=True`, 100% traffic.
+- That revision was created **2026-08-17T04:50Z**, before commit `57027df` existed (pushed 2026-08-19). No new revision has been created since the push, and revisions 00002–00004 share an identical image digest — no rebuild/redeploy has occurred since 2026-08-13.
+- **Conclusion: commit `57027df` is not deployed.** No CI/CD pipeline appears to have triggered a build/deploy on this push. Deploying it requires a separate, explicit deploy approval (not yet given) — per this doc's "Future approval requirements" item 3.
+
+---
+
 ## Report template
 
 ```
@@ -118,7 +137,8 @@ HM-GCP-004X-3B result:
 - design selected: Design 1, amended (lazy getPrisma()) — approved 2026-08-19
 - code change approved: yes
 - build validated: yes (pnpm --filter web build, 2026-08-19)
-- deployed: no
+- pushed: yes (commit 57027df, 2026-08-19)
+- deployed: no — live revision next-web-00004-4zk (2026-08-17) predates commit 57027df; no CI/CD auto-deploy observed
 - endpoint called: no
 - response: not yet run
 - error detail leaked: no
@@ -145,4 +165,4 @@ This gate does not:
 
 ## Readiness classification
 
-Design approved (amended, 2026-08-19) and build-validated locally. Not yet deployed, endpoint not yet called. HM-GCP-004X-4 remains blocked until deploy + a genuine positive endpoint response are obtained.
+Design approved (amended, 2026-08-19), build-validated locally, and pushed (commit `57027df`). Confirmed via read-only Cloud Run inspection that commit `57027df` is **not yet deployed** — live revision `next-web-00004-4zk` predates the commit and no CI/CD auto-deploy was observed. Deploy and endpoint call remain pending. HM-GCP-004X-4 remains blocked until deploy + a genuine positive endpoint response are obtained.
