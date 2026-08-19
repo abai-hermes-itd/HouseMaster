@@ -37,6 +37,11 @@ RUN pnpm install --frozen-lockfile
 # Затем исходники и сборка
 COPY --from=pruner /repo/out/full/ .
 ENV NEXT_TELEMETRY_DISABLED=1
+# Prisma 7: клиент не генерируется автоматически при pnpm install — нужен
+# отдельный шаг перед сборкой, иначе `next build` падает на типах
+# (Module '"@prisma/client"' has no exported member 'PrismaClient').
+# Локально это маскировалось уже сгенерированным клиентом в node_modules.
+RUN pnpm db:generate
 RUN pnpm turbo run build --filter=web
 
 # --- Stage 3: runner — минимальный рантайм для Cloud Run ---------------------
