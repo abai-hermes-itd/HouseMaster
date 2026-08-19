@@ -23,6 +23,7 @@ const EXPECTED_TOOL_NAMES = [
   "hm_repo_status",
   "hm_gate_status",
   "hm_diff_summary",
+  "hm_handoff_report",
 ];
 
 // hm_diff_summary requires real input. These are explicit, deliberately
@@ -41,6 +42,9 @@ const TOOL_ARGUMENTS: Record<string, Record<string, unknown>> = {
       "ops/mcp/housemaster-gcp-gate-mcp/package.json",
       "ops/mcp/housemaster-gcp-gate-mcp/src/server.ts",
     ],
+  },
+  hm_handoff_report: {
+    next_safe_step: "HM-MCP-006 validation test run",
   },
 };
 

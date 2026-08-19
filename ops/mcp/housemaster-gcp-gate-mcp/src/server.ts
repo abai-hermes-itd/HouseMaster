@@ -5,11 +5,13 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { hmRepoStatus } from "./tools/repoStatus.js";
 import { hmGateStatus } from "./tools/gateStatus.js";
 import { hmDiffSummary } from "./tools/diffSummary.js";
+import { hmHandoffReport } from "./tools/handoffReport.js";
 
 // Read-only MCP server. Exposes hm_repo_status (HM-MCP-002),
-// hm_gate_status (HM-MCP-004), and hm_diff_summary (HM-MCP-005). Must
-// never execute infrastructure, secrets, database, deployment, or
-// approval decisions — see ../HOUSEMASTER_GCP_GATE_MCP_CONCEPT.md.
+// hm_gate_status (HM-MCP-004), hm_diff_summary (HM-MCP-005), and
+// hm_handoff_report (HM-MCP-006). Must never execute infrastructure,
+// secrets, database, deployment, or approval decisions — see
+// ../HOUSEMASTER_GCP_GATE_MCP_CONCEPT.md.
 const server = new McpServer({
   name: "housemaster-gcp-gate-mcp",
   version: "0.1.0",
@@ -79,6 +81,34 @@ const diffSummaryInputShape = {
     const result = await hmDiffSummary(files);
     return {
       content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+const handoffReportInputShape = {
+  next_safe_step: z
+    .string()
+    .optional()
+    .describe(
+      "Optional, caller-supplied next safe step. Never inferred by the tool itself.",
+    ),
+};
+
+// Same confirmed TS2589 workaround as hm_diff_summary above — applied
+// proactively here rather than re-discovered, since any non-empty Zod
+// shape triggers it with this typescript@5.9.3 + SDK@1.30.0 pairing.
+(server as any).registerTool(
+  "hm_handoff_report",
+  {
+    title: "HouseMaster session handoff report",
+    description:
+      "Read-only markdown session handoff, composing hm_repo_status and hm_gate_status (branch, HEAD, origin alignment, tracked status, active/closed gates, open risks). Reports active gates as a full list rather than inventing a single 'current gate'. next_safe_step is caller-supplied only, never inferred.",
+    inputSchema: handoffReportInputShape,
+  },
+  async ({ next_safe_step }: { next_safe_step?: string }) => {
+    const markdown = await hmHandoffReport({ next_safe_step });
+    return {
+      content: [{ type: "text", text: markdown }],
     };
   },
 );
