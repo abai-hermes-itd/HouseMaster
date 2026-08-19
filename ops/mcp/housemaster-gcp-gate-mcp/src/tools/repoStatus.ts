@@ -25,7 +25,12 @@ export interface RepoStatusResult {
 
 async function git(args: string[]): Promise<string> {
   const { stdout } = await execFileAsync("git", args, { cwd: REPO_ROOT });
-  return stdout.trim();
+  // Strip only the trailing newline, never leading whitespace: a blanket
+  // .trim() would eat the leading space of `git status --short`'s first
+  // line whenever that line is a worktree-only modification (index
+  // column blank, e.g. " M path"), corrupting the fixed-width XY-prefix
+  // parsing below (confirmed bug, HM-MCP-003 validation run).
+  return stdout.replace(/\r?\n+$/, "");
 }
 
 /**
