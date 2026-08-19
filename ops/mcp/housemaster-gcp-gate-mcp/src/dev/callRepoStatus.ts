@@ -18,8 +18,31 @@ import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js"
 
 // Multi-tool-safe: checks that each expected tool is present (by
 // inclusion), not that the server has exactly one tool total — so this
-// keeps working as more tools (hm_gate_status, ...) are registered.
-const EXPECTED_TOOL_NAMES = ["hm_repo_status", "hm_gate_status"];
+// keeps working as more tools are registered.
+const EXPECTED_TOOL_NAMES = [
+  "hm_repo_status",
+  "hm_gate_status",
+  "hm_diff_summary",
+];
+
+// hm_diff_summary requires real input. These are explicit, deliberately
+// safe, self-referential test files (this package's own README/manifest
+// plus its own currently-modified server.ts — never anything
+// secret-shaped) used only to exercise the tool end-to-end; not a
+// general-purpose diff request. server.ts is included specifically so
+// this run also exercises the diff_text/diff_stat-populated path, not
+// only the "no changes -> null" path.
+const TOOL_ARGUMENTS: Record<string, Record<string, unknown>> = {
+  hm_repo_status: {},
+  hm_gate_status: {},
+  hm_diff_summary: {
+    files: [
+      "ops/mcp/housemaster-gcp-gate-mcp/README.md",
+      "ops/mcp/housemaster-gcp-gate-mcp/package.json",
+      "ops/mcp/housemaster-gcp-gate-mcp/src/server.ts",
+    ],
+  },
+};
 
 async function main() {
   const transport = new StdioClientTransport({
@@ -47,7 +70,10 @@ async function main() {
     }
 
     for (const name of EXPECTED_TOOL_NAMES) {
-      const result = await client.callTool({ name, arguments: {} });
+      const result = await client.callTool({
+        name,
+        arguments: TOOL_ARGUMENTS[name] ?? {},
+      });
       console.log(`\n${name} result:`);
       console.log(JSON.stringify(result, null, 2));
     }

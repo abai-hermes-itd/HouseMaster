@@ -1,16 +1,12 @@
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
+import { SECRET_LOOKING_FILENAME } from "../lib/secretPatterns.js";
 
 const execFileAsync = promisify(execFile);
 
 // Fixed, hardcoded repo root — this server reports on exactly one repo.
 // Never taken from user input, never expanded into an arbitrary path.
 const REPO_ROOT = "C:\\Abay-Germes\\HouseMaster";
-
-// Filenames that look like they could carry secrets. Used only to flag,
-// never to read file contents — per the concept doc's "toxic data" model.
-const SECRET_LOOKING_PATTERN =
-  /(^|[\\/])\.env(\..+)?$|secret|credential|\.pem$|\.key$/i;
 
 export interface RepoStatusResult {
   branch: string;
@@ -79,7 +75,7 @@ export async function hmRepoStatus(): Promise<RepoStatusResult> {
   }
 
   for (const file of [...modified_files, ...staged_files, ...untracked_files]) {
-    if (SECRET_LOOKING_PATTERN.test(file)) {
+    if (SECRET_LOOKING_FILENAME.test(file)) {
       risk_flags.push(`secret-looking filename: ${file}`);
     }
   }
