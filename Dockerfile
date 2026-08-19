@@ -48,6 +48,14 @@ ENV NEXT_TELEMETRY_DISABLED=1
 # not found"). Копируем их явно из исходного build-контекста.
 COPY prisma.config.ts ./prisma.config.ts
 COPY prisma ./prisma
+# prisma.config.ts обязательно резолвит DATABASE_URL при загрузке
+# (PrismaConfigEnvError, подтверждено реальным failed build), даже
+# для `prisma generate`, которому реальное подключение не нужно —
+# только валидная по синтаксису строка. Плейсхолдер не секрет: не
+# используется для подключения и не попадает в финальный образ (ENV
+# builder-стадии не переносится в runner без явного объявления;
+# реальный DATABASE_URL приходит из Secret Manager в рантайме Cloud Run).
+ENV DATABASE_URL="postgresql://placeholder:placeholder@localhost:5432/placeholder"
 RUN pnpm db:generate
 RUN pnpm turbo run build --filter=web
 
