@@ -19,8 +19,20 @@ function createPrismaClient() {
   });
 }
 
-export const prisma = globalForPrisma.prisma ?? createPrismaClient();
+let cachedClient: PrismaClient | undefined;
 
-if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
+/**
+ * Lazily creates (or reuses) the PrismaClient singleton.
+ * Deferred until first call so that merely importing this module
+ * (e.g. during Next.js build-time page-data collection) does not
+ * require DATABASE_URL to be set.
+ */
+export function getPrisma(): PrismaClient {
+  if (process.env.NODE_ENV !== "production") {
+    globalForPrisma.prisma ??= createPrismaClient();
+    return globalForPrisma.prisma;
+  }
+
+  cachedClient ??= createPrismaClient();
+  return cachedClient;
 }

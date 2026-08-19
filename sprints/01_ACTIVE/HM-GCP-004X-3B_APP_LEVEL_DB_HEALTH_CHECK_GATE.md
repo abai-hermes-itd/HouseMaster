@@ -1,10 +1,11 @@
 # HM-GCP-004X-3B — App-Level DB Health Check Gate
 
-**Status:** Proposed
+**Status:** Approved (Amended) — Design 1, amended to lazy `getPrisma()`
 **Type:** Planning gate (docs-only)
 **Date:** 2026-08-17
+**Amended:** 2026-08-19
 **Branch:** `feat/hm-gcp-003d-cloud-sql-import`
-**Scope:** Design/approval planning only — no code change, no execution
+**Scope:** Design/approval planning only — no build, deploy, or execution performed under this amendment
 
 ---
 
@@ -42,7 +43,34 @@ HM-GCP-004E (controlled `prisma migrate deploy` runbook) is a schema-mutating op
 
 ---
 
+## Amendment (2026-08-19): Design 1 amended to lazy `getPrisma()`
+
+**Status: Approved.**
+
+During implementation drafting, `apps/web/src/lib/prisma.ts` was found to export an eagerly-instantiated `PrismaClient` singleton (`export const prisma = ...`) that runs at module-import time. Importing this module during Next.js build-time page-data collection would require `DATABASE_URL` to be set at build time — a build-safety risk Design 1's original wording did not anticipate.
+
+**Amended design:**
+- `apps/web/src/lib/prisma.ts` is refactored from `export const prisma = ...` to `export function getPrisma(): PrismaClient`, which lazily creates (or reuses) the client on first call instead of at import time.
+  - Dev-mode behavior unchanged: still caches on `globalForPrisma.prisma` (HMR-safe).
+  - Production caching moves from the global to a local `cachedClient` module variable.
+- `apps/web/src/app/api/health/db/route.ts` calls `getPrisma().$queryRaw`SELECT 1`` instead of importing a pre-built `prisma` singleton.
+- Response shape, status codes, and error-message genericness are unchanged from the original Design 1 approval (`{ "status": "ok" }` / 200 on success, `{ "status": "error", "message": "<safe, generic message>" }` / 500 on failure — no raw error, connection string, or stack trace).
+
+**Why approved:** the refactor is small, self-contained, behavior-preserving for existing runtime call sites, does not touch Terraform/infra surface, and closes a real build-time risk that the original Design 1 text did not account for. Reverting to the eager singleton to match the doc's original literal wording would reintroduce that risk solely for doc-literalism.
+
+**Files covered by this amendment (already present in the working tree, uncommitted as of this approval):**
+- `apps/web/src/lib/prisma.ts` — modified (eager singleton → lazy `getPrisma()`)
+- `apps/web/src/app/api/health/db/route.ts` — added (new file)
+
+No other files are in scope of this amendment. No deletions.
+
+**This amendment approves the design only.** It does not itself authorize build, deploy, staging, committing, pushing, or calling the endpoint — those remain separate approval items per "Future approval requirements" below, items 3–4 still pending.
+
+---
+
 ## Forbidden actions (this gate)
+
+> **Note (2026-08-19 amendment):** the item below is superseded, narrowly, by the approved amendment above — modifying `apps/web/src/lib/prisma.ts` for the specific `getPrisma()` refactor, and adding `apps/web/src/app/api/health/db/route.ts`, are now approved design changes. All other application code remains out of scope and forbidden. Build, deploy, staging, commit, push, and endpoint-call remain forbidden regardless of this note — see items below.
 
 - Modifying `apps/web/src/lib/prisma.ts` or any application code
 - Modifying `cloud_run.tf` or any Terraform file
@@ -68,18 +96,34 @@ Before any implementation:
 
 ---
 
+## Build validation (2026-08-19)
+
+**Status: Passed.**
+
+- Command: `pnpm --filter web build`
+- Result: build passed
+- `/api/health/db` compiled as a dynamic (`ƒ`) route in the Next.js route manifest, alongside the rest of the app
+- `DATABASE_URL` printed: no
+- secrets printed: no
+- Deploy: still pending (no build/deploy authorization has been given beyond this local build check)
+- Endpoint call: still pending
+- HM-GCP-004X-4 (migrate deploy): still blocked until deploy + a genuine positive endpoint response are obtained
+
+---
+
 ## Report template
 
 ```
 HM-GCP-004X-3B result:
-- design selected: <pending future approval>
-- code change approved: yes/no
-- deployed: yes/no
-- endpoint called: yes/no
-- response: ok / error / not yet run
+- design selected: Design 1, amended (lazy getPrisma()) — approved 2026-08-19
+- code change approved: yes
+- build validated: yes (pnpm --filter web build, 2026-08-19)
+- deployed: no
+- endpoint called: no
+- response: not yet run
 - error detail leaked: no
 - secret leaked: no
-- ready for HM-GCP-004X-4 approval: yes/no
+- ready for HM-GCP-004X-4 approval: no — blocked pending deploy + endpoint proof
 ```
 
 ---
@@ -101,4 +145,4 @@ This gate does not:
 
 ## Readiness classification
 
-Planning note only. No design selected or approved, no code written, nothing deployed.
+Design approved (amended, 2026-08-19) and build-validated locally. Not yet deployed, endpoint not yet called. HM-GCP-004X-4 remains blocked until deploy + a genuine positive endpoint response are obtained.
