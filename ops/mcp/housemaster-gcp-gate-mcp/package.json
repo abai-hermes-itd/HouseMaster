@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
-    "dev": "tsx src/server.ts"
+    "dev": "tsx src/server.ts",
+    "validate": "tsx src/dev/callRepoStatus.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.30.0",
