@@ -16,7 +16,10 @@
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 
-const EXPECTED_TOOL_NAME = "hm_repo_status";
+// Multi-tool-safe: checks that each expected tool is present (by
+// inclusion), not that the server has exactly one tool total — so this
+// keeps working as more tools (hm_gate_status, ...) are registered.
+const EXPECTED_TOOL_NAMES = ["hm_repo_status", "hm_gate_status"];
 
 async function main() {
   const transport = new StdioClientTransport({
@@ -36,19 +39,18 @@ async function main() {
     const toolNames = tools.map((t) => t.name);
     console.log("Registered tools:", JSON.stringify(toolNames));
 
-    if (toolNames.length !== 1 || toolNames[0] !== EXPECTED_TOOL_NAME) {
+    const missing = EXPECTED_TOOL_NAMES.filter((n) => !toolNames.includes(n));
+    if (missing.length > 0) {
       throw new Error(
-        `Expected exactly one tool named "${EXPECTED_TOOL_NAME}", got: ${JSON.stringify(toolNames)}`,
+        `Expected tools missing from server: ${JSON.stringify(missing)}. Registered: ${JSON.stringify(toolNames)}`,
       );
     }
 
-    const result = await client.callTool({
-      name: EXPECTED_TOOL_NAME,
-      arguments: {},
-    });
-
-    console.log(`\n${EXPECTED_TOOL_NAME} result:`);
-    console.log(JSON.stringify(result, null, 2));
+    for (const name of EXPECTED_TOOL_NAMES) {
+      const result = await client.callTool({ name, arguments: {} });
+      console.log(`\n${name} result:`);
+      console.log(JSON.stringify(result, null, 2));
+    }
 
     console.log("\nHM-MCP-003 validation: PASS");
   } finally {
