@@ -15,6 +15,15 @@ resource "google_cloud_run_v2_service" "web" {
   ingress  = "INGRESS_TRAFFIC_ALL"
   labels   = local.common_labels
   template {
+    # HM-GCP-004F-1: без этого блока API сам проставляет сервисные labels
+    # (app/environment/managed_by) на template при первом же ревизии-триггере
+    # вне Terraform (напр. `gcloud run services update --update-labels`),
+    # и terraform plan затем показывает их как drift ("-> null"). Явно
+    # объявляем те же метки, что и на самом сервисе (local.common_labels),
+    # чтобы задекларированное состояние совпадало с фактическим. Ad hoc
+    # метки вроде "secret-refresh" по-прежнему будут видны как ожидаемый,
+    # информационный drift — это осознанный компромисс варианта 2.
+    labels          = local.common_labels
     service_account = google_service_account.cloud_run.email
     scaling {
       min_instance_count = var.cloud_run_min_instances
@@ -118,6 +127,15 @@ resource "google_cloud_run_v2_service" "web" {
       template[0].containers[0].image, # релизы выполняет CI/CD, не Terraform
       client,
       client_version,
+      # HM-GCP-004F-1: manual_instance_count безвреден — действует только при
+      # scaling_mode = "MANUAL" (у нас null/AUTOMATIC), реальным масштабированием
+      # управляют template.scaling.min/max_instance_count выше, они
+      # Terraform-декларированы и не игнорируются. Drift здесь — известный
+      # computed-артефакт провайдера на ВЕРХНЕУРОВНЕВОМ (не template) атрибуте
+      # scaling (см. hashicorp/terraform-provider-google#25580 на соседнем
+      # ресурсе; подтверждено фактическим planом — drift был на scaling,
+      # а не template[0].scaling).
+      scaling,
     ]
   }
   depends_on = [
