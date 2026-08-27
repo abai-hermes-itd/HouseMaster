@@ -1,6 +1,6 @@
 # HM-GCP-004X-4 — Controlled Prisma Migrate Deploy Gate
 
-**Status:** Preflight in progress — data-shape blocker cleared, execution not approved
+**Status:** **CLOSED (no-op)** — schema already fully migrated, confirmed 2026-08-27
 **Type:** Execution gate / Sprint 4 DB Runtime Activation
 **Date:** 2026-08-27
 **Branch:** `feat/hm-gcp-003d-cloud-sql-import`
@@ -51,9 +51,29 @@ The second migration (`20260725080000_harden_production_schema`) adds `organizat
 
 ---
 
-## Remaining blocker
+## Remaining blocker (resolved)
 
-**Exact migrate execution command approval** (`HM-GCP-004E` prerequisite #7) — not yet given. This preflight satisfies prerequisite #5 (migration impact understood, data-shape confirmed safe); prerequisites 1–4 and 6 were already satisfied prior to this document. `HM-GCP-004X-4` execution (`prisma migrate deploy` itself) remains blocked pending explicit, separate approval of the exact command and execution environment.
+**Exact migrate execution command approval** (`HM-GCP-004E` prerequisite #7) was given, and the approved command was executed. See "Execution result" below — this section is retained for history; the blocker no longer applies.
+
+---
+
+## Execution result (2026-08-27)
+
+**Status: CLOSED (no-op). Schema already fully migrated.**
+
+Approved command executed: `pnpm db:migrate:deploy` (root script → `prisma migrate deploy`), run against `housemaster-db` via a locally-run, sha256-verified Cloud SQL Auth Proxy on `127.0.0.1:5433`, with `DATABASE_URL` built in proxy form (`postgresql://housemaster:***@127.0.0.1:5433/housemaster`) from `database-url` Secret Manager version 7.
+
+- Exit code: `0`
+- Output: `2 migrations found in prisma/migrations` → `No pending migrations to apply.`
+- **Finding:** both migrations (`20260725072311_init_housemaster`, `20260725080000_harden_production_schema`) were already recorded as applied in the database's migration history *before* this run — the schema was already fully in sync. This run applied nothing new; it was a no-op confirmation, not a failure.
+- This is independent of the data-shape preflight's zero row counts: an empty table and an already-migrated schema are not in tension — the schema (columns, constraints, indexes) can exist with zero rows if no application data has been written yet.
+- Secret / password / DATABASE_URL printed: **no** — accessed only into an in-process variable, used to build the proxy-form connection string, unset immediately after; Prisma's own output was additionally passed through a redaction filter as a defensive second layer (unused, since no connection string appeared in it).
+- Retry attempted: **no** — not applicable, this was not a failure.
+- Endpoint call after migrate: **no** — not separately approved, so not run.
+- Cleanup: proxy process killed; binary, log, and pid file removed from scratchpad.
+- Repo impact: **none** — `prisma migrate deploy` writes no local files; `git status --short` unchanged before/after.
+
+**Conclusion:** `HM-GCP-004X-4` is closed. There was no pending migration work to execute — the Cloud SQL schema was already current. No further migrate action is needed unless new migration files are added in the future.
 
 ---
 
@@ -76,19 +96,20 @@ This document does not:
 ## Report template
 
 ```
-HM-GCP-004X-4 preflight result:
-- prerequisites 1-4, 6 satisfied: yes (prior work)
-- prerequisite 5 (migration impact) satisfied: yes (this document)
-- affected tables all empty: yes (apartments=0, assets=0, entrances=0, inspections=0, work_orders=0)
+HM-GCP-004X-4 result:
+- prerequisites 1-7 satisfied: yes
+- command executed: pnpm db:migrate:deploy (prisma migrate deploy), via local Cloud SQL Auth Proxy
+- exit code: 0
+- migrations newly applied: none — schema already fully migrated (no-op)
 - secret payload printed: no
-- mutation performed: no
-- execution environment proven viable: yes (local Cloud SQL Auth Proxy)
-- prerequisite 7 (exact command approval): not yet given
-- ready for HM-GCP-004X-4 execution: no
+- endpoint called after migrate: no (not separately approved)
+- retry attempted: no
+- repo files changed: no
+- gate status: CLOSED (no-op)
 ```
 
 ---
 
 ## Readiness classification
 
-Preflight only. Data-shape blocker cleared — all five affected tables confirmed empty via read-only query, secret handled without printing, no mutation performed. `HM-GCP-004X-4` execution remains blocked pending explicit approval of the exact command and execution environment.
+**Closed.** Preflight (data-shape) confirmed safe, all 7 `HM-GCP-004E` prerequisites satisfied, exact command executed with explicit approval. Result: no-op — the database schema was already fully migrated before this gate ran, so no migrations were applied. Secret handled without printing throughout. No further `HM-GCP-004X-4` action needed unless new migration files are introduced later.
