@@ -1,0 +1,50 @@
+{
+  "_comment": "Canonical hard-rule sets per approval-pack template. Each rule's 'patterns' are case-insensitive regex alternatives — a rule is satisfied if ANY pattern matches inside the request's Forbidden section. Extracted from sprints/04_RUNBOOKS/TEMPLATE_*.md; keep in sync with those files by hand.",
+
+  "shared_core_rules": [
+    { "id": "no_secret_payload", "desc": "No Secret Manager payload access", "patterns": ["secret\\s*manager\\s*payload", "(?:access(?:ing)?|read(?:ing)?)\\s+(?:existing\\s+)?secret\\s+payload", "no\\s+secret\\s+payload"] },
+    { "id": "no_password", "desc": "No password print/request", "patterns": ["print(?:ing)?\\s+(?:or\\s+request(?:ing)?\\s+)?password", "request(?:ing)?\\s+password", "no\\s+password\\b"] },
+    { "id": "no_cloud_sql_change", "desc": "No Cloud SQL change", "patterns": ["cloud\\s*sql.{0,25}(change|password)", "change.{0,15}cloud\\s*sql"] },
+    { "id": "no_secret_update", "desc": "No secret update / new secret version", "patterns": ["secret\\s+update", "update.{0,20}secret", "database-url\\s+secret"] },
+    { "id": "no_endpoint_call", "desc": "No application endpoint call", "patterns": ["endpoint\\s+call", "call\\s+(?:the\\s+)?(?:application\\s+)?endpoint", "\\/api\\/health\\/db"] },
+    { "id": "no_deploy", "desc": "No deploy", "patterns": ["\\bdeploy\\b"] },
+    { "id": "no_terraform", "desc": "No terraform", "patterns": ["terraform"] },
+    { "id": "no_db_mutation", "desc": "No DB mutation/queries", "patterns": ["db\\s+(mutation|quer)", "database\\s+quer", "no\\s+db\\s+mutation"] },
+    { "id": "no_next_gate", "desc": "No progression to next gate", "patterns": ["proceed\\s+to", "HM-GCP-\\S+", "next\\s+gate"] }
+  ],
+
+  "templates": {
+    "docs-only": { "label": "Docs-Only Gate", "use": "shared_core_rules" },
+    "execution": { "label": "Execution Gate (non-secret)", "use": "shared_core_rules" },
+    "commit": { "label": "Commit Gate", "use": "shared_core_rules" },
+    "push": { "label": "Push Gate", "use": "shared_core_rules" },
+    "gate-closure": { "label": "Gate Closure Record", "use": "shared_core_rules" },
+
+    "secret-execution": {
+      "label": "Secret-Handling Execution Gate",
+      "rules": [
+        { "id": "no_print_password", "desc": "No printing password", "patterns": ["print.{0,10}password", "no\\s+password\\b"] },
+        { "id": "no_print_database_url", "desc": "No printing DATABASE_URL", "patterns": ["print.{0,10}database_?url", "no\\s+database_?url"] },
+        { "id": "no_access_secret_payload", "desc": "No accessing existing secret payload (unless this gate's stated goal)", "patterns": ["(?:access(?:ing)?|read(?:ing)?)\\s+(?:existing\\s+)?secret\\s+payload", "secret\\s*manager\\s*payload"] },
+        { "id": "no_endpoint_unless_approved", "desc": "No endpoint call unless separately approved", "patterns": ["endpoint", "\\/api\\/health\\/db"] },
+        { "id": "no_deploy", "desc": "No deploy", "patterns": ["\\bdeploy\\b"] },
+        { "id": "no_terraform", "desc": "No terraform", "patterns": ["terraform"] },
+        { "id": "no_db_mutation", "desc": "No DB mutation/queries", "patterns": ["db\\s+(mutation|quer)", "database\\s+quer"] },
+        { "id": "no_next_gate", "desc": "No progression to next gate", "patterns": ["proceed\\s+to", "HM-GCP-\\S+", "next\\s+gate"] }
+      ]
+    },
+
+    "endpoint-iam-retest": {
+      "label": "Endpoint / IAM Retest Cycle",
+      "rules": [
+        { "id": "no_print_password", "desc": "No printing password", "patterns": ["print.{0,10}password", "no\\s+password\\b"] },
+        { "id": "no_print_database_url", "desc": "No printing DATABASE_URL", "patterns": ["print.{0,10}database_?url", "no\\s+database_?url"] },
+        { "id": "no_secret_payload", "desc": "No Secret Manager payload access", "patterns": ["secret\\s*manager\\s*payload", "(?:access|read)(?:ing)?.{0,15}secret\\s+payload"] },
+        { "id": "no_deploy", "desc": "No deploy", "patterns": ["\\bdeploy\\b"] },
+        { "id": "no_terraform", "desc": "No terraform", "patterns": ["terraform"] },
+        { "id": "no_db_mutation", "desc": "No DB queries/mutation", "patterns": ["db\\s+(mutation|quer)", "database\\s+quer"] },
+        { "id": "no_next_gate", "desc": "No progression to next gate", "patterns": ["proceed\\s+to", "HM-GCP-\\S+", "next\\s+gate"] }
+      ]
+    }
+  }
+}
