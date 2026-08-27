@@ -1,9 +1,10 @@
 # HM-GCP-004X-3B — App-Level DB Health Check Gate
 
-**Status:** Approved (Amended) — Design 1, amended to lazy `getPrisma()`
+**Status:** **CLOSED** — positive DB connectivity confirmed 2026-08-27
 **Type:** Planning gate (docs-only)
 **Date:** 2026-08-17
 **Amended:** 2026-08-19
+**Closed:** 2026-08-27
 **Branch:** `feat/hm-gcp-003d-cloud-sql-import`
 **Scope:** Design/approval planning only — no build, deploy, or execution performed under this amendment
 
@@ -191,6 +192,28 @@ This gate does not:
 
 ---
 
+## Gate closure — successful endpoint retest (2026-08-27)
+
+**Status: CLOSED. Positive DB connectivity confirmed.**
+
+Following credential remediation (`HM-GCP-004B.1` Option A retry — see `HM-GCP-004X-1B`, which recorded a failed first attempt, containment of the resulting known-bad `database-url` version 6, and a successful retry producing version 7) and a Cloud Run revision refresh to pick up the new credential, `/api/health/db` was retested:
+
+- Live revision: `next-web-00010-wn4`
+- Credential source: `database-url` Secret Manager version 7 (resolved via `latest`)
+- Endpoint response body: `{"status":"ok"}`
+- HTTP status: `200`
+- Retest sequence: temporary `roles/run.invoker` grant to `markelus@abay-germes.kz` on `next-web` → identity-token `curl` → immediate grant removal → IAM rollback verified
+- Temporary invoker added: yes
+- Temporary invoker removed: yes
+- IAM clean: yes — `get-iam-policy` confirmed only the pre-existing `sa-deployer-dev` → `roles/run.developer` binding remains after rollback
+- Secret payload / password / DATABASE_URL printed: no, at any point in this gate or its remediation chain
+
+**Conclusion:** `HM-GCP-004X-3B` is **closed** — the app-level DB health check returned a genuine, non-fabricated positive result, confirming Cloud Run's live revision can reach Cloud SQL and authenticate successfully end-to-end.
+
+**`HM-GCP-004X-4` (controlled `prisma migrate deploy`) remains separately blocked.** This gate's closure satisfies its own precondition for `HM-GCP-004X-4` to be *considered*, but does not itself authorize it — that requires its own explicit, separate approval per `HM-GCP-004E`'s runbook.
+
+---
+
 ## Readiness classification
 
-Design approved (amended, 2026-08-19), build-validated locally, pushed, and deployed (commit `c4a7614`, revision `next-web-00009-jzn`, 2026-08-27). Endpoint called and returned a genuine (non-fabricated) result: `HTTP 500`, `{"status":"error",...}`. Read-only Cloud Run log inspection attributes the failure to a Postgres credential mismatch (`28P01`, "password authentication failed for user \"housemaster\""), not connectivity, socket, IAM, or Terraform. **HM-GCP-004X-3B remains blocked** — it required a *positive* `{"status":"ok"}` before `HM-GCP-004X-4` could be considered, and this result is negative. Next step is credential remediation under `HM-GCP-004B`, then a retest of this gate.
+Design approved (amended, 2026-08-19), build-validated locally, pushed, and deployed (commit `c4a7614`, revision `next-web-00009-jzn`, 2026-08-27). First endpoint call returned a genuine negative result (`HTTP 500`, Postgres `28P01` credential mismatch — not connectivity/socket/IAM/Terraform). Credential remediation (`HM-GCP-004X-1B`) fixed the Cloud SQL password and produced `database-url` version 7; a Cloud Run revision refresh deployed `next-web-00010-wn4`; the endpoint was retested and returned a genuine positive `{"status":"ok"}` / `HTTP 200`. **Gate closed 2026-08-27.** `HM-GCP-004X-4` remains a separate, still-blocked approval.
