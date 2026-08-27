@@ -21,11 +21,31 @@ No secret update, refresh, or endpoint call is performed in this task.
 ## Prerequisite gate status
 
 ```
-- HM-GCP-004X-1:  CLOSED — database-url version 4, ENABLED (password now known to be wrong)
+- HM-GCP-004X-1:  CLOSED — database-url version 4, ENABLED (originally assumed to be the failing version — corrected below)
 - HM-GCP-004X-2:  CLOSED — next-web-00004-4zk, Ready=True, traffic 100% (superseded by 00009-jzn)
 - HM-GCP-004X-3B: BLOCKED — credential mismatch finding recorded (commit d77d390)
 - HM-GCP-004B:    Runbook proposed, not yet executed for a corrected-password version
 ```
+
+---
+
+## Correction (2026-08-27): failing version was 5, not 4
+
+Metadata-only verification (`gcloud secrets versions list database-url --project=housemaster-dev-503409 --format="table(name,state,createTime)"`) found:
+
+| Version | State | Created |
+|---|---|---|
+| 5 | enabled | 2026-08-26T12:50:28Z |
+| 4 | enabled | 2026-08-17T04:32:42Z |
+| 3 | enabled | 2026-08-13T06:52:17Z |
+| 2 | disabled | 2026-08-13T06:30:38Z |
+| 1 | enabled | 2026-08-01T12:24:38Z |
+
+Version **5** was created `2026-08-26T12:50:28Z` — **before** revision `next-web-00009-jzn` was built/deployed (`2026-08-27T02:01:24Z`, this session). Since `DATABASE_URL` is bound to Secret Manager's `latest` alias (see §2 below), revision `next-web-00009-jzn` resolved **version 5** at startup, not version 4.
+
+**Correction:** the `28P01` "password authentication failed" result recorded in `HM-GCP-004X-3B` was almost certainly tested against **version 5**, not version 4 as this checklist originally assumed. Version 5's existence and creation are not recorded in any prior sprint doc in this branch — its origin (who/what created it, and whether it was itself an earlier attempted fix that also failed) is currently unknown and unverified. No payload was accessed to reach this conclusion — version/state/create-time metadata only.
+
+**Implication:** the remediation path is not simply "add a new version with a corrected password" on top of an unexamined version 4 — version 5 is the actual current `latest` and the actual current failure point. Before adding a new version, the origin and intent of version 5 should be established (read-only, metadata/history only — no payload) so a new version isn't added blindly on top of an already-failed unexplained prior attempt.
 
 ---
 
