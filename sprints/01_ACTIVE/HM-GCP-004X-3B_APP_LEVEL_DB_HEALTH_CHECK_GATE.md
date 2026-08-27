@@ -130,6 +130,33 @@ Read-only `gcloud` inspection of the live `next-web` Cloud Run service (`housema
 
 ---
 
+## Deploy + endpoint call result (2026-08-27)
+
+**Status: Blocked — credential mismatch, not a connectivity/socket/Auth.js failure.**
+
+Since the 2026-08-19 status above, additional work landed on the branch (commits `effba33`, `70238be`, `f5d5180`, `6994d3b`, routing DB health through app auth, trusting the Cloud Run host for Auth.js, bypassing Auth.js middleware for DB health, and reconciling Cloud Run Terraform drift) plus `c4a7614` ("log DB health errors safely"). `c4a7614` was pushed and deployed via `gcloud builds submit --config=cloudbuild.yaml --substitutions=SHORT_SHA=c4a7614`, producing revision `next-web-00009-jzn` (`Ready=True`, 100% traffic, image digest `...254a0ce...21cf41`).
+
+`GET /api/health/db` was then called manually against live revision `next-web-00009-jzn`:
+- Response: `{"status":"error","message":"Database connectivity check failed"}`, `HTTP_STATUS:500` — generic message only, no raw error/connection detail in the response body, matching the approved Design 1 response shape.
+- A temporary `roles/run.invoker` grant used to make the call was removed afterward; IAM confirmed clean.
+
+Read-only Cloud Run log inspection (`stderr`) for that request on `next-web-00009-jzn` showed:
+```
+[health/db] database connectivity check failed {
+  name: 'PrismaClientKnownRequestError',
+  message: '...Raw query failed. Code: `28P01`. Message: `password authentication failed for user "housemaster"`',
+  code: 'P2010',
+  cause: undefined
+}
+```
+No `DATABASE_URL`, password, or connection string appeared in the logs — only the Postgres error code and the DB username, which Postgres includes in its own auth-failure message by design.
+
+**Finding:** the app reached Cloud SQL and completed a real Postgres auth handshake, which was rejected with Postgres error `28P01` ("password authentication failed for user \"housemaster\""), Prisma error code `P2010`. This confirms the network/socket path and the Auth.js-layer fixes are working — the request got all the way to Postgres — and the remaining failure is a **credential mismatch**: the password Cloud Run presents (via Secret Manager / `DATABASE_URL`) does not match what Postgres currently has for user `housemaster`. This is not a connectivity, IAM, or Terraform problem.
+
+**Recommended next gate:** `HM-GCP-004B` (Secret Manager Update Runbook) — to reconcile the `DATABASE_URL`/Secret Manager credential against the actual Postgres password for `housemaster` — before any further connectivity retest or `HM-GCP-004X-4` (migrate deploy) consideration. `HM-GCP-004X-4` remains blocked; a credential fix and a subsequent genuine positive `{"status":"ok"}` are both still required first.
+
+---
+
 ## Report template
 
 ```
@@ -137,13 +164,14 @@ HM-GCP-004X-3B result:
 - design selected: Design 1, amended (lazy getPrisma()) — approved 2026-08-19
 - code change approved: yes
 - build validated: yes (pnpm --filter web build, 2026-08-19)
-- pushed: yes (commit 57027df, 2026-08-19)
-- deployed: no — live revision next-web-00004-4zk (2026-08-17) predates commit 57027df; no CI/CD auto-deploy observed
-- endpoint called: no
-- response: not yet run
+- pushed: yes (commit 57027df, 2026-08-19; commit c4a7614, 2026-08-27)
+- deployed: yes — revision next-web-00009-jzn (2026-08-27), Ready=True, 100% traffic
+- endpoint called: yes (2026-08-27, manual, against next-web-00009-jzn)
+- response: {"status":"error","message":"Database connectivity check failed"}, HTTP_STATUS:500
+- root cause (from read-only Cloud Run stderr logs): Postgres 28P01 "password authentication failed for user \"housemaster\"" (Prisma P2010) — credential mismatch, not connectivity/socket/Auth.js
 - error detail leaked: no
 - secret leaked: no
-- ready for HM-GCP-004X-4 approval: no — blocked pending deploy + endpoint proof
+- ready for HM-GCP-004X-4 approval: no — blocked on credential mismatch; route to HM-GCP-004B first
 ```
 
 ---
@@ -165,4 +193,4 @@ This gate does not:
 
 ## Readiness classification
 
-Design approved (amended, 2026-08-19), build-validated locally, and pushed (commit `57027df`). Confirmed via read-only Cloud Run inspection that commit `57027df` is **not yet deployed** — live revision `next-web-00004-4zk` predates the commit and no CI/CD auto-deploy was observed. Deploy and endpoint call remain pending. HM-GCP-004X-4 remains blocked until deploy + a genuine positive endpoint response are obtained.
+Design approved (amended, 2026-08-19), build-validated locally, pushed, and deployed (commit `c4a7614`, revision `next-web-00009-jzn`, 2026-08-27). Endpoint called and returned a genuine (non-fabricated) result: `HTTP 500`, `{"status":"error",...}`. Read-only Cloud Run log inspection attributes the failure to a Postgres credential mismatch (`28P01`, "password authentication failed for user \"housemaster\""), not connectivity, socket, IAM, or Terraform. **HM-GCP-004X-3B remains blocked** — it required a *positive* `{"status":"ok"}` before `HM-GCP-004X-4` could be considered, and this result is negative. Next step is credential remediation under `HM-GCP-004B`, then a retest of this gate.
