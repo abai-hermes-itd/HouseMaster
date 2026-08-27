@@ -47,6 +47,20 @@ Version **5** was created `2026-08-26T12:50:28Z` — **before** revision `next-w
 
 **Implication:** the remediation path is not simply "add a new version with a corrected password" on top of an unexamined version 4 — version 5 is the actual current `latest` and the actual current failure point. Before adding a new version, the origin and intent of version 5 should be established (read-only, metadata/history only — no payload) so a new version isn't added blindly on top of an already-failed unexplained prior attempt.
 
+### Origin investigation (2026-08-27) — result: unknown / undocumented
+
+Read-only investigation into what created version 5:
+
+- **Version 5 metadata** (`gcloud secrets versions describe 5 --secret=database-url`, no payload): `STATE=ENABLED`, `CREATE_TIME=2026-08-26T12:50:28.243002Z`, no `DESTROY_TIME`.
+- **Git log around that time (all branches, full day 2026-08-26):** no commit at or near `12:50:28Z` — `effba33` at `12:14 UTC`, next commit `70238be` at `13:30 UTC`; version 5's creation falls in the 36-minute gap between them, with no commit either side referencing Secret Manager, `database-url`, credentials, or encoding/BOM.
+- **Sprint docs search** (`sprints/`, case-insensitive, for "version 5", "BOM", "byte order mark", "credential fix", "database-url"): no prior reference to version 5's creation anywhere in the branch before this doc's own correction section above.
+
+**Classification: unknown / undocumented.** Version 5 does not correspond to any tracked commit, CI run, or existing sprint doc. It was added out-of-band, most likely by a manual `gcloud secrets versions add` run outside any process this repo records.
+
+**BOM-cleanup hypothesis:** raised as plausible but **unconfirmed** — no artifact of it exists in git or docs, and no payload was read to check. Noted only because a Windows-authored temp secret file (e.g. via PowerShell `Set-Content`/`Out-File`, which default to UTF-8-with-BOM) could inject a leading BOM into the connection string and independently produce a `28P01` failure even with an otherwise-correct password. This is an open question for the operator to answer, not a verified finding.
+
+**Before adding a version 6:** confirm with the operator (1) whether they created version 5 manually and what it contained (a straight password correction vs. an attempted BOM/encoding fix), and (2) whether the current real Postgres password for `housemaster` is actually known/confirmed correct right now — rather than repeating the same blind-update pattern that produced the undocumented version 5.
+
 ---
 
 ## 1. Secret update — metadata-only verification
