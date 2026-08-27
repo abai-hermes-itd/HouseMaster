@@ -61,6 +61,23 @@ Read-only investigation into what created version 5:
 
 **Before adding a version 6:** confirm with the operator (1) whether they created version 5 manually and what it contained (a straight password correction vs. an attempted BOM/encoding fix), and (2) whether the current real Postgres password for `housemaster` is actually known/confirmed correct right now — rather than repeating the same blind-update pattern that produced the undocumented version 5.
 
+### HM-GCP-004B.1 Option A — first execution attempt (2026-08-27) — failed, contained
+
+**Status: Failed, contained. Not remediated.**
+
+First execution attempt of credential remediation (Cloud SQL password reset + new `database-url` secret version):
+
+1. **Cloud SQL password reset: failed.** A locally-generated password (hex-only: digits + lowercase a–f, no uppercase, no non-alphanumeric character) was rejected by Cloud SQL's password policy: `INVALID_PASSWORD: password should contain at least one lowercase, one uppercase, one number and one non-alphanumeric characters`. The Postgres password for `housemaster` was **not changed**.
+2. **`database-url` version 6 was created anyway.** The execution script did not hard-stop after step 1's failure, so the secret-version-add step ran regardless, using the password that was never actually applied to Cloud SQL.
+3. **Version 6 is known-bad by construction** — not undocumented like version 5, but a confirmed mismatch: its password does not exist anywhere on the live Postgres instance, guaranteeing the same `28P01` auth failure if ever resolved.
+4. **Containment: version 6 disabled** (`gcloud secrets versions disable 6 --secret=database-url`), confirmed via metadata-only version list (`state=disabled`, `createTime=2026-08-27T03:54:36`).
+5. **Side effect of containment:** Secret Manager's `latest` alias resolves to the newest version *by creation time*, not the newest *enabled* one — `latest` still points at version 6. With version 6 disabled, resolving `latest` now **fails outright** rather than falling back to version 5. Practical consequence: **do not refresh Cloud Run while version 6 remains disabled/known-bad** — a new revision would fail to start (secret injection error) rather than deploy with a bad credential. Already-running instances on `next-web-00009-jzn` are unaffected (they resolved their secret at their own startup, before this incident).
+
+**Retry requirements for the next attempt:**
+- Generate a password that satisfies Cloud SQL's policy (lowercase + uppercase + digit + non-alphanumeric character) before use — a hex-only generator is insufficient.
+- **Hard-stop before any Secret Manager write if the Cloud SQL password reset step fails** — do not proceed to create a new secret version on a password that was not confirmed applied. The first attempt's core mistake was continuing past a failed step; that must not repeat.
+- Only after both the password reset succeeds *and* is confirmed, create the new `database-url` version using the same password.
+
 ---
 
 ## 1. Secret update — metadata-only verification
