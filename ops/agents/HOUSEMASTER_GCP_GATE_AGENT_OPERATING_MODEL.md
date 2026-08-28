@@ -95,6 +95,7 @@ The agent must not automate decisions.
 
 **Docs-only gate:**
 
+- **Template:** `sprints/04_RUNBOOKS/TEMPLATE_DOCS_ONLY_GATE.md` (closure variant: `TEMPLATE_GATE_CLOSURE_RECORD.md`) — see §16 for the full template/tool mapping
 - may create or edit approved markdown files only
 - no infrastructure commands
 - no secret access
@@ -105,6 +106,7 @@ The agent must not automate decisions.
 
 **Execution gate:**
 
+- **Template:** `sprints/04_RUNBOOKS/TEMPLATE_EXECUTION_GATE.md` (secret-handling variant: `TEMPLATE_SECRET_EXECUTION_GATE.md`; endpoint/IAM compound variant: `TEMPLATE_ENDPOINT_IAM_RETEST_CYCLE.md`) — see §16
 - may run exactly approved operational commands
 - requires explicit per-command approval
 - must include stop conditions
@@ -113,6 +115,7 @@ The agent must not automate decisions.
 
 **Commit gate:**
 
+- **Template:** `sprints/04_RUNBOOKS/TEMPLATE_COMMIT_GATE.md` — see §16
 - may stage only approved files
 - must show cached diff or stat
 - must use approved commit message
@@ -121,6 +124,7 @@ The agent must not automate decisions.
 
 **Push gate:**
 
+- **Template:** `sprints/04_RUNBOOKS/TEMPLATE_PUSH_GATE.md` — see §16
 - separate from commit gate
 - requires explicit approval
 - followed by git status and git log verification
@@ -182,6 +186,8 @@ Passwords and DATABASE_URL must never appear in:
 
 ## 7. Standard docs-only workflow
 
+**Template:** `TEMPLATE_DOCS_ONLY_GATE.md` (or `TEMPLATE_GATE_CLOSURE_RECORD.md` for a closure record). See §16 for the full template/tool mapping.
+
 For each docs-only task, the agent must:
 
 1. Run preflight:
@@ -211,6 +217,8 @@ For each docs-only task, the agent must:
 
 ## 8. Standard commit workflow
 
+**Template:** `TEMPLATE_COMMIT_GATE.md` — may be generated with `sprints/04_RUNBOOKS/tools/fill-gate-template.mjs --template COMMIT_GATE` and checked with `validate-gate-request.mjs --template commit` before use (see §16). Generating a request this way does not execute it — explicit human approval is still required.
+
 For each approved commit, the agent must:
 
 1. Run `git status --short`.
@@ -224,6 +232,8 @@ For each approved commit, the agent must:
 ---
 
 ## 9. Standard push workflow
+
+**Template:** `TEMPLATE_PUSH_GATE.md` — may be generated with `fill-gate-template.mjs --template PUSH_GATE` and checked with `validate-gate-request.mjs --template push` (see §16). Push remains a separate gate from commit even when tool-generated.
 
 For each approved push, the agent must:
 
@@ -314,3 +324,26 @@ Every final report must include:
 This document defines the operating model only.
 
 It does not authorize any infrastructure execution.
+
+---
+
+## 16. Approval-Pack Template & Tool Mapping
+
+Compact mapping from each gate type / standard workflow step to the reusable template it uses and, where one exists, the local tool that supports it. Templates live in `sprints/04_RUNBOOKS/`; tools live in `sprints/04_RUNBOOKS/tools/`.
+
+| Gate type / workflow step | Template | Supporting tool |
+|---|---|---|
+| Docs-only gate (§4; §7 workflow) | `TEMPLATE_DOCS_ONLY_GATE.md` | — |
+| Docs-only gate, closure variant | `TEMPLATE_GATE_CLOSURE_RECORD.md` | — |
+| Execution gate, non-secret (§4) | `TEMPLATE_EXECUTION_GATE.md` | `validate-gate-request.mjs --template execution` |
+| Execution gate, secret-handling variant (§4, §6) | `TEMPLATE_SECRET_EXECUTION_GATE.md` | `validate-gate-request.mjs --template secret-execution` |
+| Execution gate, endpoint/IAM retest compound variant | `TEMPLATE_ENDPOINT_IAM_RETEST_CYCLE.md` | `validate-gate-request.mjs --template endpoint-iam-retest` |
+| Commit gate (§4; §8 workflow) | `TEMPLATE_COMMIT_GATE.md` | `fill-gate-template.mjs --template COMMIT_GATE`; `validate-gate-request.mjs --template commit` |
+| Push gate (§4; §9 workflow) | `TEMPLATE_PUSH_GATE.md` | `fill-gate-template.mjs --template PUSH_GATE`; `validate-gate-request.mjs --template push` |
+
+**The three tools** (`validate-gate-request.mjs`, `fill-gate-template.mjs`, `suggest-gate-id.mjs`) are standalone local CLI scripts (Node.js, no dependencies). See `sprints/04_RUNBOOKS/tools/README.md` for full usage of each.
+
+- They are **not** wired into any Claude Code hook, `package.json` script, or other automatic workflow. `pnpm hm:gate` is not implemented. Running any of them is a manual, human-initiated step.
+- A tool's output is never self-executing. A filled template from `fill-gate-template.mjs` is a draft approval request; a `validate-gate-request.mjs` result only says whether that draft's forbidden list is complete. Either way, the user's explicit approval (§2) is still required before any command in the request runs.
+- Commit and push remain two separate gates (§4, §8, §9) regardless of tooling — `fill-gate-template.mjs` never combines them into one request, and none of the three tools stage, commit, or push anything themselves.
+- `suggest-gate-id.mjs` supports numbering a new gate document (e.g. the next `HM-GCP-004X-N`); it has no template of its own to map to a gate type — it only informs what ID a human assigns before opening a new gate under one of the templates above.
