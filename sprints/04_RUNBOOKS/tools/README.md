@@ -1,9 +1,9 @@
-# Approval-Pack Tools — Hard-Rule Validator & Template-Fill Helper
+# Approval-Pack Tools — Hard-Rule Validator, Template-Fill Helper & Gate-ID Helper
 
 **Status:** Built, manually tested, not wired into any automatic workflow
 **Type:** Local CLI tools (Node.js, no dependencies)
-**Date:** 2026-08-27 (validator); 2026-08-28 (template-fill helper v0.1)
-**Scope:** Two tools from `sprints/04_RUNBOOKS/README.md` §4 "What should become executable later" — `validate-gate-request.mjs` (hard-rule validator) and `fill-gate-template.mjs` (template-fill helper)
+**Date:** 2026-08-27 (validator); 2026-08-28 (template-fill helper v0.1; gate-ID numbering helper v0.1)
+**Scope:** Three tools from `sprints/04_RUNBOOKS/README.md` §4 "What should become executable later" — `validate-gate-request.mjs` (hard-rule validator), `fill-gate-template.mjs` (template-fill helper), and `suggest-gate-id.mjs` (gate-ID numbering helper)
 
 ---
 
@@ -106,6 +106,42 @@ Refusal paths were also exercised manually (not saved as fixtures, since they pr
 - Placeholder substitution is a literal substring replace, not markdown-aware — it trusts that the source templates keep using the exact `<TOKEN>` spelling this tool's `fill-rules.json` expects.
 - Not wired into any hook, chat interception, or CI step, and does not call `validate-gate-request.mjs` itself — running the filled output through the validator (or eyeballing it) is a separate, manual step.
 
+---
+
+## Tool 3: Gate-ID Numbering Helper (`suggest-gate-id.mjs`)
+
+### What it does
+
+Scans the sprint doc set (`sprints/01_ACTIVE/`, `sprints/02_COMPLETED/` by default) for filenames carrying a gate/checklist ID — the part before the first `_`, e.g. `HM-GCP-004X-3B` in `HM-GCP-004X-3B_APP_LEVEL_DB_HEALTH_CHECK_GATE.md` — and either lists every ID it finds, or, given `--prefix`, suggests the next numeric suffix for that ID family.
+
+It **only suggests, and creates nothing**: it never writes, renames, or touches any file, and it never picks a final ID by itself — the suggested number is explicitly labeled as needing human confirmation, and assigning any letter/sub-level suffix (`A`/`B`/`.1`/etc.) is left to the human, not inferred.
+
+### Usage
+
+```
+node suggest-gate-id.mjs --list [--dirs <dir1>,<dir2>,...]
+node suggest-gate-id.mjs --prefix <ID_PREFIX> [--dirs <dir1>,<dir2>,...]
+```
+
+`--list` prints every distinct ID found (with its source file) across the scanned directories. `--prefix <ID_PREFIX>` filters to IDs starting with that prefix, reports the highest numeric suffix found among them, and suggests `max + 1`. `--dirs` overrides the default scan set (`sprints/01_ACTIVE,sprints/02_COMPLETED`) with a comma-separated list of repo-relative directories.
+
+Exit code `0` = ran successfully — including the "no existing IDs matched this prefix" case, which is a valid outcome (new family), not an error. Exit code `2` = refused (neither `--list` nor `--prefix` given, or no scan directory could be read / no ID-pattern filenames found at all).
+
+### How it works
+
+The ID pattern is `^([A-Z]+(?:[-.][A-Z0-9]+)+)_` — a letter-led group followed by one or more `-` or `.` separated alphanumeric groups, ending at the first underscore. This was derived by reading the actual filenames in `sprints/01_ACTIVE/` and `sprints/02_COMPLETED/`, which mix dash-only IDs (`HM-GCP-004X-3B`, `HM-CI-001`) with dotted ones (`HM-GCP-003E.2-B`, `HM-GCP-003F.1`) — an earlier version of this pattern only allowed dashes and silently dropped every dotted ID from `02_COMPLETED` (5 of its 6 files); this was caught during self-testing before the tool was finalized. For `--prefix` mode, the suggested number is the last integer found anywhere in each matching ID's suffix, maxed across all matches, plus one.
+
+### Tested against real examples
+
+`examples/suggest-gate-id-list.txt` and `examples/suggest-gate-id-prefix.txt` record real output against this session's actual sprint doc set (18 IDs across `01_ACTIVE`/`02_COMPLETED` as of 2026-08-28): a full `--list` run, a `--prefix HM-GCP-004X` run (5 matches, suggests `-5`), and a `--prefix HM-GCP-005` run (no matches, "new family" guidance). All three were run and their real output captured directly into the fixtures.
+
+### Known limitations (not fixed in this task)
+
+- Detection is filename-pattern-based only — it doesn't read file contents, so an ID mentioned only inside a doc's body (not its filename) is invisible to it.
+- The numeric suggestion doesn't preserve a family's separator convention — e.g. suggesting `HM-GCP-003F-4` for the dotted `HM-GCP-003F.1`/`.3B`/`.3D` family, when that family's own convention is a dot. The number is right; the punctuation still needs a human eye.
+- Only scans `sprints/01_ACTIVE/` and `sprints/02_COMPLETED/` by default — `sprints/99_ARCHIVE/` and other directories are not included unless passed via `--dirs`.
+- Not wired into any hook, chat interception, or CI step, and does not call the other two tools itself.
+
 ## Non-goals (this task)
 
-Did not: implement a hook, chat-interception mechanism, or CI wiring for either tool; implement the gate-ID numbering helper (the remaining candidate from the README backlog); touch any existing sprint doc, the roadmap, or `package.json`; access any secret, Cloud SQL, or Secret Manager payload; run terraform, Prisma, or any DB command; execute any of the generated approval requests; or wire either tool into any automatic workflow, including `pnpm hm:gate`.
+Did not: implement a hook, chat-interception mechanism, or CI wiring for any of the three tools; touch any existing sprint doc, the roadmap, or `package.json`; access any secret, Cloud SQL, or Secret Manager payload; run terraform, Prisma, or any DB command; execute any of the generated approval requests; stage, commit, or push anything; or wire any tool into any automatic workflow, including `pnpm hm:gate`.
