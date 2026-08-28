@@ -47,7 +47,9 @@ Not built in this task (explicitly out of scope — see Non-goals below). Candid
 3. ~~A generator that produces the next `HM-GCP-004X-N` (or equivalent) filename/number automatically from the sprint's existing doc set, so numbering stays consistent (this pack's templates still require a human/orchestrator to pick the ID by hand).~~ **DONE (v0.1):** `sprints/04_RUNBOOKS/tools/suggest-gate-id.mjs` — scans `sprints/01_ACTIVE/`/`sprints/02_COMPLETED/` and suggests (never assigns) the next numeric suffix per ID family; see `sprints/04_RUNBOOKS/tools/README.md` "Tool 3" for usage, and `sprints/04_RUNBOOKS/tools/examples/suggest-gate-id-list.txt` / `suggest-gate-id-prefix.txt` for worked examples.
 4. Wiring template selection into `ops/agents/HOUSEMASTER_GCP_GATE_AGENT_OPERATING_MODEL.md` §7–9's "standard workflow" steps, so each workflow step names which template backs it.
 
-Items 1–3 are now built (v0.1 each, see `sprints/04_RUNBOOKS/tools/README.md`) — all are standalone local CLI scripts, manually tested, not wired into any hook, chat interception, CI step, or `pnpm hm:gate`. Item 4 (workflow-step wiring) remains open.
+Items 1–3 are now built (v0.1 each, see `sprints/04_RUNBOOKS/tools/README.md`) — all are standalone local CLI scripts, manually tested, not wired into any hook, chat interception, CI step, or `pnpm hm:gate`. Item 4 is also done — see `ops/agents/HOUSEMASTER_GCP_GATE_AGENT_OPERATING_MODEL.md` §16 "Approval-Pack Template & Tool Mapping" (commit `ac37789`). All four original candidates from this section are now closed.
+
+A fourth tool was subsequently built beyond this original list: `sprints/04_RUNBOOKS/tools/gate-runner.mjs`, a draft-only dispatcher over tools 1–3, per `sprints/04_RUNBOOKS/GATE_RUNNER_SPEC_V0.md` — see `sprints/04_RUNBOOKS/tools/README.md` "Tool 4".
 
 ## 5. Non-goals (this task)
 
