@@ -43,7 +43,7 @@ The intent is that filling a template is strictly copy → fill blanks → send,
 Not built in this task (explicitly out of scope — see Non-goals below). Candidates for a later, separately-approved task:
 
 1. A small validator (script or Claude Code hook) that checks an incoming gate request against its template — e.g. confirms the forbidden list for a `TEMPLATE_SECRET_EXECUTION_GATE` request still contains all required hard-rule lines before the agent is allowed to act on it. This directly addresses the exact failure mode observed in Sprint 4 (a truncated/incomplete forbidden list nearly authorizing an unintended action).
-2. A slash-command or CLI helper that takes a gate type + a small set of answers (target file, exact command, commit message) and emits a filled template, rather than a human copying and editing the `.md` by hand.
+2. ~~A slash-command or CLI helper that takes a gate type + a small set of answers (target file, exact command, commit message) and emits a filled template, rather than a human copying and editing the `.md` by hand.~~ **DONE (v0.1):** `sprints/04_RUNBOOKS/tools/fill-gate-template.mjs` — supports `COMMIT_GATE` and `PUSH_GATE`; see `sprints/04_RUNBOOKS/tools/README.md` "Tool 2" for usage, and `sprints/04_RUNBOOKS/tools/examples/fill-commit-gate.txt` / `fill-push-gate.txt` for worked examples.
 3. A generator that produces the next `HM-GCP-004X-N` (or equivalent) filename/number automatically from the sprint's existing doc set, so numbering stays consistent (this pack's templates still require a human/orchestrator to pick the ID by hand).
 4. Wiring template selection into `ops/agents/HOUSEMASTER_GCP_GATE_AGENT_OPERATING_MODEL.md` §7–9's "standard workflow" steps, so each workflow step names which template backs it.
 
