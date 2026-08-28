@@ -1,9 +1,9 @@
-# Approval-Pack Tools — Hard-Rule Validator, Template-Fill Helper & Gate-ID Helper
+# Approval-Pack Tools — Hard-Rule Validator, Template-Fill Helper, Gate-ID Helper & Gate Runner
 
 **Status:** Built, manually tested, not wired into any automatic workflow
 **Type:** Local CLI tools (Node.js, no dependencies)
-**Date:** 2026-08-27 (validator); 2026-08-28 (template-fill helper v0.1; gate-ID numbering helper v0.1)
-**Scope:** Three tools from `sprints/04_RUNBOOKS/README.md` §4 "What should become executable later" — `validate-gate-request.mjs` (hard-rule validator), `fill-gate-template.mjs` (template-fill helper), and `suggest-gate-id.mjs` (gate-ID numbering helper)
+**Date:** 2026-08-27 (validator); 2026-08-28 (template-fill helper v0.1; gate-ID numbering helper v0.1; Gate Runner v0.1 draft-only)
+**Scope:** Four tools — the three from `sprints/04_RUNBOOKS/README.md` §4 "What should become executable later" (`validate-gate-request.mjs`, `fill-gate-template.mjs`, `suggest-gate-id.mjs`), plus `gate-runner.mjs`, the dispatcher specified in `sprints/04_RUNBOOKS/GATE_RUNNER_SPEC_V0.md`
 
 ---
 
@@ -142,6 +142,41 @@ The ID pattern is `^([A-Z]+(?:[-.][A-Z0-9]+)+)_` — a letter-led group followed
 - Only scans `sprints/01_ACTIVE/` and `sprints/02_COMPLETED/` by default — `sprints/99_ARCHIVE/` and other directories are not included unless passed via `--dirs`.
 - Not wired into any hook, chat interception, or CI step, and does not call the other two tools itself.
 
+---
+
+## Tool 4: Gate Runner (`gate-runner.mjs`) — v0.1, draft-only
+
+### What it does
+
+A single local CLI dispatcher that wraps the three tools above under one entry point, per `sprints/04_RUNBOOKS/GATE_RUNNER_SPEC_V0.md`. It does not reimplement or modify any of their logic — every mode invokes the existing script as a **child process** and preserves its stdout, stderr, and exit code exactly (direct-passthrough modes use full `stdio: 'inherit'`; the composite modes capture `fill`'s stdout only long enough to print it and pipe it into `validate`'s stdin, with stderr still inherited live).
+
+It never runs `git add`, `git commit`, `git push`, `terraform`, a deploy command, a DB/Prisma command, or accesses a Secret Manager payload. It only generates and/or validates draft approval requests — the same explicit human approval this whole approval-pack requires is still needed before anything a generated request describes actually runs.
+
+### Usage
+
+```
+node gate-runner.mjs suggest-id [--list | --prefix <ID_PREFIX>] [--dirs ...]
+node gate-runner.mjs fill --template <COMMIT_GATE|PUSH_GATE> [flags...]
+node gate-runner.mjs validate --template <template-id> [file]
+node gate-runner.mjs draft-commit-gate --what <...> --target <...> --commit-message <...>
+node gate-runner.mjs draft-push-gate --what <...>
+node gate-runner.mjs closeout-draft   # refuses — not supported in v0.1
+```
+
+`suggest-id`, `fill`, and `validate` are direct passthroughs to the matching existing tool — same flags, same behavior, same exit codes. `draft-commit-gate` and `draft-push-gate` are composites: they call `fill` with the mode's template implied (do **not** pass `--template` yourself — it's rejected, since it would otherwise silently collide with the one the mode already supplies), print the filled request, then pipe it straight into `validate` for the matching template id. If `fill` refuses (e.g. a missing required flag), the composite mode stops immediately with `fill`'s exit code — `validate` never runs on an incomplete draft.
+
+`closeout-draft` is accepted as a recognized mode name but always refuses (exit 2): no existing tool fills `TEMPLATE_GATE_CLOSURE_RECORD.md` yet (see `GATE_RUNNER_SPEC_V0.md` §4.6) — the spec's answer to "how would this eventually work" was deliberately left open rather than guessed at here.
+
+### Tested against real examples
+
+`examples/gate-runner.txt` records real captured runs of every mode: `suggest-id` and `validate` passthroughs, a `fill` refusal passthrough, a full `draft-commit-gate` run (fill succeeds, validate correctly comes back FAIL on the same unfilled-placeholder pattern seen throughout this session — gate-runner does not auto-fill it), `draft-commit-gate` short-circuiting on a `fill` refusal, the `--template` guard rejecting a redundant explicit flag, and the `closeout-draft` refusal. Exit codes were confirmed for every case (0, 1, and 2 as appropriate).
+
+### Known limitations (not fixed in this task)
+
+- `closeout-draft` has no working implementation in v0.1 — it's a documented refusal, not a stub that silently does nothing.
+- Composite modes only cover `COMMIT_GATE`/`PUSH_GATE`, matching `fill-gate-template.mjs`'s own current scope — the other five templates have no composite mode (use `validate` directly against a hand-filled request instead).
+- Not wired into any hook, chat interception, CI step, or `package.json` script — `pnpm hm:gate` remains unimplemented.
+
 ## Non-goals (this task)
 
-Did not: implement a hook, chat-interception mechanism, or CI wiring for any of the three tools; touch any existing sprint doc, the roadmap, or `package.json`; access any secret, Cloud SQL, or Secret Manager payload; run terraform, Prisma, or any DB command; execute any of the generated approval requests; stage, commit, or push anything; or wire any tool into any automatic workflow, including `pnpm hm:gate`.
+Did not: implement a hook, chat-interception mechanism, or CI wiring for any of the four tools; touch any existing sprint doc, the roadmap, or `package.json`; modify the logic of `fill-gate-template.mjs`, `validate-gate-request.mjs`, `suggest-gate-id.mjs`, `hard-rules.json`, or `fill-rules.json`; access any secret, Cloud SQL, or Secret Manager payload; run terraform, Prisma, or any DB command; execute any of the generated approval requests; stage, commit, or push anything; or wire any tool into any automatic workflow, including `pnpm hm:gate`.
