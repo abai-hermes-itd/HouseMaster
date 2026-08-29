@@ -1,6 +1,6 @@
 # Gate Safety Policy v0.1
 
-**Status:** Proposed — policy only, not implemented, not yet adopted as binding
+**Status:** Adopted — v0.1, binding as of 2026-08-29
 **Type:** Governance / safety policy
 **Date:** 2026-08-28
 **Branch:** `feat/hm-gcp-003d-cloud-sql-import`
@@ -171,4 +171,4 @@ To state this plainly, since it is the premise every rule above depends on: an M
 
 ## 15. Readiness classification
 
-Policy only. Not yet adopted as binding (see Status above — mark as Adopted only via its own separate, explicit approval). Does not authorize building any MCP tool, modifying any existing tool's logic, or running any infrastructure, secret, git, or DB command. Building on this policy (an actual MCP tool, a `closeout-draft` implementation, `pnpm hm:gate`, or any hook/CI wiring) remains out of scope here and requires its own separately-approved task, consistent with `GATE_RUNNER_SPEC_V0.md` §6 and the operating model's Forbidden-automation list (§3).
+Adopted as binding (2026-08-29, docs-only gate, this file only). Adoption of this policy does not, by itself, authorize building any MCP tool, modifying any existing tool's logic, or running any infrastructure, secret, git, or DB command. Building on this policy (an actual MCP tool, a `closeout-draft` implementation, `pnpm hm:gate`, or any hook/CI wiring) remains out of scope here and requires its own separately-approved task, consistent with `GATE_RUNNER_SPEC_V0.md` §6 and the operating model's Forbidden-automation list (§3).
