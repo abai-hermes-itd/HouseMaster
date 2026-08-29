@@ -165,10 +165,13 @@ No implementation gate for HM-MCP-007–009 is opened by this document. Each rem
 
 ## 8. Open questions (carried forward / new)
 
-- Should `hm_gate_policy_check`'s rule data (allowlist + forbidden list) live as a hardcoded module (mirroring v0.1's `secretPatterns.ts` precedent) or be sourced from `GATE_SAFETY_POLICY_V0.md` at build time to avoid drift between the two?
 - Should `hm_command_result_wrapper` require the caller to explicitly opt into the secret scan, or run it unconditionally on every wrap?
-- Does `GATE_SAFETY_POLICY_V0.md` need to be formally adopted (its own §15) before an HM-MCP-007+ build gate can cite it as binding, or can a build gate proceed while that policy is still "Proposed"?
-- Should HM-MCP-007–009 be one combined build gate or three separate ones, given they are independent tools with no interdependency at the implementation level?
+
+### Resolved (P6 decision gate, 2026-08-29)
+
+- **`hm_gate_policy_check` rule-data source:** resolved — v0.1 will **not** read `GATE_SAFETY_POLICY_V0.md` or any policy file at build time or at call time. It uses only caller-supplied strings and an embedded minimal rule map (mirroring the `secretPatterns.ts` precedent), consistent with Gate Safety Policy v0.1. Trade-off accepted: the embedded map needs manual upkeep if the policy changes later, the same trade-off `hard-rules.json` already carries.
+- **`GATE_SAFETY_POLICY_V0.md` adoption status:** resolved — the policy was formally adopted (commit `822ed31`, 2026-08-29; see its own Status line and §15). An HM-MCP-007+ build gate may now cite it as binding without qualification.
+- **Build-gate granularity:** resolved — HM-MCP-007/008/009 will be implemented through **one combined build gate**, on the grounds that all three tools are small, independent, pure-function, read-only/draft-only modules under one target scope with no interdependency at the implementation level.
 
 ---
 
