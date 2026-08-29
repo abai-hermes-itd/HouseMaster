@@ -6,12 +6,17 @@ import { hmRepoStatus } from "./tools/repoStatus.js";
 import { hmGateStatus } from "./tools/gateStatus.js";
 import { hmDiffSummary } from "./tools/diffSummary.js";
 import { hmHandoffReport } from "./tools/handoffReport.js";
+import { hmSecretScanSummary } from "./tools/secretScanSummary.js";
+import { hmCommandResultWrapper } from "./tools/commandResultWrapper.js";
+import { hmGatePolicyCheckBatch } from "./tools/gatePolicyCheck.js";
 
 // Read-only MCP server. Exposes hm_repo_status (HM-MCP-002),
-// hm_gate_status (HM-MCP-004), hm_diff_summary (HM-MCP-005), and
-// hm_handoff_report (HM-MCP-006). Must never execute infrastructure,
-// secrets, database, deployment, or approval decisions — see
-// ../HOUSEMASTER_GCP_GATE_MCP_CONCEPT.md.
+// hm_gate_status (HM-MCP-004), hm_diff_summary (HM-MCP-005),
+// hm_handoff_report (HM-MCP-006), hm_secret_scan_summary (HM-MCP-007),
+// hm_command_result_wrapper (HM-MCP-008), and hm_gate_policy_check
+// (HM-MCP-009). Must never execute infrastructure, secrets, database,
+// deployment, or approval decisions — see
+// ../HOUSEMASTER_GCP_GATE_MCP_CONCEPT.md and ../HM_MCP_V0_2_CONCEPT.md.
 const server = new McpServer({
   name: "housemaster-gcp-gate-mcp",
   version: "0.1.0",
@@ -109,6 +114,90 @@ const handoffReportInputShape = {
     const markdown = await hmHandoffReport({ next_safe_step });
     return {
       content: [{ type: "text", text: markdown }],
+    };
+  },
+);
+
+const secretScanSummaryInputShape = {
+  text: z
+    .string()
+    .describe(
+      "Caller-supplied block of text to scan (e.g. command stdout, a pasted log, an already-read file's content). Never a file path — this tool does not read files itself.",
+    ),
+};
+
+// Same confirmed TS2589 workaround as hm_diff_summary/hm_handoff_report
+// above — any non-empty Zod input shape triggers it with this
+// typescript@5.9.3 + SDK@1.30.0 pairing.
+(server as any).registerTool(
+  "hm_secret_scan_summary",
+  {
+    title: "HouseMaster secret scan summary",
+    description:
+      "Runs the same shared secret-pattern check hm_diff_summary uses against an explicit, caller-supplied text block. Never reads a file path itself, never reads .env, never returns the matched substring — only a secret_detected/secret_printed/action verdict.",
+    inputSchema: secretScanSummaryInputShape,
+  },
+  async ({ text }: { text: string }) => {
+    const result = hmSecretScanSummary(text);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+const commandResultWrapperInputShape = {
+  command: z
+    .string()
+    .describe("Command string, for labeling only — this tool never executes it."),
+  exit_code: z.number().describe("Exit code already captured by the caller."),
+  stdout: z.string().describe("Stdout already captured by the caller."),
+  run_secret_scan: z
+    .boolean()
+    .optional()
+    .describe("Whether to run hm_secret_scan_summary against stdout. Defaults to false."),
+};
+
+(server as any).registerTool(
+  "hm_command_result_wrapper",
+  {
+    title: "HouseMaster command result wrapper",
+    description:
+      "Reshapes a command result the caller already produced elsewhere (by hand, or via an already-approved execution gate) into one structured JSON shape. Never runs the labeled command itself.",
+    inputSchema: commandResultWrapperInputShape,
+  },
+  async (input: {
+    command: string;
+    exit_code: number;
+    stdout: string;
+    run_secret_scan?: boolean;
+  }) => {
+    const result = hmCommandResultWrapper(input);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+    };
+  },
+);
+
+const gatePolicyCheckInputShape = {
+  commands: z
+    .array(z.string())
+    .describe(
+      "One or more proposed command strings to classify against the embedded safe-allowlist/forbidden-list. Never executed by this tool.",
+    ),
+};
+
+(server as any).registerTool(
+  "hm_gate_policy_check",
+  {
+    title: "HouseMaster gate policy check",
+    description:
+      "Classifies each proposed command as allowed_readonly, requires_explicit_approval, or forbidden against an embedded minimal rule map consistent with Gate Safety Policy v0.1. Never executes the classified command. Fails closed to requires_explicit_approval on anything it cannot confidently match. A classification is never itself an authorization to run the command.",
+    inputSchema: gatePolicyCheckInputShape,
+  },
+  async ({ commands }: { commands: string[] }) => {
+    const result = hmGatePolicyCheckBatch(commands);
+    return {
+      content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
     };
   },
 );
