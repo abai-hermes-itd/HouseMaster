@@ -94,6 +94,10 @@ resource "google_cloud_run_v2_service" "web" {
         name  = "PUBSUB_TOPIC_INGEST"
         value = google_pubsub_topic.knowledge_indexing.name
       }
+      env {
+        name  = "ALLOWED_WORKSPACE_DOMAIN"
+        value = "abay-germes.kz"
+      }
       # --- Секреты из Secret Manager ---
       dynamic "env" {
         for_each = local.secret_env_map
