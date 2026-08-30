@@ -98,6 +98,13 @@ resource "google_cloud_run_v2_service" "web" {
         name  = "ALLOWED_WORKSPACE_DOMAIN"
         value = "abay-germes.kz"
       }
+      # SECRET-ROTATION-4B: non-secret marker to force a new revision so the
+      # container re-resolves secretKeyRef "latest" values (env-injected
+      # secrets are bound at revision creation, not live-refreshed).
+      env {
+        name  = "SECRET_ROTATION_REFRESH"
+        value = "google-oauth-client-secret-v2-20260830"
+      }
       # --- Секреты из Secret Manager ---
       dynamic "env" {
         for_each = local.secret_env_map
