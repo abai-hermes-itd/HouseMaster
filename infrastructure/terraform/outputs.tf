@@ -1,8 +1,8 @@
 # Выходные значения: используются CI/CD и для ручной проверки после apply.
 
 output "cloud_run_service_url" {
-  description = "URL сервиса Cloud Run"
-  value       = google_cloud_run_v2_service.web.uri
+  description = "URL сервиса Cloud Run. null, пока Cloud Run ещё не задеплоен (HM-GCP-003E)."
+  value       = try(google_cloud_run_v2_service.web[0].uri, null)
 }
 
 output "artifact_registry_repository" {

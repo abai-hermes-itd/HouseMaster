@@ -1,5 +1,18 @@
 # HouseMaster System Overview
 
+> [!WARNING]
+> Legacy architecture document.
+>
+> This document predates ADR-0005.
+>
+> Current architectural authority:
+>
+> - ADR-0005-final.md
+> - Architecture-Principles.md
+> - data-classification.md
+>
+> Read those documents first.
+
 | Поле | Значение |
 |---|---|
 | Документ | 000-system-overview.md |

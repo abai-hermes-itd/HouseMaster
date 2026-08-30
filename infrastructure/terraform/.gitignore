@@ -12,3 +12,5 @@ crash.log
 
 # Ключи SA — их не должно существовать в принципе
 *.json
+tfplan
+*.tfplan

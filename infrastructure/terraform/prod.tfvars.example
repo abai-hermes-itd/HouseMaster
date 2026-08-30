@@ -31,3 +31,9 @@ alert_email                = "ops@example.kz" # заменить на реаль
 alert_5xx_rate_threshold   = 0.05
 alert_latency_ms_threshold = 1500
 alert_error_logs_threshold = 10
+
+# --- Cloud SQL (HM-GCP-003D) ---
+# Prod instance создаётся отдельно; значения — плейсхолдеры до появления prod БД.
+cloud_sql_instance_name = "housemaster-db-prod"
+cloud_sql_region        = "europe-west3"
+cloud_sql_tier          = "db-custom-1-3840" # уточнить перед первым prod apply

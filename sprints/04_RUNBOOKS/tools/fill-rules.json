@@ -1,0 +1,22 @@
+{
+  "_comment": "Per-template fill rules for fill-gate-template.mjs. Each entry names the source template file (relative to sprints/04_RUNBOOKS/), the CLI flags required to fill it, and the placeholder-token -> flag-name map used for substitution. Only the placeholders listed here are ever touched — a template's Forbidden and Report sections are copied through verbatim from the source file, including any placeholder tokens they still contain (e.g. '<ANYTHING ELSE THIS COMMIT SHOULD NOT TOUCH>', '<NEXT_GATE_ID>'), since fill-gate-template.mjs does not fill those.",
+
+  "templates": {
+    "COMMIT_GATE": {
+      "sourceFile": "TEMPLATE_COMMIT_GATE.md",
+      "requiredFlags": ["what", "target", "commit-message"],
+      "placeholders": {
+        "<WHAT>": "what",
+        "<TARGET_FILE>": "target",
+        "<COMMIT_MESSAGE>": "commit-message"
+      }
+    },
+    "PUSH_GATE": {
+      "sourceFile": "TEMPLATE_PUSH_GATE.md",
+      "requiredFlags": ["what"],
+      "placeholders": {
+        "<WHAT>": "what"
+      }
+    }
+  }
+}

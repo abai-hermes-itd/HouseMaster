@@ -3,6 +3,13 @@
 #   - гранты на уровне ресурса (bucket, secret, topic, service), где возможно;
 #   - project-level роли — только там, где ресурсного уровня нет (Vertex AI);
 #   - никакой SA не имеет прав шире своей функции.
+#
+# Паттерн for_each (HM-GCP-003D.3): ключи for_each берутся из статичных
+# `local` (local.runtime_secrets, local.buckets), а не из целого upstream-
+# ресурса. Значения получаются через индексацию [each.key] — сохраняет
+# implicit dependency, но не требует существования upstream-ресурса в state
+# на момент terraform import: ссылка на for_each целого ресурса ломает import
+# (команда не строит полный граф зависимостей и не может разрешить ключи).
 
 # ─────────────────────────────────────────────────────────────────────────────
 # sa-web — рантайм приложения
@@ -10,19 +17,19 @@
 
 # Чтение всех рантайм-секретов (грант на каждый секрет, не на проект)
 resource "google_secret_manager_secret_iam_member" "web_secret_access" {
-  for_each = google_secret_manager_secret.runtime
+  for_each = toset(local.runtime_secrets)
 
   project   = var.project_id
-  secret_id = each.value.secret_id
+  secret_id = google_secret_manager_secret.runtime[each.key].secret_id
   role      = "roles/secretmanager.secretAccessor"
   member    = "serviceAccount:${google_service_account.cloud_run.email}"
 }
 
 # Работа с объектами своих бакетов (чтение/запись, signed URLs)
 resource "google_storage_bucket_iam_member" "web_bucket_rw" {
-  for_each = google_storage_bucket.buckets
+  for_each = local.buckets
 
-  bucket = each.value.name
+  bucket = google_storage_bucket.buckets[each.key].name
   role   = "roles/storage.objectAdmin"
   member = "serviceAccount:${google_service_account.cloud_run.email}"
 }
@@ -39,6 +46,16 @@ resource "google_pubsub_topic_iam_member" "web_publish_indexing" {
   project = var.project_id
   topic   = google_pubsub_topic.knowledge_indexing.name
   role    = "roles/pubsub.publisher"
+  member  = "serviceAccount:${google_service_account.cloud_run.email}"
+}
+
+# Подключение к Cloud SQL через connector (Unix socket) — HM-GCP-003F.1.
+# roles/cloudsql.client не поддерживает resource-level binding на конкретный
+# instance, поэтому грант неизбежно project-level (согласуется с обработкой
+# aiplatform.user выше — единственный доступный уровень для этой роли).
+resource "google_project_iam_member" "web_cloudsql_client" {
+  project = var.project_id
+  role    = "roles/cloudsql.client"
   member  = "serviceAccount:${google_service_account.cloud_run.email}"
 }
 
@@ -97,9 +114,11 @@ resource "google_project_iam_member" "build_logs" {
 
 # Деплой ревизий (developer, не admin: без управления IAM сервиса)
 resource "google_cloud_run_v2_service_iam_member" "deployer_run" {
+  count = var.deploy_cloud_run ? 1 : 0
+
   project  = var.project_id
   location = var.region
-  name     = google_cloud_run_v2_service.web.name
+  name     = google_cloud_run_v2_service.web[0].name
   role     = "roles/run.developer"
   member   = "serviceAccount:${google_service_account.cicd_deployer.email}"
 }
@@ -110,6 +129,18 @@ resource "google_service_account_iam_member" "deployer_act_as_web" {
   role               = "roles/iam.serviceAccountUser"
   member             = "serviceAccount:${google_service_account.cicd_deployer.email}"
 }
+# Чтение образов из Artifact Registry для валидации при деплое.
+# gcloud run deploy под impersonation проверяет доступность образа
+# от имени деплоящей identity (sa-deployer), не только runtime-SA.
+resource "google_artifact_registry_repository_iam_member" "deployer_registry_read" {
+  count = var.deploy_cloud_run ? 1 : 0
+
+  project    = var.project_id
+  location   = var.region
+  repository = google_artifact_registry_repository.docker.repository_id
+  role       = "roles/artifactregistry.reader"
+  member     = "serviceAccount:${google_service_account.cicd_deployer.email}"
+}
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Публичный HTTP-доступ к сервису (вход в приложение).
@@ -117,11 +148,38 @@ resource "google_service_account_iam_member" "deployer_act_as_web" {
 # ─────────────────────────────────────────────────────────────────────────────
 
 resource "google_cloud_run_v2_service_iam_member" "public_invoker" {
-  count = var.cloud_run_allow_unauthenticated ? 1 : 0
+  count = (var.deploy_cloud_run && var.cloud_run_allow_unauthenticated) ? 1 : 0
 
   project  = var.project_id
   location = var.region
-  name     = google_cloud_run_v2_service.web.name
+  name     = google_cloud_run_v2_service.web[0].name
   role     = "roles/run.invoker"
   member   = "allUsers"
+}
+# ─────────────────────────────────────────────────────────────────────────────
+# sa-cloudbuild — дополнительные права для CI/CD (HM-CI-001)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Доступ к Cloud Build source bucket
+resource "google_project_iam_member" "build_storage" {
+  project = var.project_id
+  role    = "roles/storage.objectAdmin"
+  member  = "serviceAccount:${google_service_account.cloud_build.email}"
+}
+
+# Чтение образов из Artifact Registry внутри Cloud Build
+resource "google_project_iam_member" "build_registry_read" {
+  project = var.project_id
+  role    = "roles/artifactregistry.reader"
+  member  = "serviceAccount:${google_service_account.cloud_build.email}"
+}
+
+# Право impersonate sa-deployer-dev для шага deploy-cloud-run в cloudbuild.yaml.
+# Деплой выполняется под identity cicd_deployer (least privilege), а не
+# build-SA — build-SA прав на Cloud Run/данные не имеет (HM-CI-001 fix).
+resource "google_service_account_iam_member" "build_impersonate_deployer" {
+  count              = var.deploy_cloud_run ? 1 : 0
+  service_account_id = google_service_account.cicd_deployer.name
+  role               = "roles/iam.serviceAccountTokenCreator"
+  member             = "serviceAccount:${google_service_account.cloud_build.email}"
 }

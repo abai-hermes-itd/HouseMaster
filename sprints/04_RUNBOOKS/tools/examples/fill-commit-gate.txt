@@ -1,0 +1,33 @@
+Command:
+node fill-gate-template.mjs --template COMMIT_GATE --what "the Template-fill helper v0.1 files" --target sprints/04_RUNBOOKS/tools/fill-gate-template.mjs --commit-message "tools(runbooks): add template-fill helper v0.1"
+
+Expected stdout (exit 0):
+
+This is a generated approval request. It must still be explicitly approved by the user before execution.
+
+Stage and commit the Template-fill helper v0.1 files only.
+
+Target:
+sprints/04_RUNBOOKS/tools/fill-gate-template.mjs
+
+Commit message:
+tools(runbooks): add template-fill helper v0.1
+
+Allowed:
+git add sprints/04_RUNBOOKS/tools/fill-gate-template.mjs
+git diff --cached --stat
+git diff --cached -- sprints/04_RUNBOOKS/tools/fill-gate-template.mjs
+git commit -m "tools(runbooks): add template-fill helper v0.1"
+git status --short
+git log --oneline --decorate -8
+
+Forbidden:
+no Secret Manager payload, no password, no Cloud SQL change, no secret update,
+no endpoint call, no deploy, no terraform, no DB mutation/queries,
+no <ANYTHING ELSE THIS COMMIT SHOULD NOT TOUCH>.
+
+Report:
+- staged files
+- commit hash
+- whether only sprints/04_RUNBOOKS/tools/fill-gate-template.mjs was committed
+- <ANY CONTENT-SPECIFIC CONFIRMATION — e.g. "exact finding recorded">

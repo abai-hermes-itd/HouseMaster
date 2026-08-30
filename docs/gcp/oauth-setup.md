@@ -1,7 +1,13 @@
 # OAuth Setup — Admin Portal (HM-005)
 
+> NOTE
+>
+> This document is an operational guide for the Admin Identity contour only.
+>
+> Authoritative architecture: ADR-0004, ADR-0005-final.md, Architecture-Principles.md
+
 Инструкция по созданию OAuth-клиента для административного контура HouseMaster.
-Контекст: [ADR-0004](../adr/ADR-0004-authentication-architecture.md), [002-gcp-architecture](../architecture/002-gcp-architecture.md).
+Контекст: [ADR-0004](../adr/ADR-0004-authentication-architecture.md).
 
 ---
 

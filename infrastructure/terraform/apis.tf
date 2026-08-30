@@ -14,7 +14,9 @@ locals {
     "logging.googleapis.com",    # Cloud Logging
     "monitoring.googleapis.com", # Cloud Monitoring
     "cloudbuild.googleapis.com", # Cloud Build (пайплайн — вне охвата HM-GCP-002)
-    # "sqladmin.googleapis.com",       # Cloud SQL — включить в HM-GCP-003 (БД вне охвата)
+    "sqladmin.googleapis.com",   # Cloud SQL — уже включён в GCP вручную (HM-004);
+    # раскомментировано в HM-GCP-003D.1 для синхронизации
+    # кода с реальностью, см. HM-GCP-003B Diff Report
   ]
 }
 

@@ -162,6 +162,8 @@ ADR сознательно не определяет:
 
 Эти вопросы решаются отдельными ADR и инженерными задачами, принимающими данный документ как базовое ограничение.
 
+Operational cross-context transfer rules are specified in Boundary Contract (Accepted).
+
 ---
 
 ## Architectural Invariants

@@ -1,0 +1,30 @@
+Command:
+node suggest-gate-id.mjs --prefix HM-GCP-004X
+
+Expected stdout (exit 0) as of this session's sprint doc set:
+
+Scanned: sprints/01_ACTIVE, sprints/02_COMPLETED
+Prefix: HM-GCP-004X
+
+Existing IDs matching this prefix (5):
+  HM-GCP-004X-1A
+  HM-GCP-004X-1B
+  HM-GCP-004X-3A
+  HM-GCP-004X-3B
+  HM-GCP-004X-4
+
+Highest numeric suffix found: 4
+Suggested next number: 5 (e.g. "HM-GCP-004X-5") — this is a suggestion only. Confirm it by hand, and assign any letter/sub-level suffix (A/B/.1/etc.) yourself; this tool does not infer that part.
+
+---
+
+Command:
+node suggest-gate-id.mjs --prefix HM-GCP-005
+
+Expected stdout (exit 0) — a prefix with no existing matches:
+
+Scanned: sprints/01_ACTIVE, sprints/02_COMPLETED
+Prefix: HM-GCP-005
+
+No existing IDs found matching prefix "HM-GCP-005".
+Suggestion: this looks like a new family — pick a starting number by hand (e.g. "HM-GCP-005-1" or "HM-GCP-005A"), no existing sibling to increment from.

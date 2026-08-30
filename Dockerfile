@@ -37,6 +37,26 @@ RUN pnpm install --frozen-lockfile
 # Затем исходники и сборка
 COPY --from=pruner /repo/out/full/ .
 ENV NEXT_TELEMETRY_DISABLED=1
+# Prisma 7: клиент не генерируется автоматически при pnpm install — нужен
+# отдельный шаг перед сборкой, иначе `next build` падает на типах
+# (Module '"@prisma/client"' has no exported member 'PrismaClient').
+# Локально это маскировалось уже сгенерированным клиентом в node_modules.
+#
+# prisma.config.ts и prisma/ лежат в корне репо и не принадлежат ни
+# одному Turborepo-пакету — `turbo prune web --docker` их не сохраняет
+# в out/full (подтверждено реальным failed build: "schema.prisma: file
+# not found"). Копируем их явно из исходного build-контекста.
+COPY prisma.config.ts ./prisma.config.ts
+COPY prisma ./prisma
+# prisma.config.ts обязательно резолвит DATABASE_URL при загрузке
+# (PrismaConfigEnvError, подтверждено реальным failed build), даже
+# для `prisma generate`, которому реальное подключение не нужно —
+# только валидная по синтаксису строка. Плейсхолдер не секрет: не
+# используется для подключения и не попадает в финальный образ (ENV
+# builder-стадии не переносится в runner без явного объявления;
+# реальный DATABASE_URL приходит из Secret Manager в рантайме Cloud Run).
+ENV DATABASE_URL="postgresql://placeholder:placeholder@localhost:5432/placeholder"
+RUN pnpm db:generate
 RUN pnpm turbo run build --filter=web
 
 # --- Stage 3: runner — минимальный рантайм для Cloud Run ---------------------

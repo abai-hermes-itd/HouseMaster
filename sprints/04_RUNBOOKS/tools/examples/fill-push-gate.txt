@@ -1,0 +1,25 @@
+Command:
+node fill-gate-template.mjs --template PUSH_GATE --what "the template-fill helper v0.1"
+
+Expected stdout (exit 0):
+
+This is a generated approval request. It must still be explicitly approved by the user before execution.
+
+Push the template-fill helper v0.1 commit.
+
+Allowed:
+git push
+git status --short
+git log --oneline --decorate -8
+
+Report:
+- pushed yes/no
+- remote HEAD
+- whether HEAD == origin
+- latest commit
+- next safe step
+
+Forbidden:
+no Secret Manager payload, no password, no Cloud SQL change, no secret update,
+no endpoint call, no deploy, no terraform, no DB mutation/queries,
+no <NEXT_GATE_ID> execution.

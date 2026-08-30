@@ -1,0 +1,23 @@
+{
+  "name": "housemaster-gcp-gate-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Standalone, read-only local MCP server for HouseMaster GCP gate status reporting (HM-MCP-002 skeleton).",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx src/server.ts",
+    "validate": "tsx src/dev/callRepoStatus.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "zod": "3.25.28"
+  },
+  "devDependencies": {
+    "@types/node": "22.17.0",
+    "tsx": "4.19.2",
+    "typescript": "5.9.3"
+  }
+}

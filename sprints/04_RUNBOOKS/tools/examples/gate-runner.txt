@@ -1,0 +1,152 @@
+Gate Runner v0.1 — example commands and their behavior.
+
+All output below was captured by actually running gate-runner.mjs against this
+session's real repo state and the real underlying tools — nothing here is
+hand-written.
+
+---
+
+Command (direct passthrough — suggest-id):
+node gate-runner.mjs suggest-id --prefix HM-GCP-004X
+
+Stdout (exit 0) — identical to running suggest-gate-id.mjs directly:
+
+Scanned: sprints/01_ACTIVE, sprints/02_COMPLETED
+Prefix: HM-GCP-004X
+
+Existing IDs matching this prefix (5):
+  HM-GCP-004X-1A
+  HM-GCP-004X-1B
+  HM-GCP-004X-3A
+  HM-GCP-004X-3B
+  HM-GCP-004X-4
+
+Highest numeric suffix found: 4
+Suggested next number: 5 (e.g. "HM-GCP-004X-5") — this is a suggestion only. Confirm it by hand, and assign any letter/sub-level suffix (A/B/.1/etc.) yourself; this tool does not infer that part.
+
+---
+
+Command (direct passthrough — fill, refusal case):
+node gate-runner.mjs fill --template COMMIT_GATE --what "x"
+
+Stderr (exit 2) — identical to running fill-gate-template.mjs directly:
+
+Refused: missing required input(s) for COMMIT_GATE: --target, --commit-message
+
+---
+
+Command (direct passthrough — validate, against the bundled pass fixture):
+node gate-runner.mjs validate --template secret-execution examples/pass-secret-execution.txt
+
+Stdout (exit 0) — identical to running validate-gate-request.mjs directly:
+
+Template: Secret-Handling Execution Gate (secret-execution)
+Forbidden section: found
+
+  [PASS   ] no_print_password            No printing password
+  [PASS   ] no_print_database_url        No printing DATABASE_URL
+  [PASS   ] no_access_secret_payload     No accessing existing secret payload (unless this gate's stated goal)
+  [PASS   ] no_endpoint_unless_approved  No endpoint call unless separately approved
+  [PASS   ] no_deploy                    No deploy
+  [PASS   ] no_terraform                 No terraform
+  [PASS   ] no_db_mutation               No DB mutation/queries
+  [PASS   ] no_next_gate                 No progression to next gate
+
+Overall: PASS — all required hard rules present.
+
+---
+
+Command (composite — draft-commit-gate):
+node gate-runner.mjs draft-commit-gate --what "gate-runner self-test" --target sprints/04_RUNBOOKS/tools/gate-runner.mjs --commit-message "test only"
+
+Behavior: runs `fill --template COMMIT_GATE` first (its stdout is printed), then
+pipes that stdout as stdin into `validate --template commit`. The forbidden-list
+placeholder is never auto-filled by gate-runner — this run correctly comes back
+FAIL on no_next_gate (exit 1), same as filling the template by hand always has
+throughout this session. Final exit code is validate's (1 here).
+
+--- gate-runner: fill (template COMMIT_GATE) ---
+This is a generated approval request. It must still be explicitly approved by the user before execution.
+
+Stage and commit gate-runner self-test only.
+
+Target:
+sprints/04_RUNBOOKS/tools/gate-runner.mjs
+
+Commit message:
+test only
+
+Allowed:
+git add sprints/04_RUNBOOKS/tools/gate-runner.mjs
+git diff --cached --stat
+git diff --cached -- sprints/04_RUNBOOKS/tools/gate-runner.mjs
+git commit -m "test only"
+git status --short
+git log --oneline --decorate -8
+
+Forbidden:
+no Secret Manager payload, no password, no Cloud SQL change, no secret update,
+no endpoint call, no deploy, no terraform, no DB mutation/queries,
+no <ANYTHING ELSE THIS COMMIT SHOULD NOT TOUCH>.
+
+Report:
+- staged files
+- commit hash
+- whether only sprints/04_RUNBOOKS/tools/gate-runner.mjs was committed
+- <ANY CONTENT-SPECIFIC CONFIRMATION — e.g. "exact finding recorded">
+--- gate-runner: validate (template commit) ---
+Template: Commit Gate (commit)
+Forbidden section: found
+
+  [PASS   ] no_secret_payload    No Secret Manager payload access
+  [PASS   ] no_password          No password print/request
+  [PASS   ] no_cloud_sql_change  No Cloud SQL change
+  [PASS   ] no_secret_update     No secret update / new secret version
+  [PASS   ] no_endpoint_call     No application endpoint call
+  [PASS   ] no_deploy            No deploy
+  [PASS   ] no_terraform         No terraform
+  [PASS   ] no_db_mutation       No DB mutation/queries
+  [MISSING] no_next_gate         No progression to next gate
+
+Overall: FAIL — one or more required hard rules are missing. Do not act on this request as-is; ask for the missing rules in full before proceeding.
+
+(exit code 1)
+
+---
+
+Command (composite — draft-commit-gate, missing required flags):
+node gate-runner.mjs draft-commit-gate --what "x"
+
+Behavior: fill refuses immediately (missing --target/--commit-message); validate
+is never run. Exit code is fill's refusal code (2), not validate's.
+
+--- gate-runner: fill (template COMMIT_GATE) ---
+Refused: missing required input(s) for COMMIT_GATE: --target, --commit-message
+--- gate-runner: fill refused (exit 2) — stopping before validate ---
+
+(exit code 2)
+
+---
+
+Command (composite mode, explicit --template guard):
+node gate-runner.mjs draft-commit-gate --template COMMIT_GATE --what "x"
+
+Behavior: refused before fill even runs — --template is implied by the mode and
+must not be passed explicitly (guards against it silently overriding the mode's
+own --template value, since both would otherwise land in the same argv).
+
+Refused: --template is implied by this mode (COMMIT_GATE) — do not pass it explicitly.
+
+(exit code 2)
+
+---
+
+Command (unsupported mode):
+node gate-runner.mjs closeout-draft
+
+Behavior: explicit refusal, per GATE_RUNNER_SPEC_V0.md §4.6 (no existing tool fills
+the closure-record template yet in v0.1).
+
+Refused: mode "closeout-draft" is not supported in Gate Runner v0.1 (see GATE_RUNNER_SPEC_V0.md §4.6 — no existing tool fills the closure-record template yet). Use the templates under sprints/04_RUNBOOKS/ directly for this gate type.
+
+(exit code 2)

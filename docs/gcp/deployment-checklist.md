@@ -1,11 +1,17 @@
 # HouseMaster — Deployment Checklist (Bootstrap)
 
+> NOTE
+>
+> This document is an operational guide for Service Context (GCP) only.
+>
+> Authoritative architecture: ADR-0005-final.md, Architecture-Principles.md, data-classification.md
+
 | Поле | Значение |
 |---|---|
 | Документ | docs/gcp/deployment-checklist.md |
 | Идентификатор | HM-GCP-004 |
 | Назначение | Пошаговый bootstrap окружения GCP до первого рабочего деплоя |
-| Связано | `infrastructure/terraform/README.md`, `002-gcp-architecture.md` |
+| Связано | `infrastructure/terraform/README.md`, `ADR-0005-final.md` |
 
 Чек-лист выполняется **один раз на окружение** (dev, затем prod). Команды даны для dev — для prod заменить `housemaster-dev` → `housemaster-prod` и файлы `dev.*` → `prod.*`.
 

@@ -1,5 +1,18 @@
 # HouseMaster — GCP Architecture
 
+> [!WARNING]
+> Legacy GCP architecture document.
+>
+> This document predates ADR-0005.
+>
+> Current architectural authority:
+>
+> - ADR-0005-final.md
+> - Architecture-Principles.md
+> - data-classification.md
+>
+> This document remains for historical and implementation reference only.
+
 | Поле | Значение |
 |---|---|
 | Документ | 002-gcp-architecture.md |
