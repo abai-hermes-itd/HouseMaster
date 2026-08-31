@@ -1,0 +1,660 @@
+schema_version: "1.0"
+graph_id: A3-EC02-03-OBSERVABILITY-MASTER-MATRIX
+page_id: A3-EC02-03
+title: Master Observability Matrix
+stage: P3_OBSERVABILITY_COMPLETION
+production_no: P3-02
+case_assembly_no: "013"
+ir_type: MATRIX / OBSERVABILITY MASTER REGISTER
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+
+reference_object:
+  id: SEM-MCD-001
+  address: Semey, Shakarima 13A
+  role: REAL_BUILDING_EVIDENCE_ANCHOR
+
+source_control:
+  primary_authority: EC-02_PHYSICAL_TO_OBSERVATION_SEM-MCD-001_v0.3_REVIEW.md
+  source_sections:
+    - EC-02 §3-§4a
+    - EC-02 §8-§17
+    - EC-02 §15
+    - EC-02 §15.x
+    - EC-02 §15.y
+  registry_ref: A3-P0_PAGE_REGISTRY_v0.4_REVIEW.md / A3-EC02-03
+  source_reread_outside_required_ec02_context: false
+  ec03_connectivity_design_reopened: false
+  unrelated_ec00_ec01_reopened: false
+
+core_thesis:
+  statement: MASTER OBSERVABILITY MATRIX ≠ DEVICE DEPLOYMENT PLAN
+  source_ref: EC-02 §15 / §18 A3-EC02-03 plus owner-approved page thesis
+  what_it_means: The register describes source-backed engineering conditions, conceptual observation channels, evidence needs, validation gates, and unresolved implementation inputs.
+  what_it_does_not_mean: It does not prove devices are installed, locations are confirmed, full building observability is achieved, or connectivity design is selected.
+
+counts:
+  matrix_rows: 18
+  observation_channels: 2
+  l1_candidates: 18
+  l2_plus_siteable: 0
+  installed_devices_confirmed: 0
+  confirmed_observation_point_locations: 0
+  site_validation_required_rows: 18
+  machine_capable_rows: 16
+  documentary_human_only_rows: 2
+  guardrails: 5
+
+summary_metrics:
+  source_row_range: OBS-CAND-001..OBS-CAND-018
+  observation_class_distribution:
+    BOTH: 16
+    DOCUMENTARY_HUMAN: 2
+    MACHINE_ONLY: 0
+    TBD: 0
+  observability_status_distribution:
+    OBSERVABLE_NOW_HUMAN: 8
+    OBSERVABLE_AFTER_FIELD_MAPPING: 10
+  readiness:
+    row_level_l1_count: 18
+    l2_l3_count: 0
+    installation_ready_count: 0
+  installed_device_metric:
+    confirmed_count: 0
+    actual_presence_status: NOT_ESTABLISHED
+    absence_proved: false
+  exact_observation_point_location_count: 0
+  matrix_row_coverage_proves_full_building_observability: false
+
+channel_model:
+  count: 2
+  relationship: CO_APPLICABLE_NOT_SEQUENTIAL_NOT_MUTUALLY_EXCLUSIVE
+  human:
+    included: true
+    forms:
+      - inspection
+      - checklist
+      - manual reading
+      - visual assessment
+      - photo
+      - note
+      - act
+      - documentary record
+    fallback_only: false
+    lower_trust_by_default: false
+  machine:
+    included: true
+    status: CONCEPTUAL_CAPABILITY_ONLY
+    functions:
+      - measure
+      - timestamp
+      - state_or_event_capture
+      - buffer
+      - forward
+    does_not_infer:
+      - selected sensor
+      - hardware vendor
+      - installed device
+      - mounting point
+      - local protocol
+      - SIM identity
+      - RF result
+      - API
+      - sampling interval
+      - threshold
+      - coverage
+
+observation_point_status_model:
+  L0: NO_CANDIDATE_WITHOUT_UNDERLYING_EVIDENCE
+  L1: CONCEPTUAL_CANDIDATE_SYSTEM_OR_ZONE_EXISTS_LOCATION_UNKNOWN
+  L2: SITEABLE_CANDIDATE_SPECIFIC_LOCATION_DOCUMENTED
+  L3: FIELD_INSTANTIATED_LOCATION_CONFIRMED
+  current_matrix_row_status: L1_CONCEPTUAL_CANDIDATE
+  l2_plus_siteable_confirmed_count: 0
+
+provenance_template: &provenance_template "Retain claim/observation, building/object context, system/component/zone context, Observation Point, channel, event_time, recorded/received time, actor/source/device identity where applicable, attachment/record where applicable, source reference, confidence, and validation status; do not invent values."
+
+time_model:
+  event_time_equals_recorded_received_time: false
+  no_event_proves_normal_condition: false
+  no_new_observation_proves_unchanged_engineering_state: false
+
+evidence_model:
+  observation_equals_evidence: false
+  evidence_equals_defect: false
+  evidence_admission: PROVENANCE_AND_CONTEXT_CRITERIA_MUST_PASS
+  engineering_interpretation: DOMAIN_PROFESSIONAL_VALIDATION_GATED
+
+connectivity_boundary:
+  token_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+  machine_applicability_may_require_connectivity: true
+  topology_selected: false
+  direct_or_edge_selected: false
+  sim_defined: false
+  network_defined: false
+  rf_defined: false
+  api_defined: false
+
+matrix_columns:
+  - ID
+  - ENGINEERING_CONTEXT
+  - OBSERVABLE_CONDITION_QUESTION
+  - OBSERVATION_POINT_STATUS
+  - HUMAN_CHANNEL
+  - MACHINE_CHANNEL
+  - EVIDENCE_PROVENANCE
+  - VALIDATION_OPEN_ITEMS
+  - DOWNSTREAM_RESTRICTION
+
+matrix_rows:
+  - observation_candidate_id: OBS-CAND-001
+    oc_id: OC-001
+    engineering_system: HEATING
+    building_zone_component_context: SEM-MCD-001 / heating system entry / component location TBD
+    engineering_question: Is the heating temperature condition adequate and how does it vary over time?
+    observable_condition: Temperature condition
+    observation_point_definition: Candidate point at the heating system-entry context for observing temperature; no HEAT-xx component or location is instantiated.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: YES_GENERAL_ASSESSMENT_NOW_IN_PRINCIPLE
+    machine_channel_applicability: YES_CONCEPTUAL_PENDING_FIELD_CONFIRMED_SITING
+    human_observation_form: General assessment / periodic inspection note
+    machine_observation_form: SCALAR temperature measurement / continuous-high-frequency concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_HEATING_ENTRY_LOCATION
+    site_validation_required: YES_TBD-005
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-001 / §15.x / §16; BF-015 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_LOCATION_TBD
+    validation_status: OBSERVABLE_NOW_HUMAN_MACHINE_PENDING_SITING
+    what_it_means: Heating temperature is a valid source-backed observation candidate with Human and conceptual Machine applicability.
+    what_it_does_not_mean: No component, device, mounting point, interval, threshold, or connectivity implementation is established.
+    open_items: [heating-entry location, component identity, machine siting, environment, power, access, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_SITE_OR_DEPLOY_MACHINE_DEVICE_UNTIL_LOCATION_AND_SITE_REQUIREMENTS_ARE_VALIDATED
+
+  - observation_candidate_id: OBS-CAND-002
+    oc_id: OC-001
+    engineering_system: HEATING
+    building_zone_component_context: SEM-MCD-001 / heating system entry / component location TBD
+    engineering_question: What is the heating pressure condition at an accessible and validated point?
+    observable_condition: Pressure condition
+    observation_point_definition: Candidate heating-entry pressure point; gauge/access and physical location are not established.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: CONDITIONAL_IF_GAUGE_ACCESSIBLE
+    machine_channel_applicability: YES_CONCEPTUAL
+    human_observation_form: Manual gauge reading where an accessible gauge exists
+    machine_observation_form: SCALAR pressure measurement / continuous-high-frequency concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD
+    site_validation_required: YES_TBD-005
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-002 / §15.x; BF-015 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_LOCATION_TBD
+    validation_status: OBSERVABLE_AFTER_FIELD_MAPPING
+    what_it_means: Pressure may be observed by a Machine channel and conditionally by Human reading.
+    what_it_does_not_mean: A gauge, pressure point, sensor, or location is not confirmed.
+    open_items: [pressure point, gauge existence, gauge access, exact location, machine siting, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_ASSUME_GAUGE_OR_MACHINE_POINT_EXISTS_BEFORE_FIELD_MAPPING
+
+  - observation_candidate_id: OBS-CAND-003
+    oc_id: OC-002
+    engineering_system: HEATING
+    building_zone_component_context: SEM-MCD-001 / heating metering node / node location and interface existence TBD
+    engineering_question: Can heating flow or consumption be observed through a confirmed metering context?
+    observable_condition: Flow/consumption metering condition
+    observation_point_definition: Candidate metering/interface point; the metering node and interface are not established.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: YES_MANUAL_READING_IF_INTERFACE_ACCESSIBLE
+    machine_channel_applicability: YES_IF_METER_INTERFACE_EXISTS
+    human_observation_form: Manual meter/interface reading
+    machine_observation_form: COUNTER / meter or pulse-interface reading / periodic concept
+    device_candidate_status: CONCEPTUAL_INTERFACE_EXISTENCE_TBD
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_METERING_NODE
+    site_validation_required: YES_TBD-005
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-003 / §15.x; BF-015 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_METER_INTERFACE_TBD
+    validation_status: OBSERVABLE_AFTER_FIELD_MAPPING
+    what_it_means: Consumption is a valid candidate if a metering context/interface is confirmed.
+    what_it_does_not_mean: Metering hardware, interface, protocol, or location is not proved.
+    open_items: [metering node, interface existence, access, exact location, machine feasibility, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_DESIGN_INTERFACE_OR_DEPLOYMENT_UNTIL_METERING_CONTEXT_IS_CONFIRMED
+
+  - observation_candidate_id: OBS-CAND-004
+    oc_id: OC-004
+    engineering_system: COLD_WATER
+    building_zone_component_context: SEM-MCD-001 / cold-water system entry / component location TBD
+    engineering_question: What is the cold-water pressure condition at a validated entry point?
+    observable_condition: Pressure condition
+    observation_point_definition: Candidate pressure point at cold-water entry; gauge/access and location are unknown.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: CONDITIONAL_IF_GAUGE_ACCESSIBLE
+    machine_channel_applicability: YES_CONCEPTUAL
+    human_observation_form: Manual gauge reading where accessible
+    machine_observation_form: SCALAR pressure measurement / continuous-high-frequency concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD
+    site_validation_required: YES_TBD-005
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-004 / §15.x; BF-016 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_LOCATION_TBD
+    validation_status: OBSERVABLE_AFTER_FIELD_MAPPING
+    what_it_means: Cold-water pressure is a valid conceptual observation candidate.
+    what_it_does_not_mean: No pressure point, gauge, device, or location is confirmed.
+    open_items: [entry location, gauge existence, access, machine siting, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_ASSUME_OR_SITE_PRESSURE_OBSERVATION_POINT_BEFORE_FIELD_MAPPING
+
+  - observation_candidate_id: OBS-CAND-005
+    oc_id: OC-004
+    engineering_system: COLD_WATER
+    building_zone_component_context: SEM-MCD-001 / cold-water system entry / component location TBD
+    engineering_question: What is the cold-water flow condition at a validated entry point?
+    observable_condition: Flow condition
+    observation_point_definition: Candidate flow point at cold-water entry; accessibility and location are unknown.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: CONDITIONAL_IF_FLOW_POINT_ACCESSIBLE
+    machine_channel_applicability: YES_CONCEPTUAL
+    human_observation_form: Manual/visual assessment where a readable flow point exists
+    machine_observation_form: SCALAR flow measurement / continuous-high-frequency concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD
+    site_validation_required: YES_TBD-005
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-005 / §15.x; BF-016 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_LOCATION_TBD
+    validation_status: OBSERVABLE_AFTER_FIELD_MAPPING
+    what_it_means: Cold-water flow is a valid conceptual observation candidate.
+    what_it_does_not_mean: No flow point, device, interval, threshold, or location is established.
+    open_items: [entry/flow point, access, machine siting, power/environment, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_CREATE_FLOW_DEPLOYMENT_PLAN_BEFORE_FIELD_VALIDATION
+
+  - observation_candidate_id: OBS-CAND-006
+    oc_id: OC-005
+    engineering_system: COLD_WATER
+    building_zone_component_context: SEM-MCD-001 / cold-water metering node / node location and interface existence TBD
+    engineering_question: Can cold-water flow or consumption be observed through a confirmed metering context?
+    observable_condition: Flow/consumption metering condition
+    observation_point_definition: Candidate cold-water metering/interface point; node and interface are unconfirmed.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: YES_MANUAL_READING_IF_ACCESSIBLE
+    machine_channel_applicability: YES_IF_METER_INTERFACE_EXISTS
+    human_observation_form: Manual meter/interface reading
+    machine_observation_form: COUNTER / meter-interface reading / periodic concept
+    device_candidate_status: CONCEPTUAL_INTERFACE_EXISTENCE_TBD
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_METERING_NODE
+    site_validation_required: YES_TBD-005
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-006 / §15.x; BF-016 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_METER_INTERFACE_TBD
+    validation_status: OBSERVABLE_AFTER_FIELD_MAPPING
+    what_it_means: Consumption is observable if a valid metering/interface context is confirmed.
+    what_it_does_not_mean: Meter, interface, protocol, or location is not proved.
+    open_items: [metering node, interface existence, access, machine feasibility, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_DEFINE_INTERFACE_OR_CONNECTIVITY_BEFORE_METERING_CONTEXT_VALIDATION
+
+  - observation_candidate_id: OBS-CAND-007
+    oc_id: OC-006
+    engineering_system: HOT_WATER
+    building_zone_component_context: SEM-MCD-001 / hot-water system / location TBD / ontology gap retained
+    engineering_question: Is hot water available at an adequate temperature in the observed context?
+    observable_condition: Temperature/availability condition
+    observation_point_definition: System-level hot-water candidate point; no dedicated ontology component/OP or physical location is instantiated.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: YES_TAP_LEVEL_CHECK_NOW_IN_PRINCIPLE
+    machine_channel_applicability: YES_CONCEPTUAL_PENDING_SITING
+    human_observation_form: Tap-level availability/temperature check and note
+    machine_observation_form: SCALAR temperature or availability-state measurement / continuous-high-frequency concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD
+    site_validation_required: YES_TBD-005
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-007 / §15.x / §7; BF-017 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_LOCATION_TBD_ONTOLOGY_GAP
+    validation_status: OBSERVABLE_NOW_HUMAN_MACHINE_PENDING_SITING
+    what_it_means: Human checking can answer the condition now in principle; Machine may add continuity later.
+    what_it_does_not_mean: No hot-water component family, point, device, or location is established.
+    open_items: [location, ontology mapping, access, machine siting, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_INSTANTIATE_COMPONENT_ID_OR_DEVICE_BEFORE_EVIDENCE_AND_FIELD_VALIDATION
+
+  - observation_candidate_id: OBS-CAND-008
+    oc_id: OC-006
+    engineering_system: HOT_WATER
+    building_zone_component_context: SEM-MCD-001 / hot-water system / location TBD
+    engineering_question: Is there a leakage or water-presence indication associated with the hot-water context?
+    observable_condition: Leakage/water-presence indication
+    observation_point_definition: Candidate location/condition for leakage observation; exact physical point is not established.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: YES_VISUAL_NOW_IN_PRINCIPLE
+    machine_channel_applicability: YES_CONCEPTUAL_EARLY_DETECTION_PENDING_SITING
+    human_observation_form: Visual assessment / photo / note where accessible
+    machine_observation_form: EVENT or BINARY STATE capture / event-driven concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD
+    site_validation_required: YES_TBD-005
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-008 / §15.x; BF-017 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_LOCATION_TBD
+    validation_status: OBSERVABLE_NOW_HUMAN_MACHINE_PENDING_SITING
+    what_it_means: Leakage indications may be observed by Human and conceptually by Machine.
+    what_it_does_not_mean: Water presence is not automatically a defect; no device/location is confirmed.
+    open_items: [observation point, access, cause interpretation, machine siting, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_CLASSIFY_DEFECT_OR_SITE_DEVICE_FROM_INDICATION_ALONE
+
+  - observation_candidate_id: OBS-CAND-009
+    oc_id: OC-007
+    engineering_system: BASEMENT_ENVIRONMENT
+    building_zone_component_context: SEM-MCD-001 / basement zone / zone existence PARTIAL secondary-source only
+    engineering_question: Is water presence or flooding observed in a field-confirmed basement environment?
+    observable_condition: Water-presence/flooding indication
+    observation_point_definition: Provenance-gated basement-environment candidate; zone existence, access, and point remain unconfirmed.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE_WEAK_PARTIAL_CONTEXT
+    human_channel_applicability: YES_DOCUMENTARY_IF_ACCESS_AND_ZONE_CONFIRMED
+    machine_channel_applicability: YES_CONCEPTUAL_PENDING_ZONE_CONFIRMATION
+    human_observation_form: Inspection / photo / location note
+    machine_observation_form: EVENT presence/absence capture / event-driven concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_ZONE_AND_POINT
+    site_validation_required: YES_TBD-003_AND_TBD-EC02-04
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-009 / §15.x / §12 TBD-EC02-04
+    source_confidence: PARTIAL_ZONE_EXISTENCE_PRIMARY_OR_FIELD_CONFIRMATION_REQUIRED
+    validation_status: OBSERVABLE_AFTER_FIELD_MAPPING
+    what_it_means: Basement water/flooding is a provenance-gated candidate pending zone confirmation.
+    what_it_does_not_mean: Basement existence, flooding, cause, defect, device, or point is not proved.
+    open_items: [basement existence, access, point location, field confirmation, machine siting, power/environment, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_PROMOTE_BEYOND_PROVENANCE_GATED_L1_UNTIL_ZONE_IS_PRIMARY_OR_FIELD_CONFIRMED
+
+  - observation_candidate_id: OBS-CAND-010
+    oc_id: OC-007
+    engineering_system: BASEMENT_ENVIRONMENT
+    building_zone_component_context: SEM-MCD-001 / basement zone / zone existence PARTIAL secondary-source only
+    engineering_question: What is the temperature condition in a field-confirmed basement environment?
+    observable_condition: Temperature condition
+    observation_point_definition: Basement-environment temperature candidate; zone, access, and point are unconfirmed.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE_WEAK_PARTIAL_CONTEXT
+    human_channel_applicability: YES_DOCUMENTARY_OR_MANUAL_PENDING_ZONE_CONFIRMATION
+    machine_channel_applicability: YES_CONCEPTUAL_PENDING_ZONE_CONFIRMATION
+    human_observation_form: Manual assessment/reading and note where accessible
+    machine_observation_form: SCALAR temperature measurement / periodic concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_ZONE_AND_POINT
+    site_validation_required: YES_TBD-003_AND_TBD-EC02-04
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-010 / §15.x / §12 TBD-EC02-04
+    source_confidence: PARTIAL_ZONE_EXISTENCE
+    validation_status: OBSERVABLE_AFTER_FIELD_MAPPING
+    what_it_means: Basement temperature may be observed after zone/access confirmation.
+    what_it_does_not_mean: Zone existence, point, device, interval, threshold, or location is not established.
+    open_items: [basement existence, access, point location, field confirmation, machine siting, power/environment, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_SITE_OR_SCORE_BASEMENT_TEMPERATURE_OBSERVABILITY_BEFORE_ZONE_CONFIRMATION
+
+  - observation_candidate_id: OBS-CAND-011
+    oc_id: OC-007
+    engineering_system: BASEMENT_ENVIRONMENT
+    building_zone_component_context: SEM-MCD-001 / basement zone / zone existence PARTIAL secondary-source only
+    engineering_question: What is the humidity condition in a field-confirmed basement environment?
+    observable_condition: Humidity condition
+    observation_point_definition: Basement-environment humidity candidate; zone, access, and point are unconfirmed.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE_WEAK_PARTIAL_CONTEXT
+    human_channel_applicability: YES_DOCUMENTARY_OR_MANUAL_PENDING_ZONE_CONFIRMATION
+    machine_channel_applicability: YES_CONCEPTUAL_PENDING_ZONE_CONFIRMATION
+    human_observation_form: Manual assessment/reading and note where accessible
+    machine_observation_form: SCALAR humidity measurement / periodic concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_ZONE_AND_POINT
+    site_validation_required: YES_TBD-003_AND_TBD-EC02-04
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-011 / §15.x / §12 TBD-EC02-04
+    source_confidence: PARTIAL_ZONE_EXISTENCE
+    validation_status: OBSERVABLE_AFTER_FIELD_MAPPING
+    what_it_means: Basement humidity may be observed after zone/access confirmation.
+    what_it_does_not_mean: Zone existence, point, device, interval, threshold, or location is not established.
+    open_items: [basement existence, access, point location, field confirmation, machine siting, power/environment, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_SITE_OR_SCORE_BASEMENT_HUMIDITY_OBSERVABILITY_BEFORE_ZONE_CONFIRMATION
+
+  - observation_candidate_id: OBS-CAND-012
+    oc_id: OC-008
+    engineering_system: ELECTRICAL
+    building_zone_component_context: SEM-MCD-001 / main distribution board / location TBD
+    engineering_question: Is electrical supply available in the validated main-board context?
+    observable_condition: Supply-availability condition
+    observation_point_definition: Candidate availability point associated with the main distribution board; board location is unknown.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: YES_GENERAL_ASSESSMENT_NOW_IN_PRINCIPLE
+    machine_channel_applicability: YES_CONCEPTUAL_PENDING_SITING
+    human_observation_form: General availability assessment / inspection note
+    machine_observation_form: BINARY STATE capture / event-driven concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_MAIN_BOARD
+    site_validation_required: YES_TBD-005
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-012 / §15.x; BF-019 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_LOCATION_TBD
+    validation_status: OBSERVABLE_NOW_HUMAN_MACHINE_PENDING_SITING
+    what_it_means: Supply availability can be observed by Human and conceptually by Machine.
+    what_it_does_not_mean: Main-board location, device, electrical interface, or connectivity is not established.
+    open_items: [main-board location, access, observation point, machine siting, power/environment, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_SITE_MACHINE_OBSERVATION_OR_INFER_BOARD_LOCATION_BEFORE_FIELD_MAPPING
+
+  - observation_candidate_id: OBS-CAND-013
+    oc_id: OC-008
+    engineering_system: ELECTRICAL
+    building_zone_component_context: SEM-MCD-001 / main distribution board / location TBD
+    engineering_question: Has an electrical outage/event occurred in the validated system context?
+    observable_condition: Outage/event condition
+    observation_point_definition: Candidate event point associated with electrical supply; board location is unknown.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: YES_GENERAL_ASSESSMENT_NOW_IN_PRINCIPLE
+    machine_channel_applicability: YES_CONCEPTUAL_PENDING_SITING
+    human_observation_form: Human report / inspection note / documentary record
+    machine_observation_form: EVENT capture / event-driven concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_MAIN_BOARD
+    site_validation_required: YES_TBD-005
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-013 / §15.x; BF-019 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_LOCATION_TBD
+    validation_status: OBSERVABLE_NOW_HUMAN_MACHINE_PENDING_SITING
+    what_it_means: Outage/event condition can be observed through Human and conceptual Machine channels.
+    what_it_does_not_mean: No event threshold, source cause, failure diagnosis, device, or location is established.
+    open_items: [main-board location, event context, access, machine siting, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_EQUATE_EVENT_OR_CONNECTIVITY_LOSS_WITH_ENGINEERING_DEFECT
+
+  - observation_candidate_id: OBS-CAND-014
+    oc_id: OC-009
+    engineering_system: SEWER
+    building_zone_component_context: SEM-MCD-001 / sewer collector or outlet / location TBD / ontology OP undefined
+    engineering_question: Is an overflow or backflow indication visible in the validated sewer context?
+    observable_condition: Overflow/backflow indication
+    observation_point_definition: Human/documentary candidate at a future field-mapped sewer collector/outlet; no machine OP is currently defined.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE_ONTOLOGY_GAP
+    human_channel_applicability: YES_PRIMARY_CHANNEL_TODAY
+    machine_channel_applicability: NO_CURRENT_MACHINE_MODEL_TBD_ONTOLOGY_EXTENSION
+    human_observation_form: Visual assessment / inspection note / photo or documentary record
+    machine_observation_form: NOT_DEFINED_IN_CURRENT_SOURCE_MODEL
+    device_candidate_status: NOT_PROPOSED_FOR_CURRENT_ROW
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_COLLECTOR_OUTLET
+    site_validation_required: YES_TBD-005
+    connectivity_required_if_machine: NOT_REQUIRED_FOR_CURRENT_DOCUMENTARY_HUMAN_MODEL
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-014 / §15.x / §7; BF-018 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_LOCATION_TBD_ONTOLOGY_GAP
+    validation_status: OBSERVABLE_NOW_HUMAN
+    what_it_means: Visible sewer overflow/backflow may be documented by Human observation.
+    what_it_does_not_mean: No machine OP, component location, cause, defect, or device is established.
+    open_items: [collector/outlet location, access, ontology OP extension, provenance completeness, professional interpretation]
+    downstream_restriction: DO_NOT_CREATE_MACHINE_CONNECTIVITY_OR_DEVICE_REQUIREMENT_FOR_THIS_ROW_UNDER_CURRENT_MODEL
+
+  - observation_candidate_id: OBS-CAND-015
+    oc_id: OC-010
+    engineering_system: ROOF
+    building_zone_component_context: SEM-MCD-001 / roof surface / roof existence-type PARTIAL / access TBD
+    engineering_question: Is moisture or water ingress observed at an accessible and validated roof context?
+    observable_condition: Moisture/water-ingress condition
+    observation_point_definition: Candidate roof moisture point; roof context, access, and physical point remain validation-dependent.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE_PARTIAL_CONTEXT
+    human_channel_applicability: YES_PENDING_ROOF_ACCESS
+    machine_channel_applicability: YES_OPTIONAL_CONCEPTUAL_PENDING_ACCESS
+    human_observation_form: Inspection / visual assessment / photo / note
+    machine_observation_form: EVENT moisture/water-ingress capture / event-driven concept
+    device_candidate_status: OPTIONAL_CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_ROOF_ACCESS_AND_POINT
+    site_validation_required: YES_TBD-004
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-015 / §15.x; roof context PARTIAL as carried by EC-02
+    source_confidence: PARTIAL_ROOF_EXISTENCE_TYPE_ACCESS_TBD
+    validation_status: OBSERVABLE_AFTER_FIELD_MAPPING
+    what_it_means: Moisture ingress may be observed by Human and optionally by Machine after roof validation.
+    what_it_does_not_mean: Roof access, moisture point, cause, device, coverage, or defect is not established.
+    open_items: [roof existence/type confirmation, access, point location, machine suitability, power/environment, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_SITE_OPTIONAL_MACHINE_OBSERVATION_BEFORE_ROOF_ACCESS_AND_POINT_VALIDATION
+
+  - observation_candidate_id: OBS-CAND-016
+    oc_id: OC-010
+    engineering_system: ROOF
+    building_zone_component_context: SEM-MCD-001 / roof surface / roof existence-type PARTIAL / access TBD
+    engineering_question: Is there visual defect evidence in an accessible and validated roof context?
+    observable_condition: Visual defect evidence
+    observation_point_definition: Documentary observation candidate for a future accessible roof context; no machine target is defined.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE_PARTIAL_CONTEXT
+    human_channel_applicability: YES_INHERENTLY_VISUAL_PENDING_ACCESS
+    machine_channel_applicability: NO_NOT_A_MACHINE_TARGET
+    human_observation_form: Photo / inspection / note / act or documentary record
+    machine_observation_form: NOT_APPLICABLE
+    device_candidate_status: NOT_PROPOSED_FOR_CURRENT_ROW
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_ROOF_ACCESS_AND_CONTEXT
+    site_validation_required: YES_TBD-004
+    connectivity_required_if_machine: NOT_REQUIRED_FOR_CURRENT_DOCUMENTARY_HUMAN_MODEL
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-016 / §15.x; roof context PARTIAL as carried by EC-02
+    source_confidence: PARTIAL_ROOF_EXISTENCE_TYPE_ACCESS_TBD
+    validation_status: OBSERVABLE_AFTER_FIELD_MAPPING
+    what_it_means: Visual roof evidence belongs to the Human/Documentary channel after access validation.
+    what_it_does_not_mean: A defect is not verified merely by a photo; no machine/device requirement is implied.
+    open_items: [roof confirmation, access, exact context, attachment provenance, professional validation]
+    downstream_restriction: DO_NOT_CREATE_MACHINE_DEVICE_OR_CONNECTIVITY_SCOPE_FOR_DOCUMENTARY_ONLY_ROW
+
+  - observation_candidate_id: OBS-CAND-017
+    oc_id: OC-011
+    engineering_system: LIFTS
+    building_zone_component_context: SEM-MCD-001 / lift per entrance / count PARTIAL / per-unit location TBD
+    engineering_question: Is each validated lift available and operational?
+    observable_condition: Availability/operational condition
+    observation_point_definition: Candidate per-lift observation context; lift count and per-entrance locations require confirmation.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: YES_GENERAL_ASSESSMENT_NOW_IN_PRINCIPLE
+    machine_channel_applicability: YES_CONCEPTUAL_PENDING_PER_UNIT_SITING
+    human_observation_form: General availability assessment / inspection or maintenance note
+    machine_observation_form: BINARY STATE availability capture / event-driven concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_PER_ENTRANCE_LIFT_LOCATION
+    site_validation_required: YES_TBD-EC02-01
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-017 / §15.x / §12 TBD-EC02-01; BF-020 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_COUNT_PARTIAL_PER_UNIT_LOCATION_TBD
+    validation_status: OBSERVABLE_NOW_HUMAN_MACHINE_PENDING_SITING
+    what_it_means: Lift availability can be observed by Human and conceptually by Machine.
+    what_it_does_not_mean: Three exact lift units, their positions, device interfaces, or connectivity are not confirmed.
+    open_items: [lift count confirmation, per-entrance locations, access, machine interface/siting, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_CREATE_PER_LIFT_DEPLOYMENT_BEFORE_COUNT_AND_LOCATION_CONFIRMATION
+
+  - observation_candidate_id: OBS-CAND-018
+    oc_id: OC-011
+    engineering_system: LIFTS
+    building_zone_component_context: SEM-MCD-001 / lift per entrance / count PARTIAL / per-unit location TBD
+    engineering_question: Has a lift outage/event occurred in a validated per-unit context?
+    observable_condition: Outage/event condition
+    observation_point_definition: Candidate per-lift event context; lift count and per-entrance locations require confirmation.
+    observation_point_status: L1_CONCEPTUAL_CANDIDATE
+    human_channel_applicability: YES_GENERAL_ASSESSMENT_NOW_IN_PRINCIPLE
+    machine_channel_applicability: YES_CONCEPTUAL_PENDING_PER_UNIT_SITING
+    human_observation_form: Human report / inspection or maintenance note
+    machine_observation_form: EVENT capture / event-driven concept
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    installed_device_status: NOT_ESTABLISHED_ZERO_CONFIRMED
+    exact_location_status: TBD_PER_ENTRANCE_LIFT_LOCATION
+    site_validation_required: YES_TBD-EC02-01
+    connectivity_required_if_machine: REQUIRED_TBD_DOWNSTREAM_VALIDATION
+    provenance_requirement: *provenance_template
+    source_ref: EC-02 §15 OBS-CAND-018 / §15.x / §12 TBD-EC02-01; BF-020 as cited by EC-02
+    source_confidence: VERIFIED_SYSTEM_EXISTENCE_COUNT_PARTIAL_PER_UNIT_LOCATION_TBD
+    validation_status: OBSERVABLE_NOW_HUMAN_MACHINE_PENDING_SITING
+    what_it_means: Lift outage/event can be observed by Human and conceptually by Machine.
+    what_it_does_not_mean: Event cause, engineering defect, device interface, exact unit, or location is not confirmed.
+    open_items: [lift count confirmation, per-entrance locations, event context, machine interface/siting, connectivity feasibility, provenance completeness]
+    downstream_restriction: DO_NOT_EQUATE_EVENT_OR_CHANNEL_LOSS_WITH_LIFT_ENGINEERING_DEFECT
+
+guardrails:
+  - {id: G-01, statement: "MASTER OBSERVABILITY MATRIX ≠ DEVICE DEPLOYMENT PLAN", source_ref: "EC-02 §15 / §18 plus owner-approved page thesis"}
+  - {id: G-02, statement: "OBSERVATION POINT ≠ DEVICE", source_ref: "EC-02 §3 / §4a"}
+  - {id: G-03, statement: "CANDIDATE ≠ INSTALLED DEVICE", source_ref: "EC-02 §3.1 / §4a.3 / §17"}
+  - {id: G-04, statement: "SYSTEM EXISTS ≠ COMPONENT LOCATION KNOWN", source_ref: "EC-02 §2 / §8-§10 / §15"}
+  - {id: G-05, statement: "MATRIX ROW COVERAGE ≠ FULL BUILDING OBSERVABILITY", source_ref: "EC-02 §13-§15 plus owner-approved page boundary"}
+
+supporting_rules:
+  - HUMAN OBSERVATION ≠ MACHINE DEPENDENCE
+  - OBSERVATION ≠ EVIDENCE
+  - EVIDENCE ≠ DEFECT
+  - UNKNOWN ≠ ABSENT
+  - CONNECTIVITY STATE ≠ ENGINEERING STATE
+  - NO EVENT ≠ NORMAL CONDITION
+  - TBD LOCATION ≠ NO PHYSICAL COMPONENT
+
+coverage_exclusions:
+  coverage_percentage: false
+  observability_score: false
+  sensor_coverage_target: false
+  maturity_score: false
+
+related_pages:
+  A3-EC02-01: narrative / conceptual observability meaning
+  A3-EC02-02: hero physical-to-observation graph
+  A3-EC02-03: master observability matrix
+  A3-EC02-04: detailed OBS-CAND-001 reference example
+
+alau_ai:
+  included: false
+
+prohibited_outputs:
+  drawio: false
+  pdf: false
+  three_d: false
+  device_deployment_plan: false
+  network_topology: false
+  direct_or_edge_selection: false
+  invented_sensor_or_device_count: false
+  invented_location_or_protocol: false

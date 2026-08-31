@@ -1,0 +1,231 @@
+schema_version: "1.0"
+graph_id: A3-EC03-07
+page_id: A3-EC03-07
+production_no: P4-04
+stage: P4_CONNECTIVITY_COMPLETION
+canonical_title: "Reference Heating Flow"
+page_type: PT-06_REFERENCE_FLOW
+ir_type: END_TO_END_REFERENCE_FLOW_WITH_CANDIDATE_AND_TRUST_HANDOFFS
+status: FROZEN
+source_sections: ["EC-03 §26 (concrete worked instance)"]
+source_linkage_status: LINKED
+evidence_status: VERIFIED_EXISTENCE_TBD_LOCATION_WITH_PROPOSED_ARCHITECTURE
+
+primary_engineering_question: >-
+  How does the established heating object at SEM-MCD-001 trace through the
+  OBS-CAND-001 / DEV-CAND-001 candidate and a reference Direct Connectivity
+  pattern into HouseMaster Observation, Evidence, and Building State without
+  instantiating network technology or deployment?
+
+primary_semantic_unit:
+  type: ORDERED_REFERENCE_FLOW_STAGE
+  count: 14
+
+secondary_semantic_units:
+  type: EMBEDDED_FUNCTION_OR_PROFILE_CHARACTERISTIC
+  count: 11
+  groups:
+    device_functions: 6
+    connectivity_profile_characteristics: 5
+
+reference_object:
+  id: SEM-MCD-001
+  label: "г. Семей, пр. Шакарима, 13 «А»"
+  role: REFERENCE_FLOW_ANCHOR
+  heating_status: VERIFIED
+  installed_device_inference: PROHIBITED
+
+status_vocabulary:
+  - ESTABLISHED_SOURCE_FACT
+  - VERIFIED
+  - PROPOSED_ARCHITECTURE
+  - CANDIDATE
+  - TBD
+  - NOT_ESTABLISHED
+  - VALIDATION_REQUIRED
+  - NOT_INSTANTIATED
+
+responsibility_domains:
+  - id: DOMAIN-BEELINE
+    owner: BEELINE
+    role: CONNECTIVITY_TRANSPORT_DOMAIN
+    source_stage: RF-09
+    implementation_state: NOT_ESTABLISHED
+  - id: DOMAIN-HOUSEMASTER
+    owner: HOUSEMASTER
+    role: DOMAIN_INTEGRATION_AND_SYSTEM_OF_RECORD_BOUNDARY
+    source_stages: [RF-10, RF-11, RF-12, RF-13, RF-14]
+    responsibilities:
+      - trust_integration_boundary
+      - integration_edge
+      - observation
+      - evidence
+      - building_state
+
+planes:
+  applicable: false
+  count: 0
+  reason: "EC-03 §26 does not define DATA / CONTROL / OPERATIONS planes for this page."
+
+trust_access_boundary:
+  included: true
+  applicability: SOURCE_EXPLICIT
+  label: "HouseMaster Trust / Integration Boundary"
+  implementation_state: NOT_ESTABLISHED
+  restrictions:
+    - NO_AUTHENTICATION_INFERENCE
+    - NO_API_INFERENCE
+    - NO_SECURITY_IMPLEMENTATION_INFERENCE
+    - NO_PROTOCOL_OR_PAYLOAD_INFERENCE
+
+flow_stages:
+  - stage_id: RF-01
+    order: 1
+    label: SEM-MCD-001
+    type: REFERENCE_OBJECT
+    status: ESTABLISHED_SOURCE_FACT
+  - stage_id: RF-02
+    order: 2
+    label: "HEATING — VERIFIED"
+    type: ENGINEERING_SYSTEM
+    status: VERIFIED
+  - stage_id: RF-03
+    order: 3
+    label: "Heating entry candidate — location TBD"
+    type: HEATING_ENTRY_CANDIDATE
+    status: CANDIDATE_LOCATION_TBD
+  - stage_id: RF-04
+    order: 4
+    label: OBS-CAND-001
+    type: OBSERVATION_CANDIDATE
+    status: CANDIDATE
+  - stage_id: RF-05
+    order: 5
+    label: DEV-CAND-001
+    type: DEVICE_CANDIDATE
+    status: CANDIDATE_NOT_INSTALLED_DEVICE
+  - stage_id: RF-06
+    order: 6
+    label: Device Functions
+    type: DEVICE_FUNCTION_SET
+    status: PROPOSED_ARCHITECTURE
+    functions: [MEASURE, TIMESTAMP, BUFFER, STORE, FORWARD, REPORT_STATUS]
+  - stage_id: RF-07
+    order: 7
+    label: "Connectivity Profile — CP-CAND-001"
+    type: CONNECTIVITY_PROFILE_CANDIDATE
+    status: CANDIDATE
+    characteristics:
+      latency: MEDIUM
+      loss_tolerance: MEDIUM
+      store_and_forward: HIGH
+      reachability_importance: MEDIUM
+      mobility: FIXED
+  - stage_id: RF-08
+    order: 8
+    label: Direct Connectivity Pattern
+    type: ARCHITECTURAL_PATTERN
+    status: PROPOSED_REFERENCE_WALKTHROUGH_NOT_SELECTED
+  - stage_id: RF-09
+    order: 9
+    label: Beeline Access / Transport
+    type: RESPONSIBILITY_DOMAIN_HANDOFF
+    status: IMPLEMENTATION_NOT_ESTABLISHED
+    domain_ref: DOMAIN-BEELINE
+  - stage_id: RF-10
+    order: 10
+    label: HouseMaster Trust / Integration Boundary
+    type: TRUST_INTEGRATION_BOUNDARY
+    status: PROPOSED_IMPLEMENTATION_NOT_ESTABLISHED
+    domain_ref: DOMAIN-HOUSEMASTER
+  - stage_id: RF-11
+    order: 11
+    label: HouseMaster Integration Edge
+    type: INTEGRATION_STAGE
+    status: PROPOSED_IMPLEMENTATION_NOT_ESTABLISHED
+    domain_ref: DOMAIN-HOUSEMASTER
+  - stage_id: RF-12
+    order: 12
+    label: Observation
+    type: DOMAIN_SEMANTIC_STAGE
+    status: SOURCE_DEFINED
+    domain_ref: DOMAIN-HOUSEMASTER
+  - stage_id: RF-13
+    order: 13
+    label: Evidence
+    type: DOMAIN_SEMANTIC_STAGE
+    status: SOURCE_DEFINED
+    domain_ref: DOMAIN-HOUSEMASTER
+  - stage_id: RF-14
+    order: 14
+    label: Building State
+    type: DOMAIN_SEMANTIC_STAGE
+    status: SOURCE_DEFINED
+    domain_ref: DOMAIN-HOUSEMASTER
+
+relationships:
+  - {relationship_id: REL-01, from: RF-01, to: RF-02, type: REFERENCES_VERIFIED_SYSTEM}
+  - {relationship_id: REL-02, from: RF-02, to: RF-03, type: HAS_CANDIDATE_ENTRY}
+  - {relationship_id: REL-03, from: RF-03, to: RF-04, type: REPRESENTED_BY_OBSERVATION_CANDIDATE}
+  - {relationship_id: REL-04, from: RF-04, to: RF-05, type: ASSOCIATED_WITH_DEVICE_CANDIDATE}
+  - {relationship_id: REL-05, from: RF-05, to: RF-06, type: PERFORMS_PROPOSED_FUNCTIONS}
+  - {relationship_id: REL-06, from: RF-06, to: RF-07, type: USES_CONNECTIVITY_PROFILE_CANDIDATE}
+  - {relationship_id: REL-07, from: RF-07, to: RF-08, type: WALKED_THROUGH_REFERENCE_PATTERN}
+  - {relationship_id: REL-08, from: RF-08, to: RF-09, type: HANDS_TO_CONNECTIVITY_TRANSPORT_DOMAIN}
+  - {relationship_id: REL-09, from: RF-09, to: RF-10, type: CROSSES_TO_HOUSEMASTER_TRUST_INTEGRATION_BOUNDARY}
+  - {relationship_id: REL-10, from: RF-10, to: RF-11, type: HANDS_TO_INTEGRATION_EDGE}
+  - {relationship_id: REL-11, from: RF-11, to: RF-12, type: PRODUCES_OBSERVATION_STAGE}
+  - {relationship_id: REL-12, from: RF-12, to: RF-13, type: SUBJECT_TO_EVIDENCE_GATING}
+  - {relationship_id: REL-13, from: RF-13, to: RF-14, type: CONTRIBUTES_TO_BUILDING_STATE}
+
+open_tbd_items:
+  - item_id: EC03-07-TBD-01
+    subject: Heating entry candidate location
+    current_status: TBD_NOT_ESTABLISHED
+    validation_owner: NOT_ESTABLISHED_IN_SOURCE_SCOPE
+    restriction: NO_LOCATION_INFERENCE
+
+guardrails:
+  - {guardrail_id: GR-01, text: "HEATING VERIFIED ≠ HEATING ENTRY LOCATION ESTABLISHED", source_ref: "EC-03 §26"}
+  - {guardrail_id: GR-02, text: "OBS-CAND-001 / DEV-CAND-001 / CP-CAND-001 = CANDIDATES, NOT DEPLOYED INSTANCES", source_ref: "EC-03 §26"}
+  - {guardrail_id: GR-03, text: "REFERENCE DIRECT FLOW ≠ DIRECT TOPOLOGY SELECTION", source_ref: "EC-03 §26 + registry distinction"}
+  - {guardrail_id: GR-04, text: "BEELINE ACCESS / TRANSPORT ≠ BEELINE INTERNAL IMPLEMENTATION", source_ref: "EC-03 §26"}
+  - {guardrail_id: GR-05, text: "HOUSEMASTER TRUST / INTEGRATION BOUNDARY ≠ IMPLEMENTED API OR SECURITY DESIGN", source_ref: "EC-03 §26"}
+  - {guardrail_id: GR-06, text: "NO REAL NETWORK TECHNOLOGY / PROTOCOL / PRODUCT IS INSTANTIATED", source_ref: "EC-03 §26"}
+
+validation_ownership:
+  heating_existence: VERIFIED_IN_SOURCE
+  heating_entry_location: NOT_ESTABLISHED_IN_SOURCE_SCOPE
+  observation_device_profile_candidates: VALIDATION_REQUIRED_OWNER_NOT_ESTABLISHED_IN_SOURCE_SCOPE
+  beeline_access_transport_implementation: NOT_ESTABLISHED
+  housemaster_trust_integration_implementation: NOT_ESTABLISHED
+
+visual_hierarchy_requirements:
+  - CANONICAL_TITLE_AND_PRIMARY_ENGINEERING_QUESTION
+  - REFERENCE_OBJECT_AND_VERIFIED_HEATING_ORIGIN
+  - CANDIDATE_CHAIN_WITH_VISIBLE_LOCATION_TBD
+  - DEVICE_FUNCTION_AND_CONNECTIVITY_PROFILE_DETAIL
+  - DIRECT_PATTERN_REFERENCE_NOT_SELECTED_STATUS
+  - BEELINE_TO_HOUSEMASTER_RESPONSIBILITY_HANDOFF
+  - SOURCE_EXPLICIT_TRUST_INTEGRATION_BOUNDARY
+  - OBSERVATION_TO_EVIDENCE_TO_BUILDING_STATE_SEQUENCE
+  - OPEN_TBD_AND_GUARDRAILS
+  - PROVENANCE_REFERENCE_FOOTER
+
+explicit_exclusions:
+  - NO_INSTALLED_DEVICE_OR_SIM_INVENTORY
+  - NO_GATEWAY_APN_PRIVATE_NETWORKING_PROTOCOL_API_NETWORK_TOPOLOGY_COVERAGE_SLA_OR_CLOUD_SERVICE
+  - NO_SECURITY_IMPLEMENTATION
+  - NO_TIMING_VALUES_COMMERCIAL_TERMS_OR_SITE_SURVEY_RESULTS
+  - NO_DIRECT_OR_EDGE_SELECTION
+  - NO_DATA_CONTROL_OPERATIONS_PLANE_VISUALIZATION
+  - NO_ALAU_AI
+  - NO_DRAWIO_AT_THIS_GATE
+  - NO_PDF_AT_THIS_GATE
+
+provenance_refs:
+  - {id: SRC-REGISTRY-MD, file: A3-P0_PAGE_REGISTRY_v0.4_REVIEW.md, entry: A3-EC03-07}
+  - {id: SRC-REGISTRY-CSV, file: A3-P0_PAGE_REGISTRY_v0.4.csv, entry: A3-EC03-07}
+  - {id: SRC-EC03-26, file: EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md, section: "§26"}
+
+next_gate: SEMANTIC_REVIEW

@@ -1,0 +1,200 @@
+schema_version: "1.0"
+graph_id: A3-EC01-03-AREA-TAXONOMY
+page_id: A3-EC01-03
+title: Area Taxonomy
+stage: P2_CONTEXT_REAL_BUILDING
+production_no: P2-04
+case_assembly_no: "006"
+ir_type: MATRIX / TAXONOMY
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+
+reference_anchor:
+  id: SEM-MCD-001
+  address: Semey, Shakarima 13A
+  included: true
+
+purpose: >-
+  Explain the area semantics of SEM-MCD-001 and prevent distinct area
+  categories from being misread as conflicting measurements, arithmetic
+  components, footprint values, or verified geometry.
+
+canonical_rule:
+  statement: THESE FOUR FIGURES ≠ FOUR COMPETING MEASUREMENTS OF ONE AREA
+  meaning: The four figures describe different semantic area categories.
+
+counts:
+  area_categories: 4
+  guardrails: 5
+
+area_categories:
+  - area_id: AREA-01
+    value: 1248
+    display_value: 1,248 m²
+    unit: m²
+    canonical_label: TOTAL USEFUL BUILDING AREA
+    semantic_scope: Total useful area of the building as fixed in the approved taxonomy.
+    source_status: ASSIGNED
+    provenance:
+      source_ref: EC-01 §0b / §5.0 / BF-026
+      source_type: OWNER_APPROVED_PROJECT_BASELINE_TAXONOMY
+      independently_rederived: false
+    what_it_means:
+      - Total useful area of the building under the approved taxonomy.
+    what_it_does_not_mean:
+      - BUILDING_FOOTPRINT
+      - COMMON_AREA_ONLY
+      - LAND_PARCEL_AREA
+    validation_status: TAXONOMY_FIXED_NOT_INDEPENDENTLY_REDERIVED
+    unresolved_items:
+      - EXACT_FOOTPRINT_REMAINS_TBD
+
+  - area_id: AREA-02
+    value: 550
+    display_value: 550 m²
+    unit: m²
+    canonical_label: COMMON / SHARED BUILDING AREA
+    semantic_scope: >-
+      Common/shared building areas including entrances, stair landings and
+      flights, lift shafts, technical rooms, and basement according to the
+      approved area semantics.
+    source_status: ASSIGNED
+    provenance:
+      source_ref: EC-01 §0b / §5.0 / BF-027
+      source_type: OWNER_APPROVED_PROJECT_BASELINE_TAXONOMY
+      independently_rederived: false
+    what_it_means:
+      - Common/shared building-area category under the approved taxonomy.
+    what_it_does_not_mean:
+      - TOTAL_USEFUL_BUILDING_AREA
+      - EXACT_BASEMENT_AREA
+      - BUILDING_FOOTPRINT
+    validation_status: TAXONOMY_FIXED_NOT_INDEPENDENTLY_REDERIVED
+    unresolved_items:
+      - EXACT_BASEMENT_AREA_TBD
+      - EXACT_FOOTPRINT_REMAINS_TBD
+
+  - area_id: AREA-03
+    value: 6403.8
+    display_value: 6,403.8 m²
+    unit: m²
+    canonical_label: CADASTRAL BUILDING AREA
+    semantic_scope: Cadastral building-area category associated with the building record.
+    source_status: VERIFIED_FIGURE_CATEGORY_PER_OWNER_APPROVED_TAXONOMY
+    provenance:
+      source_ref: EC-01 §5.1 / BF-010
+      source_id: SRC-006
+      source_type: PRIMARY_OFFICIAL_CONDOMINIUM_REGISTRATION_CERTIFICATE
+      category_basis: OWNER_APPROVED_PROJECT_BASELINE_TAXONOMY
+    what_it_means:
+      - Verified 6,403.8 m² figure in the cadastral building-area category.
+    what_it_does_not_mean:
+      - EXACT_FOOTPRINT_UNLESS_SEPARATELY_CONFIRMED
+      - ADJACENT_TERRITORY
+      - TOTAL_USEFUL_AREA
+    validation_status: FIGURE_VERIFIED_FOOTPRINT_NOT_VALIDATED
+    unresolved_items:
+      - EXACT_FOOTPRINT_SITE_COVERAGE_TBD_001
+
+  - area_id: AREA-04
+    value: 15020
+    display_value: 15,020 m²
+    source_value_qualifier: APPROXIMATE_IN_EC01
+    unit: m²
+    canonical_label: ADJACENT / ASSOCIATED TERRITORY
+    semantic_scope: Adjacent/associated territory category linked to the building context.
+    source_status: PARTIAL_CATEGORY_PER_OWNER_APPROVED_TAXONOMY
+    provenance:
+      source_ref: EC-01 §5.2 / BF-011
+      source_id: SRC-001/002
+      source_type: SECONDARY_COMPILED_PASSPORT_FAMILY
+      category_basis: OWNER_APPROVED_PROJECT_BASELINE_TAXONOMY
+    what_it_means:
+      - Adjacent/associated territory category in the approved taxonomy.
+    what_it_does_not_mean:
+      - BUILDING_AREA
+      - BUILDING_FOOTPRINT
+      - CONFIRMED_LEGAL_PARCEL_BOUNDARY_WITHOUT_EXPLICIT_SOURCE_PROOF
+    validation_status: PARTIAL_LEGAL_BOUNDARY_NOT_ESTABLISHED
+    unresolved_items:
+      - EXACT_LEGAL_OR_SITE_BOUNDARY_NOT_ESTABLISHED
+      - EXACT_FOOTPRINT_REMAINS_TBD
+
+footprint:
+  label: EXACT BUILDING FOOTPRINT AREA
+  status: NOT_ESTABLISHED_TBD
+  source_ref: EC-01 §4 / BF-008 / TBD-001
+  may_be_derived_from_area_values: false
+  closure_requirement:
+    - ORIGINAL_DIMENSIONED_PLAN
+    - AUTHORITATIVE_GEOMETRY
+    - FIELD_SURVEY
+
+geometry:
+  label: STEPPED / NON-RECTANGULAR GEOMETRY
+  status: PARTIAL
+  source_ref: EC-01 §4 / BF-009
+  shape_evidence: VERIFIED
+  full_dimension_set: PARTIAL
+  closed_by_area_taxonomy: false
+
+non_equivalence_model:
+  arithmetic_hierarchy_asserted: false
+  area_summation_allowed: false
+  ratios_allowed: false
+  conflict_between_6403_8_and_15020: false
+  relationships:
+    - left: AREA-01
+      relation: NOT_EQUAL_SEMANTIC_CATEGORY
+      right: AREA-02
+      statement: TOTAL USEFUL AREA ≠ COMMON / SHARED AREA
+    - left: AREA-03
+      relation: NOT_EQUAL_SEMANTIC_CATEGORY
+      right: AREA-04
+      statement: CADASTRAL BUILDING AREA ≠ ADJACENT TERRITORY
+    - left: ALL_AREA_CATEGORIES
+      relation: DO_NOT_ESTABLISH
+      right: EXACT_BUILDING_FOOTPRINT
+      statement: AREA CATEGORY ≠ FOOTPRINT
+    - left: ANY_AREA_VALUE
+      relation: DOES_NOT_VERIFY
+      right: GEOMETRY
+      statement: AREA VALUE ≠ VERIFIED GEOMETRY
+
+provenance_model:
+  included: true
+  sequence:
+    - AREA_CLAIM
+    - CATEGORY
+    - SOURCE
+    - STATUS
+    - VALIDATION_REQUIREMENT
+  category_assignment_may_promote_source_status: false
+  verified_figure_may_verify_geometry: false
+
+guardrails:
+  - AREA CATEGORY ≠ FOOTPRINT
+  - CADASTRAL BUILDING AREA ≠ ADJACENT TERRITORY
+  - TOTAL USEFUL AREA ≠ COMMON / SHARED AREA
+  - AREA VALUE ≠ VERIFIED GEOMETRY
+  - TAXONOMY ≠ SITE SURVEY
+
+forbidden_actions:
+  - treat_distinct_categories_as_conflicting_measurements
+  - infer_footprint_from_area_values
+  - infer_site_boundary_from_15020
+  - calculate_common_area_ratio
+  - reinterpret_assigned_taxonomy
+  - calculate_hidden_geometry
+  - sum_area_categories
+  - create_drawio
+  - create_pdf
+  - create_3d
+
+source_control:
+  allowed_source: EC-01_REAL_MCD_BASELINE_SEM-MCD-001_v0.3_REVIEW.md
+  required_sections_only: true
+  source_reread_outside_required_ec01_context: false

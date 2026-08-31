@@ -1,0 +1,398 @@
+schema_version: "1.0"
+graph_id: A3-EC02-01-OBSERVABILITY-NARRATIVE
+page_id: A3-EC02-01
+title: Observability Narrative
+stage: P3_OBSERVABILITY_COMPLETION
+production_no: P3-01
+case_assembly_no: "011"
+ir_type: NARRATIVE / OBSERVABILITY MODEL
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+reference_object:
+  id: SEM-MCD-001
+  address: Semey, Shakarima 13A
+  identity_role: REAL_BUILDING_EVIDENCE_ANCHOR
+
+source_control:
+  primary_semantic_authority: EC-02_PHYSICAL_TO_OBSERVATION_SEM-MCD-001_v0.3_REVIEW.md
+  source_sections:
+    - EC-02 §1-§4a
+    - EC-02 §8-§14.1
+    - EC-02 §15
+    - EC-02 §16-§16.2
+    - EC-02 §18
+  registry_ref: A3-P0_PAGE_REGISTRY_v0.4_REVIEW.md / A3-EC02-01
+  source_reread_outside_required_ec02_context: false
+  ec03_detail_reopened: false
+  unrelated_ec00_ec01_reopened: false
+
+counts:
+  narrative_blocks: 6
+  semantic_objects: 16
+  relationships: 22
+  observation_channels: 2
+  observation_candidates: 1
+  guardrails: 5
+  open_tbd_items: 7
+
+core_thesis:
+  statement: OBSERVABILITY ≠ SENSORIZATION
+  supporting_statement: HouseMaster starts with the engineering question that requires evidence, not with a sensor.
+  source_ref: EC-02 §3 / §4a / §18 A3-EC02-01
+  confidence: N/A_META
+  what_it_means: A physical condition is observable when context, an observation point, an appropriate channel, provenance, and acceptance can form a defensible HouseMaster record.
+  what_it_does_not_mean: Observability does not require an installed device, complete sensor coverage, or selected connectivity.
+
+canonical_observability_chain:
+  sequence:
+    - REAL_BUILDING
+    - SYSTEM_COMPONENT_ZONE_CONTEXT
+    - PHYSICAL_CONDITION
+    - OBSERVATION_POINT
+    - OBSERVATION_CHANNEL
+    - OBSERVATION
+    - PROVENANCE_CONTEXT_GATE
+    - EVIDENCE
+    - DOMAIN_PROFESSIONAL_VALIDATION
+    - DOMAIN_INTERPRETATION
+    - BUILDING_STATE
+  conditional_branch:
+    from: DOMAIN_INTERPRETATION
+    to: DEFECT
+    condition: DOMAIN_RULES_PASS
+  sequence_note: Preserves the explicit EC-02 evidence and validation gates; no direct physical-condition-to-state inference is allowed.
+
+narrative_blocks:
+  - id: NB-01
+    question: WHAT IS OBSERVABILITY?
+    source_ref: EC-02 §1 / §3 / §4a / §18
+    confidence: N/A_META
+    what_it_means: A physical condition can be associated with engineering context, an observation point, a channel, time/source context, provenance, and an accepted HouseMaster record.
+    what_it_does_not_mean: Full sensor coverage or installed hardware is not required.
+  - id: NB-02
+    question: WHAT IS AN OBSERVATION POINT?
+    source_ref: EC-02 §3 / §3.1 / §4
+    confidence: N/A_META
+    what_it_means: A physical or engineering concept attached to a building, system, component, zone, place, or condition where an observation may be made.
+    what_it_does_not_mean: It is not a device, installation claim, or known physical location.
+  - id: NB-03
+    question: HOW DO HUMAN AND MACHINE CHANNELS COEXIST?
+    source_ref: EC-02 §4a.1-§4a.3 / §14.1 / §15.x
+    confidence: N/A_META
+    what_it_means: Human and Machine channels are co-applicable, non-sequential, and not mutually exclusive.
+    what_it_does_not_mean: Human is not fallback-only; Machine is not mandatory.
+  - id: NB-04
+    question: WHEN DOES AN OBSERVATION BECOME EVIDENCE?
+    source_ref: EC-02 §4a / §14.1 / §16.1-§16.2
+    confidence: N/A_META
+    what_it_means: Only after required object context and provenance criteria pass; domain or professional validation remains a separate gate.
+    what_it_does_not_mean: An incoming observation is not automatically evidence, defect, or building state.
+  - id: NB-05
+    question: WHY DOES CONNECTIVITY NOT EQUAL ENGINEERING STATE?
+    source_ref: EC-02 §4a.3 / §11 / §15.y / §16.2 / §17
+    confidence: N/A_META
+    what_it_means: Connectivity transports machine-channel observations and can expose an evidence gap.
+    what_it_does_not_mean: Connectivity status cannot prove engineering condition or component failure.
+  - id: NB-06
+    question: WHAT REMAINS UNKNOWN OR CANDIDATE ON SEM-MCD-001?
+    source_ref: EC-02 §3.1 / §8 / §10 / §12 / §13
+    confidence: MIXED_VERIFIED_PARTIAL_TBD_NO_EVIDENCE
+    what_it_means: Candidates remain evidence-gated and require site validation before physical siting.
+    what_it_does_not_mean: Page composition does not close locations, installation, coverage, constraints, or connectivity feasibility.
+
+semantic_objects:
+  - id: SO-01
+    label: SEM-MCD-001 / REAL BUILDING
+    domain: PHYSICAL_REALITY
+    status: VERIFIED_IDENTITY_ANCHOR
+    source_ref: EC-02 header / §1-§2
+  - id: SO-02
+    label: SYSTEM / COMPONENT / ZONE CONTEXT
+    domain: ENGINEERING_CONTEXT
+    status: MIXED_VERIFIED_PARTIAL_TBD
+    source_ref: EC-02 §2 / §4 / §9
+  - id: SO-03
+    label: PHYSICAL CONDITION
+    domain: PHYSICAL_REALITY
+    status: CONTEXT_BOUND
+    source_ref: EC-02 §14
+  - id: SO-04
+    label: OBSERVATION POINT
+    domain: OBSERVABILITY
+    status: CONCEPTUAL_CANDIDATE_L1
+    source_ref: EC-02 §3 / §3.1 / §8
+  - id: SO-05
+    label: MACHINE / DEVICE-ASSISTED CHANNEL
+    domain: OBSERVABILITY
+    status: CONCEPTUAL
+    source_ref: EC-02 §4a / §14.1 / §15.x
+  - id: SO-06
+    label: HUMAN / DOCUMENTARY CHANNEL
+    domain: OBSERVABILITY
+    status: CONCEPTUAL_APPLICABLE
+    source_ref: EC-02 §4a / §14.1 / §15.x
+  - id: SO-07
+    label: CONNECTIVITY BOUNDARY
+    domain: MACHINE_TRANSPORT
+    status: DOWNSTREAM_TBD
+    source_ref: EC-02 §11 / §15.y / §17
+  - id: SO-08
+    label: OBSERVATION
+    domain: HOUSEMASTER_SEMANTICS
+    status: RECORD_CANDIDATE
+    source_ref: EC-02 §4a / §14.1 / §16.1
+  - id: SO-09
+    label: PROVENANCE / CONTEXT GATE
+    domain: HOUSEMASTER_ACCEPTANCE
+    status: REQUIRED
+    source_ref: EC-02 §4a / §16.1
+  - id: SO-10
+    label: EVIDENCE
+    domain: HOUSEMASTER_SEMANTICS
+    status: GATED
+    source_ref: EC-02 §14 / §16.1
+  - id: SO-11
+    label: DOMAIN / PROFESSIONAL VALIDATION
+    domain: HOUSEMASTER_ACCEPTANCE
+    status: REQUIRED_RULE_GATE
+    source_ref: EC-02 §4a.2 / §16.2
+  - id: SO-12
+    label: DOMAIN INTERPRETATION
+    domain: HOUSEMASTER_SEMANTICS
+    status: RULE_GATED
+    source_ref: EC-02 §4a / §16.2
+  - id: SO-13
+    label: DEFECT
+    domain: HOUSEMASTER_SEMANTICS
+    status: CONDITIONAL_NOT_ASSERTED
+    source_ref: EC-02 §4a / §14 / §16.2
+  - id: SO-14
+    label: BUILDING STATE
+    domain: HOUSEMASTER_SEMANTICS
+    status: RULE_GATED_HISTORY
+    source_ref: EC-02 §16.1 / §18
+  - id: SO-15
+    label: HOUSEMASTER
+    domain: SYSTEM_OF_RECORD
+    status: SEMANTIC_OWNER
+    source_ref: EC-02 §4a / §9 / §16.1
+  - id: SO-16
+    label: DEVICE CANDIDATE
+    domain: MACHINE_CHANNEL
+    status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    source_ref: EC-02 §1 / §4a.3 / §11 / §17
+
+relationships:
+  - {id: R-01, from: SO-01, to: SO-02, label: anchors engineering context, status: REQUIRED}
+  - {id: R-02, from: SO-02, to: SO-03, label: contextualizes a physical condition, status: REQUIRED}
+  - {id: R-03, from: SO-03, to: SO-04, label: motivates a candidate observation point, status: EVIDENCE_GATED}
+  - {id: R-04, from: SO-04, to: SO-06, label: may be served by human or documentary observation, status: CO_APPLICABLE}
+  - {id: R-05, from: SO-04, to: SO-05, label: may be served by a future machine channel, status: CO_APPLICABLE_CANDIDATE}
+  - {id: R-06, from: SO-16, to: SO-05, label: may support the machine channel if later selected and sited, status: FUTURE_CONDITIONAL}
+  - {id: R-07, from: SO-05, to: SO-07, label: machine observation crosses a downstream transport boundary, status: DOWNSTREAM}
+  - {id: R-08, from: SO-07, to: SO-08, label: transports but does not validate an observation, status: TRANSPORT_ONLY}
+  - {id: R-09, from: SO-06, to: SO-08, label: creates a human or documentary observation with context, status: DIRECT_CHANNEL}
+  - {id: R-10, from: SO-08, to: SO-09, label: enters provenance and context acceptance, status: REQUIRED_GATE}
+  - {id: R-11, from: SO-09, to: SO-10, label: admits evidence only where criteria pass, status: CONDITIONAL}
+  - {id: R-12, from: SO-10, to: SO-11, label: enters domain or professional validation, status: REQUIRED_GATE}
+  - {id: R-13, from: SO-11, to: SO-12, label: authorizes interpretation where rules pass, status: RULE_GATED}
+  - {id: R-14, from: SO-12, to: SO-13, label: may classify a defect, status: CONDITIONAL_NOT_ASSERTED}
+  - {id: R-15, from: SO-12, to: SO-14, label: may update engineering-domain history or state, status: CONDITIONAL}
+  - {id: R-16, from: SO-15, to: SO-09, label: owns acceptance semantics, status: OWNERSHIP}
+  - {id: R-17, from: SO-15, to: SO-14, label: maintains engineering-domain history and state, status: OWNERSHIP}
+  - {id: R-18, from: SO-04, to: SO-16, label: OBSERVATION POINT ≠ DEVICE, status: GUARDRAIL}
+  - {id: R-19, from: SO-03, to: SO-08, label: PHYSICAL CONDITION ≠ OBSERVATION, status: GUARDRAIL}
+  - {id: R-20, from: SO-08, to: SO-10, label: OBSERVATION ≠ EVIDENCE, status: GUARDRAIL}
+  - {id: R-21, from: SO-10, to: SO-13, label: EVIDENCE ≠ DEFECT, status: GUARDRAIL}
+  - {id: R-22, from: SO-07, to: SO-14, label: CONNECTIVITY STATE ≠ ENGINEERING STATE, status: GUARDRAIL}
+
+channel_model:
+  relationship: CO_APPLICABLE_NOT_SEQUENTIAL_NOT_MUTUALLY_EXCLUSIVE
+  channels:
+    - id: CHANNEL-A
+      label: MACHINE / DEVICE-ASSISTED
+      source_ref: EC-02 §4a / §14.1 / §15.x
+      status: CONCEPTUAL_CANDIDATE
+      confidence: N/A_META
+      observation_forms:
+        - measurement
+        - state
+        - counter
+        - event
+      may_do:
+        - measure
+        - timestamp
+        - buffer
+        - forward
+      what_it_does_not_mean:
+        - installed device
+        - selected sensor
+        - confirmed mounting location
+        - selected protocol or topology
+        - verified engineering state
+    - id: CHANNEL-B
+      label: HUMAN / DOCUMENTARY
+      source_ref: EC-02 §4a / §14.1 / §15.x
+      status: APPLICABLE_WHERE_ACCESS_AND_CONTEXT_ALLOW
+      confidence: N/A_META
+      observation_forms:
+        - inspection
+        - checklist
+        - manual reading
+        - field assessment
+        - photo
+        - note
+        - act
+        - documentary record
+      independent_of_machine_deployment: true
+      what_it_does_not_mean:
+        - fallback-only channel
+        - lower trust by default
+        - exemption from provenance requirements
+
+observation_point_model:
+  definition: A physical or engineering concept attached to building, system, component, zone, place, or condition where an observation can be made.
+  source_ref: EC-02 §3 / §3.1 / §4 / §8
+  attached_contexts:
+    - BUILDING
+    - SYSTEM
+    - COMPONENT
+    - ZONE
+  may_be_served_by:
+    - HUMAN_INSPECTION
+    - CANDIDATE_DEVICE
+    - MULTIPLE_CHANNELS
+  depends_on_installed_device: false
+  current_valid_candidate_readiness: L1_CONCEPTUAL
+  siteable_l2_plus_count: 0
+  exact_location_inferred: false
+  what_it_does_not_mean:
+    - DEVICE
+    - INSTALLED_DEVICE
+    - CONFIRMED_MOUNTING_POINT
+    - CONFIRMED_PHYSICAL_LOCATION
+
+acceptance_model:
+  sequence:
+    - OBSERVATION
+    - PROVENANCE_CONTEXT_GATE
+    - EVIDENCE_IF_CRITERIA_PASS
+    - DOMAIN_PROFESSIONAL_VALIDATION
+    - DEFECT_OR_BUILDING_STATE_IF_RULES_PASS
+  source_ref: EC-02 §4a / §14 / §16.1-§16.2
+  housemaster_role:
+    - owns observation and evidence semantics
+    - anchors records to building and engineering context
+    - preserves provenance
+    - accepts or rejects records through domain rules
+    - maintains engineering-domain history and state
+  collapse_stages: false
+
+provenance_model:
+  source_ref: EC-02 §4a / §16.1 plus owner-approved A3-EC02-01 brief
+  fields_where_applicable:
+    - building_object_context
+    - system_component_zone_context
+    - observation_point
+    - observation_channel
+    - event_time
+    - recorded_received_time
+    - actor_source_device_identity
+    - attachment_photo_reference
+    - source_provenance
+    - confidence_validation_status
+  unknown_value_policy: KEEP_TBD
+  time_model:
+    event_time_equals_recorded_received_time: false
+    later_record_time_rewrites_event_time: false
+    no_event_proves_normal_condition: false
+    no_new_observation_proves_unchanged_state: false
+
+reference_candidates:
+  - observation_candidate_id: OBS-CAND-001
+    oc_id: OC-001
+    building_context: SEM-MCD-001
+    system_context: HEATING
+    observable_condition: Temperature condition at heating system-entry context
+    observation_point_status: CANDIDATE_L1
+    human_observation_applicability: YES_GENERAL_ASSESSMENT_NOW_IN_PRINCIPLE
+    machine_observation_applicability: YES_PENDING_FIELD_CONFIRMED_SITING
+    device_candidate_status: CONCEPTUAL_NOT_SELECTED_NOT_INSTALLED
+    location_status: TBD_COMPONENT_LOCATION_NOT_ESTABLISHED
+    provenance_source_ref: EC-02 §15 OBS-CAND-001 / §16 / EC-01 BF-015 as cited by EC-02
+    confidence: VERIFIED_SYSTEM_EXISTENCE_TBD_COMPONENT_LOCATION
+    validation_requirement: Field-confirm heating-entry location before any machine device can be sited; retain context and provenance for acceptance.
+    what_it_does_not_mean: Does not instantiate HEAT-xx, prove an installed device, establish a mounting point, select implementation, or define connectivity.
+
+open_tbd_items:
+  - {id: OT-01, item: observation-point exact physical locations, status: TBD, source_ref: EC-02 §3.1 / §8 / §10}
+  - {id: OT-02, item: device mounting locations, status: TBD, source_ref: EC-02 §10 / §17}
+  - {id: OT-03, item: installed-device status, status: NOT_ESTABLISHED_TBD, source_ref: EC-02 §1 / §11 / §17}
+  - {id: OT-04, item: machine-observation coverage, status: TBD, source_ref: EC-02 §4a / §15.x}
+  - {id: OT-05, item: site validation, status: REQUIRED_NOT_COMPLETED, source_ref: EC-02 §3.1 / §10 / §12}
+  - {id: OT-06, item: power environmental and access constraints, status: TBD, source_ref: owner-approved A3-EC02-01 brief / EC-02 §17 installation readiness boundary}
+  - {id: OT-07, item: connectivity feasibility, status: TBD_DOWNSTREAM_MACHINE_CHANNEL_ONLY, source_ref: EC-02 §11 / §15.y / §17}
+
+guardrails:
+  - id: G-01
+    statement: OBSERVABILITY ≠ SENSORIZATION
+    source_ref: EC-02 §3 / §4a / §18 plus owner-approved page thesis
+  - id: G-02
+    statement: OBSERVATION POINT ≠ DEVICE
+    source_ref: EC-02 §3 / §4a.3
+  - id: G-03
+    statement: OBSERVATION ≠ EVIDENCE
+    source_ref: EC-02 §14 / §16.1
+  - id: G-04
+    statement: EVIDENCE ≠ DEFECT
+    source_ref: EC-02 §4a / §14 / §16.2
+  - id: G-05
+    statement: HUMAN OBSERVATION ≠ MACHINE DEPENDENCE
+    source_ref: EC-02 §4a.1-§4a.3 / §15.x
+
+supporting_rules:
+  - PHYSICAL CONDITION ≠ OBSERVATION
+  - NO NEW OBSERVATION ≠ NO PHYSICAL CHANGE
+  - CONNECTIVITY STATE ≠ ENGINEERING STATE
+  - DEVICE CANDIDATE ≠ INSTALLED DEVICE
+  - OBSERVABILITY ≠ FULL SENSOR COVERAGE
+  - VISUAL COVERAGE ≠ OBSERVABILITY COVERAGE
+
+page_relationships:
+  this_page: narrative / conceptual meaning
+  A3-EC02-02: hero physical-to-observation graph
+  A3-EC02-03: full master observability matrix
+  A3-EC02-04: detailed OBS-CAND-001 worked example
+
+beeline_role:
+  included: true
+  scope: DOWNSTREAM_MACHINE_CHANNEL_TRANSPORT_BOUNDARY_ONLY
+  topology_defined: false
+  direct_or_edge_selected: false
+  sim_api_payload_defined: false
+  rf_coverage_defined: false
+  provisioning_defined: false
+  source_of_engineering_truth: false
+
+alau_ai:
+  included_in_primary_narrative: false
+  status: OUT_OF_SCOPE_DOWNSTREAM
+
+prohibited_outputs:
+  network_topology: false
+  device_deployment_plan: false
+  direct_or_edge_selection: false
+  invented_observation_locations: false
+  invented_sensors: false
+  invented_device_counts: false
+  protocols_or_apis: false
+  rf_assumptions: false
+  coverage_percentages: false
+  sensor_count_targets: false
+  maturity_score: false
+  drawio: false
+  pdf: false
+  three_d: false

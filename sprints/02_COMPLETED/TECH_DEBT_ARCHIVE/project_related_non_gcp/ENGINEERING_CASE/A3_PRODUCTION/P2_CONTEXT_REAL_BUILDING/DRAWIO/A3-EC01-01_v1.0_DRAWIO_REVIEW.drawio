@@ -1,0 +1,360 @@
+<mxfile host="app.diagrams.net" agent="Codex">
+  <diagram id="A3-EC01-01-v1-0" name="A3-EC01-01">
+    <mxGraphModel dx="1993" dy="985" grid="1" gridSize="3" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1587" pageHeight="1123" background="#FCFCFA" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="page-bg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCFCFA;strokeColor=#D0D4D8;strokeWidth=1;" value="" vertex="1">
+          <mxGeometry height="1123" width="1587" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#17212B;" value="&lt;b&gt;A3-EC01-01&lt;/b&gt;&amp;nbsp;&amp;nbsp; REFERENCE BUILDING / EVIDENCE ANCHOR" vertex="1">
+          <mxGeometry height="38" width="1120" x="57" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="title-meta" parent="1" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Arial;fontSize=9.5;fontColor=#44515D;" value="P2-03 &amp;nbsp;|&amp;nbsp; CASE 004&lt;br&gt;&lt;b&gt;FROZEN / PAGE_SPEC_READY&lt;/b&gt;" vertex="1">
+          <mxGeometry height="38" width="345" x="1185" y="42" as="geometry" />
+        </mxCell>
+        <mxCell id="thesis" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=12;fillColor=#F2F5F7;strokeColor=#A8B2BC;strokeWidth=1;fontFamily=Arial;fontSize=9.5;fontColor=#24313D;" value="SEM-MCD-001 is the source-backed validation anchor. Repeatable architectural learning follows evidence + explicit unknowns + validation; it does not assert identical buildings." vertex="1">
+          <mxGeometry height="52" width="1473" x="57" y="86" as="geometry" />
+        </mxCell>
+        <mxCell id="chain-label" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#334A5E;" value="PRIMARY EVIDENCE-ANCHOR CHAIN" vertex="1">
+          <mxGeometry height="18" width="320" x="57" y="143" as="geometry" />
+        </mxCell>
+        <mxCell id="N-01" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=6;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=2;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#1B5E20;" value="&lt;b&gt;SEM-MCD-001&lt;/b&gt;&lt;br&gt;Semey, Shakarima 13A&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;ADDRESS: VERIFIED&lt;br&gt;HM REFERENCE ID: ASSIGNED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="104" width="190" x="57" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="N-02" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;fontFamily=Arial;fontSize=8;fontStyle=1;fontColor=#1B5E20;arcSize=0;" value="VERIFIED IDENTITY FACTS" vertex="1">
+          <mxGeometry height="23" width="119" x="201" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="N-03" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=6;fillColor=#FFFFFF;strokeColor=#455A64;strokeWidth=1.5;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#263238;" value="&lt;b&gt;REAL BUILDING&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;PHYSICAL SOURCE OF&lt;br&gt;ENGINEERING REALITY&lt;/font&gt;" vertex="1">
+          <mxGeometry height="104" width="145" x="267" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="N-04" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=6;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1.5;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#1B5E20;" value="&lt;b&gt;SOURCE-BACKED FACTS&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;10 VERIFIED FACTS&lt;br&gt;MIXED SOURCE SET&lt;/font&gt;" vertex="1">
+          <mxGeometry height="104" width="155" x="432" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="N-09" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=6;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1.5;dashed=1;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#424242;" value="&lt;b&gt;EXPLICIT UNKNOWNS&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;12 OPEN / TBD ITEMS&lt;br&gt;UNKNOWN ≠ ABSENT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="104" width="160" x="607" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="N-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=6;fillColor=#FFF8E1;strokeColor=#F9A825;strokeWidth=1.5;dashed=1;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#7A5A00;" value="&lt;b&gt;SITE VALIDATION&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;SURVEY / INSPECTION&lt;br&gt;REQUIRED — NOT COMPLETE&lt;/font&gt;" vertex="1">
+          <mxGeometry height="104" width="160" x="787" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="N-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=6;fillColor=#E8F0FE;strokeColor=#2457A6;strokeWidth=1.5;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#153A73;" value="&lt;b&gt;SEMANTIC BUILDING MODEL&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;EVIDENCE-BACKED&lt;br&gt;PARTIAL&lt;/font&gt;" vertex="1">
+          <mxGeometry height="104" width="165" x="967" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="N-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=6;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1.5;dashed=1;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#0D47A1;" value="&lt;b&gt;CONNECTIVITY / INTEGRATION DESIGN&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;EVIDENCE-CONSTRAINED&lt;br&gt;TBD&lt;/font&gt;" vertex="1">
+          <mxGeometry height="104" width="170" x="1152" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="N-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=6;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=2;dashed=1;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#0D47A1;" value="&lt;b&gt;REPEATABLE MCD PATTERN&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;PROPOSED&lt;br&gt;≠ IDENTICAL BUILDINGS&lt;/font&gt;" vertex="1">
+          <mxGeometry height="104" width="188" x="1342" y="164" as="geometry" />
+        </mxCell>
+        <mxCell id="provenance-label" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#334A5E;" value="PROVENANCE RAIL — VISUAL QUALITY CANNOT PROMOTE EVIDENCE STATUS" vertex="1">
+          <mxGeometry height="18" width="455.5" x="345" y="284" as="geometry" />
+        </mxCell>
+        <mxCell id="N-05" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#607D8B;strokeWidth=1.5;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#263238;" value="&lt;b&gt;CLAIM&lt;/b&gt;" vertex="1">
+          <mxGeometry height="54" width="90" x="393" y="324" as="geometry" />
+        </mxCell>
+        <mxCell id="N-06" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#607D8B;strokeWidth=1.5;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#263238;" value="&lt;b&gt;SOURCE REFERENCE&lt;/b&gt;" vertex="1">
+          <mxGeometry height="54" width="170" x="525" y="324" as="geometry" />
+        </mxCell>
+        <mxCell id="N-07" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#607D8B;strokeWidth=1.5;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#263238;" value="&lt;b&gt;CONFIDENCE&lt;/b&gt;" vertex="1">
+          <mxGeometry height="54" width="150" x="725" y="324" as="geometry" />
+        </mxCell>
+        <mxCell id="N-08" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFF8E1;strokeColor=#F9A825;strokeWidth=1.5;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#7A5A00;" value="&lt;b&gt;VALIDATION STATUS&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;GATED UPDATE ONLY&lt;/font&gt;" vertex="1">
+          <mxGeometry height="54" width="180" x="905" y="324" as="geometry" />
+        </mxCell>
+        <mxCell id="N-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFF8E1;strokeColor=#F9A825;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=9.5;fontStyle=1;fontColor=#7A5A00;" value="&lt;b&gt;FAILURE / RISK INTERPRETATION&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;RULE-GATED — CONCEPTUAL&lt;/font&gt;" vertex="1">
+          <mxGeometry height="54" width="170" x="1152" y="324" as="geometry" />
+        </mxCell>
+        <mxCell id="lt7pPAVGjOuIAwBmoUPL-1" edge="1" parent="1" source="N-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="N-20" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="N-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FAFAFA;strokeColor=#9E9E9E;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=9.5;fontStyle=1;fontColor=#616161;" value="&lt;b&gt;GENERIC TEMPLATE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;INSUFFICIENT SHORTCUT&lt;br&gt;NOT A SOURCE OF TRUTH&lt;/font&gt;" vertex="1">
+          <mxGeometry height="54" width="188" x="1342" y="324" as="geometry" />
+        </mxCell>
+        <mxCell id="facts-panel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2E7D32;strokeWidth=1;arcSize=10;" value="" vertex="1">
+          <mxGeometry height="238" width="360" x="60" y="394" as="geometry" />
+        </mxCell>
+        <mxCell id="facts-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=1;fontColor=#1B5E20;" value="&lt;b&gt;VERIFIED FACT REGISTER — 10&lt;/b&gt;" vertex="1">
+          <mxGeometry height="24" width="315" x="73" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="facts-list" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;overflow=hidden;spacingTop=5;spacingLeft=3;fontFamily=Arial;fontSize=12;fontColor=#263238;lineHeight=1.35;" value="&lt;b&gt;VF-01&lt;/b&gt; Current address — Semey, Shakarima 13A&lt;br&gt;&lt;b&gt;VF-02&lt;/b&gt; Cadastral number documented&lt;br&gt;&lt;b&gt;VF-03&lt;/b&gt; BTI case 209&lt;br&gt;&lt;b&gt;VF-04&lt;/b&gt; 9 storeys&lt;br&gt;&lt;b&gt;VF-05&lt;/b&gt; Heating system existence&lt;br&gt;&lt;b&gt;VF-06&lt;/b&gt; Cold-water system existence&lt;br&gt;&lt;b&gt;VF-07&lt;/b&gt; Hot-water system existence&lt;br&gt;&lt;b&gt;VF-08&lt;/b&gt; Sewer system existence&lt;br&gt;&lt;b&gt;VF-09&lt;/b&gt; Power-supply system existence&lt;br&gt;&lt;b&gt;VF-10&lt;/b&gt; Lift system existence" vertex="1">
+          <mxGeometry height="169" width="318" x="81" y="441" as="geometry" />
+        </mxCell>
+        <mxCell id="unknowns-panel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F8F8;strokeColor=#757575;strokeWidth=1;dashed=1;" value="" vertex="1">
+          <mxGeometry height="227" width="500" x="550" y="394" as="geometry" />
+        </mxCell>
+        <mxCell id="unknowns-title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=1;fontColor=#424242;" value="&lt;b&gt;OPEN / TBD REGISTER — 12&lt;/b&gt;&amp;nbsp;&amp;nbsp; UNKNOWN ≠ ABSENT" vertex="1">
+          <mxGeometry height="24" width="465" x="568" y="406" as="geometry" />
+        </mxCell>
+        <mxCell id="unknowns-list-a" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;overflow=hidden;spacingTop=5;fontFamily=Arial;fontSize=12;fontColor=#424242;lineHeight=1.35;" value="&lt;b&gt;U-01&lt;/b&gt; Exact footprint — TBD&lt;br&gt;&lt;b&gt;U-02&lt;/b&gt; Stepped geometry / dimensions — PARTIAL&lt;br&gt;&lt;b&gt;U-03&lt;/b&gt; HEAT-03 — NO EVIDENCE&lt;br&gt;&lt;b&gt;U-04&lt;/b&gt; Apartment count 81 vs 78 — OPEN&lt;br&gt;&lt;b&gt;U-05&lt;/b&gt; Land-letter mismatch — OPEN&lt;br&gt;&lt;b&gt;U-06&lt;/b&gt; Basement / technical-space plan + height — TBD" vertex="1">
+          <mxGeometry height="142" width="222" x="568" y="428" as="geometry" />
+        </mxCell>
+        <mxCell id="unknowns-list-b" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;overflow=hidden;spacingTop=5;fontFamily=Arial;fontSize=12;fontColor=#424242;lineHeight=1.35;" value="&lt;b&gt;U-07&lt;/b&gt; Engineering-node / component locations — TBD&lt;br&gt;&lt;b&gt;U-08&lt;/b&gt; Observation/device locations + constraints — TBD&lt;br&gt;&lt;b&gt;U-09&lt;/b&gt; Connectivity feasibility — TBD&lt;br&gt;&lt;b&gt;U-10&lt;/b&gt; Facade / elevations — TBD&lt;br&gt;&lt;b&gt;U-11&lt;/b&gt; Inventory number/year confirmation — PARTIAL / TBD&lt;br&gt;&lt;b&gt;U-12&lt;/b&gt; Source-register content — TBD" vertex="1">
+          <mxGeometry height="157" width="227" x="806" y="428" as="geometry" />
+        </mxCell>
+        <mxCell id="validation-panel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A8B2BC;strokeWidth=1;arcSize=5;" value="" vertex="1">
+          <mxGeometry height="304" width="375" x="1161" y="399" as="geometry" />
+        </mxCell>
+        <mxCell id="validation-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=1;fontColor=#334A5E;" value="&lt;b&gt;VALIDATION / REPRESENTATION&lt;/b&gt;" vertex="1">
+          <mxGeometry height="24" width="335" x="1177" y="411" as="geometry" />
+        </mxCell>
+        <mxCell id="N-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=10;fillColor=#FFFFFF;strokeColor=#607D8B;strokeWidth=1;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#263238;" value="&lt;b&gt;PHOTO / DOCUMENTARY VALIDATION&lt;/b&gt;&lt;br&gt;&lt;font&gt;OBJECT + TIME + ACTOR/SOURCE + ATTACHMENT&lt;br&gt;MISSING PROVENANCE REMAINS TBD&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="315" x="1203" y="446" as="geometry" />
+        </mxCell>
+        <mxCell id="source-update" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=10;fillColor=#FFF8E1;strokeColor=#F9A825;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#7A5A00;" value="&lt;b&gt;AUTHORITATIVE SOURCE UPDATE&lt;/b&gt;&lt;br&gt;&lt;font&gt;May close only the items it directly supports.&lt;br&gt;One survey does not close every TBD.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="318" x="1200" y="528" as="geometry" />
+        </mxCell>
+        <mxCell id="N-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=10;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#424242;" value="&lt;b&gt;3D / SEMANTIC MAPPING&lt;/b&gt;&lt;br&gt;&lt;font&gt;EVIDENCE-CONSTRAINED REPRESENTATION&lt;br&gt;&lt;b&gt;3D GEOMETRY ≠ SOURCE OF TRUTH&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="76" width="315" x="1203" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="candidates-panel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A8B2BC;strokeWidth=1;" value="" vertex="1">
+          <mxGeometry height="174" width="430" x="57" y="705" as="geometry" />
+        </mxCell>
+        <mxCell id="candidates-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#334A5E;" value="&lt;b&gt;OBSERVATION / DEVICE CANDIDATES&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="390" x="73" y="715" as="geometry" />
+        </mxCell>
+        <mxCell id="N-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=9.5;fontStyle=1;fontColor=#0D47A1;" value="&lt;b&gt;OBSERVATION-POINT CANDIDATES&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;CONCEPTUAL • LOCATIONS TBD&lt;/font&gt;" vertex="1">
+          <mxGeometry height="66" width="185" x="78" y="762" as="geometry" />
+        </mxCell>
+        <mxCell id="N-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=9.5;fontStyle=1;fontColor=#0D47A1;" value="&lt;b&gt;DEVICE CANDIDATES&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;CONCEPTUAL • NONE INSTALLED&lt;br&gt;LOCATIONS TBD&lt;/font&gt;" vertex="1">
+          <mxGeometry height="66" width="185" x="287" y="762" as="geometry" />
+        </mxCell>
+        <mxCell id="candidate-rule" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8;fontStyle=1;fontColor=#424242;" value="CANDIDATE DEVICE / OBSERVATION POINT ≠ INSTALLED DEVICE" vertex="1">
+          <mxGeometry height="34" width="394" x="73" y="823" as="geometry" />
+        </mxCell>
+        <mxCell id="connectivity-panel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A8B2BC;strokeWidth=1;" value="" vertex="1">
+          <mxGeometry height="174" width="350" x="505" y="705" as="geometry" />
+        </mxCell>
+        <mxCell id="connectivity-title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#334A5E;" value="&lt;b&gt;CONNECTIVITY ALTERNATIVES&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;EQUAL STATUS • TOPOLOGY NOT SELECTED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="35" width="318" x="521" y="715" as="geometry" />
+        </mxCell>
+        <mxCell id="N-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=9.5;fontStyle=1;fontColor=#0D47A1;" value="&lt;b&gt;DIRECT CONNECTIVITY&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;PLAUSIBLE / NOT SELECTED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="66" width="145" x="521" y="762" as="geometry" />
+        </mxCell>
+        <mxCell id="N-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=9.5;fontStyle=1;fontColor=#0D47A1;" value="&lt;b&gt;EDGE AGGREGATION&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;PLAUSIBLE / NOT SELECTED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="66" width="145" x="694" y="762" as="geometry" />
+        </mxCell>
+        <mxCell id="N-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=8;fillColor=#FFFFFF;strokeColor=#607D8B;strokeWidth=1;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#263238;" value="&lt;b&gt;AREA TAXONOMY — SUBORDINATE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;1,248 m² TOTAL USEFUL — ASSIGNED&lt;br&gt;550 m² COMMON / SHARED — ASSIGNED&lt;br&gt;6,403.80 m² CADASTRAL BUILDING — VERIFIED&lt;br&gt;≈15,020 m² ADJACENT / ASSOCIATED — PARTIAL&lt;br&gt;&lt;b&gt;AREA TAXONOMY ≠ BUILDING FOOTPRINT&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="114" width="279" x="909" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="systems-panel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=8;fillColor=#FFFFFF;strokeColor=#607D8B;strokeWidth=1;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#263238;" value="&lt;b&gt;SYSTEM EXISTENCE — SUBORDINATE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;SYSTEMS = 9&lt;br&gt;VERIFIED = 6 • PARTIAL = 1 • TBD = 2&lt;br&gt;SPECIFIC COMPONENT / NODE LOCATIONS = TBD 9&lt;br&gt;CONFIRMED COMPONENT / NODE LOCATIONS = 0&lt;br&gt;&lt;b&gt;SYSTEM EXISTS ≠ COMPONENT LOCATION KNOWN&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="111" width="293" x="1237" y="768" as="geometry" />
+        </mxCell>
+        <mxCell id="secondary-rules" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#F2F5F7;strokeColor=#A8B2BC;strokeWidth=0.5;fontFamily=Arial;fontSize=9;fontStyle=1;fontColor=#334A5E;" value="SECONDARY RULES &amp;nbsp;•&amp;nbsp; AREA TAXONOMY ≠ BUILDING FOOTPRINT &amp;nbsp;•&amp;nbsp; SYSTEM EXISTS ≠ COMPONENT LOCATION KNOWN &amp;nbsp;•&amp;nbsp; CANDIDATE DEVICE / OBSERVATION POINT ≠ INSTALLED DEVICE" vertex="1">
+          <mxGeometry height="30" width="1473" x="57" y="893" as="geometry" />
+        </mxCell>
+        <mxCell id="g1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#455A64;strokeWidth=1.25;fontFamily=Arial;fontSize=9;fontStyle=1;fontColor=#263238;" value="REAL BUILDING ≠ GENERIC TEMPLATE" vertex="1">
+          <mxGeometry height="58" width="285" x="57" y="935" as="geometry" />
+        </mxCell>
+        <mxCell id="g2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFFFFF;strokeColor=#455A64;strokeWidth=1.25;fontFamily=Arial;fontSize=9;fontStyle=1;fontColor=#263238;" value="VISUAL REALISM ≠ VERIFIED DATA" vertex="1">
+          <mxGeometry height="58" width="285" x="354" y="935" as="geometry" />
+        </mxCell>
+        <mxCell id="g3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1.25;dashed=1;fontFamily=Arial;fontSize=9;fontStyle=1;fontColor=#424242;" value="UNKNOWN ≠ ABSENT" vertex="1">
+          <mxGeometry height="58" width="285" x="651" y="935" as="geometry" />
+        </mxCell>
+        <mxCell id="g4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1.25;dashed=1;fontFamily=Arial;fontSize=9;fontStyle=1;fontColor=#424242;" value="3D GEOMETRY ≠ SOURCE OF TRUTH" vertex="1">
+          <mxGeometry height="58" width="285" x="948" y="935" as="geometry" />
+        </mxCell>
+        <mxCell id="g5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1.25;dashed=1;fontFamily=Arial;fontSize=9;fontStyle=1;fontColor=#0D47A1;" value="REPEATABLE PATTERN ≠ IDENTICAL BUILDINGS" vertex="1">
+          <mxGeometry height="58" width="285" x="1245" y="935" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacingLeft=10;fillColor=#263238;strokeColor=#263238;fontFamily=Arial;fontSize=9;fontColor=#FFFFFF;" value="A3-EC01-01 &amp;nbsp;|&amp;nbsp; REFERENCE OBJECT: SEM-MCD-001 &amp;nbsp;|&amp;nbsp; SOURCE: FROZEN GRAPH IR + PAGE SPEC &amp;nbsp;|&amp;nbsp; VERIFIED FACTS: 10 &amp;nbsp;|&amp;nbsp; OPEN/TBD: 12 &amp;nbsp;|&amp;nbsp; REV: v1.0 DRAWIO REVIEW" vertex="1">
+          <mxGeometry height="53" width="1473" x="57" y="1008" as="geometry" />
+        </mxCell>
+        <mxCell id="E-01" edge="1" parent="1" source="N-01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#355C7D;strokeWidth=1.5;" target="N-02" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="152" y="327.04" />
+              <mxPoint x="216.04" y="327.04" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-02" edge="1" parent="1" source="N-02" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#355C7D;strokeWidth=2;" target="N-03" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="251.52" y="303" />
+              <mxPoint x="339.52" y="303" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-03" edge="1" parent="1" source="N-03" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#355C7D;strokeWidth=2;" target="N-04" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E-04" edge="1" parent="1" source="N-04" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#607D8B;strokeWidth=1;" target="N-05" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450.05" y="315" />
+              <mxPoint x="450.05" y="315" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-05" edge="1" parent="1" source="N-05" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#607D8B;strokeWidth=1.5;" target="N-06" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E-06" edge="1" parent="1" source="N-06" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#607D8B;strokeWidth=1.5;" target="N-07" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E-07" edge="1" parent="1" source="N-07" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#607D8B;strokeWidth=1.5;" target="N-08" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E-08" edge="1" parent="1" source="N-04" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#355C7D;strokeWidth=2;" target="N-09" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E-09" edge="1" parent="1" source="N-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#90A4AE;strokeWidth=1;dashed=1;dashPattern=1 3;fontFamily=Arial;fontSize=9;fontColor=#607D8B;" target="N-04" value="context">
+          <mxGeometry relative="1" x="-0.3365" y="-6" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="948.03" y="660" />
+              <mxPoint x="501" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-10" edge="1" parent="1" source="N-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#757575;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=8;fontColor=#424242;horizontal=1;" target="N-09" value="does not close footprint">
+          <mxGeometry relative="1" x="-0.4907" y="-6" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1005" y="639" />
+              <mxPoint x="513" y="639" />
+              <mxPoint x="513" y="315" />
+              <mxPoint x="687" y="315" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-11" edge="1" parent="1" source="N-09" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#355C7D;strokeWidth=2;" target="N-11" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E-12" edge="1" parent="1" source="N-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#607D8B;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=8;fontColor=#607D8B;" target="N-11" value="validation input">
+          <mxGeometry relative="1" x="0.1512" y="-6" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1125" y="481.03" />
+              <mxPoint x="1125" y="312" />
+              <mxPoint x="867" y="312" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-13" edge="1" parent="1" source="N-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#F9A825;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=8;fontColor=#7A5A00;horizontal=0;" target="N-08" value="gated update">
+          <mxGeometry relative="1" x="-0.1786" y="-6" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="918.03" y="306" />
+              <mxPoint x="918.03" y="306" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-14" edge="1" parent="1" source="N-08" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#2457A6;strokeWidth=1.5;fontFamily=Arial;fontSize=8;fontColor=#153A73;horizontal=1;labelBackgroundColor=none;" target="N-18" value="admitted facts">
+          <mxGeometry relative="1" x="1" y="7" as="geometry">
+            <mxPoint x="7" y="-7" as="offset" />
+            <Array as="points">
+              <mxPoint x="1005" y="294" />
+              <mxPoint x="1005" y="294" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-15" edge="1" parent="1" source="N-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#757575;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=10;fontColor=#424242;horizontal=0;" value="representation only">
+          <mxGeometry relative="1" y="6" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1089" y="648" />
+            </Array>
+            <mxPoint x="1089.01" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-16" edge="1" parent="1" source="N-03" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#1976D2;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=10;fontColor=#0D47A1;horizontal=0;" target="N-14" value="candidate">
+          <mxGeometry relative="1" x="0.3009" y="-6" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="303" y="291" />
+              <mxPoint x="33" y="291" />
+              <mxPoint x="33" y="777" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-17" edge="1" parent="1" source="N-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#1976D2;strokeWidth=1;dashed=1;" target="N-15" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E-18" edge="1" parent="1" source="N-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#1976D2;strokeWidth=1;dashed=1;" target="N-16" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E-19" edge="1" parent="1" source="N-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#1976D2;strokeWidth=1;dashed=1;" target="N-17" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="429" y="861.03" />
+              <mxPoint x="766.49" y="861.03" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-20" edge="1" parent="1" source="N-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#1976D2;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=10;fontColor=#0D47A1;" target="N-19" value="plausible">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="593.5" y="846.08" />
+              <mxPoint x="885" y="846.08" />
+              <mxPoint x="885" y="699" />
+              <mxPoint x="1140.08" y="699" />
+              <mxPoint x="1140.08" y="243" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-21" edge="1" parent="1" source="N-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#1976D2;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=8;fontColor=#0D47A1;" target="N-19" value="plausible">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="766.52" y="723" />
+              <mxPoint x="1554" y="723" />
+              <mxPoint x="1554" y="294" />
+              <mxPoint x="1302" y="294" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-22" edge="1" parent="1" source="N-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#355C7D;strokeWidth=2;" target="N-19" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E-23" edge="1" parent="1" source="N-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#F9A825;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=8;fontColor=#7A5A00;" target="N-20" value="rule-gated">
+          <mxGeometry relative="1" x="0.0471" y="6" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1098" y="300" />
+              <mxPoint x="1212" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-24" edge="1" parent="1" source="N-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#F9A825;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=8;fontColor=#7A5A00;labelBackgroundColor=none;" target="N-20" value="does not prove engineering state">
+          <mxGeometry relative="1" x="-1" y="-7" as="geometry">
+            <mxPoint x="7" y="-7" as="offset" />
+            <Array as="points">
+              <mxPoint x="1245" y="294" />
+              <mxPoint x="1245" y="294" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-25" edge="1" parent="1" source="N-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#1976D2;strokeWidth=1;dashed=1;fontFamily=Arial;fontSize=8;fontColor=#0D47A1;" target="N-21" value="safeguards">
+          <mxGeometry relative="1" x="-0.1801" y="3" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1287" y="309" />
+              <mxPoint x="1392" y="309" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-26" edge="1" parent="1" source="N-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#1976D2;strokeWidth=1.5;dashed=1;" target="N-21" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="E-27" edge="1" parent="1" source="N-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#9E9E9E;strokeWidth=1;dashed=1;dashPattern=1 3;fontFamily=Arial;fontSize=8;fontColor=#616161;labelBackgroundColor=none;" target="N-21" value="INSUFFICIENT SHORTCUT">
+          <mxGeometry relative="1" x="1" y="7" as="geometry">
+            <mxPoint x="7" y="-7" as="offset" />
+            <Array as="points">
+              <mxPoint x="1461" y="297" />
+              <mxPoint x="1461" y="297" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-28" edge="1" parent="1" source="N-01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#90A4AE;strokeWidth=1;dashed=1;dashPattern=1 3;fontFamily=Arial;fontSize=8;fontColor=#607D8B;" target="N-21" value="validated anchor enables generalization">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1535" y="150" />
+              <mxPoint x="1535" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,231 @@
+graph_id: A3-EC00-03
+page_id: A3-EC00-03
+title: Architecture Axioms
+ir_type: REGISTER / AXIOM SYSTEM
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+stage: P2_CONTEXT_REAL_BUILDING
+production_number: P2-02
+case_assembly_number: "003"
+
+reference:
+  id: SEM-MCD-001
+  label: Semey, Shakarima 13A
+  role: REAL_BUILDING_REFERENCE
+
+source_control:
+  ec00_gate_status: APPROVED_CLOSED
+  ec00_primary_source: TECH-08_CROSS_CUTTING_AXIOMS
+  source_linkage_status: SOURCE_LINKAGE_PENDING
+  minimum_source_set:
+    - "A3-P0_PAGE_REGISTRY_v0.4_REVIEW.md — A3-EC00-03"
+    - "EC-02 v0.3 §4a"
+    - "EC-03 v0.3 §§3, 9a, 22"
+    - "A3-P0_CASE_DESIGN_SYSTEM_v0.4_REVIEW.md §11"
+    - "A3-EC00-01_GRAPH_IR.yaml — FROZEN BC-03 / guardrails / bypass"
+  source_reread_outside_required_ec00_context: false
+
+groups:
+  - group_id: A
+    label: STATE SEPARATION
+    axiom_ids: [AX-01, AX-02, AX-08]
+  - group_id: B
+    label: IDENTITY SEPARATION
+    axiom_ids: [AX-03]
+  - group_id: C
+    label: EVIDENCE / ENGINEERING TRUTH
+    axiom_ids: [AX-04, AX-05, AX-09]
+  - group_id: D
+    label: AUTHORITY / OWNERSHIP
+    axiom_ids: [AX-06, AX-07, AX-10]
+
+axioms:
+  - axiom_id: AX-01
+    canonical_statement: CONNECTIVITY STATE ≠ ENGINEERING STATE
+    domain: STATE_SEPARATION
+    why_it_exists: Connectivity/reachability describes a path; engineering state requires evidence and domain interpretation.
+    what_it_prevents: Treating reachability, degradation or restoration as component/building condition.
+    allowed_interpretation: Connectivity state may qualify data availability and transport responsiveness.
+    forbidden_inference: A connectivity state proves an engineering state.
+    operational_consequence: Store connectivity state separately; do not open, close or change engineering findings from connectivity alone.
+    source_ref: "EC-03 §§21–22; A3-EC00-01 frozen guardrails"
+    confidence: HIGH
+    status: SOURCE_SUPPORTED / REVIEW
+
+  - axiom_id: AX-02
+    canonical_statement: NETWORK HEALTH ≠ BUILDING HEALTH
+    domain: STATE_SEPARATION
+    why_it_exists: Operator/network availability and physical-building condition belong to different domains.
+    what_it_prevents: Declaring a building healthy from network health or failed from network unavailability.
+    allowed_interpretation: Network health indicates connectivity-domain availability only.
+    forbidden_inference: Network status is a building-condition authority.
+    operational_consequence: Use network telemetry to qualify evidence availability, never as substitute engineering evidence.
+    source_ref: "EC-03 §22; A3-EC00-01 frozen guardrails"
+    confidence: HIGH
+    status: SOURCE_SUPPORTED / REVIEW
+
+  - axiom_id: AX-03
+    canonical_statement: DEVICE IDENTITY ≠ SIM IDENTITY
+    domain: IDENTITY_SEPARATION
+    why_it_exists: HouseMaster device/domain identity is independent from operator SIM/eSIM identity.
+    what_it_prevents: Domain identity/history changing with SIM replacement or connectivity-provider lifecycle.
+    allowed_interpretation: Connectivity identity may be mapped to an independent HouseMaster identity.
+    forbidden_inference: ICCID, IMSI, MSISDN or SIM identity defines the HouseMaster device/domain ID.
+    operational_consequence: Maintain separate identifiers and explicit mappings; never derive HouseMaster IDs from SIM identifiers.
+    source_ref: "EC-03 §3; A3-EC00-01 frozen guardrails"
+    confidence: HIGH
+    status: SOURCE_SUPPORTED / REVIEW
+
+  - axiom_id: AX-04
+    canonical_statement: OBSERVATION ≠ EVIDENCE ≠ DEFECT
+    domain: EVIDENCE_ENGINEERING_TRUTH
+    why_it_exists: Observation requires context/provenance to support evidence; evidence requires rules/validation to support defect classification.
+    what_it_prevents: Raw signal, note, photo or accepted record being treated as a verified defect.
+    allowed_interpretation: An observation may support evidence, and evidence may support a defect through explicit gates.
+    forbidden_inference: Observation, evidence and defect are interchangeable semantic objects.
+    operational_consequence: Preserve separate records and acceptance, provenance and professional-validation gates.
+    source_ref: "EC-02 §4a; A3-EC00-01 frozen guardrails"
+    confidence: HIGH
+    status: SOURCE_SUPPORTED / REVIEW
+
+  - axiom_id: AX-05
+    canonical_statement: AI SIGNAL ≠ ENGINEERING FACT
+    domain: EVIDENCE_ENGINEERING_TRUTH
+    why_it_exists: ALAU AI is downstream decision-support, not engineering system of record or truth source.
+    what_it_prevents: Model output overwriting evidence-backed HouseMaster state.
+    allowed_interpretation: AI signal may prompt investigation or support a recommendation.
+    forbidden_inference: Model output alone is a verified engineering fact.
+    operational_consequence: Store AI signals separately and require evidence/domain validation before engineering-state change.
+    source_ref: "A3-P0 §11; A3-EC00-01 frozen guardrails"
+    confidence: HIGH
+    status: SOURCE_SUPPORTED / REVIEW
+
+  - axiom_id: AX-06
+    canonical_statement: AI RECOMMENDATION ≠ AUTHORIZED DECISION
+    domain: AUTHORITY_OWNERSHIP
+    why_it_exists: Analytics/prediction may advise but has no default engineering-control authority.
+    what_it_prevents: Autonomous action or workflow-state change from an AI recommendation alone.
+    allowed_interpretation: Recommendation may be reviewed by a human or authorized workflow gate.
+    forbidden_inference: AI recommendation is permission, command or approved engineering decision.
+    operational_consequence: Route recommendations through explicit authorization and record the accountable decision.
+    source_ref: "A3-P0 §11; A3-EC00-01 frozen downstream boundary/guardrails"
+    confidence: HIGH
+    status: SOURCE_SUPPORTED / REVIEW
+
+  - axiom_id: AX-07
+    canonical_statement: HOSTING ≠ DOMAIN OWNERSHIP
+    domain: AUTHORITY_OWNERSHIP
+    why_it_exists: Infrastructure placement, connectivity or hosting does not transfer engineering-domain responsibility.
+    what_it_prevents: Beeline or a hosting provider being treated as owner of HouseMaster identities, evidence, state, history or workflow.
+    allowed_interpretation: A provider may host or transport data under explicit responsibility boundaries.
+    forbidden_inference: Hosting or transport grants HouseMaster domain ownership or building-condition authority.
+    operational_consequence: Preserve HouseMaster system-of-record ownership in contracts, integrations and responsibility matrices.
+    source_ref: "A3-P0 §11; EC-03 §9a; A3-EC00-01 frozen guardrails"
+    confidence: HIGH
+    status: SOURCE_SUPPORTED / REVIEW
+
+  - axiom_id: AX-08
+    canonical_statement: DEVICE OFFLINE ≠ COMPONENT FAILED
+    domain: STATE_SEPARATION
+    why_it_exists: Device silence can arise from device, power, edge or connectivity failure and does not identify physical-component state.
+    what_it_prevents: False component-failure inference from missing telemetry.
+    allowed_interpretation: Offline state creates a reachability/observation gap requiring investigation.
+    forbidden_inference: An offline device proves the observed engineering component failed.
+    operational_consequence: Record an evidence gap, retain last confirmed state where applicable and investigate root cause before defect classification.
+    source_ref: "EC-03 §22"
+    confidence: HIGH
+    status: SOURCE_SUPPORTED / REVIEW
+
+  - axiom_id: AX-09
+    canonical_statement: HUMAN EVIDENCE ≠ MACHINE DEPENDENCE
+    domain: EVIDENCE_ENGINEERING_TRUTH
+    why_it_exists: Human Channel B is independent of Channel A, Beeline connectivity and device procurement.
+    what_it_prevents: Treating all evidence as IoT-generated or blocking human inspection when machine data is unavailable.
+    allowed_interpretation: Human/documentary input may enter HouseMaster acceptance directly with provenance.
+    forbidden_inference: Evidence-bearing human input requires Beeline connectivity or installed devices.
+    operational_consequence: Maintain an explicit human/documentary path and the same provenance/acceptance discipline.
+    source_ref: "EC-02 §4a.3; A3-EC00-01 frozen bypass"
+    confidence: HIGH
+    status: SOURCE_SUPPORTED / REVIEW
+
+  - axiom_id: AX-10
+    canonical_statement: HOUSEMASTER DOMAIN ACCEPTANCE ≠ OWNERSHIP TRANSFER
+    domain: AUTHORITY_OWNERSHIP
+    why_it_exists: Boundary acceptance admits or creates a canonical HouseMaster record where acceptance rules pass without transferring domain ownership.
+    what_it_prevents: Interpreting integration crossing as external ownership of HouseMaster records or Beeline ownership transfer.
+    allowed_interpretation: HouseMaster accepts/validates/maps input and creates a canonical domain record where rules pass.
+    forbidden_inference: Acceptance changes domain ownership or makes the connectivity provider the HouseMaster domain owner.
+    operational_consequence: "housemaster_domain_acceptance=true; canonical_domain_record_created_where_acceptance_rules_pass=true; ownership_transfer=false"
+    source_ref: "A3-EC00-01 frozen BC-03; EC-03 §9a"
+    confidence: HIGH / OWNER_APPROVED
+    status: SOURCE_SUPPORTED / REVIEW
+
+domain_consequences:
+  - domain_id: REAL_BUILDING
+    role: Physical source of engineering reality.
+    owns:
+      - physical condition
+    does_not_own:
+      - connectivity state
+      - software-derived truth
+      - AI authority
+  - domain_id: BEELINE
+    role: Connectivity / IoT-M2M / SIM-eSIM / operator transport / exposed connectivity state.
+    owns:
+      - operator connectivity responsibility where applicable
+    does_not_own:
+      - HouseMaster engineering domain
+      - building-condition authority
+  - domain_id: HOUSEMASTER
+    role: Independent engineering-domain system of record.
+    owns:
+      - domain identities
+      - observation and evidence state
+      - engineering state
+      - history and workflow
+      - trust-boundary acceptance and mapping
+    does_not_own:
+      - physical reality itself
+      - operator network internals
+  - domain_id: ALAU_AI
+    role: Downstream intelligence / prediction / decision-support.
+    owns:
+      - analytical output as a separate downstream record
+    does_not_own:
+      - system of record
+      - engineering truth
+      - autonomous-control authority
+  - domain_id: HUMAN_DOCUMENTARY_CHANNEL
+    role: Evidence-bearing input channel independent of machine connectivity.
+    owns:
+      - human observation and documentary input provenance
+    does_not_own:
+      - automatic defect classification
+      - machine-connectivity dependency
+
+duplicate_check:
+  normalized_canonical_statement_duplicates: 0
+  duplicate_axioms_found: false
+  duplicate_group_membership: false
+
+counts:
+  axioms: 10
+  groups: 4
+  domain_consequences: 5
+
+forbidden_actions:
+  - create_network_topology
+  - create_data_flow_implementation
+  - invent_beeline_products
+  - invent_api_or_schema
+  - invent_sla
+  - invent_installed_devices
+  - invent_engineering_facts
+  - make_alau_ai_autonomous
+  - transfer_housemaster_domain_ownership
+  - create_drawio
+  - create_pdf
+  - create_3d

@@ -1,0 +1,335 @@
+graph_id: A3-EC03-03
+page_id: A3-EC03-03
+title: Edge Aggregation Pattern
+ir_type: FLOW
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+stage: P1_VISUAL_GRAMMAR_PILOT
+production_number: P1-07
+
+canonical_purpose: >-
+  Show the source-approved Edge Aggregation deployment pattern through a
+  conceptual local aggregation role and onward through Beeline connectivity
+  toward HouseMaster, while preserving device identity, aggregation
+  responsibility, connectivity, trust, observation, evidence and
+  engineering-state boundaries.
+
+source_control:
+  allowed_source: EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md
+  source_sha256: 9DDB72B5A4FC480F7FFD9BBD4656502267D6DE3B569970FED6FEC2A6E8D5545B
+  source_sections:
+    - "§3 Device & Connectivity Architecture Principles"
+    - "§6 Conceptual Connectivity Topology Model"
+    - "§8 Identity & Lifecycle Model"
+    - "§23 Store-and-Forward Model"
+    - "§25 Pattern-Selection Matrix"
+    - "§27 Reference Edge Aggregation Flow"
+    - "§29 Failure Domain Model"
+  source_reread_outside_ec03: false
+
+pattern_classification:
+  reference_observation: OBS-CAND-001
+  reference_device: DEV-CAND-001
+  direct_suitability: PLAUSIBLE
+  edge_suitability: PLAUSIBLE
+  classification: BOTH_PLAUSIBLE
+  final_topology_selected: false
+  edge_mandatory: false
+  direct_connectivity_co_applicable: true
+
+identity_model:
+  underlying_device_identity_preserved: true
+  aggregation_identity_absorbs_device_identities: false
+  housemaster_device_id: TBD
+  housemaster_ids_depend_on_operator_ids: false
+  sim_esim_identity: TBD
+  iccid: TBD
+  imsi: TBD
+  msisdn: TBD
+
+aggregation_model:
+  role_cardinality: "1:N"
+  aggregation_function: CONCEPTUAL_CANDIDATE_ONLY
+  aggregation_function_named: false
+  aggregation_function_placed: false
+  edge_01_instantiated: false
+  hardware_product_selected: false
+  gateway_model_selected: false
+  local_link_selected: false
+  store_and_forward_supported: true
+  original_event_time_preserved: true
+  event_time_distinct_from_received_time: true
+  buffer_size: TBD
+  retention_period: TBD
+  retry_interval: TBD
+  edge_failure_distinct_from_device_failure: true
+  aggregation_creates_engineering_truth: false
+
+flow_steps:
+  - id: S01
+    label: SEM-MCD-001
+    semantic_role: REFERENCE_CONTEXT
+    domain: ENGINEERING_REFERENCE
+    status: REFERENCE_CONTEXT
+    source_ref: "EC-03 §27"
+    confidence: HIGH
+    what_it_means: Reference physical MCD context for the conceptual flow.
+    what_it_does_not_mean: A device or Edge Aggregation topology is installed.
+
+  - id: S02
+    label: HEATING — VERIFIED
+    semantic_role: ENGINEERING_SYSTEM_BASIS
+    domain: ENGINEERING
+    status: VERIFIED
+    source_ref: "EC-03 §27"
+    confidence: HIGH
+    what_it_means: Heating-system existence is the verified engineering basis.
+    what_it_does_not_mean: A specific heating component, device or location is verified.
+
+  - id: S03
+    label: Heating observation candidate — location TBD
+    semantic_role: OBSERVATION_CONTEXT_CANDIDATE
+    domain: ENGINEERING_OBSERVATION
+    status: TBD_SITE_SURVEY
+    source_ref: "EC-03 §§25, 27"
+    confidence: MEDIUM
+    what_it_means: The heating observation context is a source-backed candidate.
+    what_it_does_not_mean: Its physical location or component identity is confirmed.
+
+  - id: S04
+    label: Local observation device — DEV-CAND-001
+    semantic_role: LOCAL_OBSERVATION_DEVICE_CANDIDATE
+    domain: FIELD_DEVICE
+    status: PLANNED_CONCEPTUAL
+    source_ref: "EC-03 §27"
+    confidence: MEDIUM
+    what_it_means: DEV-CAND-001 is the conceptual reference device; the topology model supports device inputs ×N.
+    what_it_does_not_mean: A device is installed, registered, provisioned or assigned a SIM.
+
+  - id: S05
+    label: DEVICE FUNCTIONS
+    semantic_role: LOCAL_DEVICE_FUNCTIONS
+    domain: FIELD_DEVICE
+    status: CONCEPTUAL
+    source_ref: "EC-03 §§15, 27"
+    confidence: HIGH
+    what_it_means: MEASURE, TIMESTAMP, BUFFER, STORE, FORWARD and REPORT STATUS define the reference device's conceptual functions.
+    what_it_does_not_mean: Hardware, firmware, protocol, API or schema is selected.
+
+  - id: S06
+    label: CONCEPTUAL EDGE AGGREGATION FUNCTION
+    semantic_role: EDGE_AGGREGATION_ROLE
+    domain: LOCAL_EDGE
+    status: CANDIDATE_NOT_NAMED_NOT_PLACED
+    source_ref: "EC-03 §§6, 16, 27"
+    confidence: MEDIUM
+    what_it_means: A conceptual 1:N grouping and forwarding role may aggregate multiple local device candidates.
+    what_it_does_not_mean: EDGE-01, edge hardware, a gateway product, engineering authority or HouseMaster domain logic exists here.
+
+  - id: S07
+    label: SHARED CONNECTIVITY PROFILE
+    semantic_role: SHARED_CONNECTIVITY_PROFILE
+    domain: CONNECTIVITY
+    status: CONCEPTUAL_TBD
+    source_ref: "EC-03 §§6, 17, 27"
+    confidence: MEDIUM
+    what_it_means: Aggregated devices may share a connectivity path at the aggregation-function level.
+    what_it_does_not_mean: A provider object, SIM assignment, RF condition or provisioning state is known.
+
+  - id: S08
+    label: BEELINE ACCESS / TRANSPORT
+    semantic_role: OPERATOR_ACCESS_TRANSPORT
+    domain: BEELINE
+    status: CONCEPTUAL_TBD
+    source_ref: "EC-03 §§9a, 27"
+    confidence: MEDIUM
+    what_it_means: Operator access and transport carry the shared connectivity path toward HouseMaster.
+    what_it_does_not_mean: Beeline internal architecture, coverage, protocol or service implementation is asserted.
+
+  - id: S09
+    label: HOUSEMASTER TRUST / INTEGRATION BOUNDARY
+    semantic_role: TRUST_INTEGRATION_BOUNDARY
+    domain: SHARED_BOUNDARY
+    status: REFERENCED_NOT_DESIGNED
+    source_ref: "EC-03 §§9a, 27"
+    confidence: MEDIUM
+    what_it_means: The connectivity path crosses the referenced Beeline/HouseMaster trust and integration boundary.
+    what_it_does_not_mean: Connectivity or a valid SIM establishes trusted engineering state.
+
+  - id: S10
+    label: HOUSEMASTER INTEGRATION EDGE
+    semantic_role: INTEGRATION_EDGE
+    domain: HOUSEMASTER
+    status: REFERENCED_NOT_IMPLEMENTED
+    source_ref: "EC-03 §§9a, 27"
+    confidence: MEDIUM
+    what_it_means: HouseMaster's referenced integration edge receives the path.
+    what_it_does_not_mean: An endpoint, protocol, API, schema or implementation exists.
+
+  - id: S11
+    label: OBSERVATION
+    semantic_role: CANONICAL_OBSERVATION
+    domain: HOUSEMASTER
+    status: CONCEPTUAL_OUTPUT
+    source_ref: "EC-03 §27"
+    confidence: MEDIUM
+    what_it_means: Accepted device output may become a canonical observation.
+    what_it_does_not_mean: Aggregation or connectivity proves an engineering fact.
+
+  - id: S12
+    label: EVIDENCE
+    semantic_role: EVIDENCE_RECORD
+    domain: EVIDENCE
+    status: PROVENANCE_REQUIRED
+    source_ref: "EC-03 §§22, 27"
+    confidence: MEDIUM
+    what_it_means: Observation may support evidence when provenance and validation requirements are met.
+    what_it_does_not_mean: Observation automatically becomes evidence, defect or engineering truth.
+
+  - id: S13
+    label: BUILDING STATE
+    semantic_role: DOMAIN_LINKAGE
+    domain: HOUSEMASTER
+    status: DOMAIN_RULE_GATED
+    source_ref: "EC-03 §§9a, 22, 27"
+    confidence: MEDIUM
+    what_it_means: Domain linkage requires HouseMaster rules, interpretation and validation.
+    what_it_does_not_mean: Edge status, network health or accepted data equals building health.
+
+edges:
+  - id: E01
+    from: S01
+    to: S02
+    label: contextualizes
+    status: FROZEN_SOURCE_SEQUENCE
+    source_ref: "EC-03 §27"
+    what_it_means: The reference MCD provides context for the verified heating-system basis.
+    what_it_does_not_mean: It selects a physical component or topology.
+
+  - id: E02
+    from: S02
+    to: S03
+    label: bounds candidate
+    status: FROZEN_SOURCE_SEQUENCE
+    source_ref: "EC-03 §27"
+    what_it_means: The verified system bounds the observation candidate.
+    what_it_does_not_mean: Candidate location is verified.
+
+  - id: E03
+    from: S03
+    to: S04
+    label: may be served by
+    status: CONCEPTUAL
+    source_ref: "EC-03 §27"
+    what_it_means: The candidate observation context may be served by DEV-CAND-001.
+    what_it_does_not_mean: The device is installed or located.
+
+  - id: E04
+    from: S04
+    to: S05
+    label: performs
+    status: CONCEPTUAL
+    source_ref: "EC-03 §27"
+    what_it_means: The candidate device carries the defined conceptual functions.
+    what_it_does_not_mean: An implementation is selected.
+
+  - id: E05
+    from: S05
+    to: S06
+    label: forwards locally to
+    status: CONCEPTUAL
+    source_ref: "EC-03 §§6, 27"
+    what_it_means: Local device outputs may feed the conceptual aggregation function.
+    what_it_does_not_mean: A local link technology or protocol is specified.
+
+  - id: E06
+    from: S06
+    to: S07
+    label: shares
+    status: CONCEPTUAL
+    source_ref: "EC-03 §§6, 27"
+    what_it_means: The aggregation role may use a shared connectivity profile.
+    what_it_does_not_mean: Device identities are merged or a profile instance exists.
+
+  - id: E07
+    from: S07
+    to: S08
+    label: uses
+    status: CONCEPTUAL_TBD
+    source_ref: "EC-03 §27"
+    what_it_means: The shared path uses operator access and transport.
+    what_it_does_not_mean: Coverage, SIM assignment or provisioning is confirmed.
+
+  - id: E08
+    from: S08
+    to: S09
+    label: crosses
+    status: REFERENCED_NOT_DESIGNED
+    source_ref: "EC-03 §§9a, 27"
+    what_it_means: Transport crosses the trust and integration boundary.
+    what_it_does_not_mean: Engineering state becomes trusted.
+
+  - id: E09
+    from: S09
+    to: S10
+    label: received at
+    status: REFERENCED_NOT_IMPLEMENTED
+    source_ref: "EC-03 §§9a, 27"
+    what_it_means: The referenced boundary leads to HouseMaster's integration edge.
+    what_it_does_not_mean: An API, endpoint or schema is implemented.
+
+  - id: E10
+    from: S10
+    to: S11
+    label: accepts as
+    status: CONCEPTUAL
+    source_ref: "EC-03 §27"
+    what_it_means: Integration acceptance may create a canonical observation.
+    what_it_does_not_mean: Acceptance is engineering validation.
+
+  - id: E11
+    from: S11
+    to: S12
+    label: may support
+    status: PROVENANCE_REQUIRED
+    source_ref: "EC-03 §§22, 27"
+    what_it_means: An observation may support evidence through provenance and validation.
+    what_it_does_not_mean: Observation and evidence are the same semantic object.
+
+  - id: E12
+    from: S12
+    to: S13
+    label: rules-gated linkage
+    status: DOMAIN_RULE_GATED
+    source_ref: "EC-03 §§22, 27"
+    what_it_means: Evidence may support building-state interpretation through domain rules and validation.
+    what_it_does_not_mean: Evidence, aggregation state or network state automatically becomes building state.
+
+guardrails:
+  - EDGE AGGREGATION ≠ DOMAIN INTERPRETATION
+  - EDGE OFFLINE ≠ BUILDING FAILURE
+  - DEVICE IDENTITY ≠ SIM IDENTITY
+  - CONNECTIVITY STATE ≠ ENGINEERING STATE
+
+counts:
+  flow_steps: 13
+  edges: 12
+  guardrails: 4
+
+forbidden_actions:
+  - read_ec01
+  - read_ec02
+  - invent_installed_devices
+  - invent_edge_hardware_or_product
+  - invent_gateway_model
+  - invent_sim_assignment
+  - invent_rf_coverage
+  - invent_protocol_api_or_schema
+  - invent_provisioning_state
+  - infer_engineering_condition_from_connectivity
+  - create_drawio
+  - create_pdf
+  - create_3d

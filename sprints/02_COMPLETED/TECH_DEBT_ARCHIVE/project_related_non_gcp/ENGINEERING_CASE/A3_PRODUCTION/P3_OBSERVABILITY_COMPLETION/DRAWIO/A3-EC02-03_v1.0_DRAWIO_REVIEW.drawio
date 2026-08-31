@@ -1,0 +1,692 @@
+<mxfile host="app.diagrams.net" modified="2026-08-25T00:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="A3-EC02-03-1" name="A3-EC02-03 · Master Matrix · 1/3">
+    <mxGraphModel dx="1587" dy="1123" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="1" page="1" pageScale="1" pageWidth="1587" pageHeight="1123" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s1-page" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D0D7DE;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1587" height="1123" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-titlebg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#153A73;strokeColor=#153A73;" vertex="1" parent="1">
+          <mxGeometry x="57" y="57" width="1473" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-pageid" value="&lt;b&gt;A3-EC02-03&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:11px'&gt;P3 · CASE 013 · LOGICAL RENDER 1/3&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#FFFFFF;spacingLeft=16;" vertex="1" parent="1">
+          <mxGeometry x="65" y="68" width="280" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-title" value="&lt;b&gt;MASTER OBSERVABILITY MATRIX&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:12px'&gt;SEM-MCD-001 · Semey, Shakarima 13A · rows 001–006&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontColor=#FFFFFF;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="345" y="67" width="690" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-thesis" value="&lt;b&gt;MASTER OBSERVABILITY MATRIX ≠ DEVICE DEPLOYMENT PLAN&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:9px'&gt;MATRIX ROW COVERAGE ≠ FULL BUILDING OBSERVABILITY&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFFFFF;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=13;fontColor=#153A73;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="75" width="460" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-summary" value="&lt;b&gt;OBSERVABILITY STATUS SUMMARY&lt;/b&gt;&lt;br&gt;ROWS 18 · CHANNELS 2 · BOTH 16 · DOCUMENTARY/HUMAN 2 · MACHINE ONLY 0&lt;br&gt;L1 18 · L2+ 0 · CONFIRMED OP LOCATIONS 0 · SITE VALIDATION 18 · INSTALLATION READY 0&lt;br&gt;INSTALLED DEVICES 0 CONFIRMED · ACTUAL PRESENCE NOT ESTABLISHED · &lt;b&gt;0 CONFIRMED ≠ PROVED ABSENCE&lt;/b&gt;&lt;br&gt;OBSERVABLE NOW THROUGH HUMAN 8 · AFTER FIELD MAPPING 10 · NO SCORE / % / MATURITY LADDER" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#2457A6;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#153A73;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="57" y="177" width="1040" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-legend" value="&lt;b&gt;CHANNEL / EVIDENCE LEGEND&lt;/b&gt;&lt;br&gt;HUMAN · MACHINE · BOTH · TBD&lt;br&gt;&lt;font color='#1B5E20'&gt;&lt;b&gt;VERIFIED&lt;/b&gt;&lt;/font&gt; · &lt;font color='#7A5A00'&gt;&lt;b&gt;PARTIAL&lt;/b&gt;&lt;/font&gt; · &lt;font color='#424242'&gt;&lt;b&gt;TBD&lt;/b&gt;&lt;/font&gt; · NO EVIDENCE · &lt;font color='#0D47A1'&gt;&lt;b&gt;CONCEPTUAL / CANDIDATE&lt;/b&gt;&lt;/font&gt;&lt;br&gt;NOT SEVERITY · NOT RISK" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#7B4AB5;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#4C267A;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="177" width="410" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-head0" value="&lt;b&gt;ID&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="57" y="267" width="105" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-head1" value="&lt;b&gt;ENGINEERING CONTEXT&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="162" y="267" width="200" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-head2" value="&lt;b&gt;OBSERVABLE CONDITION / QUESTION&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="362" y="267" width="205" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-head3" value="&lt;b&gt;OP STATUS&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="567" y="267" width="130" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-head4" value="&lt;b&gt;HUMAN CHANNEL&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="697" y="267" width="125" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-head5" value="&lt;b&gt;MACHINE CHANNEL&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="822" y="267" width="125" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-head6" value="&lt;b&gt;EVIDENCE / PROVENANCE&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="947" y="267" width="160" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-head7" value="&lt;b&gt;VALIDATION / OPEN ITEMS&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="267" width="200" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-head8" value="&lt;b&gt;DOWNSTREAM RESTRICTION&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="267" width="223" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r0c0" value="&lt;b&gt;OBS-CAND-001&lt;/b&gt;&lt;br&gt;OC-001&lt;br&gt;HEATING" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="309" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r0c1" value="SEM-MCD-001 / heating system entry / component location TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="309" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r0c2" value="&lt;b&gt;Temperature condition&lt;/b&gt;&lt;br&gt;Is the heating temperature condition adequate and how does it vary over time?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="309" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r0c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD HEATING ENTRY LOCATION&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="309" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r0c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;General assessment / periodic inspection note" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="309" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r0c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;SCALAR temperature measurement / continuous-high-frequency concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="309" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r0c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE LOCATION TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-001 / §15.x / §16; BF-015 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="309" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r0c7" value="&lt;b&gt;OBSERVABLE NOW HUMAN MACHINE PENDING SITING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-005&lt;br&gt;heating-entry location · component identity · machine siting · environment · power · access · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="309" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r0c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT SITE OR DEPLOY MACHINE DEVICE UNTIL LOCATION AND SITE REQUIREMENTS ARE VALIDATED&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="309" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r1c0" value="&lt;b&gt;OBS-CAND-002&lt;/b&gt;&lt;br&gt;OC-001&lt;br&gt;HEATING" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="414" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r1c1" value="SEM-MCD-001 / heating system entry / component location TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="414" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r1c2" value="&lt;b&gt;Pressure condition&lt;/b&gt;&lt;br&gt;What is the heating pressure condition at an accessible and validated point?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="414" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r1c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="414" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r1c4" value="&lt;b&gt;CONDITIONAL&lt;/b&gt;&lt;br&gt;Manual gauge reading where an accessible gauge exists" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="414" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r1c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;SCALAR pressure measurement / continuous-high-frequency concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="414" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r1c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE LOCATION TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-002 / §15.x; BF-015 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="414" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r1c7" value="&lt;b&gt;OBSERVABLE AFTER FIELD MAPPING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-005&lt;br&gt;pressure point · gauge existence · gauge access · exact location · machine siting · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="414" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r1c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT ASSUME GAUGE OR MACHINE POINT EXISTS BEFORE FIELD MAPPING&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="414" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r2c0" value="&lt;b&gt;OBS-CAND-003&lt;/b&gt;&lt;br&gt;OC-002&lt;br&gt;HEATING" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="519" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r2c1" value="SEM-MCD-001 / heating metering node / node location and interface existence TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="519" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r2c2" value="&lt;b&gt;Flow/consumption metering condition&lt;/b&gt;&lt;br&gt;Can heating flow or consumption be observed through a confirmed metering context?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="519" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r2c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD METERING NODE&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="519" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r2c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Manual meter/interface reading" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="519" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r2c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;COUNTER / meter or pulse-interface reading / periodic concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="519" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r2c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE METER INTERFACE TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-003 / §15.x; BF-015 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="519" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r2c7" value="&lt;b&gt;OBSERVABLE AFTER FIELD MAPPING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-005&lt;br&gt;metering node · interface existence · access · exact location · machine feasibility · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="519" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r2c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT DESIGN INTERFACE OR DEPLOYMENT UNTIL METERING CONTEXT IS CONFIRMED&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="519" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r3c0" value="&lt;b&gt;OBS-CAND-004&lt;/b&gt;&lt;br&gt;OC-004&lt;br&gt;COLD WATER" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="624" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r3c1" value="SEM-MCD-001 / cold-water system entry / component location TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="624" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r3c2" value="&lt;b&gt;Pressure condition&lt;/b&gt;&lt;br&gt;What is the cold-water pressure condition at a validated entry point?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="624" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r3c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="624" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r3c4" value="&lt;b&gt;CONDITIONAL&lt;/b&gt;&lt;br&gt;Manual gauge reading where accessible" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="624" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r3c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;SCALAR pressure measurement / continuous-high-frequency concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="624" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r3c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE LOCATION TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-004 / §15.x; BF-016 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="624" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r3c7" value="&lt;b&gt;OBSERVABLE AFTER FIELD MAPPING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-005&lt;br&gt;entry location · gauge existence · access · machine siting · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="624" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r3c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT ASSUME OR SITE PRESSURE OBSERVATION POINT BEFORE FIELD MAPPING&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="624" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r4c0" value="&lt;b&gt;OBS-CAND-005&lt;/b&gt;&lt;br&gt;OC-004&lt;br&gt;COLD WATER" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="729" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r4c1" value="SEM-MCD-001 / cold-water system entry / component location TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="729" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r4c2" value="&lt;b&gt;Flow condition&lt;/b&gt;&lt;br&gt;What is the cold-water flow condition at a validated entry point?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="729" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r4c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="729" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r4c4" value="&lt;b&gt;CONDITIONAL&lt;/b&gt;&lt;br&gt;Manual/visual assessment where a readable flow point exists" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="729" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r4c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;SCALAR flow measurement / continuous-high-frequency concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="729" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r4c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE LOCATION TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-005 / §15.x; BF-016 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="729" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r4c7" value="&lt;b&gt;OBSERVABLE AFTER FIELD MAPPING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-005&lt;br&gt;entry/flow point · access · machine siting · power/environment · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="729" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r4c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT CREATE FLOW DEPLOYMENT PLAN BEFORE FIELD VALIDATION&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="729" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r5c0" value="&lt;b&gt;OBS-CAND-006&lt;/b&gt;&lt;br&gt;OC-005&lt;br&gt;COLD WATER" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="834" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r5c1" value="SEM-MCD-001 / cold-water metering node / node location and interface existence TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="834" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r5c2" value="&lt;b&gt;Flow/consumption metering condition&lt;/b&gt;&lt;br&gt;Can cold-water flow or consumption be observed through a confirmed metering context?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="834" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r5c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD METERING NODE&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="834" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r5c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Manual meter/interface reading" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="834" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r5c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;COUNTER / meter-interface reading / periodic concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="834" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r5c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE METER INTERFACE TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-006 / §15.x; BF-016 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="834" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r5c7" value="&lt;b&gt;OBSERVABLE AFTER FIELD MAPPING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-005&lt;br&gt;metering node · interface existence · access · machine feasibility · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="834" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-r5c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT DEFINE INTERFACE OR CONNECTIVITY BEFORE METERING CONTEXT VALIDATION&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="834" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-guards" value="&lt;b&gt;MASTER OBSERVABILITY MATRIX ≠ DEVICE DEPLOYMENT PLAN&lt;/b&gt; · &lt;b&gt;OBSERVATION POINT ≠ DEVICE&lt;/b&gt; · &lt;b&gt;CANDIDATE ≠ INSTALLED DEVICE&lt;/b&gt; · &lt;b&gt;SYSTEM EXISTS ≠ COMPONENT LOCATION KNOWN&lt;/b&gt; · &lt;b&gt;MATRIX ROW COVERAGE ≠ FULL BUILDING OBSERVABILITY&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F9A825;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8;fontColor=#7A5A00;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="57" y="948" width="1473" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-footerbg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEF2F6;strokeColor=#AAB4C3;" vertex="1" parent="1">
+          <mxGeometry x="57" y="1013" width="1473" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-footerleft" value="&lt;b&gt;A3-EC02-03&lt;/b&gt; · FROZEN IR · SOURCE GATE EC-02 · REFERENCE SEM-MCD-001 · MATRIX ROWS 18 · LOGICAL RENDER 1/3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=7.5;fontColor=#26364A;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="67" y="1018" width="850" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s1-footerright" value="RELATED: EC02-01 NARRATIVE · EC02-02 HERO · EC02-04 REFERENCE EXAMPLE&lt;br&gt;DRAWIO REVIEW v1.0 · SEMANTICS UNCHANGED · OPEN ITEMS RETAINED" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontFamily=Arial;fontSize=7.5;fontColor=#26364A;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="915" y="1018" width="605" height="42" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="A3-EC02-03-2" name="A3-EC02-03 · Master Matrix · 2/3">
+    <mxGraphModel dx="1587" dy="1123" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="1" page="1" pageScale="1" pageWidth="1587" pageHeight="1123" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s2-page" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D0D7DE;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1587" height="1123" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-titlebg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#153A73;strokeColor=#153A73;" vertex="1" parent="1">
+          <mxGeometry x="57" y="57" width="1473" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-pageid" value="&lt;b&gt;A3-EC02-03&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:11px'&gt;P3 · CASE 013 · LOGICAL RENDER 2/3&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#FFFFFF;spacingLeft=16;" vertex="1" parent="1">
+          <mxGeometry x="65" y="68" width="280" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-title" value="&lt;b&gt;MASTER OBSERVABILITY MATRIX&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:12px'&gt;SEM-MCD-001 · Semey, Shakarima 13A · rows 007–012&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontColor=#FFFFFF;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="345" y="67" width="690" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-thesis" value="&lt;b&gt;MASTER OBSERVABILITY MATRIX ≠ DEVICE DEPLOYMENT PLAN&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:9px'&gt;MATRIX ROW COVERAGE ≠ FULL BUILDING OBSERVABILITY&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFFFFF;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=13;fontColor=#153A73;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="75" width="460" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-time" value="&lt;b&gt;TIME / EVIDENCE BOUNDARIES&lt;/b&gt;&lt;br&gt;event_time ≠ recorded / received time · NO EVENT ≠ NORMAL CONDITION · NO NEW OBSERVATION ≠ UNCHANGED ENGINEERING STATE&lt;br&gt;OBSERVATION ≠ EVIDENCE · EVIDENCE ≠ DEFECT · engineering meaning remains domain / professional-validation gated" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFF8E1;strokeColor=#F9A825;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#7A5A00;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="57" y="177" width="870" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-channel" value="&lt;b&gt;CHANNEL RELATIONSHIP&lt;/b&gt;&lt;br&gt;HUMAN + MACHINE = CO-APPLICABLE · NOT SEQUENTIAL · NOT MUTUALLY EXCLUSIVE&lt;br&gt;OBS-CAND-014 = DOCUMENTARY/HUMAN · NO CURRENT MACHINE MODEL&lt;br&gt;OBS-CAND-016 = DOCUMENTARY/HUMAN · NO MACHINE TARGET" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F3E8FF;strokeColor=#7B4AB5;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#4C267A;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="177" width="580" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-head0" value="&lt;b&gt;ID&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="57" y="267" width="105" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-head1" value="&lt;b&gt;ENGINEERING CONTEXT&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="162" y="267" width="200" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-head2" value="&lt;b&gt;OBSERVABLE CONDITION / QUESTION&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="362" y="267" width="205" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-head3" value="&lt;b&gt;OP STATUS&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="567" y="267" width="130" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-head4" value="&lt;b&gt;HUMAN CHANNEL&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="697" y="267" width="125" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-head5" value="&lt;b&gt;MACHINE CHANNEL&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="822" y="267" width="125" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-head6" value="&lt;b&gt;EVIDENCE / PROVENANCE&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="947" y="267" width="160" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-head7" value="&lt;b&gt;VALIDATION / OPEN ITEMS&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="267" width="200" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-head8" value="&lt;b&gt;DOWNSTREAM RESTRICTION&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="267" width="223" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r0c0" value="&lt;b&gt;OBS-CAND-007&lt;/b&gt;&lt;br&gt;OC-006&lt;br&gt;HOT WATER" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="309" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r0c1" value="SEM-MCD-001 / hot-water system / location TBD / ontology gap retained" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="309" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r0c2" value="&lt;b&gt;Temperature/availability condition&lt;/b&gt;&lt;br&gt;Is hot water available at an adequate temperature in the observed context?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="309" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r0c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="309" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r0c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Tap-level availability/temperature check and note" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="309" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r0c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;SCALAR temperature or availability-state measurement / continuous-high-frequency concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="309" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r0c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE LOCATION TBD ONTOLOGY GAP&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-007 / §15.x / §7; BF-017 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="309" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r0c7" value="&lt;b&gt;OBSERVABLE NOW HUMAN MACHINE PENDING SITING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-005&lt;br&gt;location · ontology mapping · access · machine siting · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="309" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r0c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT INSTANTIATE COMPONENT ID OR DEVICE BEFORE EVIDENCE AND FIELD VALIDATION&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="309" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r1c0" value="&lt;b&gt;OBS-CAND-008&lt;/b&gt;&lt;br&gt;OC-006&lt;br&gt;HOT WATER" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="414" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r1c1" value="SEM-MCD-001 / hot-water system / location TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="414" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r1c2" value="&lt;b&gt;Leakage/water-presence indication&lt;/b&gt;&lt;br&gt;Is there a leakage or water-presence indication associated with the hot-water context?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="414" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r1c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="414" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r1c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Visual assessment / photo / note where accessible" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="414" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r1c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;EVENT or BINARY STATE capture / event-driven concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="414" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r1c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE LOCATION TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-008 / §15.x; BF-017 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="414" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r1c7" value="&lt;b&gt;OBSERVABLE NOW HUMAN MACHINE PENDING SITING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-005&lt;br&gt;observation point · access · cause interpretation · machine siting · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="414" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r1c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT CLASSIFY DEFECT OR SITE DEVICE FROM INDICATION ALONE&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="414" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r2c0" value="&lt;b&gt;OBS-CAND-009&lt;/b&gt;&lt;br&gt;OC-007&lt;br&gt;BASEMENT ENVIRONMENT" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="519" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r2c1" value="SEM-MCD-001 / basement zone / zone existence PARTIAL secondary-source only" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="519" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r2c2" value="&lt;b&gt;Water-presence/flooding indication&lt;/b&gt;&lt;br&gt;Is water presence or flooding observed in a field-confirmed basement environment?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="519" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r2c3" value="&lt;b&gt;WEAK / PARTIAL CONTEXT&lt;/b&gt;&lt;br&gt;TBD ZONE AND POINT&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="519" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r2c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Inspection / photo / location note" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="519" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r2c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;EVENT presence/absence capture / event-driven concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="519" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r2c6" value="&lt;b&gt;PARTIAL ZONE EXISTENCE PRIMARY OR FIELD CONFIRMATION REQUIRED&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-009 / §15.x / §12 TBD-EC02-04&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFF8E1;strokeColor=#F9A825;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#7A5A00;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="519" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r2c7" value="&lt;b&gt;OBSERVABLE AFTER FIELD MAPPING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-003 AND TBD-EC02-04&lt;br&gt;basement existence · access · point location · field confirmation · machine siting · power/environment · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="519" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r2c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT PROMOTE BEYOND PROVENANCE GATED L1 UNTIL ZONE IS PRIMARY OR FIELD CONFIRMED&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="519" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r3c0" value="&lt;b&gt;OBS-CAND-010&lt;/b&gt;&lt;br&gt;OC-007&lt;br&gt;BASEMENT ENVIRONMENT" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="624" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r3c1" value="SEM-MCD-001 / basement zone / zone existence PARTIAL secondary-source only" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="624" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r3c2" value="&lt;b&gt;Temperature condition&lt;/b&gt;&lt;br&gt;What is the temperature condition in a field-confirmed basement environment?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="624" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r3c3" value="&lt;b&gt;WEAK / PARTIAL CONTEXT&lt;/b&gt;&lt;br&gt;TBD ZONE AND POINT&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="624" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r3c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Manual assessment/reading and note where accessible" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="624" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r3c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;SCALAR temperature measurement / periodic concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="624" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r3c6" value="&lt;b&gt;PARTIAL ZONE EXISTENCE&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-010 / §15.x / §12 TBD-EC02-04&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFF8E1;strokeColor=#F9A825;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#7A5A00;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="624" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r3c7" value="&lt;b&gt;OBSERVABLE AFTER FIELD MAPPING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-003 AND TBD-EC02-04&lt;br&gt;basement existence · access · point location · field confirmation · machine siting · power/environment · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="624" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r3c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT SITE OR SCORE BASEMENT TEMPERATURE OBSERVABILITY BEFORE ZONE CONFIRMATION&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="624" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r4c0" value="&lt;b&gt;OBS-CAND-011&lt;/b&gt;&lt;br&gt;OC-007&lt;br&gt;BASEMENT ENVIRONMENT" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="729" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r4c1" value="SEM-MCD-001 / basement zone / zone existence PARTIAL secondary-source only" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="729" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r4c2" value="&lt;b&gt;Humidity condition&lt;/b&gt;&lt;br&gt;What is the humidity condition in a field-confirmed basement environment?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="729" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r4c3" value="&lt;b&gt;WEAK / PARTIAL CONTEXT&lt;/b&gt;&lt;br&gt;TBD ZONE AND POINT&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="729" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r4c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Manual assessment/reading and note where accessible" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="729" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r4c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;SCALAR humidity measurement / periodic concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="729" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r4c6" value="&lt;b&gt;PARTIAL ZONE EXISTENCE&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-011 / §15.x / §12 TBD-EC02-04&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFF8E1;strokeColor=#F9A825;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#7A5A00;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="729" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r4c7" value="&lt;b&gt;OBSERVABLE AFTER FIELD MAPPING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-003 AND TBD-EC02-04&lt;br&gt;basement existence · access · point location · field confirmation · machine siting · power/environment · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="729" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r4c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT SITE OR SCORE BASEMENT HUMIDITY OBSERVABILITY BEFORE ZONE CONFIRMATION&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="729" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r5c0" value="&lt;b&gt;OBS-CAND-012&lt;/b&gt;&lt;br&gt;OC-008&lt;br&gt;ELECTRICAL" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="834" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r5c1" value="SEM-MCD-001 / main distribution board / location TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="834" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r5c2" value="&lt;b&gt;Supply-availability condition&lt;/b&gt;&lt;br&gt;Is electrical supply available in the validated main-board context?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="834" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r5c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD MAIN BOARD&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="834" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r5c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;General availability assessment / inspection note" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="834" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r5c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;BINARY STATE capture / event-driven concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="834" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r5c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE LOCATION TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-012 / §15.x; BF-019 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="834" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r5c7" value="&lt;b&gt;OBSERVABLE NOW HUMAN MACHINE PENDING SITING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-005&lt;br&gt;main-board location · access · observation point · machine siting · power/environment · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="834" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-r5c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT SITE MACHINE OBSERVATION OR INFER BOARD LOCATION BEFORE FIELD MAPPING&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="834" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-guards" value="&lt;b&gt;MASTER OBSERVABILITY MATRIX ≠ DEVICE DEPLOYMENT PLAN&lt;/b&gt; · &lt;b&gt;OBSERVATION POINT ≠ DEVICE&lt;/b&gt; · &lt;b&gt;CANDIDATE ≠ INSTALLED DEVICE&lt;/b&gt; · &lt;b&gt;SYSTEM EXISTS ≠ COMPONENT LOCATION KNOWN&lt;/b&gt; · &lt;b&gt;MATRIX ROW COVERAGE ≠ FULL BUILDING OBSERVABILITY&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F9A825;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8;fontColor=#7A5A00;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="57" y="948" width="1473" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-footerbg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEF2F6;strokeColor=#AAB4C3;" vertex="1" parent="1">
+          <mxGeometry x="57" y="1013" width="1473" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-footerleft" value="&lt;b&gt;A3-EC02-03&lt;/b&gt; · FROZEN IR · SOURCE GATE EC-02 · REFERENCE SEM-MCD-001 · MATRIX ROWS 18 · LOGICAL RENDER 2/3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=7.5;fontColor=#26364A;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="67" y="1018" width="850" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s2-footerright" value="RELATED: EC02-01 NARRATIVE · EC02-02 HERO · EC02-04 REFERENCE EXAMPLE&lt;br&gt;DRAWIO REVIEW v1.0 · SEMANTICS UNCHANGED · OPEN ITEMS RETAINED" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontFamily=Arial;fontSize=7.5;fontColor=#26364A;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="915" y="1018" width="605" height="42" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="A3-EC02-03-3" name="A3-EC02-03 · Master Matrix · 3/3">
+    <mxGraphModel dx="1587" dy="1123" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="0" fold="1" page="1" pageScale="1" pageWidth="1587" pageHeight="1123" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s3-page" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D0D7DE;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1587" height="1123" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-titlebg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#153A73;strokeColor=#153A73;" vertex="1" parent="1">
+          <mxGeometry x="57" y="57" width="1473" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-pageid" value="&lt;b&gt;A3-EC02-03&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:11px'&gt;P3 · CASE 013 · LOGICAL RENDER 3/3&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#FFFFFF;spacingLeft=16;" vertex="1" parent="1">
+          <mxGeometry x="65" y="68" width="280" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-title" value="&lt;b&gt;MASTER OBSERVABILITY MATRIX&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:12px'&gt;SEM-MCD-001 · Semey, Shakarima 13A · rows 013–018&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontColor=#FFFFFF;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="345" y="67" width="690" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-thesis" value="&lt;b&gt;MASTER OBSERVABILITY MATRIX ≠ DEVICE DEPLOYMENT PLAN&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:9px'&gt;MATRIX ROW COVERAGE ≠ FULL BUILDING OBSERVABILITY&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFFFFF;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=13;fontColor=#153A73;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="75" width="460" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-boundary" value="&lt;b&gt;SYSTEM / LOCATION + OBSERVATION-POINT BOUNDARIES&lt;/b&gt;&lt;br&gt;SYSTEM EXISTS ≠ COMPONENT LOCATION KNOWN · OBSERVATION POINT ≠ DEVICE · CANDIDATE ≠ INSTALLED DEVICE · TBD LOCATION ≠ NO PHYSICAL COMPONENT" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="57" y="177" width="790" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-coverage" value="&lt;b&gt;COVERAGE / DEVICE SEMANTICS&lt;/b&gt;&lt;br&gt;MATRIX ROW COVERAGE ≠ FULL BUILDING OBSERVABILITY&lt;br&gt;INSTALLED DEVICES = 0 CONFIRMED · ACTUAL PRESENCE = NOT ESTABLISHED&lt;br&gt;0 CONFIRMED ≠ PROVED ABSENCE · NO SCORE / % / SENSOR TARGET / MATURITY" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFF8E1;strokeColor=#F9A825;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#7A5A00;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="870" y="177" width="660" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-head0" value="&lt;b&gt;ID&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="57" y="267" width="105" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-head1" value="&lt;b&gt;ENGINEERING CONTEXT&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="162" y="267" width="200" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-head2" value="&lt;b&gt;OBSERVABLE CONDITION / QUESTION&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="362" y="267" width="205" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-head3" value="&lt;b&gt;OP STATUS&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="567" y="267" width="130" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-head4" value="&lt;b&gt;HUMAN CHANNEL&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="697" y="267" width="125" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-head5" value="&lt;b&gt;MACHINE CHANNEL&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="822" y="267" width="125" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-head6" value="&lt;b&gt;EVIDENCE / PROVENANCE&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="947" y="267" width="160" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-head7" value="&lt;b&gt;VALIDATION / OPEN ITEMS&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="267" width="200" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-head8" value="&lt;b&gt;DOWNSTREAM RESTRICTION&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#FFFFFF;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8.5;fontColor=#FFFFFF;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="267" width="223" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r0c0" value="&lt;b&gt;OBS-CAND-013&lt;/b&gt;&lt;br&gt;OC-008&lt;br&gt;ELECTRICAL" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="309" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r0c1" value="SEM-MCD-001 / main distribution board / location TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="309" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r0c2" value="&lt;b&gt;Outage/event condition&lt;/b&gt;&lt;br&gt;Has an electrical outage/event occurred in the validated system context?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="309" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r0c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD MAIN BOARD&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="309" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r0c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Human report / inspection note / documentary record" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="309" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r0c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;EVENT capture / event-driven concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="309" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r0c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE LOCATION TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-013 / §15.x; BF-019 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="309" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r0c7" value="&lt;b&gt;OBSERVABLE NOW HUMAN MACHINE PENDING SITING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-005&lt;br&gt;main-board location · event context · access · machine siting · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="309" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r0c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT EQUATE EVENT OR CONNECTIVITY LOSS WITH ENGINEERING DEFECT&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="309" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r1c0" value="&lt;b&gt;OBS-CAND-014&lt;/b&gt;&lt;br&gt;OC-009&lt;br&gt;SEWER" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="414" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r1c1" value="SEM-MCD-001 / sewer collector or outlet / location TBD / ontology OP undefined" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="414" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r1c2" value="&lt;b&gt;Overflow/backflow indication&lt;/b&gt;&lt;br&gt;Is an overflow or backflow indication visible in the validated sewer context?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="414" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r1c3" value="&lt;b&gt;L1 · ONTOLOGY GAP&lt;/b&gt;&lt;br&gt;TBD COLLECTOR OUTLET&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="414" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r1c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Visual assessment / inspection note / photo or documentary record" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="414" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r1c5" value="&lt;b&gt;NO CURRENT MODEL&lt;/b&gt;&lt;br&gt;NOT DEFINED IN CURRENT SOURCE MODEL&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: NOT REQUIRED · HUMAN/DOC MODEL&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="414" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r1c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE LOCATION TBD ONTOLOGY GAP&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-014 / §15.x / §7; BF-018 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="414" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r1c7" value="&lt;b&gt;OBSERVABLE NOW HUMAN&lt;/b&gt;&lt;br&gt;SITE: YES TBD-005&lt;br&gt;collector/outlet location · access · ontology OP extension · provenance completeness · professional interpretation" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="414" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r1c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT CREATE MACHINE CONNECTIVITY OR DEVICE REQUIREMENT FOR THIS ROW UNDER CURRENT MODEL&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="414" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r2c0" value="&lt;b&gt;OBS-CAND-015&lt;/b&gt;&lt;br&gt;OC-010&lt;br&gt;ROOF" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="519" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r2c1" value="SEM-MCD-001 / roof surface / roof existence-type PARTIAL / access TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="519" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r2c2" value="&lt;b&gt;Moisture/water-ingress condition&lt;/b&gt;&lt;br&gt;Is moisture or water ingress observed at an accessible and validated roof context?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="519" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r2c3" value="&lt;b&gt;WEAK / PARTIAL CONTEXT&lt;/b&gt;&lt;br&gt;TBD ROOF ACCESS AND POINT&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="519" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r2c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Inspection / visual assessment / photo / note" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="519" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r2c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;EVENT moisture/water-ingress capture / event-driven concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="519" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r2c6" value="&lt;b&gt;PARTIAL ROOF EXISTENCE TYPE ACCESS TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-015 / §15.x; roof context PARTIAL as carried by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFF8E1;strokeColor=#F9A825;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#7A5A00;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="519" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r2c7" value="&lt;b&gt;OBSERVABLE AFTER FIELD MAPPING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-004&lt;br&gt;roof existence/type confirmation · access · point location · machine suitability · power/environment · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="519" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r2c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT SITE OPTIONAL MACHINE OBSERVATION BEFORE ROOF ACCESS AND POINT VALIDATION&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="519" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r3c0" value="&lt;b&gt;OBS-CAND-016&lt;/b&gt;&lt;br&gt;OC-010&lt;br&gt;ROOF" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="624" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r3c1" value="SEM-MCD-001 / roof surface / roof existence-type PARTIAL / access TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="624" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r3c2" value="&lt;b&gt;Visual defect evidence&lt;/b&gt;&lt;br&gt;Is there visual defect evidence in an accessible and validated roof context?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="624" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r3c3" value="&lt;b&gt;WEAK / PARTIAL CONTEXT&lt;/b&gt;&lt;br&gt;TBD ROOF ACCESS AND CONTEXT&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="624" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r3c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Photo / inspection / note / act or documentary record" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="624" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r3c5" value="&lt;b&gt;NO MACHINE TARGET&lt;/b&gt;&lt;br&gt;NOT APPLICABLE&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: NOT REQUIRED · HUMAN/DOC MODEL&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="624" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r3c6" value="&lt;b&gt;PARTIAL ROOF EXISTENCE TYPE ACCESS TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-016 / §15.x; roof context PARTIAL as carried by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFF8E1;strokeColor=#F9A825;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#7A5A00;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="624" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r3c7" value="&lt;b&gt;OBSERVABLE AFTER FIELD MAPPING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-004&lt;br&gt;roof confirmation · access · exact context · attachment provenance · professional validation" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="624" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r3c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT CREATE MACHINE DEVICE OR CONNECTIVITY SCOPE FOR DOCUMENTARY ONLY ROW&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="624" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r4c0" value="&lt;b&gt;OBS-CAND-017&lt;/b&gt;&lt;br&gt;OC-011&lt;br&gt;LIFTS" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="729" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r4c1" value="SEM-MCD-001 / lift per entrance / count PARTIAL / per-unit location TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="729" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r4c2" value="&lt;b&gt;Availability/operational condition&lt;/b&gt;&lt;br&gt;Is each validated lift available and operational?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F8FBFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="729" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r4c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD PER ENTRANCE LIFT LOCATION&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="729" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r4c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;General availability assessment / inspection or maintenance note" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="729" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r4c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;BINARY STATE availability capture / event-driven concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="729" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r4c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE COUNT PARTIAL PER UNIT LOCATION TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-017 / §15.x / §12 TBD-EC02-01; BF-020 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="729" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r4c7" value="&lt;b&gt;OBSERVABLE NOW HUMAN MACHINE PENDING SITING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-EC02-01&lt;br&gt;lift count confirmation · per-entrance locations · access · machine interface/siting · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="729" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r4c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT CREATE PER LIFT DEPLOYMENT BEFORE COUNT AND LOCATION CONFIRMATION&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="729" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r5c0" value="&lt;b&gt;OBS-CAND-018&lt;/b&gt;&lt;br&gt;OC-011&lt;br&gt;LIFTS" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="57" y="834" width="105" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r5c1" value="SEM-MCD-001 / lift per entrance / count PARTIAL / per-unit location TBD" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="162" y="834" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r5c2" value="&lt;b&gt;Outage/event condition&lt;/b&gt;&lt;br&gt;Has a lift outage/event occurred in a validated per-unit context?" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#B8C0CC;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="362" y="834" width="205" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r5c3" value="&lt;b&gt;L1 CONCEPTUAL&lt;/b&gt;&lt;br&gt;TBD PER ENTRANCE LIFT LOCATION&lt;br&gt;&lt;font style='font-size:8px'&gt;OP ≠ DEVICE · CANDIDATE ≠ INSTALLED&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="567" y="834" width="130" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r5c4" value="&lt;b&gt;YES&lt;/b&gt;&lt;br&gt;Human report / inspection or maintenance note" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="697" y="834" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r5c5" value="&lt;b&gt;YES · CONCEPTUAL&lt;/b&gt;&lt;br&gt;EVENT capture / event-driven concept&lt;br&gt;&lt;font style='font-size:8px'&gt;CONN: REQUIRED / TBD / DOWNSTREAM&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#0D47A1;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="822" y="834" width="125" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r5c6" value="&lt;b&gt;VERIFIED SYSTEM EXISTENCE COUNT PARTIAL PER UNIT LOCATION TBD&lt;/b&gt;&lt;br&gt;EC-02 §15 OBS-CAND-018 / §15.x / §12 TBD-EC02-01; BF-020 as cited by EC-02&lt;br&gt;&lt;font style='font-size:8px'&gt;CTX · OP · CH · TIME · SRC/ACTOR · RECORD · CONF · VALID&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#E8F5E9;strokeColor=#2E7D32;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#1B5E20;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="947" y="834" width="160" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r5c7" value="&lt;b&gt;OBSERVABLE NOW HUMAN MACHINE PENDING SITING&lt;/b&gt;&lt;br&gt;SITE: YES TBD-EC02-01&lt;br&gt;lift count confirmation · per-entrance locations · event context · machine interface/siting · connectivity feasibility · provenance completeness" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#F5F5F5;strokeColor=#757575;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#424242;spacing=5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1107" y="834" width="200" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-r5c8" value="&lt;b&gt;DO NOT:&lt;/b&gt;&lt;br&gt;DO NOT EQUATE EVENT OR CHANNEL LOSS WITH LIFT ENGINEERING DEFECT&lt;br&gt;&lt;font style='font-size:8px'&gt;0 confirmed ≠ proved absence&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;overflow=hidden;fillColor=#FFFFFF;strokeColor=#6B778C;strokeWidth=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=8.5;fontColor=#26364A;spacing=5;" vertex="1" parent="1">
+          <mxGeometry x="1307" y="834" width="223" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-guards" value="&lt;b&gt;MASTER OBSERVABILITY MATRIX ≠ DEVICE DEPLOYMENT PLAN&lt;/b&gt; · &lt;b&gt;OBSERVATION POINT ≠ DEVICE&lt;/b&gt; · &lt;b&gt;CANDIDATE ≠ INSTALLED DEVICE&lt;/b&gt; · &lt;b&gt;SYSTEM EXISTS ≠ COMPONENT LOCATION KNOWN&lt;/b&gt; · &lt;b&gt;MATRIX ROW COVERAGE ≠ FULL BUILDING OBSERVABILITY&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F9A825;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8;fontColor=#7A5A00;spacing=6;" vertex="1" parent="1">
+          <mxGeometry x="57" y="948" width="1473" height="51" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-footerbg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEF2F6;strokeColor=#AAB4C3;" vertex="1" parent="1">
+          <mxGeometry x="57" y="1013" width="1473" height="53" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-footerleft" value="&lt;b&gt;A3-EC02-03&lt;/b&gt; · FROZEN IR · SOURCE GATE EC-02 · REFERENCE SEM-MCD-001 · MATRIX ROWS 18 · LOGICAL RENDER 3/3" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=7.5;fontColor=#26364A;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="67" y="1018" width="850" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="s3-footerright" value="RELATED: EC02-01 NARRATIVE · EC02-02 HERO · EC02-04 REFERENCE EXAMPLE&lt;br&gt;DRAWIO REVIEW v1.0 · SEMANTICS UNCHANGED · OPEN ITEMS RETAINED" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontFamily=Arial;fontSize=7.5;fontColor=#26364A;spacingRight=10;" vertex="1" parent="1">
+          <mxGeometry x="915" y="1018" width="605" height="42" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

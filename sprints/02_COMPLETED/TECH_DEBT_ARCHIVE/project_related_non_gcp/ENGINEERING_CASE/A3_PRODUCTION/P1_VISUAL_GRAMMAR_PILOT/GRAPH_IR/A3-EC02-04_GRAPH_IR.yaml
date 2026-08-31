@@ -1,0 +1,309 @@
+schema_version: "1.0"
+graph_id: A3-EC02-04
+page_id: A3-EC02-04
+title: "Reference Observation — OBS-CAND-001"
+ir_type: FLOW
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+
+purpose: >-
+  Show one concrete reference observation from physical condition through
+  observation capture, provenance, HouseMaster acceptance and domain linkage,
+  while preserving the difference between observation, evidence and engineering
+  conclusion.
+
+source_control:
+  source_gate: EC-02
+  allowed_source: EC-02_PHYSICAL_TO_OBSERVATION_SEM-MCD-001_v0.3_REVIEW.md
+  other_sources_read: false
+  source_sections:
+    - "§16 Reference Observation Candidate"
+    - "§16.1 Reference Observation Flow"
+    - "§16.2 Conceptual Runtime States"
+    - "§18 A3-EC02-04 — Reference Observation"
+
+reference_observation:
+  source_backed: true
+  observation_id: OBS-CAND-001
+  observation_point_id: OC-001
+  system: HEATING
+  system_status: VERIFIED
+  specific_component: TBD
+  component_location: TBD
+  physical_context: "Heating system entry (component location TBD)"
+  observable_condition: "Temperature condition (supply/return)"
+  observation_class: "BOTH (Machine + Human)"
+  actual_channel: "TBD by EC-03+"
+  data_characteristic: SCALAR
+  temporal_class: CONTINUOUS_HIGH_FREQUENCY
+
+provenance_model:
+  observation_time:
+    required: true
+    value: TBD
+    source_ref: "EC-02 §16.1"
+  observed_object_component_context:
+    value: "Heating system entry candidate"
+    location: TBD
+    source_ref: "EC-02 §16; §16.1"
+  observation_channel:
+    conceptual_value: "Machine measurement and/or human note"
+    actual_value: TBD
+    source_ref: "EC-02 §16; §16.1"
+  source_actor_device_provenance:
+    required: true
+    actor: TBD
+    device: TBD
+    source_ref: "EC-02 §16.1"
+  evidence_attachment_context:
+    component_context_required: true
+    attachment: TBD
+    source_ref: "EC-02 §16.1"
+
+critical_distinctions:
+  - "OBSERVATION ≠ EVIDENCE"
+  - "EVIDENCE ≠ DEFECT"
+  - "DEVICE / HUMAN INPUT ≠ ENGINEERING FACT"
+  - "ACCEPTED RECORD ≠ VERIFIED BUILDING STATE"
+
+flow_steps:
+  - id: S-01
+    label: "SEM-MCD-001"
+    semantic_role: "Physical reference context"
+    domain: "PHYSICAL BUILDING"
+    status: VERIFIED
+    source_ref: "EC-02 §16.1"
+    confidence: HIGH
+    required_context: "Reference object identity"
+    what_it_means: "The physical MCD from which the reference observation is scoped"
+    what_it_does_not_mean: "All component locations are known"
+
+  - id: S-02
+    label: "ENGINEERING SYSTEM — HEATING"
+    semantic_role: "Evidence-backed system context"
+    domain: "ENGINEERING SYSTEM"
+    status: VERIFIED
+    source_ref: "EC-02 §16; §16.1"
+    confidence: HIGH
+    required_context: "BF-015 is referenced inside EC-02; no upstream reread"
+    what_it_means: "Central heating system existence is the verified basis for the candidate"
+    what_it_does_not_mean: "A specific heating component or topology is verified"
+
+  - id: S-03
+    label: "PHYSICAL CONTEXT / COMPONENT CANDIDATE"
+    semantic_role: "Candidate observation context"
+    domain: "PHYSICAL / ENGINEERING"
+    status: TBD_SITE_SURVEY
+    source_ref: "EC-02 §16; §16.1"
+    confidence: HIGH
+    required_context: "Heating system entry; component location TBD"
+    what_it_means: "The observation is scoped to a heating-entry candidate"
+    what_it_does_not_mean: "A HEAT-xx component or location has been instantiated"
+
+  - id: S-04
+    label: "OBSERVABLE CONDITION — TEMPERATURE"
+    semantic_role: "Engineering quantity to observe"
+    domain: "OBSERVABLE CONDITION"
+    status: PROPOSED
+    source_ref: "EC-02 §16; §16.1"
+    confidence: HIGH
+    required_context: "Temperature condition (supply/return); no threshold defined"
+    what_it_means: "Temperature is the source-selected observable condition"
+    what_it_does_not_mean: "Any temperature value is already captured or abnormal"
+
+  - id: S-05
+    label: "OBSERVATION POINT — OC-001 / OBS-CAND-001"
+    semantic_role: "Candidate observation point"
+    domain: OBSERVABILITY
+    status: PROPOSED_L1
+    source_ref: "EC-02 §16; §16.1"
+    confidence: HIGH
+    required_context: "Candidate remains L1; field-confirmed siting required"
+    what_it_means: "A conceptual observation point for the reference condition"
+    what_it_does_not_mean: "A siteable or installed observation point"
+
+  - id: S-06
+    label: "OBSERVATION CHANNEL — MACHINE AND/OR HUMAN"
+    semantic_role: "Capture-channel choice"
+    domain: "OBSERVATION ACQUISITION"
+    status: PROPOSED_CHANNEL_TBD
+    source_ref: "EC-02 §16; §16.1"
+    confidence: HIGH
+    required_context: "Actual channel TBD by EC-03+"
+    what_it_means: "The condition may be observed by machine measurement and/or human note"
+    what_it_does_not_mean: "A sensor, device, installation, or channel decision exists"
+
+  - id: S-07
+    label: "RAW / CAPTURED OBSERVATION"
+    semantic_role: "Captured observation content"
+    domain: OBSERVATION
+    status: PROPOSED
+    source_ref: "EC-02 §16.1"
+    confidence: MEDIUM
+    required_context: "Machine measurement or human note; actual value/time TBD"
+    what_it_means: "The immediate captured observation before evidence context is attached"
+    what_it_does_not_mean: "Evidence, defect, or engineering truth"
+
+  - id: S-08
+    label: "CONTEXT + TIMESTAMP + PROVENANCE"
+    semantic_role: "Evidence-context assembly"
+    domain: PROVENANCE
+    status: REQUIRED_VALUES_TBD
+    source_ref: "EC-02 §16.1"
+    confidence: HIGH
+    required_context: "Timestamp required; component context required; provenance required; actual values TBD"
+    what_it_means: "The context required to make an observation evidence-bearing"
+    what_it_does_not_mean: "Invented time, actor, device, attachment, or location"
+
+  - id: S-09
+    label: "EVIDENCE-BEARING RECORD"
+    semantic_role: "Evidence record"
+    domain: EVIDENCE
+    status: PROPOSED
+    source_ref: "EC-02 §16.1"
+    confidence: MEDIUM
+    required_context: "Captured observation plus required context and provenance"
+    what_it_means: "A record that carries the observation and its provenance context"
+    what_it_does_not_mean: "A defect or verified engineering conclusion"
+
+  - id: S-10
+    label: "HOUSEMASTER ACCEPTANCE"
+    semantic_role: "Conceptual acceptance boundary"
+    domain: "HOUSEMASTER BOUNDARY"
+    status: PROPOSED
+    source_ref: "EC-02 §16.1"
+    confidence: MEDIUM
+    required_context: "Record acceptance only; no API/schema/protocol defined"
+    what_it_means: "Conceptual entry of the evidence-bearing record into HouseMaster"
+    what_it_does_not_mean: "A defined integration contract or engineering validation"
+
+  - id: S-11
+    label: "DOMAIN LINKAGE / HOUSEMASTER BUILDING STATE"
+    semantic_role: "Domain interpretation destination"
+    domain: "HOUSEMASTER DOMAIN"
+    status: RULES_VALIDATION_REQUIRED
+    source_ref: "EC-02 §16.1; §16.2"
+    confidence: HIGH
+    required_context: "Future domain rules and professional validation"
+    what_it_means: "Linkage toward HouseMaster Building State and gated interpretation"
+    what_it_does_not_mean: "An accepted record automatically verifies a defect or building state"
+
+edges:
+  - id: E-01
+    from: S-01
+    to: S-02
+    label: "scopes verified engineering system"
+    status: EXPLICIT
+    source_ref: "EC-02 §16.1"
+    what_it_means: "The reference object is narrowed to the verified heating system"
+    what_it_does_not_mean: "Other systems or locations are inferred"
+
+  - id: E-02
+    from: S-02
+    to: S-03
+    label: "defines candidate physical context"
+    status: TBD_SITE_SURVEY
+    source_ref: "EC-02 §16; §16.1"
+    what_it_means: "Heating existence permits a heating-entry candidate context"
+    what_it_does_not_mean: "The entry component/location is known"
+
+  - id: E-03
+    from: S-03
+    to: S-04
+    label: "identifies observable condition"
+    status: PROPOSED
+    source_ref: "EC-02 §16; §16.1"
+    what_it_means: "Temperature is selected as the observable condition"
+    what_it_does_not_mean: "A threshold, value, or abnormal state is defined"
+
+  - id: E-04
+    from: S-04
+    to: S-05
+    label: "maps condition to candidate OP"
+    status: PROPOSED_L1
+    source_ref: "EC-02 §16.1"
+    what_it_means: "The condition is associated with OC-001 / OBS-CAND-001"
+    what_it_does_not_mean: "The OP is field-instantiated"
+
+  - id: E-05
+    from: S-05
+    to: S-06
+    label: "selects applicable observation channel"
+    status: CHANNEL_TBD
+    source_ref: "EC-02 §16; §16.1"
+    what_it_means: "Machine and/or human capture is conceptually applicable"
+    what_it_does_not_mean: "A device or final channel is selected"
+
+  - id: E-06
+    from: S-06
+    to: S-07
+    label: "captures observation"
+    status: PROPOSED
+    source_ref: "EC-02 §16.1"
+    what_it_means: "A machine measurement or human note can become the captured observation"
+    what_it_does_not_mean: "The captured input is evidence or an engineering fact"
+
+  - id: E-07
+    from: S-07
+    to: S-08
+    label: "attaches required context"
+    status: REQUIRED_VALUES_TBD
+    source_ref: "EC-02 §16.1"
+    what_it_means: "Timestamp, component context, and provenance are required"
+    what_it_does_not_mean: "Missing values may be invented"
+
+  - id: E-08
+    from: S-08
+    to: S-09
+    label: "forms evidence-bearing record"
+    status: PROPOSED
+    source_ref: "EC-02 §16.1"
+    what_it_means: "Required context makes the observation evidence-bearing"
+    what_it_does_not_mean: "Evidence verifies a defect"
+
+  - id: E-09
+    from: S-09
+    to: S-10
+    label: "presents record for HouseMaster acceptance"
+    status: PROPOSED
+    source_ref: "EC-02 §16.1"
+    what_it_means: "The evidence-bearing record reaches the conceptual HouseMaster boundary"
+    what_it_does_not_mean: "An API, protocol, or schema is defined"
+
+  - id: E-10
+    from: S-10
+    to: S-11
+    label: "links accepted record to domain interpretation"
+    status: RULES_VALIDATION_REQUIRED
+    source_ref: "EC-02 §16.1; §16.2"
+    what_it_means: "The accepted record can support Building State interpretation through future rules/validation"
+    what_it_does_not_mean: "Acceptance establishes verified building state or engineering truth"
+
+guardrails:
+  - "OBSERVATION ≠ EVIDENCE"
+  - "EVIDENCE ≠ DEFECT"
+  - "CAPTURED DATA ≠ ENGINEERING TRUTH"
+  - "DOMAIN INTERPRETATION REQUIRES RULES / VALIDATION"
+
+counts:
+  flow_steps: 11
+  edges: 10
+  guardrails: 4
+
+excluded_from_page:
+  - "ALAU AI"
+  - "Beeline internal connectivity architecture"
+
+forbidden_actions:
+  - invent_sensor
+  - invent_device_installation
+  - invent_component_location
+  - invent_protocol_api_schema
+  - infer_defect
+  - infer_engineering_truth
+  - create_drawio
+  - create_pdf
+  - create_3d

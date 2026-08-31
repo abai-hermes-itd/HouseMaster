@@ -1,0 +1,253 @@
+schema_version: "1.0"
+graph_id: A3-EC02-02
+page_id: A3-EC02-02
+title: "Hero Graph — Physical MCD to HouseMaster Observation"
+ir_type: GRAPH
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+
+canonical_purpose: >-
+  Show the engineering observation chain from the physical MCD to an accepted
+  HouseMaster observation without conflating physical condition, connectivity,
+  observation, evidence, or engineering state.
+
+source_control:
+  source_gate: EC-02
+  allowed_source: EC-02_PHYSICAL_TO_OBSERVATION_SEM-MCD-001_v0.3_REVIEW.md
+  other_sources_read: false
+  source_sections:
+    - "§1 Purpose and Scope"
+    - "§3–§3.1 Observation Philosophy and Readiness"
+    - "§4a–§4a.4 Observation Architecture"
+    - "§9 HouseMaster Semantic Mapping"
+    - "§14–§14.1 Observable Condition Model and Canonical Observation Taxonomy"
+    - "§16.1 Reference Observation Flow"
+    - "§17 Inputs for EC-03 — Device & Connectivity"
+    - "§18 A3-EC02-02 — Hero Graph"
+
+semantic_distinctions:
+  - "PHYSICAL STATE ≠ OBSERVATION"
+  - "OBSERVATION ≠ EVIDENCE"
+  - "CONNECTIVITY EVENT ≠ ENGINEERING EVENT"
+  - "ACCEPTED DATA ≠ ENGINEERING TRUTH"
+
+nodes:
+  - id: N-01
+    label: "PHYSICAL MCD"
+    domain: "PHYSICAL BUILDING"
+    status: DOCUMENTED_CONTEXT
+    source_ref: "EC-02 §1; §18"
+    confidence: HIGH
+    what_it_means: "SEM-MCD-001 as the physical reference context"
+    what_it_does_not_mean: "Every object, location, or condition is already known"
+
+  - id: N-02
+    label: "OBSERVED OBJECT / ENGINEERING COMPONENT"
+    domain: "PHYSICAL / ENGINEERING"
+    status: EVIDENCE_BOUNDED
+    source_ref: "EC-02 §1; §3; §14"
+    confidence: HIGH
+    what_it_means: "An evidence-bounded target and observable condition"
+    what_it_does_not_mean: "A component location is confirmed or a device exists"
+
+  - id: N-03
+    label: "OBSERVATION POINT"
+    domain: OBSERVABILITY
+    status: L1_CONCEPTUAL_CANDIDATE
+    source_ref: "EC-02 §3; §3.1"
+    confidence: HIGH
+    what_it_means: "A conceptual physical/engineering point for observation"
+    what_it_does_not_mean: "A siteable or field-instantiated point"
+
+  - id: N-04
+    label: "DEVICE / HUMAN OBSERVATION CHANNEL"
+    domain: "OBSERVATION ACQUISITION"
+    status: CONCEPTUAL_CHANNEL
+    source_ref: "EC-02 §4a.1; §14.1"
+    confidence: HIGH
+    what_it_means: "Machine and/or human observation; documentary evidence may accompany the record"
+    what_it_does_not_mean: "A sensor, model, protocol, or installed device has been selected"
+
+  - id: N-05
+    label: "CONNECTIVITY / TRANSPORT WHERE APPLICABLE"
+    domain: CONNECTIVITY
+    status: CONDITIONAL_TBD
+    source_ref: "EC-02 §17"
+    confidence: HIGH
+    what_it_means: "A conditional transport stage for machine-capable observations"
+    what_it_does_not_mean: "Connectivity topology, RF, power, provisioning, or an engineering event"
+
+  - id: N-06
+    label: "HOUSEMASTER INTEGRATION / ACCEPTANCE"
+    domain: "HOUSEMASTER BOUNDARY"
+    status: CONCEPTUAL_BOUNDARY
+    source_ref: "EC-02 §1; §18"
+    confidence: HIGH
+    what_it_means: "Conceptual entry into HouseMaster for acceptance and interpretation"
+    what_it_does_not_mean: "A defined API, integration contract, schema, or verified engineering truth"
+
+  - id: N-07
+    label: "CANONICAL OBSERVATION"
+    domain: "HOUSEMASTER OBSERVATION"
+    status: DEFINED_TAXONOMY
+    source_ref: "EC-02 §14.1"
+    confidence: HIGH
+    what_it_means: "A machine, human, documentary, or derived observation represented in the canonical taxonomy"
+    what_it_does_not_mean: "Evidence by itself, a defect, or an engineering fact"
+
+  - id: N-08
+    label: "EVIDENCE / PROVENANCE"
+    domain: EVIDENCE
+    status: PROVENANCE_REQUIRED
+    source_ref: "EC-02 §16.1; §18"
+    confidence: HIGH
+    what_it_means: "Observation supported by timestamp, component context, and provenance"
+    what_it_does_not_mean: "The observation and evidence are interchangeable or the engineering condition is verified"
+
+  - id: N-09
+    label: "DOMAIN LINKAGE / BUILDING STATE"
+    domain: "HOUSEMASTER DOMAIN"
+    status: DOMAIN_RULE_GATED
+    source_ref: "EC-02 §4a; §16.1; §18"
+    confidence: HIGH
+    what_it_means: "Linkage toward Building State and possible symptom/defect/risk/action interpretation"
+    what_it_does_not_mean: "An automatic defect conclusion or verified engineering truth"
+
+edges:
+  - id: E-01
+    from: N-01
+    to: N-02
+    label: "scopes physical target"
+    domain: "PHYSICAL / ENGINEERING"
+    status: EXPLICIT
+    source_ref: "EC-02 §1; §18"
+    confidence: HIGH
+    what_it_means: "Observation begins from an evidence-bounded physical context"
+    what_it_does_not_mean: "The target location or topology is known"
+
+  - id: E-02
+    from: N-02
+    to: N-03
+    label: "defines candidate observation point"
+    domain: OBSERVABILITY
+    status: L1_CANDIDATE
+    source_ref: "EC-02 §3; §3.1"
+    confidence: HIGH
+    what_it_means: "The physical target can be mapped to a conceptual observation point"
+    what_it_does_not_mean: "The point can be sited or instantiated"
+
+  - id: E-03
+    from: N-03
+    to: N-04
+    label: "observed through applicable channel"
+    domain: "OBSERVATION ACQUISITION"
+    status: CONCEPTUAL
+    source_ref: "EC-02 §4a.1; §14.1"
+    confidence: HIGH
+    what_it_means: "Observation may be machine, human, or documentary"
+    what_it_does_not_mean: "A device decision has been made"
+
+  - id: E-04
+    from: N-04
+    to: N-05
+    label: "machine path where applicable"
+    domain: CONNECTIVITY
+    status: CONDITIONAL
+    source_ref: "EC-02 §17"
+    confidence: HIGH
+    what_it_means: "Machine-capable observations may require future transport"
+    what_it_does_not_mean: "Every observation requires connectivity or a topology is selected"
+
+  - id: E-05
+    from: N-04
+    to: N-06
+    label: "human/documentary path"
+    domain: "HUMAN / DOCUMENTARY"
+    status: EXPLICIT_BYPASS
+    source_ref: "EC-02 §4a.3; §17"
+    confidence: HIGH
+    what_it_means: "Human/documentary observations can enter HouseMaster without device connectivity"
+    what_it_does_not_mean: "Human observation is dependent on a machine channel"
+
+  - id: E-06
+    from: N-05
+    to: N-06
+    label: "transport to acceptance boundary"
+    domain: "CONNECTIVITY / INTEGRATION"
+    status: CONCEPTUAL
+    source_ref: "EC-02 §1; §17; §18"
+    confidence: HIGH
+    what_it_means: "Transport, when applicable, precedes HouseMaster acceptance"
+    what_it_does_not_mean: "A connectivity event is an engineering event or an API is defined"
+
+  - id: E-07
+    from: N-06
+    to: N-07
+    label: "accept and represent"
+    domain: "HOUSEMASTER OBSERVATION"
+    status: CONCEPTUAL
+    source_ref: "EC-02 §1; §14.1; §18"
+    confidence: HIGH
+    what_it_means: "Accepted input is represented as a canonical observation"
+    what_it_does_not_mean: "Accepted data is engineering truth"
+
+  - id: E-08
+    from: N-07
+    to: N-08
+    label: "attach context and provenance"
+    domain: EVIDENCE
+    status: REQUIRED
+    source_ref: "EC-02 §16.1; §18"
+    confidence: HIGH
+    what_it_means: "Timestamp, component context, and provenance establish an evidence-bearing record"
+    what_it_does_not_mean: "Observation and evidence are the same semantic object"
+
+  - id: E-09
+    from: N-07
+    to: N-09
+    label: "link observation to domain interpretation"
+    domain: "HOUSEMASTER DOMAIN"
+    status: DOMAIN_RULE_GATED
+    source_ref: "EC-02 §4a; §16.1"
+    confidence: HIGH
+    what_it_means: "Canonical observation can be interpreted in the HouseMaster domain"
+    what_it_does_not_mean: "A defect or engineering state is automatically verified"
+
+  - id: E-10
+    from: N-08
+    to: N-09
+    label: "support domain interpretation"
+    domain: "EVIDENCE / DOMAIN"
+    status: DOMAIN_RULE_GATED
+    source_ref: "EC-02 §4a; §16.1; §18"
+    confidence: HIGH
+    what_it_means: "Evidence supports domain interpretation and Building State"
+    what_it_does_not_mean: "Evidence alone proves defect, risk, or engineering truth"
+
+guardrails:
+  - "OBSERVATION ≠ EVIDENCE"
+  - "DEVICE SIGNAL ≠ DEFECT"
+  - "CONNECTIVITY STATE ≠ ENGINEERING STATE"
+  - "ACCEPTED EVENT ≠ VERIFIED ENGINEERING FACT"
+
+counts:
+  nodes: 9
+  edges: 10
+  guardrails: 4
+
+excluded_from_page:
+  - "ALAU AI"
+
+forbidden_actions:
+  - reinterpret_beeline_internal_architecture
+  - invent_sensors
+  - invent_installed_devices
+  - infer_component_locations
+  - invent_topology
+  - invent_basement_layout
+  - create_drawio
+  - create_pdf
+  - create_3d

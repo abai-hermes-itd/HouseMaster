@@ -1,0 +1,260 @@
+<mxfile host="app.diagrams.net" agent="Codex" compressed="false">
+  <diagram id="A3-EC03-01" name="A3-EC03-01">
+    <mxGraphModel dx="1407" dy="695" grid="1" gridSize="2" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1587" pageHeight="1123" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="page" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D0D5DD;strokeWidth=1;" value="" vertex="1">
+          <mxGeometry height="1121" width="1585" x="1" y="1" as="geometry" />
+        </mxCell>
+        <mxCell id="title-band" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#2457A6;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="106" width="1534" x="34" y="57" as="geometry" />
+        </mxCell>
+        <mxCell id="page-id" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#153A73;" value="A3-EC03-01" vertex="1">
+          <mxGeometry height="28" width="220" x="72" y="69" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=29;fontStyle=1;fontColor=#101828;" value="CONNECTIVITY ENTRY ARCHITECTURE" vertex="1">
+          <mxGeometry height="38" width="776" x="306" y="64" as="geometry" />
+        </mxCell>
+        <mxCell id="thesis" parent="1" style="text;html=1;align=center;verticalAlign=top;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#344054;" value="Connectivity serves an observation requirement; it does not define the engineering meaning of the observation." vertex="1">
+          <mxGeometry height="36" width="672.5" x="362.5" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="reference" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=10;fontFamily=Arial;fontSize=12;fillColor=#FAFAFA;strokeColor=#9E9E9E;" value="&lt;b&gt;REFERENCE&lt;/b&gt; · SEM-MCD-001&lt;br&gt;Semey, Shakarima 13A&lt;br&gt;&lt;font color=&quot;#616161&quot;&gt;Deployment: NOT ESTABLISHED · Installed devices: 0 CONFIRMED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="62" width="220" x="62" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="status" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=1;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#1B5E20;" value="FROZEN SEMANTICS&lt;br&gt;&lt;b&gt;DRAWIO REVIEW&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="358" x="1176" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="RESP-01" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=13;fontStyle=1;fillColor=#F5F5F5;strokeColor=#757575;" value="RESP-01 · BUILDING / FIELD" vertex="1">
+          <mxGeometry height="30" width="881" x="34" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="RESP-02" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fillColor=#FFF7CC;strokeColor=#D6A700;fontColor=#665000;" value="RESP-02 · BEELINE TRANSPORT" vertex="1">
+          <mxGeometry height="30" width="115" x="930" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="RESP-03" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontStyle=1;fillColor=#E8F0FE;strokeColor=#2457A6;fontColor=#153A73;" value="RESP-03 · HOUSEMASTER · INDEPENDENT DOMAIN LAYER / SYSTEM OF RECORD" vertex="1">
+          <mxGeometry height="30" width="505" x="1060" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="DOM-01" parent="1" style="swimlane;html=1;horizontal=1;startSize=42;rounded=0;fillColor=#FAFAFA;swimlaneFillColor=#F5F5F5;strokeColor=#9E9E9E;fontFamily=Arial;fontSize=13;fontStyle=1;fontColor=#424242;" value="DOM-01 · BUILDING / FIELD DOMAIN" vertex="1">
+          <mxGeometry height="240" width="248" x="32" y="206" as="geometry" />
+        </mxCell>
+        <mxCell id="N-01" parent="DOM-01" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=12;fillColor=#FAFAFA;strokeColor=#9E9E9E;" value="&lt;b&gt;N-01&lt;/b&gt;&lt;br&gt;SEM-MCD-001&lt;br&gt;PHYSICAL CONTEXT&lt;br&gt;&lt;font color=&quot;#616161&quot;&gt;REFERENCE ONLY&lt;/font&gt;" vertex="1">
+          <mxGeometry height="125" width="105" x="8" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="N-02" parent="DOM-01" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=12;fillColor=#FAFAFA;strokeColor=#757575;" value="&lt;b&gt;N-02&lt;/b&gt;&lt;br&gt;ENGINEERING&lt;br&gt;OBSERVATION NEED&lt;br&gt;&lt;font color=&quot;#424242&quot;&gt;SOURCE-BACKED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="127" width="96" x="142" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="E-01" edge="1" parent="DOM-01" source="N-01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#475467;endArrow=block;endFill=1;fontFamily=Arial;fontSize=10;labelBackgroundColor=none;horizontal=0;" target="N-02" value="E-01">
+          <mxGeometry relative="1" x="-0.2414" y="-14" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="127.51" y="128" />
+              <mxPoint x="127.51" y="128" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DOM-02" parent="1" style="swimlane;html=1;horizontal=1;startSize=42;rounded=0;fillColor=#F7FAFC;swimlaneFillColor=#EEF2F6;strokeColor=#7F8C9A;fontFamily=Arial;fontSize=13;fontStyle=1;fontColor=#344054;" value="DOM-02 · OBSERVATION / DEVICE-SIDE DOMAIN" vertex="1">
+          <mxGeometry height="240" width="353" x="305" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="DOM-03" parent="1" style="swimlane;html=1;horizontal=1;startSize=42;rounded=0;fillColor=#F5F5F5;swimlaneFillColor=#EEEEEE;strokeColor=#757575;dashed=1;dashPattern=6 4;fontFamily=Arial;fontSize=13;fontStyle=1;fontColor=#424242;" value="DOM-03 · CONNECTIVITY ENTRY" vertex="1">
+          <mxGeometry height="240" width="231" x="681" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="DOM-04" parent="1" style="swimlane;html=1;horizontal=1;startSize=58;rounded=0;fillColor=#FFFBDF;swimlaneFillColor=#FFF7CC;strokeColor=#D6A700;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#665000;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;DOM-04&lt;br&gt;BEELINE TRANSPORT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="240" width="110" x="930" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="DOM-06" parent="1" style="swimlane;html=1;horizontal=1;startSize=42;rounded=0;fillColor=#F2F6FE;swimlaneFillColor=#E8F0FE;strokeColor=#2457A6;fontFamily=Arial;fontSize=10;fontStyle=1;fontColor=#153A73;" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;DOM-06 · HOUSEMASTER DOMAIN / SYSTEM OF RECORD&lt;/font&gt;" vertex="1">
+          <mxGeometry height="240" width="256" x="1314" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="N-12" parent="DOM-06" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fillColor=#E8F0FE;strokeColor=#2457A6;fontColor=#153A73;" value="&lt;b&gt;N-12&lt;/b&gt;&lt;br&gt;BUILDING STATE /&lt;br&gt;SYSTEM OF RECORD&lt;br&gt;&lt;font color=&quot;#153A73&quot;&gt;HOUSEMASTER OWNED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="116" width="102" x="132" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="N-11" parent="DOM-06" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=10;fillColor=#E8F0FE;strokeColor=#2457A6;fontColor=#153A73;" value="&lt;b&gt;N-11&lt;/b&gt;&lt;br&gt;OBSERVATION / EVIDENCE&lt;br&gt;/ DOMAIN INTERPRETATION&lt;br&gt;&lt;font color=&quot;#153A73&quot;&gt;HOUSEMASTER OWNED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="116" width="93" x="16" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="E-11" edge="1" parent="DOM-06" source="N-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#2457A6;endArrow=block;endFill=1;fontFamily=Arial;fontSize=10;labelBackgroundColor=none;horizontal=0;" target="N-12" value="E-11">
+          <mxGeometry relative="1" x="0.1381" y="-21" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DOM-05" parent="1" style="swimlane;html=1;horizontal=1;startSize=42;rounded=0;fillColor=#F2F6FE;swimlaneFillColor=#E8F0FE;strokeColor=#2457A6;fontFamily=Arial;fontSize=13;fontStyle=1;fontColor=#153A73;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;DOM-05 · HOUSEMASTER INTEGRATION EDGE&lt;/font&gt;" vertex="1">
+          <mxGeometry height="240" width="234" x="1060" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="N-09" parent="DOM-05" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=8;fillColor=#F3E8FF;strokeColor=#7B4AB5;strokeWidth=2;dashed=1;dashPattern=8 5;fontColor=#4C267A;" value="&lt;b&gt;N-09&lt;/b&gt;&lt;br&gt;BEELINE / HOUSEMASTER&lt;br&gt;TRUST &amp;amp; API BOUNDARY&lt;br&gt;&lt;font color=&quot;#4C267A&quot;&gt;REFERENCED / NOT DESIGNED&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#616161&quot;&gt;NEUTRAL CROSSING&lt;br&gt;NO PROCESSING&lt;/font&gt;" vertex="1">
+          <mxGeometry height="160" width="86" x="8" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="N-10" parent="DOM-05" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fillColor=#E8F0FE;strokeColor=#2457A6;fontColor=#153A73;" value="&lt;b&gt;N-10&lt;/b&gt;&lt;br&gt;HOUSEMASTER&lt;br&gt;INTEGRATION EDGE&lt;br&gt;&lt;font color=&quot;#153A73&quot;&gt;authenticate&lt;br&gt;validate · normalize · map&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="93" x="124" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="E-09" edge="1" parent="DOM-05" source="N-09" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.33;strokeColor=#7B4AB5;dashed=1;dashPattern=8 5;endArrow=block;endFill=1;fontFamily=Arial;fontSize=10;labelBackgroundColor=none;fontColor=#4C267A;horizontal=0;" target="N-10" value="E-09 · CROSSING">
+          <mxGeometry relative="1" x="0.0667" y="-45" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="N-03" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fillColor=#E3F2FD;strokeColor=#1976D2;dashed=1;" value="&lt;b&gt;N-03&lt;/b&gt;&lt;br&gt;MACHINE-CAPABLE&lt;br&gt;OBSERVATION CANDIDATE&lt;br&gt;&lt;font color=&quot;#0D47A1&quot;&gt;L1 CONCEPTUAL&lt;/font&gt;" vertex="1">
+          <mxGeometry height="113" width="107" x="315" y="278" as="geometry" />
+        </mxCell>
+        <mxCell id="N-04" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=12;fillColor=#F5F5F5;strokeColor=#757575;dashed=1;" value="&lt;b&gt;N-04&lt;/b&gt;&lt;br&gt;FIELD / SITE&lt;br&gt;VALIDATION&lt;br&gt;&lt;font color=&quot;#424242&quot;&gt;REQUIRED · TBD&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="98" x="440" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="N-05" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fillColor=#F5F5F5;strokeColor=#757575;dashed=1;" value="&lt;b&gt;N-05&lt;/b&gt;&lt;br&gt;CONCEPTUAL DEVICE&lt;br&gt;ROLE / IDENTITY&lt;br&gt;&lt;font color=&quot;#424242&quot;&gt;NOT INSTANTIATED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="93" x="558" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="N-06" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=10;fillColor=#F5F5F5;strokeColor=#757575;dashed=1;" value="&lt;b&gt;N-06 · PATH OPTION&lt;/b&gt;&lt;br&gt;&lt;b&gt;DIRECT&lt;/b&gt; · PLAUSIBLE&lt;br&gt;&lt;b&gt;EDGE&lt;/b&gt; · PLAUSIBLE&lt;br&gt;&lt;font color=&quot;#424242&quot;&gt;CO-APPLICABLE&lt;br&gt;NOT SEQUENTIAL&lt;br&gt;NOT SELECTED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="102" x="688" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="dZAYsQWMYWh8nQTP2zSN-1" edge="1" parent="1" source="N-07" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="N-06" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="N-07" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fillColor=#F5F5F5;strokeColor=#757575;dashed=1;" value="&lt;b&gt;N-07&lt;/b&gt;&lt;br&gt;CONNECTIVITY ENTRY&lt;br&gt;/ REQUIREMENT&lt;br&gt;&lt;font color=&quot;#424242&quot;&gt;CONCEPTUAL&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="93" x="812" y="275" as="geometry" />
+        </mxCell>
+        <mxCell id="N-08" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fillColor=#FFF7CC;strokeColor=#D6A700;fontColor=#665000;" value="&lt;b&gt;N-08&lt;/b&gt;&lt;br&gt;BEELINE&lt;br&gt;CONNECTIVITY / TRANSPORT&lt;br&gt;&lt;font color=&quot;#665000&quot;&gt;PARTNER DOMAIN&lt;/font&gt;" vertex="1">
+          <mxGeometry height="131" width="93" x="938" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="E-02" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#475467;endArrow=block;endFill=1;fontFamily=Arial;fontSize=10;labelBackgroundColor=none;horizontal=0;" value="E-02">
+          <mxGeometry relative="1" x="-0.0433" y="-15" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="270" y="335" as="sourcePoint" />
+            <mxPoint x="315" y="333.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-03" edge="1" parent="1" source="N-03" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.33;strokeColor=#757575;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=10;labelBackgroundColor=none;horizontal=0;" target="N-04" value="E-03">
+          <mxGeometry relative="1" x="0.1351" y="-19" as="geometry">
+            <mxPoint x="17" y="19" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-04" edge="1" parent="1" source="N-04" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.33;strokeColor=#757575;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=10;labelBackgroundColor=none;horizontal=0;" target="N-05" value="E-04">
+          <mxGeometry relative="1" y="-17" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-05" edge="1" parent="1" source="N-05" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.33;strokeColor=#757575;endArrow=open;endFill=0;fontFamily=Arial;fontSize=10;labelBackgroundColor=none;horizontal=0;" target="N-06" value="E-05">
+          <mxGeometry relative="1" x="-0.0811" y="-17" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-06" edge="1" parent="1" source="N-06" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=1.33;strokeColor=#757575;dashed=1;dashPattern=6 4;endArrow=open;endFill=0;fontFamily=Arial;fontSize=10;labelBackgroundColor=none;horizontal=0;" target="N-07" value="E-06">
+          <mxGeometry relative="1" x="0.0909" y="-21" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-07" edge="1" parent="1" source="N-07" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#D6A700;endArrow=block;endFill=1;fontFamily=Arial;fontSize=10;labelBackgroundColor=none;horizontal=0;" target="N-08" value="E-07">
+          <mxGeometry relative="1" x="0.0146" y="-16" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-08" edge="1" parent="1" source="N-08" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#D6A700;endArrow=block;endFill=1;fontFamily=Arial;fontSize=10;labelBackgroundColor=none;horizontal=0;" target="N-09" value="E-08">
+          <mxGeometry relative="1" x="-0.013" y="-20" as="geometry">
+            <mxPoint x="-20" y="21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="E-10" edge="1" parent="1" source="N-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;strokeColor=#2457A6;endArrow=block;endFill=1;fontFamily=Arial;fontSize=10;labelBackgroundColor=none;horizontal=0;" target="N-11" value="E-10">
+          <mxGeometry relative="1" x="0.0189" y="-23" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="planes-panel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#667085;" value="" vertex="1">
+          <mxGeometry height="300" width="580" x="32" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="planes-title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=1;fontColor=#101828;" value="THREE ARCHITECTURAL PLANES" vertex="1">
+          <mxGeometry height="26" width="520" x="72" y="472" as="geometry" />
+        </mxCell>
+        <mxCell id="PLANE-DATA" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;fontFamily=Arial;fontSize=12;fillColor=#E3F2FD;strokeColor=#1976D2;fontColor=#0D47A1;" value="&lt;b&gt;DATA PLANE&lt;/b&gt;&lt;br&gt;Readings / states / scalar / event / counter&lt;br&gt;Preserve original &lt;b&gt;event_time&lt;/b&gt;" vertex="1">
+          <mxGeometry height="70" width="525" x="72" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="PLANE-CONTROL" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;fontFamily=Arial;fontSize=12;fillColor=#F5F5F5;strokeColor=#757575;dashed=1;fontColor=#424242;" value="&lt;b&gt;CONTROL PLANE · NOT ENABLED BY DEFAULT&lt;/b&gt;&lt;br&gt;Remote actuation out of scope." vertex="1">
+          <mxGeometry height="62" width="525" x="72" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="PLANE-OPERATIONS" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;fontFamily=Arial;fontSize=12;fillColor=#FFF3E0;strokeColor=#EF6C00;fontColor=#8A3B00;" value="&lt;b&gt;OPERATIONS PLANE&lt;/b&gt;&lt;br&gt;Connectivity status · reachability · lifecycle · diagnostics&lt;br&gt;&lt;font color=&quot;#8A3B00&quot;&gt;Exact Beeline exposure: TBD&lt;/font&gt;" vertex="1">
+          <mxGeometry height="88" width="525" x="72" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="mis-panel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#7B4AB5;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="300" width="420" x="627" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="mis-title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=1;fontColor=#4C267A;" value="MINIMUM INTEGRATION SURFACE · CONCEPTUAL" vertex="1">
+          <mxGeometry height="26" width="390" x="642" y="472" as="geometry" />
+        </mxCell>
+        <mxCell id="MIS-01" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=10;fontFamily=Arial;fontSize=12;fillColor=#FFFFFF;strokeColor=#D0D5DD;" value="1 · Observation/event content&lt;br&gt;&lt;font color=&quot;#667085&quot;&gt;scalar · event · state · counter&lt;/font&gt;" vertex="1">
+          <mxGeometry height="42" width="390" x="642" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="MIS-02" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=10;fontFamily=Arial;fontSize=11;fillColor=#FFFFFF;strokeColor=#D0D5DD;" value="2 · Source/device + connectivity-profile identity references&lt;br&gt;&lt;font color=&quot;#667085&quot;&gt;TBD until deployment&lt;/font&gt;" vertex="1">
+          <mxGeometry height="48" width="390" x="642" y="552" as="geometry" />
+        </mxCell>
+        <mxCell id="MIS-03" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=10;fontFamily=Arial;fontSize=11;fillColor=#FFFFFF;strokeColor=#D0D5DD;" value="3 · Connectivity / delivery status&lt;br&gt;&lt;font color=&quot;#8A3B00&quot;&gt;exposed mapping TBD WITH BEELINE&lt;/font&gt;" vertex="1">
+          <mxGeometry height="44" width="390" x="642" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="MIS-04" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=10;fontFamily=Arial;fontSize=11;fillColor=#FFFFFF;strokeColor=#D0D5DD;" value="4 · Temporal provenance · &lt;b&gt;event_time ≠ received_time&lt;/b&gt;" vertex="1">
+          <mxGeometry height="36" width="390" x="642" y="654" as="geometry" />
+        </mxCell>
+        <mxCell id="MIS-05" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=10;fontFamily=Arial;fontSize=11;fillColor=#E8F0FE;strokeColor=#2457A6;fontColor=#153A73;" value="5 · Integration outcome&lt;br&gt;&lt;font color=&quot;#153A73&quot;&gt;validate · normalize · map · no payload schema&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#667085&quot;&gt;HouseMaster responsibility&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="390" x="642" y="695" as="geometry" />
+        </mxCell>
+        <mxCell id="tbd-panel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#757575;dashed=1;" value="" vertex="1">
+          <mxGeometry height="300" width="505" x="1062" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="tbd-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=1;fontColor=#424242;" value="OPEN / TBD REGISTER · 20 UNRESOLVED" vertex="1">
+          <mxGeometry height="26" width="471" x="1077" y="472" as="geometry" />
+        </mxCell>
+        <mxCell id="tbd-site" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=10;fontFamily=Arial;fontSize=11;fillColor=#F5F5F5;strokeColor=#757575;dashed=1;fontColor=#424242;" value="&lt;b&gt;SITE / DEVICE FEASIBILITY — 5&lt;/b&gt;&lt;br&gt;TBD-EC03-01 · power availability&lt;br&gt;TBD-EC03-02 · physical access&lt;br&gt;TBD-EC03-03 · RF/connectivity environment&lt;br&gt;TBD-EC03-04 · Direct vs Edge preference&lt;br&gt;TBD-EC03-05 · metering-interface existence" vertex="1">
+          <mxGeometry height="240" width="205" x="1077" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="tbd-beeline" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=8;fontFamily=Arial;fontSize=10;fillColor=#FFF3E0;strokeColor=#EF6C00;fontColor=#8A3B00;" value="&lt;b&gt;TBD WITH BEELINE — 15&lt;/b&gt;&lt;br&gt;Q-CONN-01 · service models&lt;br&gt;Q-CONN-02 · SIM/eSIM lifecycle&lt;br&gt;Q-CONN-03 · exposed states&lt;br&gt;Q-CONN-04 · delivery semantics&lt;br&gt;Q-CONN-05 · retry/reconnect ownership&lt;br&gt;Q-CONN-06 · authentication model&lt;br&gt;Q-CONN-07 · private connectivity&lt;br&gt;Q-CONN-08 · RF/site-survey support&lt;br&gt;Q-CONN-09 · operator observability&lt;br&gt;Q-CONN-10 · incident exposure&lt;br&gt;Q-CONN-11 · provisioning interfaces&lt;br&gt;Q-CONN-12 · lifecycle events&lt;br&gt;Q-CONN-13 · onboarding role&lt;br&gt;Q-CONN-14 · edge/gateway ownership&lt;br&gt;Q-CONN-15 · pilot monitoring" vertex="1">
+          <mxGeometry height="240" width="223" x="1327" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="failure-strip" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFDF7;strokeColor=#C8A84E;" value="" vertex="1">
+          <mxGeometry height="105" width="1473" x="57" y="775" as="geometry" />
+        </mxCell>
+        <mxCell id="failure-title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=1;fontColor=#7A5A00;" value="FAILURE / UNKNOWN BOUNDARY · COMPACT STRIP" vertex="1">
+          <mxGeometry height="24" width="420" x="72" y="783" as="geometry" />
+        </mxCell>
+        <mxCell id="failure-flow" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontStyle=1;fillColor=#FFFFFF;strokeColor=#C8A84E;dashed=1;" value="DEVICE SIDE  →  LOCAL POWER / OPTIONAL AGGREGATION  →  ACCESS / RADIO  →  OPERATOR TRANSPORT  →  HOUSEMASTER INTEGRATION EDGE  →  HOUSEMASTER PROCESSING" vertex="1">
+          <mxGeometry height="28" width="1443" x="72" y="812" as="geometry" />
+        </mxCell>
+        <mxCell id="unknowns" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fontColor=#7A5A00;" value="NO MESSAGE ≠ NORMAL ENGINEERING CONDITION    ·    CONNECTIVITY LOSS ≠ ENGINEERING DEFECT    ·    DELIVERY FAILURE ≠ PHYSICAL FAILURE    ·    UNKNOWN ≠ ABSENT" vertex="1">
+          <mxGeometry height="24" width="1443" x="72" y="845" as="geometry" />
+        </mxCell>
+        <mxCell id="guardrail-band" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#344054;" value="" vertex="1">
+          <mxGeometry height="138" width="1473" x="57" y="895" as="geometry" />
+        </mxCell>
+        <mxCell id="guardrail-title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=1;fontColor=#101828;" value="MANDATORY GUARDRAILS · 11" vertex="1">
+          <mxGeometry height="24" width="300" x="72" y="903" as="geometry" />
+        </mxCell>
+        <mxCell id="G-01" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fillColor=#FFFFFF;strokeColor=#667085;" value="CONNECTIVITY STATE ≠ ENGINEERING STATE" vertex="1">
+          <mxGeometry height="26" width="340" x="72" y="933" as="geometry" />
+        </mxCell>
+        <mxCell id="G-02" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fillColor=#FFFFFF;strokeColor=#667085;" value="TRANSPORT ≠ DOMAIN INTERPRETATION" vertex="1">
+          <mxGeometry height="26" width="300" x="422" y="933" as="geometry" />
+        </mxCell>
+        <mxCell id="G-03" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fillColor=#FFFFFF;strokeColor=#667085;" value="OBSERVATION POINT ≠ DEVICE" vertex="1">
+          <mxGeometry height="26" width="250" x="732" y="933" as="geometry" />
+        </mxCell>
+        <mxCell id="G-04" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fillColor=#FFFFFF;strokeColor=#667085;" value="CANDIDATE ≠ INSTALLED DEVICE" vertex="1">
+          <mxGeometry height="26" width="260" x="992" y="933" as="geometry" />
+        </mxCell>
+        <mxCell id="G-05" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=10;fontStyle=1;fillColor=#FFFFFF;strokeColor=#667085;" value="ARCHITECTURAL OPTION ≠ DEPLOYMENT DECISION" vertex="1">
+          <mxGeometry height="26" width="253" x="1262" y="933" as="geometry" />
+        </mxCell>
+        <mxCell id="G-06" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fillColor=#FFFFFF;strokeColor=#667085;" value="DEVICE OFFLINE ≠ COMPONENT FAILED" vertex="1">
+          <mxGeometry height="26" width="285" x="72" y="967" as="geometry" />
+        </mxCell>
+        <mxCell id="G-07" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fillColor=#FFFFFF;strokeColor=#667085;" value="NETWORK HEALTH ≠ BUILDING HEALTH" vertex="1">
+          <mxGeometry height="26" width="275" x="367" y="967" as="geometry" />
+        </mxCell>
+        <mxCell id="G-08" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=10;fontStyle=1;fillColor=#FFFFFF;strokeColor=#667085;" value="CONNECTIVITY RESTORED ≠ ENGINEERING DEFECT CLOSED" vertex="1">
+          <mxGeometry height="26" width="380" x="652" y="967" as="geometry" />
+        </mxCell>
+        <mxCell id="G-09" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=10;fontStyle=1;fillColor=#FFFFFF;strokeColor=#667085;" value="FAILURE DOMAIN ≠ ENGINEERING DEFECT DOMAIN" vertex="1">
+          <mxGeometry height="26" width="320" x="1042" y="967" as="geometry" />
+        </mxCell>
+        <mxCell id="G-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=10;fontStyle=1;fillColor=#FFFFFF;strokeColor=#667085;" value="CONNECTIVITY ≠ CONTROL AUTHORITY" vertex="1">
+          <mxGeometry height="26" width="143" x="1372" y="967" as="geometry" />
+        </mxCell>
+        <mxCell id="G-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontStyle=1;fillColor=#FFFFFF;strokeColor=#667085;" value="event_time ≠ received_time" vertex="1">
+          <mxGeometry height="24" width="380" x="652" y="1001" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=12;fontFamily=Arial;fontSize=10;fillColor=#F2F4F7;strokeColor=#98A2B3;fontColor=#475467;" value="PAGE A3-EC03-01 · GRAPH A3-EC03-01 · PRODUCTION P4-01 · ASSEMBLY 013 · IR FROZEN · PAGE SPEC READY · DOMAINS 6 · NODES 12 · EDGES 11 · RESPONSIBILITY DOMAINS 3 · PLANES 3 · OPEN/TBD 20 · GUARDRAILS 11&lt;br&gt;SOURCE GATE EC-03 · REFERENCE SEM-MCD-001 · REVISION v1.0 DRAWIO REVIEW · JOINT VALIDATION REQUIRED · NEXT GATE VISUAL QA" vertex="1">
+          <mxGeometry height="52" width="1473" x="57" y="1045" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

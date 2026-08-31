@@ -1,0 +1,148 @@
+schema_version: "1.0"
+graph_id: A3-EC01-04
+page_id: A3-EC01-04
+title: "Engineering Systems — Existence vs Location"
+ir_type: MATRIX
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+
+canonical_thesis: >-
+  Engineering systems are assessed separately at system-existence and
+  component-location levels; confirmed system existence does not imply
+  known component locations.
+
+source_control:
+  source_gate: EC-01
+  allowed_source: EC-01_REAL_MCD_BASELINE_SEM-MCD-001_v0.3_REVIEW.md
+  other_sources_read: false
+  source_sections:
+    - "§2 Source Registry: SRC-004 and SRC-001/002 provenance only"
+    - "§6 Construction Baseline: lifts, gas, and roof-drainage evidence only"
+    - "§7 Engineering Systems Evidence"
+    - "§14 Master Fact Table: systems rows only"
+    - "§16 TBD Register: TBD-005 and TBD-007 only"
+    - "§17 Confidence Summary: Engineering only"
+
+matrix:
+  columns:
+    - SYSTEM
+    - EXISTENCE STATUS
+    - SOURCE / EVIDENCE
+    - LOCATION STATUS
+    - WHAT IS KNOWN
+    - WHAT REMAINS TBD
+  rows:
+    - id: SYS-01
+      system: "Отопление (Heating)"
+      existence_status: VERIFIED
+      source_evidence: "Marked row on SRC-004/Image 5 checklist; corroborated by SRC-001/002"
+      location_status: TBD
+      what_is_known: "The heating system exists"
+      what_remains_tbd: "Topology and all component/node locations"
+      confidence: "Primary checklist evidence; directly documented existence"
+
+    - id: SYS-02
+      system: "ХВС (Cold water)"
+      existence_status: VERIFIED
+      source_evidence: "Marked row on SRC-004/Image 5 checklist"
+      location_status: TBD
+      what_is_known: "The cold-water system exists"
+      what_remains_tbd: "Topology and all component/node locations"
+      confidence: "Primary checklist evidence; directly documented existence"
+
+    - id: SYS-03
+      system: "ГВС (Hot water)"
+      existence_status: VERIFIED
+      source_evidence: "Marked row on SRC-004/Image 5 checklist as Горячее водоснабжение"
+      location_status: TBD
+      what_is_known: "The hot-water system exists"
+      what_remains_tbd: "Topology and all component/node locations"
+      confidence: "Primary checklist evidence; directly documented existence"
+
+    - id: SYS-04
+      system: "Канализация (Sewer)"
+      existence_status: VERIFIED
+      source_evidence: "Marked row on SRC-004/Image 5 checklist"
+      location_status: TBD
+      what_is_known: "The sewer system exists"
+      what_remains_tbd: "Topology and all component/node locations"
+      confidence: "Primary checklist evidence; directly documented existence"
+
+    - id: SYS-05
+      system: "Электроснабжение (Power)"
+      existence_status: VERIFIED
+      source_evidence: "Marked row on SRC-004/Image 5 checklist"
+      location_status: TBD
+      what_is_known: "The electrical system exists"
+      what_remains_tbd: "Topology and all component/node locations"
+      confidence: "Primary checklist evidence; directly documented existence"
+
+    - id: SYS-06
+      system: "Вентиляция (Ventilation)"
+      existence_status: TBD
+      source_evidence: "Checklist row present on SRC-004/Image 5; mark legibility uncertain"
+      location_status: TBD
+      what_is_known: "A ventilation row is present in the checklist"
+      what_remains_tbd: "Whether the system exists; topology; all component/node locations"
+      confidence: "Primary source present but illegible for existence confirmation"
+
+    - id: SYS-07
+      system: "Лифты (Lifts)"
+      existence_status: VERIFIED
+      source_evidence: "Marked row on SRC-004/Image 5; SRC-001/002 claim 3 lifts, one per entrance"
+      location_status: TBD
+      what_is_known: "A lift system exists; count and one-per-entrance association are PARTIAL"
+      what_remains_tbd: "Topology and all specific component/node locations"
+      confidence: "Existence verified by primary checklist; count/association partial from secondary sources"
+
+    - id: SYS-08
+      system: "Газоснабжение (Gas)"
+      existence_status: TBD
+      source_evidence: "SRC-004/Image 5 checklist marks uncertain; SRC-001/002 claim gas is absent"
+      location_status: TBD
+      what_is_known: "Checklist rows exist and secondary documents claim absence"
+      what_remains_tbd: "Whether gas supply exists; topology; all component/node locations"
+      confidence: "Primary mark illegible; absence claim secondary and unconfirmed"
+
+    - id: SYS-09
+      system: "Кровельный водосток (Roof drainage)"
+      existence_status: PARTIAL
+      source_evidence: "Internal drainage claimed only by SRC-001/002; SRC-004/Image 5 contains a roof field"
+      location_status: TBD
+      what_is_known: "An internal roof-drainage system is claimed"
+      what_remains_tbd: "Primary confirmation; topology; all component/node locations"
+      confidence: "Secondary-only system claim; partial confidence"
+
+counts:
+  systems: 9
+  existence_status:
+    VERIFIED: 6
+    PARTIAL: 1
+    TBD: 2
+  location_status:
+    VERIFIED: 0
+    PARTIAL: 0
+    TBD: 9
+  confirmed_specific_component_node_locations: 0
+
+semantic_distinction:
+  left: "SYSTEM EXISTS"
+  relation: "≠"
+  right: "COMPONENT LOCATION KNOWN"
+
+guardrails:
+  - "DOCUMENTED SYSTEM ≠ DOCUMENTED COMPONENT LOCATION"
+  - "SYSTEM EXISTENCE ≠ AS-BUILT ENGINEERING SCHEME"
+  - "VISUAL SCHEMATIC ≠ FIELD-VERIFIED LOCATION"
+  - "TBD LOCATION ≠ SYSTEM ABSENT"
+
+forbidden_actions:
+  - infer_component_locations
+  - invent_basement_layout
+  - invent_engineering_nodes
+  - create_drawio
+  - create_pdf
+  - create_3d

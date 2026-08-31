@@ -1,0 +1,154 @@
+schema_version: "1.0"
+graph_id: A3-EC00-04
+page_id: A3-EC00-04
+production_no: P5-01
+stage: P5_VALIDATION_UNKNOWNS
+canonical_title: "Scope & Open Questions"
+page_type: PT-08_TBD_VALIDATION_REGISTER
+ir_type: GROUPED_VALIDATION_QUESTION_REGISTER
+status: FROZEN
+source_path: "C:\\Abay-Germes\\HouseMaster\\ENGINEERING_CASE\\A3_PRODUCTION\\P5_VALIDATION_UNKNOWNS\\SOURCE_INPUTS\\EC00_OPEN_QUESTIONS_Q1-Q15_TECH07.md"
+source_sections:
+  - HOW_TO_USE_THIS_PAGE
+  - VALIDATION_DECISION_MODEL
+  - TBD_WITH_BEELINE
+  - BEELINE_INFORMATION_BOUNDARY
+  - Q1_Q8_TECH01_TECH02_TECH03
+  - Q9_Q15_TECH04_TECH05_TECH06_TECH07
+  - TECH08A_BOUNDARY_STATEMENTS_ONLY
+  - VALIDATION_PIPELINE
+  - EXPECTED_OUTPUT
+
+primary_engineering_question: >-
+  Which operator-specific technical assumptions, interfaces, constraints,
+  responsibilities, and pilot parameters must be jointly validated with
+  Beeline before the HouseMaster reference architecture can become a validated
+  pilot architecture?
+
+primary_semantic_unit:
+  type: VALIDATION_QUESTION
+  count: 15
+
+validation_tracks:
+  - {track_id: TECH-01, name: "Connectivity / Signal Path", question_ids: [Q1, Q2, Q3], count: 3}
+  - {track_id: TECH-02, name: "Identity / Lifecycle", question_ids: [Q4, Q5], count: 2}
+  - {track_id: TECH-03, name: "API / Data", question_ids: [Q6, Q7, Q8], count: 3}
+  - {track_id: TECH-04, name: "Security / Trust", question_ids: [Q9, Q10], count: 2}
+  - {track_id: TECH-05, name: "Deployment / Cloud", question_ids: [Q11, Q12], count: 2}
+  - {track_id: TECH-06, name: "Operations / SLA", question_ids: [Q13, Q14], count: 2}
+  - {track_id: TECH-07, name: "Pilot", question_ids: [Q15], count: 1}
+
+questions:
+  - {question_id: Q1, track_id: TECH-01, text: "What IoT/M2M connectivity models can Beeline support for a Connected Building pilot?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q2, track_id: TECH-01, text: "Which transport options and connectivity-state events can be exposed to an external domain platform such as HouseMaster?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q3, track_id: TECH-01, text: "What network-side constraints should be assumed for basement, technical-room and other difficult indoor MCD environments?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q4, track_id: TECH-02, text: "Which SIM/eSIM/M2M identity objects and lifecycle states can Beeline expose to HouseMaster?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q5, track_id: TECH-02, text: "What provisioning, activation, suspension, replacement and deactivation interfaces are available or feasible?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q6, track_id: TECH-03, text: "Which operator APIs, events or integration interfaces are available for connectivity management and telemetry/event exchange?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q7, track_id: TECH-03, text: "Which data objects may cross the Beeline ↔ HouseMaster boundary, and what restrictions apply?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q8, track_id: TECH-03, text: "Which interaction model is preferred: synchronous API, asynchronous events, webhook/callback, message transport, or another operator-approved mechanism?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q9, track_id: TECH-04, text: "What authentication, authorization and trust model would Beeline require for HouseMaster integration?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q10, track_id: TECH-04, text: "What security, audit, logging, credential and incident-response requirements must the pilot satisfy?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q11, track_id: TECH-05, text: "What infrastructure or cloud role, if any, should Beeline play in the pilot architecture?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q12, track_id: TECH-05, text: "What Kazakhstan data-residency, resilience, backup, DR and deployment constraints should be incorporated into the validated architecture?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q13, track_id: TECH-06, text: "How should operational responsibility be divided between Beeline connectivity operations and HouseMaster building-domain operations?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q14, track_id: TECH-06, text: "What incident, escalation, observability, support and SLA/SLO interfaces can be agreed for the pilot?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+  - {question_id: Q15, track_id: TECH-07, text: "What minimum pilot scope, technical acceptance criteria, participants and duration would Beeline consider sufficient to make a scale-up decision?", status: TBD_WITH_BEELINE, decision: TBD, owner_note: UNASSIGNED_BLANK}
+
+relationships:
+  question_to_track:
+    count: 15
+    edges:
+      - {edge_id: QT-01, from: Q1, to: TECH-01, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-02, from: Q2, to: TECH-01, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-03, from: Q3, to: TECH-01, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-04, from: Q4, to: TECH-02, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-05, from: Q5, to: TECH-02, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-06, from: Q6, to: TECH-03, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-07, from: Q7, to: TECH-03, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-08, from: Q8, to: TECH-03, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-09, from: Q9, to: TECH-04, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-10, from: Q10, to: TECH-04, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-11, from: Q11, to: TECH-05, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-12, from: Q12, to: TECH-05, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-13, from: Q13, to: TECH-06, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-14, from: Q14, to: TECH-06, type: BELONGS_TO_VALIDATION_TRACK}
+      - {edge_id: QT-15, from: Q15, to: TECH-07, type: BELONGS_TO_VALIDATION_TRACK}
+  pipeline:
+    count: 5
+    edges:
+      - {edge_id: VP-01, from: HOUSEMASTER_REFERENCE_ARCHITECTURE, to: JOINT_VALIDATION, type: VALIDATION_INPUT}
+      - {edge_id: VP-02, from: BEELINE_TECHNICAL_INPUT, to: JOINT_VALIDATION, type: VALIDATION_INPUT}
+      - {edge_id: VP-03, from: JOINT_VALIDATION, to: VALIDATED_PILOT_ARCHITECTURE, type: PRODUCES}
+      - {edge_id: VP-04, from: TBD, to: VALIDATION_OUTCOME_SET, type: RESOLVED_BY_ARCHITECTURE_VALIDATION_OUTCOME}
+      - {edge_id: VP-05, from: VALIDATION_OUTCOME_SET, to: PILOT_DESIGN, type: INFORMS}
+
+evidence_statuses:
+  - {status: TBD_WITH_BEELINE, meaning: "Operator-specific implementation detail requiring validation with Beeline."}
+  - {status: TBD, meaning: "No validation outcome has been recorded."}
+  - {status: UNASSIGNED_BLANK, meaning: "No owner or note is assigned in the source."}
+
+validation_outcomes:
+  count: 4
+  values:
+    - {outcome: CONFIRM, meaning: "Reference model applies."}
+    - {outcome: REPLACE, meaning: "Use Beeline actual / alternative mechanism."}
+    - {outcome: CONSTRAIN, meaning: "Apply technical / security / operational limit."}
+    - {outcome: REMOVE, meaning: "Not used in pilot."}
+  restriction: ARCHITECTURE_VALIDATION_OUTCOMES_NOT_COMMERCIAL_APPROVAL_CONTRACT_OR_DEPLOYMENT_STATUSES
+
+validation_pipeline:
+  architecture_pipeline: "HOUSEMASTER REFERENCE ARCHITECTURE + BEELINE TECHNICAL INPUT → JOINT VALIDATION → VALIDATED PILOT ARCHITECTURE"
+  decision_pipeline: "TBD → CONFIRM / REPLACE / CONSTRAIN / REMOVE → PILOT DESIGN"
+
+expected_outputs:
+  count: 7
+  items:
+    - Confirmed integration capabilities
+    - Agreed alternative mechanisms
+    - Documented technical constraints
+    - Removed out-of-scope assumptions
+    - Assigned unresolved TBDs
+    - Validated integration surface
+    - Inputs for Pilot Architecture v0.1
+
+information_boundary:
+  full_beeline_internal_architecture_disclosure_required: false
+  required_information: MINIMUM_INFORMATION_TO_VALIDATE_AGREED_INTEGRATION_SURFACE
+
+open_tbd_items:
+  count: 15
+  item_refs: [Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, Q13, Q14, Q15]
+  status: TBD_WITH_BEELINE
+  decision: TBD
+  owner_note: UNASSIGNED_BLANK
+  validation_owner_assignments_count: 0
+
+guardrails:
+  - {guardrail_id: GR-01, text: "REFERENCE ARCHITECTURE ≠ BEELINE INTERNAL ARCHITECTURE"}
+  - {guardrail_id: GR-02, text: "VALIDATED PILOT ARCHITECTURE ≠ PRODUCTION ARCHITECTURE"}
+  - {guardrail_id: GR-03, text: "TBD WITH BEELINE ≠ ARCHITECTURE ERROR"}
+  - {guardrail_id: GR-04, text: "TBD WITH BEELINE ≠ MISSING HOUSEMASTER DESIGN"}
+  - {guardrail_id: GR-05, text: "TBD WITH BEELINE ≠ ASSUMED BEELINE CAPABILITY"}
+  - {guardrail_id: GR-06, text: "TBD WITH BEELINE ≠ BEELINE COMMITMENT"}
+  - {guardrail_id: GR-07, text: "VALIDATION INPUT / OUTCOME ≠ COMMERCIAL COMMITMENT OR STATUS"}
+
+sem_mcd_001:
+  included: false
+  reason: "The authoritative source does not require SEM-MCD-001 for this page."
+
+exclusions:
+  - NO_QUESTION_ANSWER
+  - NO_OWNER_ASSIGNMENT
+  - NO_BEELINE_CAPABILITY_COMMITMENT_OR_INTERNAL_ARCHITECTURE_INFERENCE
+  - NO_SIM_ESIM_API_SECURITY_CLOUD_SLA_SLO_PILOT_DURATION_OR_ACCEPTANCE_CRITERIA_INVENTION
+  - NO_DEPLOYMENT_READINESS_INFERENCE
+  - NO_SCORING_PERCENTAGE_TRAFFIC_LIGHT_WINNER_COLOR_OR_APPROVAL_BADGE
+  - NO_SEM_MCD_001
+  - NO_DRAWIO_PDF_OR_FREEZE
+
+provenance:
+  source_path: "C:\\Abay-Germes\\HouseMaster\\ENGINEERING_CASE\\A3_PRODUCTION\\P5_VALIDATION_UNKNOWNS\\SOURCE_INPUTS\\EC00_OPEN_QUESTIONS_Q1-Q15_TECH07.md"
+  source_scope_exclusive: true
+
+next_gate: DRAWIO_COMPILE

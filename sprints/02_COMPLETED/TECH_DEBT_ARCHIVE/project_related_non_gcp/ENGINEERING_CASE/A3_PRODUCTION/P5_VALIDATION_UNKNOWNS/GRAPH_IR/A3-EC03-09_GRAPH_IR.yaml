@@ -1,0 +1,108 @@
+schema_version: "1.0"
+graph_id: A3-EC03-09
+page_id: A3-EC03-09
+production_no: P5-02
+stage: P5_VALIDATION_UNKNOWNS
+canonical_title: "TBD With Beeline"
+page_type: PT-08_TBD_VALIDATION_REGISTER
+ir_type: UNGROUPED_CONNECTIVITY_VALIDATION_QUESTION_REGISTER
+status: FROZEN
+source_path: "C:\\Abay-Germes\\HouseMaster\\ENGINEERING_CASE\\01_SOURCE_GATES\\EC03\\EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md"
+source_section: "§30"
+
+primary_engineering_question: >-
+  Which Beeline-specific connectivity capabilities, externally exposed states,
+  interfaces, constraints, responsibilities, and pilot operations remain
+  unknown and must be validated before EC-03 assumptions can be carried forward?
+
+primary_semantic_unit:
+  type: Q_CONN_VALIDATION_QUESTION
+  count: 15
+  order: SOURCE_ORDER_Q_CONN_01_TO_Q_CONN_15
+
+validation_tracks_categories:
+  count: 0
+  items: []
+  restriction: NO_SEMANTIC_GROUPING_TAXONOMY_IN_SOURCE
+
+primary_semantic_units:
+  - {question_id: Q-CONN-01, order: 1, text: "What machine-connectivity service models are available for pilot use?", why_needed: "Determines feasible connectivity profiles (§17)", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-02, order: 2, text: "What SIM/eSIM lifecycle capabilities are exposed?", why_needed: "Needed for EC-04's identity/lifecycle design", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-03, order: 3, text: "What connectivity/reachability states can be exposed externally?", why_needed: "Needed to map §21's proposed states to actual Beeline-exposed states", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-04, order: 4, text: "What delivery semantics are available?", why_needed: "Affects §23's store-and-forward assumptions", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-05, order: 5, text: "What retry/reconnect behavior is operator-controlled vs. device-controlled?", why_needed: "Affects §23/§29 failure-recovery boundaries", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-06, order: 6, text: "What authentication/security models are supported?", why_needed: "TECH-04 territory — referenced only, not designed here", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-07, order: 7, text: "What private connectivity options exist if later required?", why_needed: "Affects future connectivity-profile options", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-08, order: 8, text: "What basement/technical-room RF/site-survey support is available?", why_needed: "Directly affects basement-cluster candidates (DEV-CAND-009/010/011)", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-09, order: 9, text: "What operator-side observability can HouseMaster receive?", why_needed: "Affects §21's state-mapping accuracy", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-10, order: 10, text: "How are connectivity incidents exposed?", why_needed: "Affects future TECH-06-aligned operations design", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-11, order: 11, text: "What service-provisioning interfaces exist?", why_needed: "Needed for EC-04's provisioning lifecycle", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-12, order: 12, text: "What lifecycle events are available for SIM/eSIM?", why_needed: "Needed for EC-04's SIM/eSIM lifecycle inventory (§31)", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-13, order: 13, text: "What role can Beeline play in device/gateway onboarding?", why_needed: "Affects Edge Aggregation feasibility (§25/§28)", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-14, order: 14, text: "What edge/gateway ownership patterns are acceptable?", why_needed: "Affects F-03's responsibility assignment (§29)", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+  - {question_id: Q-CONN-15, order: 15, text: "What pilot monitoring/escalation model is feasible?", why_needed: "TECH-06/TECH-07 territory — referenced only", status: TBD_WITH_BEELINE, answer: UNANSWERED, owner: UNASSIGNED, decision: NOT_RECORDED}
+
+relationships:
+  type: QUESTION_HAS_VALIDATION_DEPENDENCY
+  count: 15
+  edges:
+    - {edge_id: REL-01, from: Q-CONN-01, to: FEASIBLE_CONNECTIVITY_PROFILES, source_text: "Determines feasible connectivity profiles (§17)"}
+    - {edge_id: REL-02, from: Q-CONN-02, to: EC04_IDENTITY_LIFECYCLE_DESIGN, source_text: "Needed for EC-04's identity/lifecycle design"}
+    - {edge_id: REL-03, from: Q-CONN-03, to: EXTERNAL_STATE_MAPPING, source_text: "Needed to map §21's proposed states to actual Beeline-exposed states"}
+    - {edge_id: REL-04, from: Q-CONN-04, to: STORE_AND_FORWARD_ASSUMPTIONS, source_text: "Affects §23's store-and-forward assumptions"}
+    - {edge_id: REL-05, from: Q-CONN-05, to: FAILURE_RECOVERY_BOUNDARIES, source_text: "Affects §23/§29 failure-recovery boundaries"}
+    - {edge_id: REL-06, from: Q-CONN-06, to: TECH04_REFERENCE_ONLY, source_text: "TECH-04 territory — referenced only, not designed here"}
+    - {edge_id: REL-07, from: Q-CONN-07, to: FUTURE_CONNECTIVITY_PROFILE_OPTIONS, source_text: "Affects future connectivity-profile options"}
+    - {edge_id: REL-08, from: Q-CONN-08, to: BASEMENT_CLUSTER_CANDIDATES, source_text: "Directly affects basement-cluster candidates (DEV-CAND-009/010/011)"}
+    - {edge_id: REL-09, from: Q-CONN-09, to: STATE_MAPPING_ACCURACY, source_text: "Affects §21's state-mapping accuracy"}
+    - {edge_id: REL-10, from: Q-CONN-10, to: FUTURE_OPERATIONS_DESIGN, source_text: "Affects future TECH-06-aligned operations design"}
+    - {edge_id: REL-11, from: Q-CONN-11, to: EC04_PROVISIONING_LIFECYCLE, source_text: "Needed for EC-04's provisioning lifecycle"}
+    - {edge_id: REL-12, from: Q-CONN-12, to: EC04_SIM_ESIM_LIFECYCLE_INVENTORY, source_text: "Needed for EC-04's SIM/eSIM lifecycle inventory (§31)"}
+    - {edge_id: REL-13, from: Q-CONN-13, to: EDGE_AGGREGATION_FEASIBILITY, source_text: "Affects Edge Aggregation feasibility (§25/§28)"}
+    - {edge_id: REL-14, from: Q-CONN-14, to: F03_RESPONSIBILITY_ASSIGNMENT, source_text: "Affects F-03's responsibility assignment (§29)"}
+    - {edge_id: REL-15, from: Q-CONN-15, to: TECH06_TECH07_REFERENCE_ONLY, source_text: "TECH-06/TECH-07 territory — referenced only"}
+
+status_semantics:
+  question_status: TBD_WITH_BEELINE
+  answer_state: UNANSWERED
+  unanswered_count: 15
+
+owner_semantics:
+  state: UNASSIGNED
+  assignment_count: 0
+  source_owner_field_present: false
+
+decision_semantics:
+  state: NOT_RECORDED
+  recorded_decision_count: 0
+  source_decision_field_present: false
+
+open_tbd_items:
+  count: 15
+  item_refs: [Q-CONN-01, Q-CONN-02, Q-CONN-03, Q-CONN-04, Q-CONN-05, Q-CONN-06, Q-CONN-07, Q-CONN-08, Q-CONN-09, Q-CONN-10, Q-CONN-11, Q-CONN-12, Q-CONN-13, Q-CONN-14, Q-CONN-15]
+
+guardrails:
+  - guardrail_id: GR-01
+    text: "EVERY QUESTION IS UNANSWERED BY DESIGN — THIS DOCUMENT DOES NOT RESOLVE ANY OF THEM"
+    repeated_by_closing_source_statement: "No question above is answered in this document."
+
+sem_mcd_001:
+  included: false
+  relevance: BROADER_EC03_CONTEXT_ONLY_NOT_DIRECTLY_NAMED_IN_SECTION_30
+
+explicit_exclusions:
+  - NO_QUESTION_ANSWER_OWNER_OR_DECISION
+  - NO_VALIDATION_TRACK_OR_CATEGORY_TAXONOMY
+  - NO_A3_EC00_04_SEMANTIC_IMPORT
+  - NO_DIRECT_EDGE_SELECTION
+  - NO_SIM_ESIM_API_SECURITY_PRIVATE_CONNECTIVITY_CLOUD_SLA_SLO_OR_PILOT_PARAMETER_INVENTION
+  - NO_BEELINE_INTERNAL_ARCHITECTURE_INFERENCE
+  - NO_SEM_MCD_001_BUILDING_CONTENT
+  - NO_DRAWIO_PDF_OR_FREEZE
+
+provenance:
+  source_path: "C:\\Abay-Germes\\HouseMaster\\ENGINEERING_CASE\\01_SOURCE_GATES\\EC03\\EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md"
+  source_section: "§30"
+  source_scope_exclusive: true
+
+next_gate: DRAWIO_COMPILE

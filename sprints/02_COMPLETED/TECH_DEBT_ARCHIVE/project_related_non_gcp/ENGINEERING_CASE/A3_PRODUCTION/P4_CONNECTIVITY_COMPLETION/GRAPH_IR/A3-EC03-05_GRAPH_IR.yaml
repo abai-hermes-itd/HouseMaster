@@ -1,0 +1,200 @@
+schema_version: "1.0"
+graph_id: A3-EC03-05
+page_id: A3-EC03-05
+production_no: P4-03
+stage: P4_CONNECTIVITY_COMPLETION
+canonical_title: "Connectivity State / Reachability"
+page_type: PT-07_FAILURE_STATE_MODEL
+ir_type: DUAL_LAYER_CONNECTIVITY_STATE_AND_REACHABILITY_SEMANTICS_MODEL
+status: FROZEN
+source_sections: ["EC-03 §21", "EC-03 §24"]
+source_linkage_status: LINKED
+evidence_status: PROPOSED_SOURCE_BACKED
+
+primary_engineering_question: >-
+  How should HouseMaster represent connectivity state and interpret reachability
+  evidence without treating proposed HouseMaster states as Beeline internal
+  network states or inferring an engineering condition from transport silence alone?
+
+primary_semantic_unit:
+  type: CONNECTIVITY_STATE
+  count: 7
+  transition_model_defined: false
+
+secondary_semantic_unit:
+  type: REACHABILITY_KNOWLEDGE_CONDITION
+  count: 4
+
+reference_object:
+  id: SEM-MCD-001
+  label: "г. Семей, пр. Шакарима, 13 «А»"
+  role: SOURCE_PROVENANCE_ANCHOR_ONLY
+  installed_device_inference: PROHIBITED
+
+responsibility_domains:
+  - id: DOMAIN-HOUSEMASTER
+    owner: HOUSEMASTER
+    role: INTEGRATION_STATE_AND_DOMAIN_INTERPRETATION_OWNER
+    responsibilities:
+      - proposed_connectivity_state_vocabulary
+      - permitted_knowledge_semantics
+      - domain_interpretation
+      - evidence_gating
+  - id: DOMAIN-BEELINE
+    owner: BEELINE
+    role: CONNECTIVITY_TRANSPORT_DOMAIN
+    boundary_rule: HOUSEMASTER_STATES_NOT_ASSERTED_AS_BEELINE_INTERNAL_NETWORK_STATES
+    implementation_details: NOT_ESTABLISHED
+
+planes:
+  applicable: false
+  count: 0
+  reason: "EC-03 §21 and §24 do not specify a DATA / CONTROL / OPERATIONS plane decomposition for this page."
+
+trust_access_boundary:
+  included: false
+  applicability: NOT_APPLICABLE_TO_SOURCE_SCOPE
+  reason: "Trust / Access boundary detail is not present in EC-03 §21 or §24."
+
+connectivity_states:
+  - state_id: CS-01
+    name: UNKNOWN
+    status: PROPOSED_HOUSEMASTER_INTEGRATION_STATE
+    meaning: "No connectivity information has ever been received for this device/profile."
+  - state_id: CS-02
+    name: PROVISIONED
+    status: PROPOSED_HOUSEMASTER_INTEGRATION_STATE
+    meaning: "A connectivity profile has been conceptually associated with a device, but reachability has not yet been confirmed."
+  - state_id: CS-03
+    name: REACHABLE
+    status: PROPOSED_HOUSEMASTER_INTEGRATION_STATE
+    meaning: "The device's connectivity path is currently confirmed responsive."
+  - state_id: CS-04
+    name: UNREACHABLE
+    status: PROPOSED_HOUSEMASTER_INTEGRATION_STATE
+    meaning: "The device's connectivity path is currently not responding; cause is not yet classified."
+  - state_id: CS-05
+    name: DEGRADED
+    status: PROPOSED_HOUSEMASTER_INTEGRATION_STATE
+    meaning: "The connectivity path is responsive but exhibiting reduced quality, such as delayed delivery, without being fully unreachable."
+  - state_id: CS-06
+    name: SUSPENDED
+    status: PROPOSED_HOUSEMASTER_INTEGRATION_STATE
+    meaning: "Connectivity has been intentionally paused by administrative action; this is not a fault."
+  - state_id: CS-07
+    name: DECOMMISSIONED
+    status: PROPOSED_HOUSEMASTER_INTEGRATION_STATE
+    meaning: "The device/connectivity profile has been retired and is no longer expected to report."
+
+reachability_conditions:
+  - condition_id: RC-01
+    condition: NO_ENGINEERING_OBSERVATION_RECEIVED
+    label: "No engineering observation received"
+    observation_state: "No new data since last known state"
+    housemaster_may_know: "No update has arrived."
+    housemaster_must_not_infer: "The underlying engineering condition is unchanged, healthy, or failed."
+  - condition_id: RC-02
+    condition: DEVICE_UNREACHABLE
+    label: "Device unreachable"
+    observation_state: "Connectivity path not responding"
+    housemaster_may_know: "The connectivity path is down."
+    housemaster_must_not_infer: "The physical device or engineering component has failed."
+  - condition_id: RC-03
+    condition: DEVICE_REACHABLE_NO_ENGINEERING_EVENT
+    label: "Device reachable but no engineering event"
+    observation_state: "Connectivity confirmed responsive, but no telemetry/event content"
+    housemaster_may_know: "The transport path itself is functioning."
+    housemaster_must_not_infer: >-
+      Absence of an event necessarily means normal; silence may be expected for
+      event-driven candidates, while for continuous/periodic candidates it may
+      indicate an unclassified device or interface issue.
+  - condition_id: RC-04
+    condition: DEVICE_REACHABLE_OBSERVATION_DELIVERED
+    label: "Device reachable and observation delivered"
+    observation_state: "Connectivity and content both confirmed"
+    housemaster_may_know: "The reported value/event is available for domain interpretation."
+    housemaster_must_not_infer: >-
+      The delivered value is automatically a verified engineering fact; it
+      remains subject to Observation → Symptom → Defect gating.
+
+relationships:
+  - {relationship_id: REL-01, from: RC-01, to: RC-01-OBSERVATION, type: HAS_OBSERVATION_STATE}
+  - {relationship_id: REL-02, from: RC-01, to: RC-01-MAY-KNOW, type: PERMITS_KNOWLEDGE}
+  - {relationship_id: REL-03, from: RC-01, to: RC-01-MUST-NOT-INFER, type: PROHIBITS_INFERENCE}
+  - {relationship_id: REL-04, from: RC-02, to: RC-02-OBSERVATION, type: HAS_OBSERVATION_STATE}
+  - {relationship_id: REL-05, from: RC-02, to: RC-02-MAY-KNOW, type: PERMITS_KNOWLEDGE}
+  - {relationship_id: REL-06, from: RC-02, to: RC-02-MUST-NOT-INFER, type: PROHIBITS_INFERENCE}
+  - {relationship_id: REL-07, from: RC-03, to: RC-03-OBSERVATION, type: HAS_OBSERVATION_STATE}
+  - {relationship_id: REL-08, from: RC-03, to: RC-03-MAY-KNOW, type: PERMITS_KNOWLEDGE}
+  - {relationship_id: REL-09, from: RC-03, to: RC-03-MUST-NOT-INFER, type: PROHIBITS_INFERENCE}
+  - {relationship_id: REL-10, from: RC-04, to: RC-04-OBSERVATION, type: HAS_OBSERVATION_STATE}
+  - {relationship_id: REL-11, from: RC-04, to: RC-04-MAY-KNOW, type: PERMITS_KNOWLEDGE}
+  - {relationship_id: REL-12, from: RC-04, to: RC-04-MUST-NOT-INFER, type: PROHIBITS_INFERENCE}
+
+state_relationship_constraints:
+  transition_edges: 0
+  sequence: NOT_ESTABLISHED
+  causality: NOT_ESTABLISHED
+  allowed_transitions: NOT_ESTABLISHED
+  visual_rule: NO_TRANSITION_ARROWS
+
+open_tbd_items:
+  - item_id: EC03-05-TBD-01
+    subject: "Joint validation of the seven-state HouseMaster canonical integration vocabulary"
+    current_status: PROPOSED_JOINT_VALIDATION_REQUIRED
+    validation_owner: JOINT_HOUSEMASTER_BEELINE_VALIDATION
+    restriction: "Do not map HouseMaster states to Beeline internal states without evidence."
+  - item_id: EC03-05-TBD-02
+    subject: "Heartbeat interval"
+    current_status: NOT_DEFINED
+    validation_owner: NOT_ESTABLISHED_IN_SOURCE_SCOPE
+  - item_id: EC03-05-TBD-03
+    subject: "Timeout value"
+    current_status: NOT_DEFINED
+    validation_owner: NOT_ESTABLISHED_IN_SOURCE_SCOPE
+  - item_id: EC03-05-TBD-04
+    subject: "Polling frequency"
+    current_status: NOT_DEFINED
+    validation_owner: NOT_ESTABLISHED_IN_SOURCE_SCOPE
+
+guardrails:
+  - {guardrail_id: GR-01, text: "HOUSEMASTER CONNECTIVITY STATES ≠ BEELINE INTERNAL NETWORK STATES", source_ref: "EC-03 §21"}
+  - {guardrail_id: GR-02, text: "NO UPDATE ≠ UNCHANGED / HEALTHY / FAILED ENGINEERING CONDITION", source_ref: "EC-03 §24"}
+  - {guardrail_id: GR-03, text: "UNREACHABLE CONNECTIVITY PATH ≠ FAILED PHYSICAL DEVICE OR ENGINEERING COMPONENT", source_ref: "EC-03 §24"}
+  - {guardrail_id: GR-04, text: "REACHABLE WITH NO EVENT ≠ NECESSARILY NORMAL", source_ref: "EC-03 §24"}
+  - {guardrail_id: GR-05, text: "DELIVERED OBSERVATION ≠ VERIFIED ENGINEERING FACT", source_ref: "EC-03 §24"}
+  - {guardrail_id: GR-06, text: "NO HEARTBEAT INTERVAL / TIMEOUT / POLLING FREQUENCY IS DEFINED", source_ref: "EC-03 §24"}
+
+validation_ownership:
+  state_vocabulary: JOINT_HOUSEMASTER_BEELINE_VALIDATION
+  housemaster_domain_interpretation: HOUSEMASTER
+  beeline_internal_state_mapping: NOT_ESTABLISHED
+  timing_parameters: NOT_ESTABLISHED_IN_SOURCE_SCOPE
+
+visual_hierarchy_requirements:
+  - CANONICAL_TITLE_AND_ENGINEERING_QUESTION
+  - SEVEN_STATE_HOUSEMASTER_VOCABULARY_ZONE
+  - FOUR_ROW_REACHABILITY_KNOWLEDGE_MATRIX
+  - RESPONSIBILITY_BOUNDARY_NOTE
+  - FOUR_OPEN_TBD_ITEMS
+  - SIX_GUARDRAILS
+  - PROVENANCE_REFERENCE_FOOTER
+
+visual_exclusions:
+  - NO_STATE_TRANSITION_ARROWS
+  - NO_BEELINE_INTERNAL_STATE_MAPPING
+  - NO_DIRECT_EDGE_SELECTION
+  - NO_DEPLOYED_DEVICE_SIM_GATEWAY_APN_PRIVATE_NETWORK_PROTOCOL_OR_CLOUD_INFERENCE
+  - NO_HEARTBEAT_TIMEOUT_OR_POLLING_VALUE
+  - NO_TRUST_ACCESS_BOUNDARY_DIAGRAM
+  - NO_ALAU_AI
+  - NO_DRAWIO_AT_THIS_GATE
+  - NO_PDF_AT_THIS_GATE
+
+provenance_refs:
+  - {id: SRC-REGISTRY-MD, file: A3-P0_PAGE_REGISTRY_v0.4_REVIEW.md, entry: A3-EC03-05}
+  - {id: SRC-REGISTRY-CSV, file: A3-P0_PAGE_REGISTRY_v0.4.csv, entry: A3-EC03-05}
+  - {id: SRC-EC03-21, file: EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md, section: "§21"}
+  - {id: SRC-EC03-24, file: EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md, section: "§24"}
+
+next_gate: SEMANTIC_REVIEW

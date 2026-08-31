@@ -1,0 +1,12 @@
+﻿Структура папок
+Серийный номер тома: 000000A1 8C29:34A6
+C:\ABAY-GERMES\HOUSEMASTER\ENGINEERING_CASE
+│   PROJECT_RUBRICATION.csv
+│   
+└───A3_PRODUCTION
+    └───P1_VISUAL_GRAMMAR_PILOT
+        ├───DRAWIO
+        ├───PAGE_SPECS
+        ├───PDF_REVIEW
+        ├───QA
+        └───SOURCE_EXTRACTS

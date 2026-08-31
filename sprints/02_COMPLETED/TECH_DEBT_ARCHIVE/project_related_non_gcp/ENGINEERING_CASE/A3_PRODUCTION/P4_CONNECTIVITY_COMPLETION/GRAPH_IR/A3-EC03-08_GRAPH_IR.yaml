@@ -1,0 +1,172 @@
+schema_version: "1.0"
+graph_id: A3-EC03-08
+page_id: A3-EC03-08
+production_no: P4-05
+stage: P4_CONNECTIVITY_COMPLETION
+canonical_title: "Master Device & Connectivity Matrix"
+page_type: PT-04_MASTER_MATRIX
+ir_type: DEVICE_CONNECTIVITY_MASTER_MATRIX
+status: FROZEN
+source_sections:
+  primary: "EC-03 §33"
+  direct_definitions: ["EC-03 §16", "EC-03 §17", "EC-03 §18", "EC-03 §19", "EC-03 §25"]
+source_linkage_status: LINKED
+evidence_status: MIXED_CANDIDATE_PROPOSED_TBD_NOT_ESTABLISHED
+
+engineering_question: >-
+  What is the complete source-backed device-and-connectivity requirement
+  signature for each of the 16 candidates, and which physical-readiness and
+  topology uncertainties remain unresolved?
+
+semantic_units:
+  primary:
+    type: DEVICE_CONNECTIVITY_CANDIDATE_RECORD
+    count: 16
+  secondary:
+    type: CANDIDATE_ATTRIBUTE_DIMENSION
+    count: 12
+    dimensions:
+      - observation_id
+      - observable_condition
+      - device_function_set
+      - device_class
+      - traffic_pattern
+      - uplink_downlink
+      - connectivity_profile_id
+      - pattern_class
+      - store_and_forward
+      - reachability_importance
+      - physical_readiness
+      - conceptual_architecture_readiness
+
+relationship_model:
+  type: RECORD_HAS_ATTRIBUTE_VALUE
+  relationships_per_record: 12
+  record_count: 16
+  edge_count: 192
+  formula: "16 × 12"
+
+reference_context:
+  id: SEM-MCD-001
+  role: EC03_REFERENCE_CONTEXT
+  included: true
+  additional_building_facts_inferred: false
+
+responsibility_domains:
+  applicable: false
+  count: 0
+  beeline_domain_included: false
+  housemaster_domain_included: false
+  reason: "EC-03 §33 is provider-neutral and assigns no candidate row to a Beeline or HouseMaster responsibility domain."
+
+planes:
+  applicable: false
+  count: 0
+  reason: "EC-03 §33 does not require DATA / CONTROL / OPERATIONS plane semantics."
+
+trust_access_boundary:
+  included: false
+  applicability: NOT_APPLICABLE
+  reason: "No Trust / Access / Integration Boundary occurs in the assigned matrix source."
+
+status_semantics:
+  - {status: CANDIDATE, meaning: "Conceptual candidate; not an installed device."}
+  - {status: READY, meaning: "Conceptual architecture readiness only; not implemented or deployed."}
+  - {status: "L1 — NOT READY", meaning: "Physical readiness is not established; this is not proof of absence."}
+  - {status: DIRECT-FRIENDLY, meaning: "Direct plausibility classification; not a selection."}
+  - {status: EDGE-FRIENDLY, meaning: "Edge plausibility classification; not a selection."}
+  - {status: BOTH_PLAUSIBLE, meaning: "Both Direct and Edge are plausible; co-applicable and not sequential."}
+  - {status: TBD, meaning: "Pattern class unresolved for DEV-CAND-014."}
+  - {status: NOT_SELECTED, meaning: "No final topology is selected for any candidate."}
+  - {status: NOT_ESTABLISHED, meaning: "Implementation or validation ownership is absent from assigned source scope."}
+
+function_sets:
+  FSET-MEASURE: [MEASURE, TIMESTAMP, BUFFER, STORE, FORWARD, REPORT_STATUS]
+  FSET-READ: [READ_INTERFACE, COUNT, TIMESTAMP, BUFFER, STORE, FORWARD, REPORT_STATUS]
+  FSET-DETECT: [DETECT, TIMESTAMP, BUFFER, STORE, FORWARD, REPORT_STATUS]
+
+candidate_records:
+  - {dev_id: DEV-CAND-001, obs_id: OBS-CAND-001, observable_condition: "Temperature condition (heating entry)", function_set: FSET-MEASURE, device_class: D-CLASS-01, traffic_pattern: PERIODIC_TELEMETRY, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-001, pattern_class: BOTH_PLAUSIBLE, store_and_forward: HIGH, reachability_importance: MEDIUM, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-002, obs_id: OBS-CAND-002, observable_condition: "Pressure condition (heating entry)", function_set: FSET-MEASURE, device_class: D-CLASS-01, traffic_pattern: PERIODIC_TELEMETRY, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-001, pattern_class: BOTH_PLAUSIBLE, store_and_forward: HIGH, reachability_importance: MEDIUM, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-003, obs_id: OBS-CAND-003, observable_condition: "Flow/consumption condition (heating metering)", function_set: FSET-READ, device_class: D-CLASS-03, traffic_pattern: COUNTER_METERING, uplink_downlink: UPLINK_PLUS_DOWNLINK, connectivity_profile_id: CP-CAND-002, pattern_class: BOTH_PLAUSIBLE, store_and_forward: HIGH, reachability_importance: LOW, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-004, obs_id: OBS-CAND-004, observable_condition: "Pressure condition (CW entry)", function_set: FSET-MEASURE, device_class: D-CLASS-01, traffic_pattern: PERIODIC_TELEMETRY, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-001, pattern_class: BOTH_PLAUSIBLE, store_and_forward: HIGH, reachability_importance: MEDIUM, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-005, obs_id: OBS-CAND-005, observable_condition: "Flow condition (CW entry)", function_set: FSET-MEASURE, device_class: D-CLASS-01, traffic_pattern: PERIODIC_TELEMETRY, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-001, pattern_class: BOTH_PLAUSIBLE, store_and_forward: HIGH, reachability_importance: MEDIUM, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-006, obs_id: OBS-CAND-006, observable_condition: "Flow/consumption condition (CW metering)", function_set: FSET-READ, device_class: D-CLASS-03, traffic_pattern: COUNTER_METERING, uplink_downlink: UPLINK_PLUS_DOWNLINK, connectivity_profile_id: CP-CAND-002, pattern_class: BOTH_PLAUSIBLE, store_and_forward: HIGH, reachability_importance: LOW, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-007, obs_id: OBS-CAND-007, observable_condition: "Temperature/availability condition (hot water)", function_set: FSET-MEASURE, device_class: D-CLASS-01, traffic_pattern: PERIODIC_TELEMETRY, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-001, pattern_class: DIRECT_FRIENDLY, store_and_forward: HIGH, reachability_importance: MEDIUM, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-008, obs_id: OBS-CAND-008, observable_condition: "Leakage indication (hot water)", function_set: FSET-DETECT, device_class: D-CLASS-04, traffic_pattern: STATE_CHANGE, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-003, pattern_class: DIRECT_FRIENDLY, store_and_forward: HIGH, reachability_importance: HIGH, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-009, obs_id: OBS-CAND-009, observable_condition: "Water-presence/flooding indication (basement)", function_set: FSET-DETECT, device_class: D-CLASS-04, traffic_pattern: EVENT_DRIVEN, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-003, pattern_class: EDGE_FRIENDLY, store_and_forward: HIGH, reachability_importance: HIGH, physical_readiness: "L1 — NOT READY (also zone-existence-gated)", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-010, obs_id: OBS-CAND-010, observable_condition: "Temperature condition (basement)", function_set: FSET-MEASURE, device_class: D-CLASS-02, traffic_pattern: PERIODIC_TELEMETRY, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-004, pattern_class: EDGE_FRIENDLY, store_and_forward: MEDIUM, reachability_importance: LOW, physical_readiness: "L1 — NOT READY (also zone-existence-gated)", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-011, obs_id: OBS-CAND-011, observable_condition: "Humidity condition (basement)", function_set: FSET-MEASURE, device_class: D-CLASS-02, traffic_pattern: PERIODIC_TELEMETRY, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-004, pattern_class: EDGE_FRIENDLY, store_and_forward: MEDIUM, reachability_importance: LOW, physical_readiness: "L1 — NOT READY (also zone-existence-gated)", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-012, obs_id: OBS-CAND-012, observable_condition: "Supply-availability condition (electrical)", function_set: FSET-DETECT, device_class: D-CLASS-04, traffic_pattern: STATE_CHANGE, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-003, pattern_class: BOTH_PLAUSIBLE, store_and_forward: HIGH, reachability_importance: HIGH, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-013, obs_id: OBS-CAND-013, observable_condition: "Outage/event condition (electrical)", function_set: FSET-DETECT, device_class: D-CLASS-04, traffic_pattern: EVENT_DRIVEN, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-003, pattern_class: BOTH_PLAUSIBLE, store_and_forward: HIGH, reachability_importance: HIGH, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-014, obs_id: OBS-CAND-015, observable_condition: "Moisture/water-ingress condition (roof)", function_set: FSET-DETECT, device_class: D-CLASS-04, traffic_pattern: EVENT_DRIVEN, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-001, pattern_class: TBD, store_and_forward: HIGH, reachability_importance: MEDIUM, physical_readiness: "L1 — NOT READY (also access-gated)", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-015, obs_id: OBS-CAND-017, observable_condition: "Availability/operational condition (lift)", function_set: FSET-DETECT, device_class: D-CLASS-04, traffic_pattern: STATE_CHANGE, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-003, pattern_class: EDGE_FRIENDLY, store_and_forward: HIGH, reachability_importance: HIGH, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+  - {dev_id: DEV-CAND-016, obs_id: OBS-CAND-018, observable_condition: "Outage/event condition (lift)", function_set: FSET-DETECT, device_class: D-CLASS-04, traffic_pattern: EVENT_DRIVEN, uplink_downlink: UPLINK_ONLY, connectivity_profile_id: CP-CAND-003, pattern_class: EDGE_FRIENDLY, store_and_forward: HIGH, reachability_importance: HIGH, physical_readiness: "L1 — NOT READY", conceptual_architecture_readiness: READY}
+
+distribution_summaries:
+  pattern_class:
+    DIRECT_FRIENDLY: 2
+    EDGE_FRIENDLY: 5
+    BOTH_PLAUSIBLE: 8
+    TBD: 1
+    final_topology_selected: 0
+  physical_readiness:
+    L1_NOT_READY: 16
+    zone_existence_gated: 3
+    access_gated: 1
+  conceptual_architecture_readiness:
+    READY: 16
+  uplink_downlink:
+    UPLINK_ONLY: 14
+    UPLINK_PLUS_DOWNLINK: 2
+    engineering_actuation_implied: 0
+
+direct_edge_status:
+  applicable: true
+  direct_friendly: 2
+  edge_friendly: 5
+  both_plausible: 8
+  tbd: 1
+  relationship: CO_APPLICABLE_NOT_SEQUENTIAL
+  selection: NOT_SELECTED
+
+open_tbd_items:
+  - item_id: EC03-08-TBD-01
+    subject: "Physical readiness / candidate location across all 16 rows"
+    current_status: L1_NOT_READY_NOT_ESTABLISHED
+    includes: [BASEMENT_ZONE_EXISTENCE_GATES, ROOF_ACCESS_GATE]
+    validation_owner: NOT_ESTABLISHED_IN_ASSIGNED_SOURCE_SCOPE
+  - item_id: EC03-08-TBD-02
+    subject: "Final Direct/Edge topology selection"
+    current_status: NOT_SELECTED
+    specific_unresolved_candidate: DEV-CAND-014
+    specific_pattern_class: TBD
+    validation_owner: NOT_ESTABLISHED_IN_ASSIGNED_SOURCE_SCOPE
+
+guardrails:
+  - {guardrail_id: GR-01, text: "DEVICE CANDIDATE ≠ INSTALLED DEVICE"}
+  - {guardrail_id: GR-02, text: "L1 — NOT READY ≠ PROVED ABSENCE"}
+  - {guardrail_id: GR-03, text: "CONCEPTUAL ARCHITECTURE READY ≠ IMPLEMENTED OR DEPLOYED"}
+  - {guardrail_id: GR-04, text: "DIRECT-FRIENDLY / EDGE-FRIENDLY / BOTH PLAUSIBLE / TBD = PLAUSIBILITY, NOT TOPOLOGY SELECTION"}
+  - {guardrail_id: GR-05, text: "CONNECTIVITY PROFILE ≠ SIM / TARIFF / APN / VPN / NETWORK TECHNOLOGY / OPERATOR PRODUCT"}
+  - {guardrail_id: GR-06, text: "UPLINK + DOWNLINK ≠ ENGINEERING ACTUATION"}
+  - {guardrail_id: GR-07, text: "D-CLASS-05 IS CONCEPTUAL ONLY; NO EDGE-01 IS NAMED OR PLACED"}
+  - {guardrail_id: GR-08, text: "MASTER MATRIX VALUES ARE SOURCE-REUSED; NO CELL MAY BE INVENTED OR NORMALIZED"}
+
+exclusions:
+  - NO_INSTALLED_DEVICE_SIM_ESIM_GATEWAY_APN_VPN_OR_PROVIDER_PRODUCT
+  - NO_NETWORK_TECHNOLOGY_PROTOCOL_BROKER_PAYLOAD_API_IAM_CERTIFICATE_OR_ENCRYPTION_IMPLEMENTATION
+  - NO_CLOUD_TOPOLOGY_COVERAGE_RF_SLA_COMMERCIAL_OR_SITE_SURVEY_RESULT
+  - NO_TOPOLOGY_SELECTION_OR_DIRECT_EDGE_RANKING
+  - NO_TRUST_ACCESS_INTEGRATION_BOUNDARY
+  - NO_DATA_CONTROL_OPERATIONS_PLANES
+  - NO_ALAU_AI
+  - NO_DRAWIO_PDF_EXPORT_FREEZE_VISUAL_QA_OR_ASSEMBLY
+
+provenance:
+  - {file: A3-P0_PAGE_REGISTRY_v0.4_REVIEW.md, entry: A3-EC03-08}
+  - {file: A3-P0_PAGE_REGISTRY_v0.4.csv, entry: A3-EC03-08}
+  - {file: EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md, section: "§33"}
+  - {file: EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md, definitions: ["§16", "§17", "§18", "§19", "§25"]}
+
+next_gate: SEMANTIC_REVIEW

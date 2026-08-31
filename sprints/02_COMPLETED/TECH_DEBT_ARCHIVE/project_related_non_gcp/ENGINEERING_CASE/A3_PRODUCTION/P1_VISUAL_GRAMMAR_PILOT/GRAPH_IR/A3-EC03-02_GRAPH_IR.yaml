@@ -1,0 +1,362 @@
+schema_version: "1.0"
+graph_id: A3-EC03-02
+page_id: A3-EC03-02
+title: "Direct Connectivity Pattern"
+ir_type: FLOW
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+
+purpose: >-
+  Show the approved direct-connectivity pattern from a field device / observation
+  point through Beeline connectivity toward HouseMaster, while preserving identity,
+  connectivity, trust, transport and engineering-state boundaries.
+
+source_control:
+  source_gate: EC-03
+  allowed_source: EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md
+  other_sources_read: false
+  source_sections:
+    - "§8 Identity & Lifecycle Model"
+    - "§9a–§9a.1 Conceptual Data Flow and Trust Boundary"
+    - "§17 Connectivity Profile Model"
+    - "§21–§25 Connectivity State, Interpretation, Store-and-Forward, Reachability, Pattern Selection"
+    - "§26 Reference Direct Connectivity Flow"
+    - "§34 A3 Case Extraction Notes"
+
+direct_pattern:
+  source_backed: true
+  reference_observation: OBS-CAND-001
+  reference_device_candidate: DEV-CAND-001
+  connectivity_profile: CP-CAND-001
+  direct_suitability: PLAUSIBLE
+  edge_suitability: PLAUSIBLE
+  classification: BOTH_PLAUSIBLE
+  final_topology_selected: false
+  non_exclusive_alternative: "Edge Aggregation — referenced only; detail belongs to A3-EC03-03"
+
+identity_model:
+  housemaster_internal_identity:
+    device_id: TBD
+    assignment_gate: DEPLOYMENT_ONLY
+    depends_on_iccid: false
+    depends_on_imsi: false
+    depends_on_msisdn: false
+    source_ref: "EC-03 §8"
+  connectivity_profile:
+    id: CP-CAND-001
+    provider_neutral: true
+    source_ref: "EC-03 §17; §26"
+  beeline_connectivity_identity:
+    sim_esim: TBD
+    iccid: TBD
+    imsi: TBD
+    msisdn: TBD
+    ownership: "Beeline/operator-owned"
+    source_ref: "EC-03 §8"
+
+connectivity_model:
+  canonical_states_scope: "Proposed HouseMaster integration states; not Beeline internal network states"
+  actual_connectivity_state: TBD
+  rf_coverage: TBD
+  sim_assignment: TBD
+  provisioning_state: TBD
+  heartbeat_interval: TBD
+  timeout: TBD
+  store_and_forward_value: HIGH
+  event_time_distinct_from_received_time: true
+  source_ref: "EC-03 §21–§24; §26"
+
+critical_distinctions:
+  - "DEVICE IDENTITY ≠ SIM IDENTITY"
+  - "CONNECTIVITY STATE ≠ ENGINEERING STATE"
+  - "DEVICE OFFLINE ≠ COMPONENT FAILED"
+  - "NETWORK HEALTH ≠ BUILDING HEALTH"
+  - "VALID SIM ≠ TRUSTED ENGINEERING STATE"
+  - "event_time ≠ received_time"
+
+flow_steps:
+  - id: S-01
+    label: "SEM-MCD-001"
+    semantic_role: "Physical reference context"
+    domain: "PHYSICAL BUILDING"
+    status: REFERENCE_CONTEXT
+    source_ref: "EC-03 §26"
+    confidence: HIGH
+    what_it_means: "Building context for the reference direct pattern"
+    what_it_does_not_mean: "A deployment location or topology is confirmed"
+
+  - id: S-02
+    label: "HEATING — VERIFIED"
+    semantic_role: "Evidence-backed engineering system"
+    domain: "ENGINEERING SYSTEM"
+    status: VERIFIED
+    source_ref: "EC-03 §26"
+    confidence: HIGH
+    what_it_means: "Heating-system existence is the physical basis"
+    what_it_does_not_mean: "A component, device, or engineering state is verified"
+
+  - id: S-03
+    label: "Heating entry candidate — location TBD"
+    semantic_role: "Candidate physical context"
+    domain: "PHYSICAL / ENGINEERING"
+    status: TBD_SITE_SURVEY
+    source_ref: "EC-03 §26"
+    confidence: HIGH
+    what_it_means: "Candidate context for observation/device architecture"
+    what_it_does_not_mean: "A heating-entry component or location is confirmed"
+
+  - id: S-04
+    label: "OBS-CAND-001"
+    semantic_role: "Observation requirement"
+    domain: OBSERVABILITY
+    status: CANDIDATE
+    source_ref: "EC-03 §26"
+    confidence: HIGH
+    what_it_means: "Heating-temperature observation candidate"
+    what_it_does_not_mean: "An installed observation point or accepted observation"
+
+  - id: S-05
+    label: "DEV-CAND-001"
+    semantic_role: "Conceptual field-device role"
+    domain: "DEVICE CANDIDATE"
+    status: PLANNED_CONCEPTUAL
+    source_ref: "EC-03 §8; §26"
+    confidence: HIGH
+    what_it_means: "Conceptual device candidate associated with the observation"
+    what_it_does_not_mean: "An installed/registered/active device or assigned device_id"
+
+  - id: S-06
+    label: "DEVICE FUNCTIONS"
+    semantic_role: "Technology-neutral device functions"
+    domain: "DEVICE FUNCTION"
+    status: CONCEPTUAL
+    source_ref: "EC-03 §26"
+    confidence: HIGH
+    what_it_means: "MEASURE / TIMESTAMP / BUFFER / STORE / FORWARD / REPORT STATUS"
+    what_it_does_not_mean: "A sensor model, product, protocol, buffer size, or retry policy"
+
+  - id: S-07
+    label: "CONNECTIVITY PROFILE — CP-CAND-001"
+    semantic_role: "Provider-neutral transport requirements"
+    domain: "CONNECTIVITY PROFILE"
+    status: CANDIDATE
+    source_ref: "EC-03 §17; §26"
+    confidence: HIGH
+    what_it_means: "MEDIUM latency / MEDIUM loss / HIGH store-and-forward / MEDIUM reachability / FIXED"
+    what_it_does_not_mean: "A SIM, tariff, APN, VPN, network technology, or operator product"
+
+  - id: S-08
+    label: "DIRECT CONNECTIVITY PATTERN"
+    semantic_role: "Reference deployment pattern"
+    domain: "CONNECTIVITY PATTERN"
+    status: BOTH_PLAUSIBLE_NOT_SELECTED
+    source_ref: "EC-03 §25; §26"
+    confidence: HIGH
+    what_it_means: "Direct is a plausible pattern for the reference candidate"
+    what_it_does_not_mean: "Direct is selected, mandatory, or the only valid topology"
+
+  - id: S-09
+    label: "BEELINE ACCESS / TRANSPORT"
+    semantic_role: "Connectivity-domain transport"
+    domain: "BEELINE CONNECTIVITY DOMAIN"
+    status: CONCEPTUAL_TBD
+    source_ref: "EC-03 §9a; §26"
+    confidence: HIGH
+    what_it_means: "Conceptual operator access/transport stage"
+    what_it_does_not_mean: "RF coverage, SIM assignment, provisioning, product, or internal network architecture"
+
+  - id: S-10
+    label: "HOUSEMASTER TRUST / INTEGRATION BOUNDARY"
+    semantic_role: "Trust and responsibility boundary"
+    domain: "SHARED TRUST BOUNDARY"
+    status: REFERENCED_NOT_DESIGNED
+    source_ref: "EC-03 §9a–§9a.1; §26"
+    confidence: HIGH
+    what_it_means: "Boundary between connectivity responsibility and HouseMaster ingestion/domain responsibility"
+    what_it_does_not_mean: "A new trust decision, API boundary design, or trusted engineering state"
+
+  - id: S-11
+    label: "HOUSEMASTER INTEGRATION EDGE"
+    semantic_role: "HouseMaster ingress and mapping edge"
+    domain: "HOUSEMASTER DOMAIN"
+    status: REFERENCED_NOT_IMPLEMENTED
+    source_ref: "EC-03 §9a; §26"
+    confidence: HIGH
+    what_it_means: "Conceptual authenticate/validate/normalize/map entry"
+    what_it_does_not_mean: "An implemented gateway, endpoint, protocol, API, or schema"
+
+  - id: S-12
+    label: "OBSERVATION"
+    semantic_role: "Canonical observation content"
+    domain: "HOUSEMASTER OBSERVATION"
+    status: CONCEPTUAL_OUTPUT
+    source_ref: "EC-03 §26"
+    confidence: HIGH
+    what_it_means: "Observation delivered for domain interpretation"
+    what_it_does_not_mean: "Evidence, defect, or verified engineering fact"
+
+  - id: S-13
+    label: "EVIDENCE"
+    semantic_role: "Provenance-bearing evidence record"
+    domain: EVIDENCE
+    status: PROVENANCE_REQUIRED
+    source_ref: "EC-03 §26"
+    confidence: HIGH
+    what_it_means: "Observation supported as evidence"
+    what_it_does_not_mean: "A defect or engineering conclusion"
+
+  - id: S-14
+    label: "BUILDING STATE"
+    semantic_role: "Rules-gated domain linkage"
+    domain: "HOUSEMASTER DOMAIN"
+    status: DOMAIN_RULE_GATED
+    source_ref: "EC-03 §22; §24; §26"
+    confidence: HIGH
+    what_it_means: "Building-state interpretation remains subject to domain rules/validation"
+    what_it_does_not_mean: "Connectivity health, a valid SIM, or delivered data automatically establishes building health"
+
+edges:
+  - id: E-01
+    from: S-01
+    to: S-02
+    label: "scopes verified heating system"
+    status: EXPLICIT
+    source_ref: "EC-03 §26"
+    what_it_means: "Reference flow is scoped to heating"
+    what_it_does_not_mean: "Other systems or conditions are inferred"
+
+  - id: E-02
+    from: S-02
+    to: S-03
+    label: "defines candidate physical context"
+    status: TBD_SITE_SURVEY
+    source_ref: "EC-03 §26"
+    what_it_means: "Heating existence permits a heating-entry candidate"
+    what_it_does_not_mean: "Component location is known"
+
+  - id: E-03
+    from: S-03
+    to: S-04
+    label: "maps context to observation candidate"
+    status: CANDIDATE
+    source_ref: "EC-03 §26"
+    what_it_means: "Candidate context supports OBS-CAND-001"
+    what_it_does_not_mean: "Observation is installed or accepted"
+
+  - id: E-04
+    from: S-04
+    to: S-05
+    label: "maps observation to device candidate"
+    status: PLANNED_CONCEPTUAL
+    source_ref: "EC-03 §8; §26"
+    what_it_means: "DEV-CAND-001 is the conceptual device role for the observation"
+    what_it_does_not_mean: "An installed device or assigned identity exists"
+
+  - id: E-05
+    from: S-05
+    to: S-06
+    label: "requires technology-neutral functions"
+    status: CONCEPTUAL
+    source_ref: "EC-03 §26"
+    what_it_means: "The candidate requires the listed functions"
+    what_it_does_not_mean: "A sensor/product implementation is selected"
+
+  - id: E-06
+    from: S-06
+    to: S-07
+    label: "associates transport requirements"
+    status: CANDIDATE
+    source_ref: "EC-03 §17; §26"
+    what_it_means: "Device functions are paired with CP-CAND-001 requirements"
+    what_it_does_not_mean: "A SIM or operator product is assigned"
+
+  - id: E-07
+    from: S-07
+    to: S-08
+    label: "applies direct reference pattern"
+    status: BOTH_PLAUSIBLE_NOT_SELECTED
+    source_ref: "EC-03 §25; §26"
+    what_it_means: "Direct is shown as a plausible reference pattern"
+    what_it_does_not_mean: "Edge Aggregation is invalid or Direct is selected"
+
+  - id: E-08
+    from: S-08
+    to: S-09
+    label: "enters operator access / transport"
+    status: CONCEPTUAL_TBD
+    source_ref: "EC-03 §9a; §26"
+    what_it_means: "The direct pattern uses conceptual Beeline access/transport"
+    what_it_does_not_mean: "RF, provisioning, technology, product, or internal topology is known"
+
+  - id: E-09
+    from: S-09
+    to: S-10
+    label: "crosses trust / integration boundary"
+    status: REFERENCED
+    source_ref: "EC-03 §9a–§9a.1; §26"
+    what_it_means: "Connectivity responsibility hands off toward HouseMaster ingestion"
+    what_it_does_not_mean: "SIM validity establishes trusted engineering state"
+
+  - id: E-10
+    from: S-10
+    to: S-11
+    label: "enters HouseMaster integration edge"
+    status: REFERENCED_NOT_IMPLEMENTED
+    source_ref: "EC-03 §9a; §26"
+    what_it_means: "Data reaches the conceptual HouseMaster integration edge"
+    what_it_does_not_mean: "An endpoint, API, schema, or protocol is implemented"
+
+  - id: E-11
+    from: S-11
+    to: S-12
+    label: "authenticates / validates / normalizes / maps conceptually"
+    status: CONCEPTUAL
+    source_ref: "EC-03 §9a; §26"
+    what_it_means: "HouseMaster-side integration can produce canonical observation content"
+    what_it_does_not_mean: "Delivered data is automatically engineering truth"
+
+  - id: E-12
+    from: S-12
+    to: S-13
+    label: "attaches evidence context"
+    status: PROVENANCE_REQUIRED
+    source_ref: "EC-03 §26"
+    what_it_means: "Observation becomes evidence-bearing"
+    what_it_does_not_mean: "Observation and evidence are identical or evidence proves defect"
+
+  - id: E-13
+    from: S-13
+    to: S-14
+    label: "supports rules-gated building-state interpretation"
+    status: DOMAIN_RULE_GATED
+    source_ref: "EC-03 §22; §24; §26"
+    what_it_means: "Evidence can support Building State through domain interpretation"
+    what_it_does_not_mean: "Network health, connectivity restoration, or evidence automatically proves building health"
+
+guardrails:
+  - "DEVICE IDENTITY ≠ SIM IDENTITY"
+  - "CONNECTIVITY STATE ≠ ENGINEERING STATE"
+  - "DEVICE OFFLINE ≠ COMPONENT FAILED"
+  - "VALID SIM ≠ TRUSTED ENGINEERING STATE"
+
+counts:
+  flow_steps: 14
+  edges: 13
+  guardrails: 4
+
+excluded_from_page:
+  - "ALAU AI"
+
+forbidden_actions:
+  - invent_installed_device
+  - invent_sim_assignment
+  - invent_rf_coverage
+  - invent_protocol_api_schema
+  - invent_provisioning_state
+  - infer_engineering_condition_from_connectivity
+  - create_drawio
+  - create_pdf
+  - create_3d

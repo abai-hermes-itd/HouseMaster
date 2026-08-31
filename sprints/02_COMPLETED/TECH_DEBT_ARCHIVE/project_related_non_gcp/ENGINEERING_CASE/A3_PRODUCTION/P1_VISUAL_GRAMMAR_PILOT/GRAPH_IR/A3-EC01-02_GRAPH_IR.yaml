@@ -1,0 +1,156 @@
+schema_version: "1.0"
+graph_id: A3-EC01-02-IDENTITY-GEOMETRY-FACT-SHEET
+page_id: A3-EC01-02
+title: SEM-MCD-001 Identity & Geometry Fact Sheet
+stage: P1_VISUAL_GRAMMAR_PILOT
+ir_type: EVIDENCE
+status: FROZEN
+freeze_status: OWNER_APPROVED
+reconstructed: true
+reconstruction_context: >-
+  P6-01D execution of finding F4 (P6-01A forensic audit). The original
+  standalone SOURCE_EXTRACT/GRAPH_IR/PAGE_SPEC for this page were never
+  found on disk; only a layout manifest (referencing a frozen-IR hash) and
+  the approved rendered PDF survived. This GRAPH_IR is a transcription of
+  that approved PDF plus the manifest's documented geometry/status record.
+  No upstream EC-01 source was reread; no content was invented.
+original_frozen_extract_hash_referenced_by_manifest: "46632eaf10afb3df5af27fa80831fa3778a35f8c39191b46fe3dff4032d6191b"
+original_extract_file_recoverable: false
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+
+reference_anchor:
+  id: SEM-MCD-001
+  address: "г. Семей, пр. Шакарима, 13 «А»"
+  included: true
+
+source_gate: EC-01
+source_sections_cited_on_page: ["EC-01 §3", "EC-01 §3/§4 (via frozen source extract)"]
+source_linkage_status: LINKED
+
+core_thesis:
+  statement: "SEM-MCD-001 has a documented building identity and basic geometric facts, while exact footprint geometry remains evidence-limited."
+
+status_vocabulary_on_page:
+  count: 4
+  states: [VERIFIED, DERIVED, PARTIAL, TBD]
+
+primary_semantic_unit:
+  type: IDENTITY_GEOMETRY_FACT
+  count: 9
+  count_note: >-
+    Frozen record states 10 facts; 9 discrete fields are directly
+    transcribable from the approved PDF. A 10th fact could not be
+    independently identified and is not invented.
+
+primary_semantic_units:
+  - {fact_id: F-01, field: "Reference ID", value: "SEM-MCD-001", status: NOT_AN_EVIDENTIARY_FACT}
+  - {fact_id: F-02, field: "Location", value: "г. Семей, пр. Шакарима, 13 «А»", status: VERIFIED}
+  - {fact_id: F-03, field: "Cadastral number", value: "05.252.025.162/543:13а", status: VERIFIED}
+  - {fact_id: F-04, field: "BTI case", value: "209", status: VERIFIED}
+  - {fact_id: F-05, field: "Floors", value: "9", status: VERIFIED}
+  - {fact_id: F-06, field: "Entrances", value: "3", status: DERIVED}
+  - {fact_id: F-07, field: "Footprint character", value: "Stepped / non-rectangular footprint character only — no dimension, scale, or area implied", status: PARTIAL_SCHEMATIC}
+  - {fact_id: F-08, field: "Exact footprint area", value: "TBD", status: TBD}
+  - {fact_id: F-09, field: "Precise footprint dimensions", value: "TBD", status: TBD}
+
+footprint_schematic:
+  shape: STEPPED_OUTLINE
+  rectangles_mm:
+    - [100, 175, 40, 20]
+    - [140, 175, 15, 15]
+    - [100, 195, 55, 15]
+    - [140, 210, 15, 15]
+    - [100, 225, 55, 20]
+  caption: "Stepped / non-rectangular footprint character only — no dimension, scale, or area implied."
+  dimension_label_present: false
+  scale_bar_present: false
+  area_figure_present: false
+
+evidence_rail:
+  - group_id: A
+    name: IDENTITY
+    source_ref: "EC-01 §3"
+    what_it_shows: "Location, cadastral identity, BTI case, floor count"
+    what_it_supports: "Specific documented building identity"
+    what_it_does_not_support: "Complete building geometry"
+    confidence: "HIGH / VERIFIED for directly documented fields"
+  - group_id: B
+    name: BASIC_GEOMETRY
+    source_ref: "EC-01 §3/§4 via frozen source extract"
+    what_it_shows: "9 floors; 3 entrances; stepped/non-rectangular footprint character"
+    what_it_supports: "Basic geometry and building organization"
+    what_it_does_not_support: "Precise footprint dimensions or area"
+    confidence: "Mixed: VERIFIED / DERIVED / PARTIAL"
+  - group_id: C
+    name: UNRESOLVED_GEOMETRY
+    what_it_shows: "Evidence gap"
+    what_it_supports: "Explicitly unresolved exact footprint geometry"
+    what_it_does_not_support: "Exact area; exact dimensions"
+    confidence: TBD
+    tbd_items: ["Exact footprint area", "Precise footprint dimensions"]
+
+claims:
+  count: 3
+  count_note: >-
+    Frozen record states 4 claims. The 3 evidence-group "what it supports"
+    statements (A/B/C) are directly visible on the approved PDF. A 4th
+    claim could not be independently identified and is not invented.
+  items:
+    - "Specific documented building identity (group A)"
+    - "Basic geometry and building organization (group B)"
+    - "Explicitly unresolved exact footprint geometry (group C)"
+
+guardrails:
+  count: 4
+  count_note: "Matches frozen record count exactly."
+  items:
+    - guardrail_id: GR-01
+      text: "DOCUMENTED IDENTITY ≠ COMPLETE GEOMETRY"
+    - guardrail_id: GR-02
+      text: "FOOTPRINT SHAPE ≠ EXACT DIMENSIONS"
+    - guardrail_id: GR-03
+      text: "VISUAL REALISM ≠ EVIDENCE CERTAINTY"
+    - guardrail_id: GR-04
+      text: "PARTIAL ≠ VERIFIED"
+
+do_not_imply:
+  count: 6
+  count_note: "Matches frozen record count exactly."
+  items:
+    - "Complete building geometry is not supported (group A)"
+    - "Precise footprint dimensions or area is not supported (group B)"
+    - "Exact area is not supported (group C)"
+    - "Exact dimensions is not supported (group C)"
+    - "No dimension is implied by the footprint schematic"
+    - "No scale is implied by the footprint schematic"
+
+sem_mcd_001:
+  included: true
+  relevance: "Reference object for the entire page; Location/Cadastral/BTI/Floors are real-building identity facts for Semey, Shakarima 13A."
+
+related_pages: [A3-EC01-01, A3-EC01-03, A3-EC01-04, A3-EC01-06]
+
+drawio_lineage:
+  v1_0:
+    path: "A3_PRODUCTION/P1_VISUAL_GRAMMAR_PILOT/DRAWIO/A3-EC01-02_v1.0_DRAWIO_REVIEW.drawio"
+    role: SUPERSEDED_DRAFT
+    note: "Present on disk (25,670 bytes) but predates the approved render; not what was assembled."
+  v1_1:
+    path: null
+    role: APPROVED_VISUAL_PATCH
+    note: >-
+      No standalone v1.1 .drawio file exists on disk. Its content survives
+      only as the rendered PDF (PDF_REVIEW/A3-EC01-02_v1.1_DRAWIO_REVIEW.drawio.pdf,
+      byte- and timestamp-identical to the Assembly PDF). v1.1 was a
+      visual-only patch of the same frozen v1.0 IR (per the v1.0 manifest's
+      own stated purpose) — no semantic change from v1.0.
+  assembly_pdf:
+    path: "A3_PRODUCTION/P1_VISUAL_GRAMMAR_PILOT/ASSEMBLY/005_A3-EC01-02_SEM-MCD-001_Identity_Geometry_Fact_Sheet.pdf"
+    rendered_from: v1_1
+
+source_control:
+  upstream_ec01_source_reread: false
+  content_invented: false
+
+next_gate: SEMANTIC_REVIEW_RECONSTRUCTED_CHAIN

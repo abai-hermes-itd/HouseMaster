@@ -1,0 +1,139 @@
+schema_version: "1.0"
+graph_id: A3-EC01-06-3D-READINESS-HANDOFF
+page_id: A3-EC01-06
+title: Site Survey & 3D Readiness Handoff
+stage: P2_CONTEXT_REAL_BUILDING
+production_no: P2-06
+case_assembly_no: null
+ir_type: REFERENCE_FLOW / 3D_READINESS_HANDOFF_MATRIX
+status: FROZEN
+freeze_status: FROZEN
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+
+reference_anchor:
+  id: SEM-MCD-001
+  address: Semey, Shakarima 13A
+  included: true
+
+source_path: "C:\\Abay-Germes\\HouseMaster\\ENGINEERING_CASE\\01_SOURCE_GATES\\EC01\\EC-01_REAL_MCD_BASELINE_SEM-MCD-001_v0.3_REVIEW.md"
+source_sections: ["§11", "§12", "§13"]
+
+core_thesis:
+  statement: 3D massing may proceed on floor count and footprint shape alone; nothing else is ready.
+  meaning: >-
+    Of the facts reviewed for 3D and pilot readiness, only building floor
+    count is directly usable without further validation; every other fact
+    is either a derived constraint or requires field confirmation before
+    use, and two categories (roof/basement, engineering rooms/risers) must
+    not be invented at all.
+
+primary_engineering_question: >-
+  What EC-01 site-survey and MCD-baseline facts are actually usable for 3D
+  massing and pilot work today, and which remain blocked pending field
+  validation?
+
+primary_semantic_unit:
+  type: THREE_D_USABILITY_MATRIX_ROW
+  count: 7
+  source_section: "§12"
+  order: SOURCE_TABLE_ORDER
+
+primary_semantic_units:
+  - {row_id: U-01, fact: "9 floors", direct_use: "YES", use_as_constraint: null, needs_field_confirmation: false, do_not_model: null, evidence_state: VERIFIED}
+  - {row_id: U-02, fact: "Stepped (non-rectangular) footprint outline, Image 3", direct_use: "NO (dimensions incomplete)", use_as_constraint: "YES — DERIVED constraint on massing shape, supersedes a simple-rectangle assumption", needs_field_confirmation: true, do_not_model: null, evidence_state: DERIVED}
+  - {row_id: U-03, fact: "Footprint area (site-coverage)", direct_use: "NO — not established", use_as_constraint: "NO — 1,248 m² and 550 m² are building-area sub-categories, not footprint values, per owner-approved taxonomy", needs_field_confirmation: true, do_not_model: "Do not model any area-derived footprint", evidence_state: PARTIAL}
+  - {row_id: U-04, fact: "3 entrance/staircase cores", direct_use: "NO exact coordinates", use_as_constraint: "YES, as section-count constraint", needs_field_confirmation: true, do_not_model: null, evidence_state: TBD}
+  - {row_id: U-05, fact: "Floor plan room layout (SRC-004 photographed sheets)", direct_use: "PARTIALLY — legible portions may be digitized as a DERIVED reference for one representative floor", use_as_constraint: "YES", needs_field_confirmation: true, do_not_model: null, evidence_state: PARTIAL}
+  - {row_id: U-06, fact: "Roof/basement", direct_use: "NO", use_as_constraint: "NO", needs_field_confirmation: true, do_not_model: "Do not invent", evidence_state: TBD}
+  - {row_id: U-07, fact: "Engineering rooms/risers", direct_use: "NO", use_as_constraint: "NO", needs_field_confirmation: true, do_not_model: "Do not invent — no location evidence exists", evidence_state: TBD}
+
+secondary_semantic_unit:
+  type: SITE_SURVEY_GAP_CATEGORY
+  count: 5
+  source_section: "§11"
+
+secondary_semantic_units:
+  - {category_id: GAP-01, category: PHYSICAL, items: "Exact entrance layout/numbering vs. documented '3 подъезда'; basement access point(s); technical-room locations; roof access; verification of stepped footprint outline (Image 3) against as-built conditions"}
+  - {category_id: GAP-02, category: ENGINEERING, items: "Heat entry/metering-node location; water entry/meter location; electrical main board location; sewer collector/outlet location; confirmation of gas presence/absence"}
+  - {category_id: GAP-03, category: DEVICE_DEPLOYMENT, items: "Mounting positions, available power, environmental conditions, access restrictions — none currently known"}
+  - {category_id: GAP-04, category: CONNECTIVITY, items: "Cellular signal conditions, basement/technical-room penetration, candidate EDGE-01 location, direct-cellular feasibility — all TBD WITH BEELINE / SITE SURVEY"}
+  - {category_id: GAP-05, category: DOCUMENTATION, items: "Legible cover-page confirmation of inventory № 23161 and year built 1978; original dimensioned site/footprint plan or field survey (TBD-001)"}
+
+gap_category_note: >-
+  CORR-02 (source-verbatim): the area-taxonomy reconciliation formerly
+  requested under Documentation (former §5.1 vs §5.2, former GAP-001) is
+  resolved per the owner-approved taxonomy in §0b/§5 and is no longer a
+  documentation gap.
+
+tertiary_semantic_unit:
+  type: REFERENCE_COMPONENT_CANDIDATE
+  count: 1
+  source_section: "§13"
+  item:
+    component_id: HEAT-03
+    question: "Can a real HEAT-03 (or equivalent heating mixing/elevator node) be identified in SEM-MCD-001 from primary evidence reviewed this session?"
+    answer: NO_EVIDENCE
+    supporting_evidence: "Marked 'Отопление' (Центральное отопление) row on SRC-004/Image 5 systems checklist confirms existence of a central heating connection only; no basement plan, mixing-node location, or riser topology legible in any reviewed source."
+    boundary_statement: "HEAT-03 and all other HEAT-xx component IDs from BUILDING-01A remain unassigned ontology candidates, not instantiated facts, per §13 of the task instructions."
+    cross_reference: "Same fact independently tracked as item CI-03 in A3-EC01-05_GRAPH_IR.yaml (EC-01 §13); cited here, not re-registered."
+
+relationships:
+  type: USABILITY_ROW_REQUIRES_FIELD_CONFIRMATION
+  count: 6
+  edges:
+    - {edge_id: REL-01, from: U-02, requirement: "Field confirmation before final massing"}
+    - {edge_id: REL-02, from: U-03, requirement: "Dimensioned plan or field survey"}
+    - {edge_id: REL-03, from: U-04, requirement: "Exact spacing confirmation"}
+    - {edge_id: REL-04, from: U-05, requirement: "Field confirmation for illegible dimensions"}
+    - {edge_id: REL-05, from: U-06, requirement: "Field confirmation; do not invent"}
+    - {edge_id: REL-06, from: U-07, requirement: "Field confirmation; do not invent, no location evidence exists"}
+
+evidence_provenance_states:
+  count: 5
+  states: [VERIFIED, DERIVED, PARTIAL, TBD, NO_EVIDENCE]
+  interpretation_axis: EPISTEMIC_EVIDENCE_STATE
+  severity_axis: false
+
+open_tbd_items:
+  count: 7
+  item_refs: [U-02, U-03, U-04, U-05, U-06, U-07, HEAT-03]
+
+validation_requirements:
+  count: 6
+  basis: "Each of the 6 matrix rows (U-02..U-07) marked 'Needs field confirmation? = Yes' in source §12"
+
+guardrails:
+  - guardrail_id: GR-01
+    text: "Unknown engineering geometry remains unknown in 3D. This EC-01 does not create or modify any 3D geometry."
+    source_ref: "§12"
+  - guardrail_id: GR-02
+    text: "HEAT-03 and all other HEAT-xx component IDs from BUILDING-01A remain unassigned ontology candidates, not instantiated facts."
+    source_ref: "§13"
+
+sem_mcd_001:
+  included: true
+  relevance: "Source document is the SEM-MCD-001 baseline review; §11-§13 content is real-building survey data (floors, footprint, entrance cores, engineering-room gaps, HEAT-03) for Semey, Shakarima 13A."
+
+explicit_exclusions:
+  - NO_3D_GEOMETRY_CREATED_OR_MODIFIED
+  - NO_ENGINEERING_ROOM_RISER_OR_ROOF_BASEMENT_LOCATION_INVENTED
+  - NO_FOOTPRINT_BACK_CALCULATED_FROM_AREA_TAXONOMY
+  - NO_HEAT_03_EXISTENCE_OR_ABSENCE_INFERENCE
+  - NO_TOPOLOGY_DEPLOYMENT_OR_INSTALLATION_DECISION
+  - NO_DRAWIO_PDF_OR_3D_AT_THIS_GATE
+
+structural_duplication_check:
+  overlapping_page: A3-EC01-05
+  overlapping_fact: HEAT-03 / NO EVIDENCE (EC-01 §13)
+  treatment: CROSS_REFERENCED_NOT_DUPLICATED
+  shared_table_or_register_recreated: false
+  duplication_found: false
+
+source_control:
+  allowed_source: EC-01_REAL_MCD_BASELINE_SEM-MCD-001_v0.3_REVIEW.md
+  required_sections_only: true
+  source_reread_outside_required_ec01_context: false
+
+next_gate: DRAWIO_COMPILE

@@ -1,0 +1,132 @@
+<mxfile host="app.diagrams.net" modified="2026-08-25T00:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="A3-EC02-01" name="A3-EC02-01 Observability Narrative">
+    <mxGraphModel dx="1587" dy="1123" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1587" pageHeight="1123" math="0" shadow="0" background="#FFFFFF">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="page" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D0D7DE;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1587" height="1123" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="titleBand" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#153A73;strokeColor=#153A73;" vertex="1" parent="1">
+          <mxGeometry x="57" y="57" width="1473" height="106" as="geometry"/>
+        </mxCell>
+        <mxCell id="pageId" value="&lt;b&gt;A3-EC02-01&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;P3 · OBSERVABILITY COMPLETION · CASE 011&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#FFFFFF;spacingLeft=18;" vertex="1" parent="1">
+          <mxGeometry x="65" y="68" width="285" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="title" value="&lt;b&gt;OBSERVABILITY NARRATIVE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px&quot;&gt;HouseMaster starts with the engineering question that requires evidence — not with a sensor.&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontColor=#FFFFFF;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="345" y="66" width="755" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="thesis" value="&lt;b&gt;OBSERVABILITY ≠ SENSORIZATION&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;OBSERVABILITY ≠ FULL SENSOR COVERAGE&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FFFFFF;strokeWidth=1.5;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#153A73;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="76" width="390" height="68" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="col1bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFBFC;strokeColor=#AAB4C3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="57" y="177" width="475" height="582" as="geometry"/>
+        </mxCell>
+        <mxCell id="col2bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFBFC;strokeColor=#AAB4C3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="556" y="177" width="475" height="582" as="geometry"/>
+        </mxCell>
+        <mxCell id="col3bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFBFC;strokeColor=#AAB4C3;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="177" width="475" height="582" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c1head" value="&lt;b&gt;01 · PHYSICAL REALITY / ENGINEERING QUESTION&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#26364A;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#FFFFFF;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="57" y="177" width="475" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="building" value="&lt;b&gt;SEM-MCD-001 · REAL BUILDING&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;Semey, Shakarima 13A · evidence anchor&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#26364A;strokeWidth=1.5;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=13;fontColor=#26364A;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="76" y="234" width="437" height="57" as="geometry"/>
+        </mxCell>
+        <mxCell id="context" value="&lt;b&gt;SYSTEM / COMPONENT / ZONE CONTEXT&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Known context stays separate from unknown location.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2F6;strokeColor=#6B778C;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontColor=#26364A;" vertex="1" parent="1">
+          <mxGeometry x="94" y="309" width="401" height="51" as="geometry"/>
+        </mxCell>
+        <mxCell id="condition" value="&lt;b&gt;OBSERVABLE CONDITION&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;physical state · value · change · event&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2F6;strokeColor=#6B778C;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontColor=#26364A;" vertex="1" parent="1">
+          <mxGeometry x="94" y="378" width="401" height="51" as="geometry"/>
+        </mxCell>
+        <mxCell id="op" value="&lt;b&gt;OBSERVATION POINT&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;CANDIDATE / L1 · exact physical location = TBD&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1.5;dashed=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontColor=#0D47A1;" vertex="1" parent="1">
+          <mxGeometry x="94" y="447" width="401" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="c1edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#26364A;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="building" target="context"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="c1edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#26364A;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="context" target="condition"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="c1edge3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1976D2;strokeWidth=1.5;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="condition" target="op"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="opdef" value="&lt;b&gt;OBSERVATION POINT = PHYSICAL / ENGINEERING CONCEPT&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Attached to building / system / component / zone context. May be served by Human, Machine, or both. It does not depend on an installed device.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1976D2;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=10;fontColor=#0D47A1;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="76" y="520" width="437" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="opguard" value="&lt;b&gt;OBSERVATION POINT ≠ DEVICE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;PHYSICAL CONDITION ≠ OBSERVATION&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F9A825;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#7A5A00;" vertex="1" parent="1">
+          <mxGeometry x="76" y="615" width="437" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="ref" value="&lt;b&gt;OBS-CAND-001 · HEATING TEMPERATURE CONDITION&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;SYSTEM EXISTENCE: &lt;b&gt;VERIFIED&lt;/b&gt; · OP: OC-001 / CANDIDATE L1&lt;br&gt;HUMAN: YES — IN PRINCIPLE · MACHINE: YES — PENDING FIELD SITING&lt;br&gt;DEVICE: CONCEPTUAL / NOT SELECTED / NOT INSTALLED · LOCATION: TBD&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FBFF;strokeColor=#2457A6;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=10;fontColor=#153A73;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="76" y="681" width="437" height="65" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c2head" value="&lt;b&gt;02 · TWO CO-APPLICABLE OBSERVATION CHANNELS&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#26364A;strokeColor=#26364A;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#FFFFFF;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="556" y="177" width="475" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="machine" value="&lt;b&gt;CHANNEL A · MACHINE / DEVICE-ASSISTED&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;&lt;b&gt;STATUS: CONCEPTUAL / CANDIDATE&lt;/b&gt;&lt;br&gt;&lt;br&gt;MAY SUPPORT: MEASURE · TIMESTAMP · BUFFER · FORWARD&lt;br&gt;&lt;br&gt;DOES NOT MEAN: installed device · selected sensor · mounting point · protocol · coverage&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1.5;dashed=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=12;fontColor=#0D47A1;spacing=14;" vertex="1" parent="1">
+          <mxGeometry x="575" y="236" width="437" height="181" as="geometry"/>
+        </mxCell>
+        <mxCell id="human" value="&lt;b&gt;CHANNEL B · HUMAN / DOCUMENTARY&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;&lt;b&gt;STATUS: APPLICABLE WHERE ACCESS + CONTEXT ALLOW&lt;/b&gt;&lt;br&gt;&lt;br&gt;INSPECTION · CHECKLIST · MANUAL READING · FIELD ASSESSMENT&lt;br&gt;PHOTO · NOTE · ACT · DOCUMENTARY RECORD&lt;br&gt;&lt;br&gt;Independent of machine deployment; provenance remains required.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=1.5;align=left;verticalAlign=top;fontFamily=Arial;fontSize=12;fontColor=#0D47A1;spacing=14;" vertex="1" parent="1">
+          <mxGeometry x="575" y="435" width="437" height="181" as="geometry"/>
+        </mxCell>
+        <mxCell id="coapp" value="&lt;b&gt;CO-APPLICABLE · NOT SEQUENTIAL · NOT MUTUALLY EXCLUSIVE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;HUMAN OBSERVATION ≠ MACHINE DEPENDENCE&lt;br&gt;DEVICE CANDIDATE ≠ INSTALLED DEVICE&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E8FF;strokeColor=#7B4AB5;strokeWidth=1.5;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontColor=#4C267A;" vertex="1" parent="1">
+          <mxGeometry x="575" y="634" width="437" height="74" as="geometry"/>
+        </mxCell>
+        <mxCell id="channelnote" value="Human and Machine have equal semantic weight. Channel choice answers the engineering question; it does not rank trust by default." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=9;fontColor=#424242;" vertex="1" parent="1">
+          <mxGeometry x="582" y="714" width="423" height="31" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="c3head" value="&lt;b&gt;03 · HOUSEMASTER ACCEPTANCE / ENGINEERING MEANING&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2457A6;strokeColor=#2457A6;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#FFFFFF;spacingLeft=14;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="177" width="475" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="obs" value="&lt;b&gt;PROVENANCE-BEARING OBSERVATION&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#2457A6;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontColor=#153A73;" vertex="1" parent="1"><mxGeometry x="1080" y="236" width="425" height="42" as="geometry"/></mxCell>
+        <mxCell id="gate" value="&lt;b&gt;PROVENANCE / CONTEXT GATE&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E8FF;strokeColor=#7B4AB5;strokeWidth=1.75;dashed=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontColor=#4C267A;" vertex="1" parent="1"><mxGeometry x="1080" y="298" width="425" height="42" as="geometry"/></mxCell>
+        <mxCell id="evidence" value="&lt;b&gt;EVIDENCE · WHERE CRITERIA PASS&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#2457A6;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontColor=#153A73;" vertex="1" parent="1"><mxGeometry x="1080" y="360" width="425" height="42" as="geometry"/></mxCell>
+        <mxCell id="validation" value="&lt;b&gt;DOMAIN / PROFESSIONAL VALIDATION&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3E8FF;strokeColor=#7B4AB5;strokeWidth=1.75;dashed=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontColor=#4C267A;" vertex="1" parent="1"><mxGeometry x="1080" y="422" width="425" height="42" as="geometry"/></mxCell>
+        <mxCell id="interpretation" value="&lt;b&gt;RULE-GATED INTERPRETATION&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#2457A6;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontColor=#153A73;" vertex="1" parent="1"><mxGeometry x="1080" y="484" width="425" height="42" as="geometry"/></mxCell>
+        <mxCell id="state" value="&lt;b&gt;DEFECT AND/OR BUILDING STATE&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;ONLY WHERE RULES PASS&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#2457A6;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontColor=#153A73;" vertex="1" parent="1"><mxGeometry x="1080" y="546" width="425" height="53" as="geometry"/></mxCell>
+        <mxCell id="a1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2457A6;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="obs" target="gate"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#7B4AB5;strokeWidth=1.5;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="gate" target="evidence"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2457A6;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="evidence" target="validation"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#7B4AB5;strokeWidth=1.5;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="validation" target="interpretation"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a5" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2457A6;strokeWidth=2;endArrow=block;endFill=1;" edge="1" parent="1" source="interpretation" target="state"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="acceptguard" value="&lt;b&gt;OBSERVATION ≠ EVIDENCE&lt;/b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;·&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;b&gt;EVIDENCE ≠ DEFECT&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F9A825;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=11;fontColor=#7A5A00;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="617" width="425" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="hmrole" value="&lt;b&gt;HOUSEMASTER · SYSTEM OF RECORD&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Anchors engineering context · preserves provenance · applies acceptance rules · maintains domain history/state&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#2457A6;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=10;fontColor=#153A73;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="676" width="425" height="67" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="supportFlow" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AAB4C3;" vertex="1" parent="1"><mxGeometry x="57" y="777" width="600" height="222" as="geometry"/></mxCell>
+        <mxCell id="supportHead" value="&lt;b&gt;TWO-CHANNEL SUPPORTING MODEL&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#26364A;" vertex="1" parent="1"><mxGeometry x="76" y="790" width="560" height="26" as="geometry"/></mxCell>
+        <mxCell id="rb1" value="REAL BUILDING" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2F6;strokeColor=#6B778C;align=center;fontFamily=Arial;fontSize=9;fontColor=#26364A;" vertex="1" parent="1"><mxGeometry x="76" y="830" width="115" height="42" as="geometry"/></mxCell>
+        <mxCell id="humanPath" value="HUMAN / DOCUMENTARY&lt;br&gt;OBSERVATION" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;align=center;fontFamily=Arial;fontSize=9;fontColor=#0D47A1;" vertex="1" parent="1"><mxGeometry x="229" y="826" width="184" height="50" as="geometry"/></mxCell>
+        <mxCell id="hm1" value="HOUSEMASTER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#2457A6;align=center;fontFamily=Arial;fontSize=9;fontColor=#153A73;" vertex="1" parent="1"><mxGeometry x="456" y="830" width="178" height="42" as="geometry"/></mxCell>
+        <mxCell id="rb2" value="REAL BUILDING" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2F6;strokeColor=#6B778C;align=center;fontFamily=Arial;fontSize=9;fontColor=#26364A;" vertex="1" parent="1"><mxGeometry x="76" y="906" width="115" height="42" as="geometry"/></mxCell>
+        <mxCell id="machinePath" value="MACHINE OBSERVATION&lt;br&gt;CANDIDATE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F2FD;strokeColor=#1976D2;dashed=1;align=center;fontFamily=Arial;fontSize=9;fontColor=#0D47A1;" vertex="1" parent="1"><mxGeometry x="211" y="902" width="158" height="50" as="geometry"/></mxCell>
+        <mxCell id="beeline" value="BEELINE&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;TRANSPORT BOUNDARY&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7CC;strokeColor=#D6A700;dashed=1;align=center;fontFamily=Arial;fontSize=9;fontColor=#665000;" vertex="1" parent="1"><mxGeometry x="389" y="902" width="126" height="50" as="geometry"/></mxCell>
+        <mxCell id="hm2" value="HOUSEMASTER" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#2457A6;align=center;fontFamily=Arial;fontSize=9;fontColor=#153A73;" vertex="1" parent="1"><mxGeometry x="535" y="906" width="99" height="42" as="geometry"/></mxCell>
+        <mxCell id="sf1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2457A6;strokeWidth=1.3;endArrow=block;endFill=1;" edge="1" parent="1" source="rb1" target="humanPath"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="sf2" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#2457A6;strokeWidth=1.3;endArrow=block;endFill=1;" edge="1" parent="1" source="humanPath" target="hm1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="sf3" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#1976D2;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="rb2" target="machinePath"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="sf4" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D6A700;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="machinePath" target="beeline"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="sf5" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#D6A700;strokeWidth=1.3;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="beeline" target="hm2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="connectguard" value="CONNECTIVITY STATE ≠ ENGINEERING STATE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=9;fontStyle=1;fontColor=#665000;" vertex="1" parent="1"><mxGeometry x="346" y="960" width="288" height="24" as="geometry"/></mxCell>
+
+        <mxCell id="provPanel" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AAB4C3;" vertex="1" parent="1"><mxGeometry x="673" y="777" width="420" height="222" as="geometry"/></mxCell>
+        <mxCell id="provHead" value="&lt;b&gt;PROVENANCE / TIME&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#26364A;" vertex="1" parent="1"><mxGeometry x="692" y="790" width="380" height="26" as="geometry"/></mxCell>
+        <mxCell id="provFields" value="&lt;font style=&quot;font-size:9px&quot;&gt;BUILDING / OBJECT CONTEXT&lt;br&gt;SYSTEM / COMPONENT / ZONE&lt;br&gt;OBSERVATION POINT&lt;br&gt;OBSERVATION CHANNEL&lt;br&gt;event_time&lt;br&gt;recorded / received time&lt;br&gt;ACTOR / SOURCE / DEVICE&lt;br&gt;ATTACHMENT / PHOTO&lt;br&gt;SOURCE PROVENANCE&lt;br&gt;CONFIDENCE / VALIDATION STATUS&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FBFF;strokeColor=#2457A6;align=left;verticalAlign=top;fontFamily=Arial;fontSize=9;fontColor=#153A73;spacing=10;" vertex="1" parent="1"><mxGeometry x="692" y="825" width="180" height="155" as="geometry"/></mxCell>
+        <mxCell id="timeRules" value="&lt;b&gt;event_time ≠ recorded / received time&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;NO EVENT ≠ NORMAL CONDITION&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;NO NEW OBSERVATION ≠ UNCHANGED ENGINEERING STATE&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;NO NEW OBSERVATION ≠ NO PHYSICAL CHANGE&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F9A825;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=9;fontColor=#7A5A00;spacing=10;" vertex="1" parent="1"><mxGeometry x="887" y="825" width="187" height="155" as="geometry"/></mxCell>
+
+        <mxCell id="tbdPanel" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#AAB4C3;" vertex="1" parent="1"><mxGeometry x="1109" y="777" width="421" height="222" as="geometry"/></mxCell>
+        <mxCell id="tbdHead" value="&lt;b&gt;OPEN / TBD · 7 CATEGORIES&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#26364A;" vertex="1" parent="1"><mxGeometry x="1128" y="790" width="383" height="26" as="geometry"/></mxCell>
+        <mxCell id="tbdList" value="&lt;font style=&quot;font-size:9px&quot;&gt;&lt;b&gt;01&lt;/b&gt; Observation-point physical locations — &lt;b&gt;TBD&lt;/b&gt;&lt;br&gt;&lt;b&gt;02&lt;/b&gt; Device mounting locations — &lt;b&gt;TBD&lt;/b&gt;&lt;br&gt;&lt;b&gt;03&lt;/b&gt; Installed-device status — &lt;b&gt;TBD / NOT ESTABLISHED&lt;/b&gt;&lt;br&gt;&lt;b&gt;04&lt;/b&gt; Machine-observation coverage — &lt;b&gt;TBD&lt;/b&gt;&lt;br&gt;&lt;b&gt;05&lt;/b&gt; Site validation — &lt;b&gt;REQUIRED / NOT COMPLETED&lt;/b&gt;&lt;br&gt;&lt;b&gt;06&lt;/b&gt; Power / environmental / access constraints — &lt;b&gt;TBD&lt;/b&gt;&lt;br&gt;&lt;b&gt;07&lt;/b&gt; Connectivity feasibility — &lt;b&gt;TBD&lt;/b&gt;&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#757575;dashed=1;align=left;verticalAlign=top;fontFamily=Arial;fontSize=9;fontColor=#424242;spacing=10;" vertex="1" parent="1"><mxGeometry x="1128" y="825" width="383" height="132" as="geometry"/></mxCell>
+        <mxCell id="tbdRules" value="NO COVERAGE % · NO SENSOR TARGET · NO MATURITY SCORE&lt;br&gt;&lt;font style=&quot;font-size:8px&quot;&gt;VISUAL COVERAGE ≠ OBSERVABILITY COVERAGE&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=9;fontStyle=1;fontColor=#424242;" vertex="1" parent="1"><mxGeometry x="1128" y="962" width="383" height="28" as="geometry"/></mxCell>
+
+        <mxCell id="footer" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEF2F6;strokeColor=#AAB4C3;" vertex="1" parent="1"><mxGeometry x="57" y="1013" width="1473" height="53" as="geometry"/></mxCell>
+        <mxCell id="footerLeft" value="&lt;b&gt;A3-EC02-01&lt;/b&gt; · SOURCE GATE EC-02 · §1–§4a; §8–§14.1; §15; §16–§16.2; §18 · REFERENCE: SEM-MCD-001" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=8;fontColor=#26364A;spacingLeft=10;" vertex="1" parent="1"><mxGeometry x="67" y="1018" width="900" height="42" as="geometry"/></mxCell>
+        <mxCell id="footerRight" value="EVIDENCE: N/A META · EXAMPLE VERIFIED/TBD · REV: DRAWIO REVIEW v1.0 · OPEN TBD: 7&lt;br&gt;RELATED: EC02-02 HERO · EC02-03 MATRIX · EC02-04 REFERENCE OBSERVATION" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontFamily=Arial;fontSize=8;fontColor=#26364A;spacingRight=10;" vertex="1" parent="1"><mxGeometry x="965" y="1018" width="555" height="42" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

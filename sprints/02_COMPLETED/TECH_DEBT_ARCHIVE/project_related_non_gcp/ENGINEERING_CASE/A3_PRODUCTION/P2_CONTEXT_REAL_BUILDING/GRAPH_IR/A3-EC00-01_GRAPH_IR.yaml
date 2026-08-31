@@ -1,0 +1,430 @@
+graph_id: A3-EC00-01
+page_id: A3-EC00-01
+title: Reference Architecture Overview
+ir_type: GRAPH / ARCHITECTURE OVERVIEW
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+stage: P2_CONTEXT_REAL_BUILDING
+production_number: P2-01
+case_assembly_number: "001"
+
+reference_anchor:
+  id: SEM-MCD-001
+  label: Semey, Shakarima 13A
+  role: REAL_BUILDING_REFERENCE
+  evidence_status: VERIFIED_ADDRESS / ASSIGNED_INTERNAL_ID
+
+source_control:
+  ec00_gate_status: APPROVED_CLOSED
+  ec00_primary_source_artifact: NOT_LOCATED_IN_CURRENT_WORKSPACE
+  source_linkage_status: SOURCE_LINKAGE_PENDING
+  minimum_source_set:
+    - source: A3-P0_PAGE_REGISTRY_v0.4_REVIEW.md
+      sections: EC-00 PAGE SET / FULL PAGE REGISTRY
+    - source: EC-01_REAL_MCD_BASELINE_SEM-MCD-001_v0.3_REVIEW.md
+      sections: ["§3", "§7", "§8", "§9"]
+    - source: EC-02_PHYSICAL_TO_OBSERVATION_SEM-MCD-001_v0.3_REVIEW.md
+      sections: ["§3", "§4a", "§18"]
+    - source: EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md
+      sections: ["§3", "§9a", "§21"]
+    - source: A3-P0_CASE_DESIGN_SYSTEM_v0.4_REVIEW.md
+      sections: ["§11"]
+  source_reread_outside_required_ec00_context: false
+
+domains:
+  - id: D01
+    label: REAL BUILDING / PHYSICAL DOMAIN
+    ownership: REAL_BUILDING
+    responsibility: Physical source of engineering reality.
+    boundary_status: EXPLICIT
+  - id: D02
+    label: OBSERVATION / FIELD LAYER
+    ownership: FIELD / HUMAN / CANDIDATE_DEVICE
+    responsibility: Human and candidate-machine observation, documentary evidence, time and provenance.
+    boundary_status: EXPLICIT
+  - id: D03
+    label: BEELINE CONNECTIVITY LAYER
+    ownership: BEELINE
+    responsibility: Connectivity, IoT-M2M, SIM/eSIM, operator transport and exposed connectivity state.
+    boundary_status: EXPLICIT
+  - id: D04
+    label: HOUSEMASTER TRUST / INTEGRATION BOUNDARY
+    ownership: SHARED_BOUNDARY_NO_DOMAIN_OWNERSHIP_TRANSFER
+    responsibility: Authenticate, validate, normalize and map where later implemented; implementation remains TBD.
+    boundary_status: EXPLICIT
+  - id: D05
+    label: HOUSEMASTER DOMAIN SYSTEM OF RECORD
+    ownership: HOUSEMASTER
+    responsibility: Domain identities, observation/evidence model, building state, workflow and history.
+    boundary_status: EXPLICIT
+  - id: D06
+    label: ALAU AI — DOWNSTREAM DECISION-SUPPORT
+    ownership: ALAU_AI_ANALYTICS_ONLY
+    responsibility: Analytics, prediction and decision-support over evidence-backed HouseMaster state.
+    boundary_status: EXPLICIT_DOWNSTREAM
+
+nodes:
+  - id: N01
+    label: SEM-MCD-001 — Semey, Shakarima 13A
+    domain: D01
+    ownership: REAL_BUILDING
+    status: REFERENCE_ANCHOR
+    evidence_status: VERIFIED_ADDRESS / ASSIGNED_INTERNAL_ID
+    source_ref: "EC-01 §3"
+    what_it_means: The real reference building anchors every architecture layer.
+    what_it_does_not_mean: A generic or hypothetical building.
+    unresolved_items: []
+  - id: N02
+    label: ENGINEERING SYSTEMS
+    domain: D01
+    ownership: REAL_BUILDING
+    status: MIXED_EVIDENCE
+    evidence_status: VERIFIED_6 / PARTIAL_1 / TBD_2
+    source_ref: "EC-01 §7"
+    what_it_means: Documented physical engineering-system existence.
+    what_it_does_not_mean: Known topology or component location.
+    unresolved_items: [system topology, component locations]
+  - id: N03
+    label: ENGINEERING COMPONENTS
+    domain: D01
+    ownership: REAL_BUILDING
+    status: CANDIDATE_CONTEXT
+    evidence_status: COMPONENT_LOCATIONS_TBD
+    source_ref: "EC-01 §§7,9"
+    what_it_means: Physical component context required for observations.
+    what_it_does_not_mean: Invented HEAT/CWS/SEWER/POWER component instances.
+    unresolved_items: [component identities, component locations]
+  - id: N04
+    label: PHYSICAL CONDITION
+    domain: D01
+    ownership: REAL_BUILDING
+    status: PHYSICAL_REALITY
+    evidence_status: OBSERVATION_REQUIRED
+    source_ref: "EC-02 §§3–4a"
+    what_it_means: The physical engineering reality that may be observed.
+    what_it_does_not_mean: Connectivity, software or AI state.
+    unresolved_items: [condition-specific observation rules]
+  - id: N05
+    label: HUMAN OBSERVATION
+    domain: D02
+    ownership: HUMAN / FIELD
+    status: SOURCE_SUPPORTED_CHANNEL
+    evidence_status: CHANNEL_B_CONCEPTUAL
+    source_ref: "EC-02 §4a.1–4a.3"
+    what_it_means: Inspection-based observation can enter HouseMaster independently.
+    what_it_does_not_mean: Machine or Beeline connectivity is required.
+    unresolved_items: [actor, observation time, exact location per record]
+  - id: N06
+    label: PHOTO / DOCUMENTARY EVIDENCE
+    domain: D02
+    ownership: HUMAN / FIELD
+    status: EVIDENCE_CANDIDATE
+    evidence_status: PROVENANCE_REQUIRED
+    source_ref: "EC-02 §§4a,18"
+    what_it_means: Human/documentary material may support evidence with context and provenance.
+    what_it_does_not_mean: A photo or document automatically proves a defect.
+    unresolved_items: [attachment, actor, timestamp, component context]
+  - id: N07
+    label: CANDIDATE SENSORS / DEVICES
+    domain: D02
+    ownership: FIELD_DEVICE_CANDIDATE
+    status: CONCEPTUAL_L1
+    evidence_status: NONE_INSTALLED / LOCATIONS_TBD
+    source_ref: "EC-02 §§3,4a"
+    what_it_means: Future machine-observation role where source-supported.
+    what_it_does_not_mean: Installed hardware or confirmed sensor location.
+    unresolved_items: [device selection, location, provisioning]
+  - id: N08
+    label: TIMESTAMP + PROVENANCE
+    domain: D02
+    ownership: OBSERVATION_SOURCE / HOUSEMASTER_ACCEPTANCE
+    status: REQUIRED_CONTEXT
+    evidence_status: VALUES_TBD_PER_RECORD
+    source_ref: "Task-controlled EC-00 requirement; EC-02 observation/evidence model"
+    what_it_means: Time, source/actor/device and object context accompany accepted records.
+    what_it_does_not_mean: Missing values may be invented.
+    unresolved_items: [actual timestamp, actor, device, attachment, observed component]
+  - id: N09
+    label: DIRECT CONNECTIVITY PATTERN
+    domain: D03
+    ownership: IMPLEMENTATION_ALTERNATIVE
+    status: PLAUSIBLE_NOT_SELECTED
+    evidence_status: CONCEPTUAL
+    source_ref: "EC-03 §3"
+    what_it_means: One co-applicable machine-connectivity pattern.
+    what_it_does_not_mean: Selected or mandatory topology.
+    unresolved_items: [topology selection]
+  - id: N10
+    label: EDGE AGGREGATION PATTERN
+    domain: D03
+    ownership: IMPLEMENTATION_ALTERNATIVE
+    status: PLAUSIBLE_NOT_SELECTED
+    evidence_status: CONCEPTUAL
+    source_ref: "EC-03 §3"
+    what_it_means: One co-applicable shared-connectivity pattern.
+    what_it_does_not_mean: Selected gateway, EDGE-01 or installed aggregation hardware.
+    unresolved_items: [topology selection, aggregation role implementation]
+  - id: N11
+    label: SIM/eSIM / M2M CONNECTIVITY IDENTITY
+    domain: D03
+    ownership: BEELINE / OPERATOR
+    status: TBD_WHERE_APPLICABLE
+    evidence_status: NOT_ASSIGNED
+    source_ref: "EC-03 §§3,9a"
+    what_it_means: Operator connectivity identity where machine connectivity is used.
+    what_it_does_not_mean: HouseMaster device or domain identity.
+    unresolved_items: [SIM/eSIM mapping, exposed identifiers, lifecycle]
+  - id: N12
+    label: BEELINE ACCESS / TRANSPORT
+    domain: D03
+    ownership: BEELINE
+    status: CONCEPTUAL_TBD
+    evidence_status: REFERENCE_ARCHITECTURE
+    source_ref: "EC-03 §9a"
+    what_it_means: Operator connectivity path for machine data.
+    what_it_does_not_mean: Beeline internal network topology or product.
+    unresolved_items: [service model, coverage, transport implementation]
+  - id: N13
+    label: CONNECTIVITY STATE
+    domain: D03
+    ownership: BEELINE_WHERE_EXPOSED / HOUSEMASTER_REPRESENTATION_SEPARATE
+    status: PROPOSED_TBD_WITH_BEELINE
+    evidence_status: HOUSEMASTER_INTEGRATION_MODEL_NOT_BEELINE_INTERNAL
+    source_ref: "EC-03 §21"
+    what_it_means: Connectivity/reachability state may be represented in HouseMaster integration.
+    what_it_does_not_mean: Engineering state, building health or asserted Beeline internal state.
+    unresolved_items: [operator-exposed state contract]
+  - id: N14
+    label: HOUSEMASTER TRUST / INTEGRATION BOUNDARY
+    domain: D04
+    ownership: SHARED_BOUNDARY
+    status: REFERENCED_NOT_IMPLEMENTED
+    evidence_status: CONCEPTUAL_ARCHITECTURE
+    source_ref: "EC-03 §9a"
+    what_it_means: Explicit crossing from connectivity or field evidence into HouseMaster acceptance.
+    what_it_does_not_mean: Domain ownership transfer or implemented API.
+    unresolved_items: [authentication, validation, normalization, mapping, API/schema]
+  - id: N15
+    label: BUILDING
+    domain: D05
+    ownership: HOUSEMASTER
+    status: DOMAIN_IDENTITY
+    evidence_status: SEM-MCD-001_ANCHORED
+    source_ref: "EC-01 §9; EC-03 §9a"
+    what_it_means: HouseMaster building-domain identity anchored to SEM-MCD-001.
+    what_it_does_not_mean: Physical reality is owned by software.
+    unresolved_items: []
+  - id: N16
+    label: SYSTEM
+    domain: D05
+    ownership: HOUSEMASTER
+    status: DOMAIN_OBJECT
+    evidence_status: SOURCE_GATED
+    source_ref: "EC-01 §§7,9"
+    what_it_means: Domain representation of source-backed engineering systems.
+    what_it_does_not_mean: Component location is known.
+    unresolved_items: [system-specific topology]
+  - id: N17
+    label: COMPONENT
+    domain: D05
+    ownership: HOUSEMASTER
+    status: DOMAIN_CANDIDATE_TBD
+    evidence_status: COMPONENT_LOCATIONS_TBD
+    source_ref: "EC-01 §9; EC-03 §9a"
+    what_it_means: Component context when supported by evidence.
+    what_it_does_not_mean: Candidate component IDs are instantiated as fact.
+    unresolved_items: [component identity and location]
+  - id: N18
+    label: OBSERVATION
+    domain: D05
+    ownership: HOUSEMASTER
+    status: CANONICAL_DOMAIN_RECORD
+    evidence_status: ACCEPTANCE_REQUIRED
+    source_ref: "EC-02 §§4a,18; EC-03 §9a"
+    what_it_means: Accepted record of what was observed.
+    what_it_does_not_mean: Evidence, defect or engineering truth by itself.
+    unresolved_items: [acceptance rules]
+  - id: N19
+    label: EVIDENCE
+    domain: D05
+    ownership: HOUSEMASTER
+    status: PROVENANCE_GATED
+    evidence_status: CONTEXT_AND_VALIDATION_REQUIRED
+    source_ref: "EC-02 §§4a,18"
+    what_it_means: Observation-supported record with adequate provenance/context.
+    what_it_does_not_mean: Defect or verified building state automatically.
+    unresolved_items: [evidence sufficiency rules]
+  - id: N20
+    label: DEFECT
+    domain: D05
+    ownership: HOUSEMASTER
+    status: DOMAIN_RULE_GATED
+    evidence_status: PROFESSIONAL_VALIDATION_REQUIRED
+    source_ref: "EC-02 §4a"
+    what_it_means: Engineering defect classification after domain rules/validation.
+    what_it_does_not_mean: Device signal, connectivity event or raw observation.
+    unresolved_items: [domain rules, professional validation]
+  - id: N21
+    label: BUILDING STATE
+    domain: D05
+    ownership: HOUSEMASTER
+    status: SYSTEM_OF_RECORD_STATE
+    evidence_status: EVIDENCE_BACKED_RULE_GATED
+    source_ref: "EC-02 §18; A3-P0 §11"
+    what_it_means: Independent HouseMaster domain state supported by evidence and rules.
+    what_it_does_not_mean: Network health, connectivity state or AI signal.
+    unresolved_items: [state transition rules]
+  - id: N22
+    label: HISTORY / WORKFLOW
+    domain: D05
+    ownership: HOUSEMASTER
+    status: DOMAIN_SYSTEM_OF_RECORD
+    evidence_status: CONTROLLED_RECORD
+    source_ref: "EC-03 §9a; A3-P0 §11"
+    what_it_means: HouseMaster history, workflow and authorized domain actions.
+    what_it_does_not_mean: Ownership transfers to connectivity or hosting provider.
+    unresolved_items: [workflow implementation and authorization model]
+  - id: N23
+    label: ALAU AI — ANALYTICS / PREDICTION / DECISION-SUPPORT
+    domain: D06
+    ownership: ALAU_AI
+    status: DOWNSTREAM_ONLY
+    evidence_status: HOUSEMASTER_STATE_INPUT_REQUIRED
+    source_ref: "A3-P0 §11; task-controlled EC-00 requirement"
+    what_it_means: Downstream analysis over evidence-backed HouseMaster state.
+    what_it_does_not_mean: System of record, engineering truth, domain ownership or autonomous control.
+    unresolved_items: [models, hosting, validation, operational integration]
+  - id: N24
+    label: HUMAN / AUTHORIZED DECISION OR WORKFLOW
+    domain: D05
+    ownership: HUMAN_AUTHORITY / HOUSEMASTER_WORKFLOW
+    status: AUTHORIZATION_GATE
+    evidence_status: DECISION_NOT_AUTOMATIC
+    source_ref: "Task-controlled EC-00 requirement; A3-P0 §11"
+    what_it_means: AI recommendations return to human or otherwise authorized workflow.
+    what_it_does_not_mean: AI recommendation is an authorized decision or autonomous engineering control.
+    unresolved_items: [authorization policy, decision accountability]
+
+edges:
+  - {id: E01, from: N01, to: N02, label: contains physical systems, meaning: SEM-MCD-001 anchors source-backed engineering systems, boundary_crossing: false, status: SOURCE_BACKED, source_ref: "EC-01 §§3,7"}
+  - {id: E02, from: N02, to: N03, label: contains component context, meaning: Systems may contain components whose identities/locations remain evidence-gated, boundary_crossing: false, status: TBD_COMPONENTS, source_ref: "EC-01 §§7,9"}
+  - {id: E03, from: N03, to: N04, label: has physical condition, meaning: Physical components/systems have observable condition, boundary_crossing: false, status: CONCEPTUAL_RELATION, source_ref: "EC-02 §§3–4a"}
+  - {id: E04, from: N04, to: N05, label: observed by human, meaning: Physical condition may be inspected through Channel B, boundary_crossing: true, status: SOURCE_SUPPORTED, source_ref: "EC-02 §4a"}
+  - {id: E05, from: N04, to: N07, label: may be machine-observed, meaning: Source-supported conditions may have future candidate machine observation, boundary_crossing: true, status: CONCEPTUAL_L1, source_ref: "EC-02 §§3–4a"}
+  - {id: E06, from: N05, to: N06, label: creates documentary record, meaning: Human observation may create photo/documentary material, boundary_crossing: false, status: PROVENANCE_REQUIRED, source_ref: "EC-02 §4a"}
+  - {id: E07, from: N06, to: N08, label: carries context, meaning: Documentary material requires time/source/object provenance, boundary_crossing: false, status: REQUIRED_CONTEXT, source_ref: "Task-controlled EC-00 requirement"}
+  - {id: E08, from: N07, to: N08, label: timestamps and identifies source, meaning: Machine observation requires timestamp/device/object provenance, boundary_crossing: false, status: REQUIRED_CONTEXT, source_ref: "Task-controlled EC-00 requirement"}
+  - {id: E09, from: N07, to: N09, label: may use direct pattern, meaning: Candidate machine devices may use Direct Connectivity, boundary_crossing: true, status: PLAUSIBLE_NOT_SELECTED, source_ref: "EC-03 §3"}
+  - {id: E10, from: N07, to: N10, label: may use edge pattern, meaning: Candidate machine devices may use Edge Aggregation, boundary_crossing: true, status: PLAUSIBLE_NOT_SELECTED, source_ref: "EC-03 §3"}
+  - {id: E11, from: N09, to: N12, label: uses operator path, meaning: Direct pattern uses Beeline access/transport where implemented, boundary_crossing: false, status: CONCEPTUAL_TBD, source_ref: "EC-03 §9a"}
+  - {id: E12, from: N10, to: N12, label: uses shared operator path, meaning: Edge pattern uses a shared Beeline access/transport path where implemented, boundary_crossing: false, status: CONCEPTUAL_TBD, source_ref: "EC-03 §§3,9a"}
+  - {id: E13, from: N11, to: N12, label: provides connectivity identity, meaning: SIM/eSIM/M2M identity supports operator connectivity, boundary_crossing: false, status: TBD_WHERE_APPLICABLE, source_ref: "EC-03 §§3,9a"}
+  - {id: E14, from: N12, to: N13, label: exposes connectivity state where available, meaning: Operator connectivity may supply state represented separately in HouseMaster integration, boundary_crossing: false, status: TBD_WITH_BEELINE, source_ref: "EC-03 §21"}
+  - {id: E15, from: N12, to: N14, label: MACHINE PATH — crosses trust boundary, meaning: Machine data crosses explicit Beeline/HouseMaster integration, boundary_crossing: true, bypasses_beeline: false, status: REFERENCED_NOT_IMPLEMENTED, source_ref: "EC-03 §9a"}
+  - {id: E16, from: N13, to: N14, label: connectivity status input, meaning: Connectivity status may accompany machine-path integration, boundary_crossing: true, bypasses_beeline: false, status: PROPOSED_TBD_WITH_BEELINE, source_ref: "EC-03 §§9a,21"}
+  - {id: E17, from: N06, to: N14, label: HUMAN / DOCUMENTARY BYPASS, meaning: Human/documentary evidence enters HouseMaster without Beeline connectivity, boundary_crossing: true, bypasses_beeline: true, status: EXPLICIT_BYPASS, source_ref: "EC-02 §4a.3"}
+  - {id: E18, from: N08, to: N14, label: provenance accompanies acceptance, meaning: Timestamp/source/object context accompanies accepted observation/evidence, boundary_crossing: true, bypasses_beeline: CHANNEL_DEPENDENT, status: REQUIRED_CONTEXT, source_ref: "Task-controlled EC-00 requirement"}
+  - {id: E19, from: N14, to: N18, label: accepts as observation, meaning: Trust/integration acceptance may create a canonical HouseMaster observation, boundary_crossing: true, status: ACCEPTANCE_REQUIRED, source_ref: "EC-02 §18; EC-03 §9a"}
+  - {id: E20, from: N14, to: N19, label: accepts evidence-bearing record, meaning: Provenance-bearing documentary or machine record may enter the evidence model, boundary_crossing: true, status: PROVENANCE_GATED, source_ref: "EC-02 §§4a,18"}
+  - {id: E21, from: N01, to: N15, label: anchors domain identity, meaning: The real building anchors the HouseMaster Building object, boundary_crossing: true, status: SOURCE_BACKED, source_ref: "EC-01 §§3,9"}
+  - {id: E22, from: N15, to: N16, label: contains, meaning: HouseMaster Building contains source-gated System identities, boundary_crossing: false, status: DOMAIN_RELATION, source_ref: "EC-01 §9"}
+  - {id: E23, from: N16, to: N17, label: contains, meaning: System may contain evidence-backed Component identities, boundary_crossing: false, status: COMPONENT_TBD, source_ref: "EC-01 §9"}
+  - {id: E24, from: N17, to: N18, label: contextualizes, meaning: Observation attaches to an observed object/component context when known, boundary_crossing: false, status: CONTEXT_REQUIRED, source_ref: "EC-02 §§3–4a"}
+  - {id: E25, from: N18, to: N19, label: may support, meaning: Observation may support evidence when provenance/context is sufficient, boundary_crossing: false, status: PROVENANCE_GATED, source_ref: "EC-02 §4a"}
+  - {id: E26, from: N19, to: N20, label: may support gated defect, meaning: Evidence may support defect classification through domain rules/professional validation, boundary_crossing: false, status: DOMAIN_RULE_GATED, source_ref: "EC-02 §4a"}
+  - {id: E27, from: N20, to: N21, label: informs after validation, meaning: Validated defect may inform HouseMaster building state, boundary_crossing: false, status: DOMAIN_RULE_GATED, source_ref: "EC-02 §4a; A3-P0 §11"}
+  - {id: E28, from: N21, to: N22, label: records state/history/workflow, meaning: HouseMaster records state transitions, history and workflow, boundary_crossing: false, status: SYSTEM_OF_RECORD, source_ref: "EC-03 §9a; A3-P0 §11"}
+  - {id: E29, from: N21, to: N23, label: evidence-backed state input, meaning: ALAU AI receives downstream evidence-backed HouseMaster state, boundary_crossing: true, status: DOWNSTREAM_ONLY, source_ref: "A3-P0 §11"}
+  - {id: E30, from: N23, to: N24, label: recommendation / decision-support, meaning: AI produces a signal or recommendation for authorized review, boundary_crossing: true, status: NOT_AUTHORIZED_DECISION, source_ref: "A3-P0 §11; task-controlled EC-00 requirement"}
+  - {id: E31, from: N24, to: N22, label: authorized decision enters workflow, meaning: Human/authorized action may enter HouseMaster workflow/history, boundary_crossing: false, status: AUTHORIZATION_REQUIRED, source_ref: "Task-controlled EC-00 requirement"}
+
+boundary_crossings:
+  - id: BC-01
+    edge: E15
+    path: MACHINE_DATA
+    from_domain: D03
+    to_domain: D04
+    ownership_transfer: false
+  - id: BC-02
+    edge: E17
+    path: HUMAN_DOCUMENTARY_BYPASS
+    from_domain: D02
+    to_domain: D04
+    bypasses_beeline_connectivity: true
+    ownership_transfer: false
+  - id: BC-03
+    edges: [E19, E20]
+    path: HOUSEMASTER_ACCEPTANCE
+    from_domain: D04
+    to_domain: D05
+    housemaster_domain_acceptance: true
+    canonical_domain_record_created_where_acceptance_rules_pass: true
+    ownership_transfer: false
+  - id: BC-04
+    edge: E29
+    path: DOWNSTREAM_AI_INPUT
+    from_domain: D05
+    to_domain: D06
+    housemaster_remains_system_of_record: true
+  - id: BC-05
+    edge: E30
+    path: AI_RECOMMENDATION_RETURN
+    from_domain: D06
+    to_domain: D05
+    authorization_required: true
+    autonomous_control: false
+
+guardrails:
+  - CONNECTIVITY STATE ≠ ENGINEERING STATE
+  - NETWORK HEALTH ≠ BUILDING HEALTH
+  - DEVICE IDENTITY ≠ SIM IDENTITY
+  - OBSERVATION ≠ EVIDENCE ≠ DEFECT
+  - AI SIGNAL ≠ ENGINEERING FACT
+  - AI RECOMMENDATION ≠ AUTHORIZED DECISION
+  - HOSTING ≠ DOMAIN OWNERSHIP
+
+unresolved_items:
+  - id: U-01
+    item: EC-00 primary architecture source artifact
+    status: SOURCE_LINKAGE_PENDING
+  - id: U-02
+    item: Beeline internal products/topology/services
+    status: NOT_ASSERTED / TBD_WITH_BEELINE
+  - id: U-03
+    item: Trust-boundary API, payload schema and implementation
+    status: TBD / NOT_DESIGNED
+  - id: U-04
+    item: Installed devices and confirmed sensor/component locations
+    status: NONE_CONFIRMED
+  - id: U-05
+    item: Direct vs Edge connectivity selection
+    status: NOT_SELECTED
+  - id: U-06
+    item: ALAU models, hosting and operational integration
+    status: TBD
+  - id: U-07
+    item: Autonomous engineering control
+    status: NOT_AUTHORIZED / OUT_OF_SCOPE
+
+counts:
+  nodes: 24
+  edges: 31
+  domains: 6
+  guardrails: 7
+
+forbidden_actions:
+  - invent_beeline_internal_architecture
+  - invent_products
+  - invent_apis_or_payload_schemas
+  - invent_installed_devices
+  - invent_confirmed_sensor_locations
+  - select_connectivity_topology
+  - invent_autonomous_control
+  - transfer_housemaster_domain_ownership_to_beeline
+  - make_alau_ai_system_of_record
+  - create_drawio
+  - create_pdf
+  - create_3d

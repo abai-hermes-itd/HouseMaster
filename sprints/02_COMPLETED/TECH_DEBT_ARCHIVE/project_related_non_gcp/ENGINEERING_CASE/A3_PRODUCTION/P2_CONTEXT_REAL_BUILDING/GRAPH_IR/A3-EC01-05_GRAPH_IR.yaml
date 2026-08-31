@@ -1,0 +1,311 @@
+schema_version: "1.0"
+graph_id: A3-EC01-05-CONFIDENCE-REGISTER
+page_id: A3-EC01-05
+title: Conflicts / TBDs / Confidence
+stage: P2_CONTEXT_REAL_BUILDING
+production_no: P2-05
+case_assembly_no: "008"
+ir_type: REGISTER / CONFIDENCE MATRIX
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+
+reference_anchor:
+  id: SEM-MCD-001
+  address: Semey, Shakarima 13A
+  included: true
+
+core_thesis:
+  statement: AN OPEN ITEM ≠ A DATA ERROR
+  meaning: >-
+    A conflict, TBD, partial fact, or evidence-limited claim is a controlled
+    engineering state until new source-backed evidence or field validation
+    closes it.
+
+counts:
+  open_items: 12
+  active_conflicts: 2
+  resolved_non_conflicts: 2
+  confidence_states: 7
+  guardrails: 5
+
+confidence_vocabulary:
+  interpretation_axis: EPISTEMIC_EVIDENCE_STATE
+  severity_axis: false
+  states:
+    - state: VERIFIED
+      meaning: Directly supported at the stated scope.
+    - state: DERIVED
+      meaning: Explicitly derived from source-backed facts; not a direct source fact.
+    - state: PARTIAL
+      meaning: Some evidence exists, but scope, completeness, or confirmation remains limited.
+    - state: ASSIGNED
+      meaning: Owner-approved taxonomy or project decision; not independently re-derived.
+    - state: DISPUTED / OPEN
+      meaning: Conflicting or unresolved claims remain controlled and unclosed.
+    - state: TBD
+      meaning: Information is not established and requires validation.
+    - state: NO EVIDENCE
+      meaning: Reviewed evidence does not support the claim; absence is not proved.
+
+open_items:
+  - item_id: CI-01
+    subject: EXACT BUILDING FOOTPRINT
+    current_value_statement: NOT ESTABLISHED
+    status: NOT_ESTABLISHED_TBD
+    confidence: TBD
+    source_ref: EC-01 §4 / BF-008 / TBD-001
+    why_unresolved: No original dimensioned geometry or completed field survey establishes exact site coverage.
+    what_it_does_not_mean:
+      - BUILDING_ABSENT
+      - RECTANGULAR_FOOTPRINT
+      - AREA_TAXONOMY_VALUE_IS_FOOTPRINT
+    required_closure: AUTHORITATIVE GEOMETRY / FIELD SURVEY
+    responsible_validation_layer: AUTHORITATIVE_DOCUMENTATION_OR_BUILDING_FIELD
+    impact_if_unresolved: Exact massing and site placement cannot be verified.
+    downstream_restriction: DO NOT TREAT 3D AS VERIFIED AS-BUILT GEOMETRY
+
+  - item_id: CI-02
+    subject: STEPPED / NON-RECTANGULAR GEOMETRY
+    current_value_statement: Shape evidenced; full dimension set incomplete.
+    status: PARTIAL
+    confidence: PARTIAL
+    source_ref: EC-01 §4 / SRC-004 Image 3 / BF-009
+    why_unresolved: Some dimensions are legible; the complete authoritative dimension set is not.
+    what_it_does_not_mean:
+      - EXACT_FOOTPRINT_CONFIRMED
+      - FULL_GEOMETRY_VERIFIED
+    required_closure: AUTHORITATIVE GEOMETRY / MEASUREMENT
+    responsible_validation_layer: AUTHORITATIVE_DOCUMENTATION_OR_BUILDING_FIELD
+    impact_if_unresolved: Final footprint geometry and massing dimensions remain unverified.
+    downstream_restriction: DO NOT FINALIZE FOOTPRINT GEOMETRY OR MASSING DIMENSIONS
+
+  - item_id: CI-03
+    subject: HEAT-03
+    current_value_statement: No component-level evidence.
+    status: NO_EVIDENCE
+    confidence: NO_EVIDENCE
+    source_ref: EC-01 §13
+    why_unresolved: Heating-system existence is documented, but no basement plan, mixing-node location, or riser topology supports HEAT-03.
+    what_it_does_not_mean:
+      - HEAT_03_EXISTS
+      - HEAT_03_IS_ABSENT
+    required_closure: SOURCE-BACKED EVIDENCE OR EXPLICIT REJECTION
+    responsible_validation_layer: AUTHORITATIVE_ENGINEERING_DOCUMENTATION_OR_FIELD_VALIDATION
+    impact_if_unresolved: HEAT-03 cannot be instantiated as a real component.
+    downstream_restriction: DO NOT INFER EXISTENCE OR ABSENCE
+
+  - item_id: CI-04
+    subject: APARTMENT COUNT
+    current_value_statement: 81 VS 78
+    status: DISPUTED_OPEN
+    confidence: DISPUTED_OPEN
+    source_ref: EC-01 §3 / BF-014 / CONFLICT-005
+    why_unresolved: Compiled records state 81; an alternate 78 and the SRC-006 78/78 shares field cannot be assumed equivalent.
+    what_it_does_not_mean:
+      - COUNT_81_CONFIRMED
+      - COUNT_78_CONFIRMED
+    required_closure: RESOLVE SOURCE CONFLICT / AUTHORITATIVE RECORD
+    responsible_validation_layer: AUTHORITATIVE_PROPERTY_DOCUMENTATION
+    impact_if_unresolved: Unit schedules and per-unit assumptions remain unconfirmed.
+    downstream_restriction: DO NOT SILENTLY CHOOSE 78 OR 81
+
+  - item_id: CI-05
+    subject: LAND-LETTER MISMATCH
+    current_value_statement: 02-457 / 07.08.2006 VS 02-454 / 08.09.2006
+    status: OPEN
+    confidence: DISPUTED_OPEN
+    source_ref: EC-01 §2 / CONFLICT-004
+    why_unresolved: Secondary compiled citation differs from the photographed official letter.
+    what_it_does_not_mean:
+      - PRIMARY_LETTER_INVALID
+      - SECONDARY_CITATION_CONFIRMED
+    required_closure: AUTHORITATIVE CADASTRAL / LAND DOCUMENTATION
+    responsible_validation_layer: AUTHORITATIVE_CADASTRAL_LAND_DOCUMENTATION
+    impact_if_unresolved: Secondary legal citation remains unverified.
+    downstream_restriction: DO NOT TREAT SECONDARY LEGAL CITATION AS CONFIRMED
+
+  - item_id: CI-06
+    subject: BASEMENT / TECHNICAL-SPACE PLAN + HEIGHT
+    current_value_statement: NOT ESTABLISHED
+    status: TBD
+    confidence: TBD
+    source_ref: EC-01 §11 / TBD-003
+    why_unresolved: No authoritative basement plan, exact height, or completed field survey is available.
+    what_it_does_not_mean:
+      - BASEMENT_ABSENT
+      - TECHNICAL_SPACE_LOCATION_KNOWN
+    required_closure: SITE SURVEY / AUTHORITATIVE PLAN
+    responsible_validation_layer: BUILDING_FIELD_OR_AUTHORITATIVE_DOCUMENTATION
+    impact_if_unresolved: Basement geometry, engineering routing, and candidate siting remain unconfirmed.
+    downstream_restriction: DO NOT MODEL BASEMENT GEOMETRY OR SELECT TECHNICAL-SPACE INSTALLATION POINT
+
+  - item_id: CI-07
+    subject: ENGINEERING NODE / COMPONENT LOCATIONS
+    current_value_statement: NOT ESTABLISHED
+    status: TBD
+    confidence: TBD
+    source_ref: EC-01 §11 / TBD-005
+    why_unresolved: Heat entry, meters, boards, and other engineering nodes have no confirmed locations.
+    what_it_does_not_mean:
+      - COMPONENT_ABSENT
+      - LOCATION_KNOWN_FROM_SYSTEM_EXISTENCE
+    required_closure: SITE SURVEY / ENGINEERING DOCUMENTATION
+    responsible_validation_layer: BUILDING_FIELD_AND_ENGINEERING_DOCUMENTATION
+    impact_if_unresolved: Components cannot be instantiated at real locations.
+    downstream_restriction: DO NOT ASSIGN INSTALLATION LOCATION
+
+  - item_id: CI-08
+    subject: OBSERVATION / DEVICE LOCATIONS AND INSTALLATION CONSTRAINTS
+    current_value_statement: NONE KNOWN
+    status: TBD
+    confidence: TBD
+    source_ref: EC-01 §11
+    why_unresolved: Mounting positions, power, environment, access, and constraints are not established.
+    what_it_does_not_mean:
+      - DEVICE_INSTALLED
+      - NO_DEVICE_CAN_BE_INSTALLED
+    required_closure: SITE SURVEY
+    responsible_validation_layer: BUILDING_FIELD
+    impact_if_unresolved: Observation and device deployment remain conceptual.
+    downstream_restriction: DO NOT CLAIM INSTALLED DEVICE
+
+  - item_id: CI-09
+    subject: CONNECTIVITY FEASIBILITY AT CANDIDATE POINTS
+    current_value_statement: NOT EVALUATED
+    status: TBD
+    confidence: TBD
+    source_ref: EC-01 §10–§11
+    why_unresolved: Cellular conditions, penetration, candidate edge location, and direct-cellular feasibility have not been field-tested.
+    what_it_does_not_mean:
+      - DIRECT_CONNECTIVITY_SELECTED
+      - EDGE_AGGREGATION_SELECTED
+      - CONNECTIVITY_IMPOSSIBLE
+    required_closure: FIELD / NETWORK VALIDATION WITH BEELINE
+    responsible_validation_layer: JOINT_HOUSEMASTER_BEELINE_FIELD_NETWORK_VALIDATION
+    impact_if_unresolved: Deployment topology cannot be selected.
+    downstream_restriction: DO NOT SELECT DIRECT OR EDGE TOPOLOGY
+
+  - item_id: CI-10
+    subject: FACADE / ELEVATIONS
+    current_value_statement: NOT ESTABLISHED
+    status: TBD
+    confidence: TBD
+    source_ref: EC-01 §11 / TBD-004
+    why_unresolved: Authoritative elevations and complete field capture are unavailable.
+    what_it_does_not_mean:
+      - FACADE_GEOMETRY_CONFIRMED
+      - BUILDING_FACADE_ABSENT
+    required_closure: AUTHORITATIVE ELEVATIONS / FIELD CAPTURE
+    responsible_validation_layer: BUILDING_FIELD_OR_AUTHORITATIVE_DOCUMENTATION
+    impact_if_unresolved: Facade proportions, windows, and balconies cannot be finalized.
+    downstream_restriction: DO NOT FINALIZE FACADE PROPORTIONS OR GEOMETRY
+
+  - item_id: CI-11
+    subject: INVENTORY NUMBER / YEAR CONFIRMATION
+    current_value_statement: 23161 / 1978 NOT INDEPENDENTLY PRIMARY-CONFIRMED
+    status: PARTIAL_TBD
+    confidence: PARTIAL
+    source_ref: EC-01 §3 / BF-004 / BF-005 / TBD-008
+    why_unresolved: Values occur in secondary compiled sources but are not independently confirmed by a legible primary field.
+    what_it_does_not_mean:
+      - INVENTORY_NUMBER_VERIFIED
+      - YEAR_VERIFIED
+    required_closure: CONFIRM SOURCE IDENTITY RECORDS
+    responsible_validation_layer: AUTHORITATIVE_IDENTITY_DOCUMENTATION
+    impact_if_unresolved: Documentation identity remains partially confirmed.
+    downstream_restriction: DO NOT PRESENT BOTH IDENTITY FIELDS AS FULLY VERIFIED
+
+  - item_id: CI-12
+    subject: SOURCE-REGISTER CONTENT
+    current_value_statement: ARTIFACT CONTENT UNREADABLE / UNVALIDATED
+    status: TBD
+    confidence: TBD
+    source_ref: EC-01 §2 SRC-008 / TBD-009
+    why_unresolved: The referenced source-register artifact returned no extractable content.
+    what_it_does_not_mean:
+      - REGISTER_EMPTY
+      - REGISTER_SUPERSEDES_EC01
+    required_closure: VALIDATE SOURCE-REGISTER ARTIFACT
+    responsible_validation_layer: PROJECT_SOURCE_GOVERNANCE
+    impact_if_unresolved: The register cannot corroborate or supersede facts.
+    downstream_restriction: DO NOT USE REGISTER TO SUPERSEDE OR CORROBORATE FACTS
+
+active_conflicts:
+  - conflict_id: CONFLICT-004
+    subject: LAND-LETTER REFERENCE NUMBER / DATE
+    status: OPEN
+    source_ref: EC-01 §15
+  - conflict_id: CONFLICT-005
+    subject: APARTMENT COUNT 81 VS 78
+    status: OPEN
+    source_ref: EC-01 §15
+
+resolved_non_conflicts:
+  - record_id: RNC-01
+    former_conflict_id: CONFLICT-001
+    values: 1,248 m² VS 550 m²
+    resolution: DIFFERENT SEMANTIC AREA CATEGORIES
+    categories:
+      - TOTAL USEFUL BUILDING AREA
+      - COMMON / SHARED BUILDING AREA
+    status: RESOLVED_NOT_ACTIVE
+  - record_id: RNC-02
+    former_conflict_id: CONFLICT-002
+    values: 6,403.8 m² VS ≈15,020 m²
+    resolution: DIFFERENT CADASTRAL AREA CATEGORIES
+    categories:
+      - CADASTRAL BUILDING AREA
+      - ADJACENT / ASSOCIATED TERRITORY
+    status: RESOLVED_NOT_ACTIVE
+
+area_taxonomy:
+  active_conflict: false
+  categories:
+    - {value: "1,248 m²", label: TOTAL USEFUL BUILDING AREA, status: ASSIGNED}
+    - {value: "550 m²", label: COMMON / SHARED BUILDING AREA, status: ASSIGNED}
+    - {value: "6,403.8 m²", label: CADASTRAL BUILDING AREA, status: VERIFIED_FIGURE_OWNER_APPROVED_CATEGORY}
+    - {value: "≈15,020 m²", label: ADJACENT / ASSOCIATED TERRITORY, status: PARTIAL_OWNER_APPROVED_CATEGORY}
+  establishes_footprint: false
+
+confidence_principle:
+  sequence:
+    - CLAIM
+    - SOURCE
+    - STATUS
+    - CONFIDENCE
+    - VALIDATION_ACTION
+  visual_representation_may_promote_confidence: false
+
+guardrails:
+  - OPEN ITEM ≠ DATA ERROR
+  - UNKNOWN ≠ ABSENT
+  - PARTIAL ≠ VERIFIED
+  - NO EVIDENCE ≠ PROVED ABSENCE
+  - VISUAL CONFIDENCE ≠ SOURCE CONFIDENCE
+
+supporting_rules:
+  - OPEN CONFLICT ≠ OWNER DECISION
+  - TBD LOCATION ≠ NO PHYSICAL COMPONENT
+  - ASSIGNED TAXONOMY ≠ VERIFIED GEOMETRY
+
+forbidden_actions:
+  - collapse_partial_into_verified
+  - treat_tbd_as_absent
+  - resolve_open_conflicts
+  - infer_missing_geometry
+  - infer_engineering_node_locations
+  - infer_devices
+  - reinterpret_area_taxonomy
+  - add_severity_score
+  - add_risk_score
+  - create_drawio
+  - create_pdf
+  - create_3d
+
+source_control:
+  allowed_source: EC-01_REAL_MCD_BASELINE_SEM-MCD-001_v0.3_REVIEW.md
+  required_sections_only: true
+  source_reread_outside_required_ec01_context: false

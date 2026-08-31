@@ -1,0 +1,186 @@
+schema_version: "1.0"
+graph_id: A3-EC01-01-EVIDENCE-ANCHOR
+page_id: A3-EC01-01
+title: Reference Building / Evidence Anchor
+stage: P2_CONTEXT_REAL_BUILDING
+production_no: P2-03
+case_assembly_no: "004"
+ir_type: GRAPH / EVIDENCE-ANCHOR LOGIC
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+
+purpose: >-
+  Anchor the HouseMaster × Beeline architecture in SEM-MCD-001 as a real,
+  source-backed reference building while preserving fact, provenance,
+  confidence, unknown, validation, and implementation boundaries.
+
+reference_anchor:
+  id: SEM-MCD-001
+  address: Semey, Shakarima 13A
+  id_status: ASSIGNED_HOUSEMASTER_REFERENCE
+  address_status: VERIFIED
+  generic_template: false
+  source_ref: EC-01 §3 / §14
+
+counts:
+  nodes: 22
+  edges: 28
+  guardrails: 5
+  verified_facts: 10
+  open_tbd_items: 12
+
+provenance_model:
+  included: true
+  sequence:
+    - CLAIM
+    - SOURCE_REFERENCE
+    - CONFIDENCE
+    - VALIDATION_STATUS
+  promotion_rule: NEW_SOURCE_BACKED_EVIDENCE_OR_SITE_VALIDATION_ONLY
+  rendering_may_promote_status: false
+
+verified_facts:
+  - {id: VF-01, fact: "Current address: Semey, Shakarima 13A", status: VERIFIED, source_ref: "EC-01 §3 / §14"}
+  - {id: VF-02, fact: "Cadastral number documented in EC-01 identity record", status: VERIFIED, source_ref: "EC-01 §3 / §14"}
+  - {id: VF-03, fact: "BTI case number 209", status: VERIFIED, source_ref: "EC-01 §3 / §14"}
+  - {id: VF-04, fact: "Storeys: 9", status: VERIFIED, source_ref: "EC-01 §3 / §14"}
+  - {id: VF-05, fact: "Central heating system exists", status: VERIFIED, source_ref: "EC-01 §7 / §14"}
+  - {id: VF-06, fact: "Cold-water system exists", status: VERIFIED, source_ref: "EC-01 §7 / §14"}
+  - {id: VF-07, fact: "Hot-water system exists", status: VERIFIED, source_ref: "EC-01 §7 / §14"}
+  - {id: VF-08, fact: "Sewer system exists", status: VERIFIED, source_ref: "EC-01 §7 / §14"}
+  - {id: VF-09, fact: "Power-supply system exists", status: VERIFIED, source_ref: "EC-01 §7 / §14"}
+  - {id: VF-10, fact: "Lift system exists", status: VERIFIED, source_ref: "EC-01 §7 / §14"}
+
+open_tbd_items:
+  - {id: U-01, item: EXACT_BUILDING_FOOTPRINT, status: TBD, source_ref: "EC-01 §4 / §16 TBD-001"}
+  - {id: U-02, item: FULL_STEPPED_GEOMETRY_AND_DIMENSIONS, status: PARTIAL, source_ref: "EC-01 §4 / §14"}
+  - {id: U-03, item: HEAT-03, status: NO_EVIDENCE, source_ref: "EC-01 §13"}
+  - {id: U-04, item: APARTMENT_COUNT_81_VS_78, status: DISPUTED_OPEN, source_ref: "EC-01 §15 CONFLICT-005"}
+  - {id: U-05, item: LAND_LETTER_MISMATCH, status: OPEN, source_ref: "EC-01 §15 CONFLICT-004"}
+  - {id: U-06, item: BASEMENT_PLAN_AND_HEIGHT, status: TBD, source_ref: "EC-01 §11 / §16 TBD-003"}
+  - {id: U-07, item: ENGINEERING_NODE_AND_COMPONENT_LOCATIONS, status: TBD, source_ref: "EC-01 §11 / §16 TBD-005"}
+  - {id: U-08, item: OBSERVATION_DEVICE_LOCATIONS_AND_INSTALLATION_CONSTRAINTS, status: TBD, source_ref: "EC-01 §11"}
+  - {id: U-09, item: CONNECTIVITY_FEASIBILITY_AT_CANDIDATE_POINTS, status: TBD, source_ref: "EC-01 §11"}
+  - {id: U-10, item: FACADE_AND_ELEVATIONS, status: TBD, source_ref: "EC-01 §11 / §16 TBD-004"}
+  - {id: U-11, item: INVENTORY_NUMBER_AND_YEAR_CONFIRMATION, status: PARTIAL_TBD, source_ref: "EC-01 §3 / §16 TBD-008"}
+  - {id: U-12, item: SOURCE_REGISTER_FILE_CONTENT, status: TBD, source_ref: "EC-01 §16 TBD-009"}
+
+area_taxonomy:
+  role: SUBORDINATE_CONTEXT
+  establishes_footprint: false
+  facts:
+    - {value: "1,248 m²", category: TOTAL_USEFUL_BUILDING_AREA, status: ASSIGNED}
+    - {value: "550 m²", category: COMMON_SHARED_BUILDING_AREA, status: ASSIGNED}
+    - {value: "6,403.80 m²", category: CADASTRAL_BUILDING_AREA, status: VERIFIED}
+    - {value: "≈15,020 m²", category: ADJACENT_ASSOCIATED_TERRITORY, status: PARTIAL}
+
+system_existence_boundary:
+  system_count: 9
+  existence_verified: 6
+  existence_partial: 1
+  existence_tbd: 2
+  confirmed_component_node_locations: 0
+  all_specific_component_node_locations: TBD
+
+nodes:
+  - {id: N-01, label: "SEM-MCD-001 — Semey, Shakarima 13A", domain: REFERENCE_ANCHOR, role: REAL_BUILDING_IDENTITY, status: VERIFIED_ADDRESS_ASSIGNED_ID, source_ref: "EC-01 §3 / §14"}
+  - {id: N-02, label: VERIFIED_IDENTITY_FACTS, domain: EVIDENCE, role: DOCUMENTED_IDENTITY, status: VERIFIED_MIXED, source_ref: "EC-01 §3 / §14"}
+  - {id: N-03, label: REAL_BUILDING_PHYSICAL_REALITY, domain: PHYSICAL, role: SOURCE_OF_ENGINEERING_REALITY, status: EXISTS, source_ref: "EC-01 §3-§7"}
+  - {id: N-04, label: SOURCE_BACKED_FACT_SET, domain: EVIDENCE, role: FACT_REGISTER, status: MIXED, source_ref: "EC-01 §14"}
+  - {id: N-05, label: CLAIM, domain: PROVENANCE, role: PROVENANCE_STAGE, status: REQUIRED, source_ref: "EC-01 §17"}
+  - {id: N-06, label: SOURCE_REFERENCE, domain: PROVENANCE, role: PROVENANCE_STAGE, status: REQUIRED, source_ref: "EC-01 §17"}
+  - {id: N-07, label: CONFIDENCE, domain: PROVENANCE, role: PROVENANCE_STAGE, status: REQUIRED, source_ref: "EC-01 §17"}
+  - {id: N-08, label: VALIDATION_STATUS, domain: PROVENANCE, role: PROVENANCE_STAGE, status: REQUIRED, source_ref: "EC-01 §17"}
+  - {id: N-09, label: EXPLICIT_UNKNOWNS_AND_TBD, domain: VALIDATION, role: OPEN_ITEM_REGISTER, status: OPEN, source_ref: "EC-01 §11 / §15 / §16"}
+  - {id: N-10, label: AREA_TAXONOMY, domain: CONTEXT, role: SUBORDINATE_FACT_CONTEXT, status: MIXED, source_ref: "EC-01 §0b / §5"}
+  - {id: N-11, label: SITE_SURVEY_AND_INSPECTION, domain: VALIDATION, role: CLOSURE_GATE, status: REQUIRED_NOT_COMPLETED, source_ref: "EC-01 §11"}
+  - {id: N-12, label: PHOTO_AND_DOCUMENTARY_VALIDATION, domain: EVIDENCE, role: VALIDATION_INPUT, status: REQUIRED_WHERE_APPLICABLE, source_ref: "EC-01 §11"}
+  - {id: N-13, label: EVIDENCE_CONSTRAINED_3D_SEMANTIC_MAPPING, domain: MODELING, role: REPRESENTATION_ONLY, status: PARTIAL_NOT_AS_BUILT, source_ref: "EC-01 §12"}
+  - {id: N-14, label: OBSERVATION_POINT_CANDIDATES, domain: OBSERVABILITY, role: CANDIDATE_ONLY, status: TBD, source_ref: "EC-01 §11"}
+  - {id: N-15, label: DEVICE_CANDIDATES, domain: OBSERVABILITY, role: CANDIDATE_ONLY_NONE_CONFIRMED_INSTALLED, status: CONCEPTUAL_TBD, source_ref: "EC-01 §11"}
+  - {id: N-16, label: DIRECT_CONNECTIVITY_PATTERN, domain: CONNECTIVITY, role: IMPLEMENTATION_ALTERNATIVE, status: PLAUSIBLE_NOT_SELECTED, source_ref: "EC-01 §11"}
+  - {id: N-17, label: EDGE_AGGREGATION_PATTERN, domain: CONNECTIVITY, role: IMPLEMENTATION_ALTERNATIVE, status: PLAUSIBLE_NOT_SELECTED, source_ref: "EC-01 §11"}
+  - {id: N-18, label: SEMANTIC_BUILDING_MODEL, domain: HOUSEMASTER, role: EVIDENCE_BACKED_DOMAIN_MODEL, status: PARTIAL, source_ref: "EC-01 §12 / §14-§17"}
+  - {id: N-19, label: CONNECTIVITY_AND_INTEGRATION_DESIGN, domain: INTEGRATION, role: FUTURE_EVIDENCE_CONSTRAINED_DESIGN, status: TBD, source_ref: "EC-01 §11"}
+  - {id: N-20, label: FAILURE_AND_RISK_INTERPRETATION, domain: HOUSEMASTER, role: RULE_GATED_INTERPRETATION, status: CONCEPTUAL, source_ref: "EC-01 §11 / §17"}
+  - {id: N-21, label: REPEATABLE_MCD_PATTERN, domain: ARCHITECTURE, role: VALIDATED_GENERALIZATION_TARGET, status: PROPOSED, source_ref: "EC-01 §12 / §17"}
+  - {id: N-22, label: GENERIC_TEMPLATE, domain: ARCHITECTURE, role: INSUFFICIENT_UNVALIDATED_ABSTRACTION, status: NOT_EQUIVALENT, source_ref: OWNER_REQUIREMENT}
+
+edges:
+  - {id: E-01, from: N-01, to: N-02, label: anchors identity facts, status: EXPLICIT}
+  - {id: E-02, from: N-02, to: N-03, label: identifies the real building, status: EXPLICIT}
+  - {id: E-03, from: N-03, to: N-04, label: yields source-backed claims, status: EXPLICIT}
+  - {id: E-04, from: N-04, to: N-05, label: facts are expressed as claims, status: REQUIRED}
+  - {id: E-05, from: N-05, to: N-06, label: claim cites source, status: REQUIRED}
+  - {id: E-06, from: N-06, to: N-07, label: source supports confidence, status: REQUIRED}
+  - {id: E-07, from: N-07, to: N-08, label: confidence retains validation status, status: REQUIRED}
+  - {id: E-08, from: N-04, to: N-09, label: gaps remain explicit, status: EXPLICIT}
+  - {id: E-09, from: N-10, to: N-04, label: provides subordinate area facts, status: CONTEXT_ONLY}
+  - {id: E-10, from: N-10, to: N-09, label: does not close footprint, status: GUARDRAIL}
+  - {id: E-11, from: N-09, to: N-11, label: defines validation work, status: REQUIRED}
+  - {id: E-12, from: N-12, to: N-11, label: supplies provenance-bearing evidence, status: CONDITIONAL}
+  - {id: E-13, from: N-11, to: N-08, label: may update status when evidence passes, status: GATED}
+  - {id: E-14, from: N-08, to: N-18, label: admitted facts constrain domain model, status: GATED}
+  - {id: E-15, from: N-13, to: N-18, label: represents evidence-backed geometry only, status: CONSTRAINED}
+  - {id: E-16, from: N-03, to: N-14, label: physical context defines candidates, status: CANDIDATE}
+  - {id: E-17, from: N-14, to: N-15, label: may inform future device candidates, status: CANDIDATE}
+  - {id: E-18, from: N-15, to: N-16, label: evaluates direct alternative, status: NOT_SELECTED}
+  - {id: E-19, from: N-15, to: N-17, label: evaluates edge alternative, status: NOT_SELECTED}
+  - {id: E-20, from: N-16, to: N-19, label: alternative input to design, status: PLAUSIBLE}
+  - {id: E-21, from: N-17, to: N-19, label: equal alternative input to design, status: PLAUSIBLE}
+  - {id: E-22, from: N-18, to: N-19, label: domain requirements constrain integration, status: REQUIRED}
+  - {id: E-23, from: N-18, to: N-20, label: physical and domain context constrains interpretation, status: RULE_GATED}
+  - {id: E-24, from: N-19, to: N-20, label: connectivity evidence informs but does not prove engineering state, status: RULE_GATED}
+  - {id: E-25, from: N-20, to: N-21, label: safeguards inform repeatable pattern, status: PROPOSED}
+  - {id: E-26, from: N-19, to: N-21, label: validated integration learning may generalize, status: PROPOSED}
+  - {id: E-27, from: N-22, to: N-21, label: generic template alone is insufficient, status: FORBIDDEN_SHORTCUT}
+  - {id: E-28, from: N-01, to: N-21, label: validated reference anchor enables evidence-aware generalization, status: PROPOSED}
+
+generic_template_distinction:
+  included: true
+  canonical_statement: VALIDATED REFERENCE BUILDING ≠ GENERIC TEMPLATE
+  building_specific_evidence_must_persist: true
+  unresolved_items_must_persist: true
+
+guardrails:
+  - REAL BUILDING ≠ GENERIC TEMPLATE
+  - VISUAL REALISM ≠ VERIFIED DATA
+  - UNKNOWN ≠ ABSENT
+  - 3D GEOMETRY ≠ SOURCE OF TRUTH
+  - REPEATABLE PATTERN ≠ IDENTICAL BUILDINGS
+
+guardrail_semantics:
+  - statement: REAL BUILDING ≠ GENERIC TEMPLATE
+    means: SEM-MCD-001 is the validation anchor, not universal geometry.
+  - statement: VISUAL REALISM ≠ VERIFIED DATA
+    means: Rendering quality or apparent realism cannot promote evidence confidence.
+  - statement: UNKNOWN ≠ ABSENT
+    means: TBD or unresolved component, geometry, or location information does not prove that the physical entity does not exist.
+  - statement: 3D GEOMETRY ≠ SOURCE OF TRUTH
+    means: 3D or semantic representation remains constrained by evidence and provenance.
+  - statement: REPEATABLE PATTERN ≠ IDENTICAL BUILDINGS
+    means: Validated architectural learning may generalize without asserting that other MCDs have identical geometry, systems, topology, or installation constraints.
+
+secondary_rules:
+  - AREA TAXONOMY ≠ BUILDING FOOTPRINT
+  - SYSTEM EXISTS ≠ COMPONENT LOCATION KNOWN
+  - CANDIDATE DEVICE / OBSERVATION POINT ≠ INSTALLED DEVICE
+
+forbidden_actions:
+  - infer_component_locations
+  - invent_footprint_or_basement_layout
+  - invent_installed_devices_or_observation_points
+  - select_direct_or_edge_topology
+  - treat_3d_as_verified_as_built_geometry
+  - convert_connectivity_state_into_engineering_state
+  - create_drawio
+  - create_pdf
+  - create_3d
+
+source_control:
+  allowed_source: EC-01_REAL_MCD_BASELINE_SEM-MCD-001_v0.3_REVIEW.md
+  source_sha256: FE935FB0C81F375F252EEB5BE8A52915F34D07DADDC6B2774FDD5EA16F5B5E01
+  source_reread_outside_required_ec01_context: false

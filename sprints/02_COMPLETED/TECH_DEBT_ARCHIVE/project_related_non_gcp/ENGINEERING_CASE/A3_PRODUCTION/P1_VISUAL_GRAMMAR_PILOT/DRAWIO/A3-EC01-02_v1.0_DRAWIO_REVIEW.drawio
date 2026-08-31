@@ -1,0 +1,241 @@
+<mxfile host="app.diagrams.net" agent="HouseMaster-Beeline-Graph-Compiler-P1-G4">
+  <diagram id="A3-EC01-02" name="A3-EC01-02 SEM-MCD-001 Identity and Geometry Fact Sheet">
+    <mxGraphModel dx="997" dy="493" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1587" pageHeight="1123" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PAGE_BORDER" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#BDBDBD;strokeWidth=0.5;" value="" vertex="1">
+          <mxGeometry height="1123" width="1587" as="geometry" />
+        </mxCell>
+        <mxCell id="TITLE_BAND_DIVIDER" parent="1" style="line;strokeColor=#BDBDBD;strokeWidth=0.5;html=1;" value="" vertex="1">
+          <mxGeometry width="1474" x="57" y="163" as="geometry" />
+        </mxCell>
+        <mxCell id="PAGE_TITLE_META" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=middle;fontColor=#616161;" value="A3-EC01-02  ·  EC-01" vertex="1">
+          <mxGeometry height="23" width="756" x="68" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PAGE_TITLE" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=22;fontStyle=1;align=left;verticalAlign=middle;whiteSpace=wrap;" value="SEM-MCD-001 Identity &amp; Geometry Fact Sheet" vertex="1">
+          <mxGeometry height="42" width="1247" x="68" y="79" as="geometry" />
+        </mxCell>
+        <mxCell id="TITLE_THESIS" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=9.5;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="SEM-MCD-001 has a documented building identity and basic geometric facts, while exact footprint geometry remains evidence-limited." vertex="1">
+          <mxGeometry height="34" width="1134" x="68" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="MIXED_STATUS_STRIP" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#FAFAFA;strokeColor=#9E9E9E;fontColor=#424242;fontSize=8;fontStyle=1;align=center;verticalAlign=middle;" value="VERIFIED  /  DERIVED  /  PARTIAL  /  TBD" vertex="1">
+          <mxGeometry height="34" width="234" x="1228" y="64" as="geometry" />
+        </mxCell>
+        <mxCell id="IDENTITY_CARD" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#FFFFFF;strokeColor=#424242;strokeWidth=1;verticalAlign=top;align=left;fontSize=9.5;" value="" vertex="1">
+          <mxGeometry height="378" width="975" x="57" y="181" as="geometry" />
+        </mxCell>
+        <mxCell id="IDENTITY_CARD_HEADER" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=11;fontStyle=1;align=left;verticalAlign=top;" value="IDENTITY" vertex="1">
+          <mxGeometry height="30" width="378" x="68" y="193" as="geometry" />
+        </mxCell>
+        <mxCell id="REF_ID_LABEL" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8.5;align=left;verticalAlign=middle;fontColor=#333333;whiteSpace=wrap;" value="REFERENCE ID (internal, not an evidentiary fact)" vertex="1">
+          <mxGeometry height="23" width="340" x="68" y="234" as="geometry" />
+        </mxCell>
+        <mxCell id="REF_ID_VALUE" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=9.5;align=left;verticalAlign=middle;fontColor=#616161;fontStyle=2;whiteSpace=wrap;" value="SEM-MCD-001" vertex="1">
+          <mxGeometry height="30" width="340" x="68" y="257" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_LOCATION_LABEL" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8.5;align=left;verticalAlign=middle;fontColor=#333333;whiteSpace=wrap;" value="Location" vertex="1">
+          <mxGeometry height="23" width="227" x="446" y="234" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_LOCATION_VALUE" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=9.5;align=left;verticalAlign=middle;fontColor=#000000;fontStyle=1;whiteSpace=wrap;" value="г. Семей, пр. Шакарима, 13 «А»" vertex="1">
+          <mxGeometry height="34" width="378" x="446" y="257" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_LOCATION" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=8;fontStyle=1;align=center;verticalAlign=middle;" value="VERIFIED" vertex="1">
+          <mxGeometry height="38" width="170" x="850" y="242" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_CADASTRAL_LABEL" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8.5;align=left;verticalAlign=middle;fontColor=#333333;whiteSpace=wrap;" value="Cadastral number" vertex="1">
+          <mxGeometry height="23" width="227" x="446" y="299" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_CADASTRAL_VALUE" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=9.5;align=left;verticalAlign=middle;fontColor=#000000;fontStyle=1;whiteSpace=wrap;" value="05.252.025.162/543:13а" vertex="1">
+          <mxGeometry height="34" width="378" x="446" y="321" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_CADASTRAL" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=8;fontStyle=1;align=center;verticalAlign=middle;" value="VERIFIED" vertex="1">
+          <mxGeometry height="38" width="170" x="850" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_BTI_LABEL" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8.5;align=left;verticalAlign=middle;fontColor=#333333;whiteSpace=wrap;" value="BTI case" vertex="1">
+          <mxGeometry height="23" width="227" x="446" y="363" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_BTI_VALUE" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=9.5;align=left;verticalAlign=middle;fontColor=#000000;fontStyle=1;whiteSpace=wrap;" value="209" vertex="1">
+          <mxGeometry height="34" width="378" x="446" y="386" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_BTI" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=8;fontStyle=1;align=center;verticalAlign=middle;" value="VERIFIED" vertex="1">
+          <mxGeometry height="38" width="170" x="850" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_FLOORS_LABEL" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8.5;align=left;verticalAlign=middle;fontColor=#333333;whiteSpace=wrap;" value="Floors" vertex="1">
+          <mxGeometry height="23" width="227" x="446" y="427" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_FLOORS_VALUE" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=9.5;align=left;verticalAlign=middle;fontColor=#000000;fontStyle=1;whiteSpace=wrap;" value="9" vertex="1">
+          <mxGeometry height="34" width="378" x="446" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_FLOORS" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#E8F5E9;strokeColor=#2E7D32;fontColor=#1B5E20;fontSize=8;fontStyle=1;align=center;verticalAlign=middle;" value="VERIFIED" vertex="1">
+          <mxGeometry height="38" width="170" x="850" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_ENTRANCES_LABEL" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8.5;align=left;verticalAlign=middle;fontColor=#333333;whiteSpace=wrap;" value="Entrances" vertex="1">
+          <mxGeometry height="23" width="227" x="446" y="491" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_ENTRANCES_VALUE" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=9.5;align=left;verticalAlign=middle;fontColor=#000000;fontStyle=1;whiteSpace=wrap;" value="3" vertex="1">
+          <mxGeometry height="34" width="378" x="446" y="514" as="geometry" />
+        </mxCell>
+        <mxCell id="FACT_ENTRANCES" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#EEF5E9;strokeColor=#689F38;fontColor=#33691E;fontSize=8;fontStyle=1;align=center;verticalAlign=middle;" value="DERIVED" vertex="1">
+          <mxGeometry height="38" width="170" x="850" y="499" as="geometry" />
+        </mxCell>
+        <mxCell id="FOOTPRINT_SCHEMATIC_BOX" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#9E9E9E;dashed=1;" value="" vertex="1">
+          <mxGeometry height="382" width="975" x="57" y="574" as="geometry" />
+        </mxCell>
+        <mxCell id="FOOTPRINT_STATUS" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#FFF8E1;strokeColor=#F9A825;fontColor=#7A5A00;fontSize=8;fontStyle=1;align=center;verticalAlign=middle;" value="PARTIAL / SCHEMATIC" vertex="1">
+          <mxGeometry height="30" width="227" x="68" y="586" as="geometry" />
+        </mxCell>
+        <mxCell id="FOOTPRINT_SHAPE_1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEEEEE;strokeColor=#616161;strokeWidth=1.25;" value="" vertex="1">
+          <mxGeometry height="76" width="151" x="378" y="661" as="geometry" />
+        </mxCell>
+        <mxCell id="FOOTPRINT_SHAPE_2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEEEEE;strokeColor=#616161;strokeWidth=1.25;" value="" vertex="1">
+          <mxGeometry height="57" width="57" x="529" y="661" as="geometry" />
+        </mxCell>
+        <mxCell id="FOOTPRINT_SHAPE_3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEEEEE;strokeColor=#616161;strokeWidth=1.25;" value="" vertex="1">
+          <mxGeometry height="57" width="208" x="378" y="737" as="geometry" />
+        </mxCell>
+        <mxCell id="FOOTPRINT_SHAPE_4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEEEEE;strokeColor=#616161;strokeWidth=1.25;" value="" vertex="1">
+          <mxGeometry height="57" width="57" x="529" y="794" as="geometry" />
+        </mxCell>
+        <mxCell id="FOOTPRINT_SHAPE_5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EEEEEE;strokeColor=#616161;strokeWidth=1.25;" value="" vertex="1">
+          <mxGeometry height="76" width="208" x="378" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="FOOTPRINT_CAPTION" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="Stepped / non-rectangular footprint character only — no dimension, scale, or area implied." vertex="1">
+          <mxGeometry height="113" width="378" x="624" y="737" as="geometry" />
+        </mxCell>
+        <mxCell id="TBD_FOOTPRINT_AREA" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#F5F5F5;strokeColor=#757575;dashed=1;fontColor=#424242;fontSize=8.5;align=left;verticalAlign=top;" value="EXACT FOOTPRINT AREA:  TBD" vertex="1">
+          <mxGeometry height="34" width="480" x="57" y="968" as="geometry" />
+        </mxCell>
+        <mxCell id="TBD_FOOTPRINT_DIMENSIONS" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#F5F5F5;strokeColor=#757575;dashed=1;fontColor=#424242;fontSize=8.5;align=left;verticalAlign=top;" value="PRECISE FOOTPRINT DIMENSIONS:  TBD" vertex="1">
+          <mxGeometry height="34" width="480" x="552" y="968" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F9FAFC;strokeColor=#BDBDBD;strokeWidth=0.75;align=center;" value="" vertex="1">
+          <mxGeometry height="234" width="370" x="1160" y="181" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY_HEADER" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=9.5;fontStyle=1;align=center;verticalAlign=top;fontColor=#153A73;" value="A. IDENTITY" vertex="1">
+          <mxGeometry height="26" width="363" x="1160" y="189" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY_SOURCE_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=center;verticalAlign=top;fontColor=#757575;" value="SOURCE" vertex="1">
+          <mxGeometry height="15" width="363" x="1160" y="219" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY_SOURCE_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=center;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="EC-01 §3" vertex="1">
+          <mxGeometry height="29" width="363" x="1160" y="234" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY_WHAT_IT_SHOWS_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=center;verticalAlign=top;fontColor=#757575;" value="WHAT IT SHOWS" vertex="1">
+          <mxGeometry height="15" width="353" x="1170" y="267" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY_WHAT_IT_SHOWS_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=center;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="Location, cadastral identity, BTI case, floor count" vertex="1">
+          <mxGeometry height="57" width="363" x="1160" y="267" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY_WHAT_IT_SUPPORTS_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=center;verticalAlign=top;fontColor=#757575;" value="WHAT IT SUPPORTS" vertex="1">
+          <mxGeometry height="15" width="363" x="1160" y="328" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY_WHAT_IT_SUPPORTS_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=center;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="Specific documented building identity" vertex="1">
+          <mxGeometry height="29" width="363" x="1160" y="343" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY_WHAT_IT_DOES_NOT_SUPPORT_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=center;verticalAlign=top;fontColor=#757575;" value="WHAT IT DOES NOT SUPPORT" vertex="1">
+          <mxGeometry height="15" width="363" x="1160" y="376" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY_WHAT_IT_DOES_NOT_SUPPORT_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=center;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="Complete building geometry" vertex="1">
+          <mxGeometry height="29" width="363" x="1160" y="391" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY_CONFIDENCE_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#757575;" value="CONFIDENCE" vertex="1">
+          <mxGeometry height="15" width="461" x="1063" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_IDENTITY_CONFIDENCE_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="HIGH / VERIFIED for directly documented fields" vertex="1">
+          <mxGeometry height="29" width="461" x="1063" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F9FAFC;strokeColor=#BDBDBD;strokeWidth=0.75;" value="" vertex="1">
+          <mxGeometry height="257" width="476" x="1055" y="428" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY_HEADER" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=9.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#153A73;" value="B. BASIC GEOMETRY" vertex="1">
+          <mxGeometry height="26" width="461" x="1063" y="435" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY_SOURCE_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#757575;" value="SOURCE" vertex="1">
+          <mxGeometry height="15" width="461" x="1063" y="466" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY_SOURCE_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="EC-01 §3/§4 via frozen source extract" vertex="1">
+          <mxGeometry height="29" width="461" x="1063" y="481" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY_WHAT_IT_SHOWS_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#757575;" value="WHAT IT SHOWS" vertex="1">
+          <mxGeometry height="15" width="461" x="1063" y="513" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY_WHAT_IT_SHOWS_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="9 floors; 3 entrances; stepped/non-rectangular footprint character" vertex="1">
+          <mxGeometry height="42" width="461" x="1063" y="528" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY_WHAT_IT_SUPPORTS_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#757575;" value="WHAT IT SUPPORTS" vertex="1">
+          <mxGeometry height="15" width="461" x="1063" y="575" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY_WHAT_IT_SUPPORTS_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="Basic geometry and building organization" vertex="1">
+          <mxGeometry height="29" width="461" x="1063" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY_WHAT_IT_DOES_NOT_SUPPORT_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#757575;" value="WHAT IT DOES NOT SUPPORT" vertex="1">
+          <mxGeometry height="15" width="461" x="1063" y="622" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY_WHAT_IT_DOES_NOT_SUPPORT_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="Precise footprint dimensions or area" vertex="1">
+          <mxGeometry height="29" width="461" x="1063" y="637" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY_CONFIDENCE_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#757575;" value="CONFIDENCE" vertex="1">
+          <mxGeometry height="15" width="461" x="1063" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_GEOMETRY_CONFIDENCE_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="Mixed: VERIFIED / DERIVED / PARTIAL" vertex="1">
+          <mxGeometry height="29" width="461" x="1062" y="688" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F9FAFC;strokeColor=#BDBDBD;strokeWidth=0.75;" value="" vertex="1">
+          <mxGeometry height="249" width="476" x="1054" y="703" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED_HEADER" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=9.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#153A73;" value="C. UNRESOLVED GEOMETRY" vertex="1">
+          <mxGeometry height="26" width="461" x="1062" y="711" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED_WHAT_IT_SHOWS_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#757575;" value="WHAT IT SHOWS" vertex="1">
+          <mxGeometry height="15" width="461" x="1062" y="741" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED_WHAT_IT_SHOWS_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="Evidence gap" vertex="1">
+          <mxGeometry height="29" width="461" x="1062" y="756" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED_WHAT_IT_SUPPORTS_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#757575;" value="WHAT IT SUPPORTS" vertex="1">
+          <mxGeometry height="15" width="461" x="1062" y="788" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED_WHAT_IT_SUPPORTS_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="Explicitly unresolved exact footprint geometry" vertex="1">
+          <mxGeometry height="29" width="461" x="1062" y="804" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED_WHAT_IT_DOES_NOT_SUPPORT_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#757575;" value="WHAT IT DOES NOT SUPPORT" vertex="1">
+          <mxGeometry height="15" width="461" x="1062" y="836" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED_WHAT_IT_DOES_NOT_SUPPORT_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="Exact area; exact dimensions" vertex="1">
+          <mxGeometry height="29" width="461" x="1062" y="851" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED_CONFIDENCE_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#757575;" value="CONFIDENCE" vertex="1">
+          <mxGeometry height="15" width="461" x="1062" y="884" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED_CONFIDENCE_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="TBD" vertex="1">
+          <mxGeometry height="29" width="461" x="1062" y="899" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED_TBD_L" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;fontStyle=1;align=left;verticalAlign=top;fontColor=#757575;" value="TBD" vertex="1">
+          <mxGeometry height="15" width="461" x="1062" y="931" as="geometry" />
+        </mxCell>
+        <mxCell id="EVIDENCE_GROUP_UNRESOLVED_TBD_V" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=8;align=left;verticalAlign=top;whiteSpace=wrap;fontColor=#333333;" value="Exact footprint area; precise footprint dimensions" vertex="1">
+          <mxGeometry height="42" width="461" x="1062" y="946" as="geometry" />
+        </mxCell>
+        <mxCell id="GUARDRAIL_01" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#FFFFFF;strokeColor=#424242;strokeWidth=0.75;fontColor=#424242;fontSize=8;fontStyle=1;align=center;verticalAlign=middle;dashed=1;dashPattern=2 2;" value="DOCUMENTED IDENTITY ≠ COMPLETE GEOMETRY" vertex="1">
+          <mxGeometry height="34" width="227" x="1054" y="968" as="geometry" />
+        </mxCell>
+        <mxCell id="GUARDRAIL_02" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#FFFFFF;strokeColor=#424242;strokeWidth=0.75;fontColor=#424242;fontSize=8;fontStyle=1;align=center;verticalAlign=middle;dashed=1;dashPattern=2 2;" value="FOOTPRINT SHAPE ≠ EXACT DIMENSIONS" vertex="1">
+          <mxGeometry height="34" width="227" x="1293" y="968" as="geometry" />
+        </mxCell>
+        <mxCell id="GUARDRAIL_03" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#FFFFFF;strokeColor=#424242;strokeWidth=0.75;fontColor=#424242;fontSize=8;fontStyle=1;align=center;verticalAlign=middle;dashed=1;dashPattern=2 2;" value="VISUAL REALISM ≠ EVIDENCE CERTAINTY" vertex="1">
+          <mxGeometry height="34" width="227" x="1054" y="1003" as="geometry" />
+        </mxCell>
+        <mxCell id="GUARDRAIL_04" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fillColor=#FFFFFF;strokeColor=#424242;strokeWidth=0.75;fontColor=#424242;fontSize=8;fontStyle=1;align=center;verticalAlign=middle;dashed=1;dashPattern=2 2;" value="PARTIAL ≠ VERIFIED" vertex="1">
+          <mxGeometry height="34" width="227" x="1293" y="1003" as="geometry" />
+        </mxCell>
+        <mxCell id="PROVENANCE_BAND_DIVIDER" parent="1" style="line;strokeColor=#BDBDBD;strokeWidth=0.5;html=1;" value="" vertex="1">
+          <mxGeometry width="1474" x="57" y="1013" as="geometry" />
+        </mxCell>
+        <mxCell id="PROVENANCE_BAND" parent="1" style="text;html=1;fontFamily=Helvetica;fontSize=7.5;align=left;verticalAlign=middle;fontColor=#616161;whiteSpace=wrap;" value="PAGE: A3-EC01-02   |   SOURCE GATE: EC-01   |   SOURCE: A3-EC01-02_SOURCE_EXTRACT.md   |   IR: v1.0 FROZEN   |   SOURCE LINKAGE: LINKED   |   EVIDENCE: VERIFIED / DERIVED / PARTIAL / TBD   |   REFERENCE OBJECT: SEM-MCD-001   |   RELATED: A3-EC01-01, A3-EC01-03, A3-EC01-04, A3-EC01-06" vertex="1">
+          <mxGeometry height="38" width="1474" x="57" y="1020" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

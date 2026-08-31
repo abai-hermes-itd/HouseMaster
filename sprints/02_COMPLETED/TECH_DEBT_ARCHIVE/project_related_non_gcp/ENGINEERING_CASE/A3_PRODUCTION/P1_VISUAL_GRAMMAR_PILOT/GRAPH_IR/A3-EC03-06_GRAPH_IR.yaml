@@ -1,0 +1,237 @@
+graph_id: A3-EC03-06
+page_id: A3-EC03-06
+title: Failure Domains
+ir_type: STATE_MODEL / MATRIX-HYBRID
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+stage: P1_VISUAL_GRAMMAR_PILOT
+production_number: P1-08
+
+canonical_purpose: >-
+  Show distinct failure domains across device, local power, local
+  edge/aggregation, access/radio, operator transport and HouseMaster
+  integration/processing, and define what each failure does and does not prove.
+
+source_control:
+  allowed_source: EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md
+  source_sha256: 9DDB72B5A4FC480F7FFD9BBD4656502267D6DE3B569970FED6FEC2A6E8D5545B
+  source_sections:
+    - "§9a Conceptual Device-to-HouseMaster Data Flow"
+    - "§21 HouseMaster Canonical Connectivity State Model"
+    - "§22 Device State × Connectivity State × Engineering Interpretation"
+    - "§23 Store-and-Forward Model"
+    - "§24 Reachability / Heartbeat Semantics"
+    - "§29 Failure Domain Model"
+  source_reread_outside_ec03: false
+
+core_semantic_model:
+  distinct_failure_domains:
+    - F-01 PHYSICAL DEVICE FAILURE
+    - F-02 LOCAL POWER FAILURE
+    - F-03 LOCAL EDGE / AGGREGATION FAILURE
+    - F-04 ACCESS / RADIO CONNECTIVITY FAILURE
+    - F-05 OPERATOR TRANSPORT FAILURE
+    - F-06 HOUSEMASTER INTEGRATION EDGE FAILURE
+    - F-07 HOUSEMASTER PROCESSING FAILURE
+  failure_domain_equals_engineering_component_failure: false
+  failure_domain_equals_building_failure: false
+
+failure_domains:
+  - failure_id: F-01
+    name: PHYSICAL DEVICE FAILURE
+    domain_owner: BUILDING / FIELD
+    affected_function: Observation production from the specific physical device.
+    observable_symptom: Device silent or reporting an implausible value.
+    immediate_consequence: Observations from that specific device become unavailable or potentially invalid.
+    what_remains_operational: Last known building state and observations from other devices may remain valid.
+    what_it_may_cause: A device-specific observation/evidence gap requiring investigation.
+    what_it_does_not_prove: Failure of the engineering component or building.
+    recovery_buffering_behavior: No device-failure recovery mechanism is defined; connectivity buffering alone does not prove recovery of a failed device.
+    source_ref: "EC-03 §§22, 24, 29 F-01"
+    confidence: HIGH
+    unresolved_items:
+      - root cause and recovery procedure
+      - device hardware and diagnostic method
+
+  - failure_id: F-02
+    name: LOCAL POWER FAILURE
+    domain_owner: BUILDING / FIELD
+    affected_function: Observation production from devices on the affected local power circuit.
+    observable_symptom: Multiple devices unreachable together, correlated with a power-availability candidate if present.
+    immediate_consequence: Observations from affected devices become unavailable.
+    what_remains_operational: Devices on unaffected circuits, their observations and last known building state may remain valid.
+    what_it_may_cause: A correlated observation/evidence gap across the affected circuit.
+    what_it_does_not_prove: Failure of every affected engineering component or the building.
+    recovery_buffering_behavior: No power-failure recovery mechanism is defined; retained data behavior is unresolved.
+    source_ref: "EC-03 §29 F-02"
+    confidence: HIGH
+    unresolved_items:
+      - power restoration and device restart behavior
+      - retained buffer behavior during power loss
+
+  - failure_id: F-03
+    name: LOCAL EDGE / AGGREGATION FAILURE
+    domain_owner: BUILDING / FIELD, or JOINT if aggregation connectivity is operator-managed
+    affected_function: Aggregation and forwarding for every device behind the affected aggregation function.
+    observable_symptom: Multiple devices unreachable together, correlated by physical cluster.
+    immediate_consequence: Observations from every device behind that aggregation function become unavailable to HouseMaster.
+    what_remains_operational: Direct-connected devices and devices behind other aggregation groups may continue; last known state may remain valid.
+    what_it_may_cause: A cluster-wide observation/evidence gap.
+    what_it_does_not_prove: Failure of underlying devices, engineering components or the building.
+    recovery_buffering_behavior: Edge-failure-specific recovery is not designed; any buffered delivery after recovery must preserve original event_time.
+    source_ref: "EC-03 §§23, 29 F-03"
+    confidence: HIGH
+    unresolved_items:
+      - exact responsibility if connectivity is operator-managed
+      - aggregation hardware, placement and recovery behavior
+
+  - failure_id: F-04
+    name: ACCESS / RADIO CONNECTIVITY FAILURE
+    domain_owner: TBD WITH BEELINE
+    affected_function: Access/reachability for affected devices or aggregation group.
+    observable_symptom: HouseMaster integration state transitions to UNREACHABLE or DEGRADED.
+    immediate_consequence: Observations from affected devices or group may be temporarily unavailable or delayed.
+    what_remains_operational: Last known building state; local observation/buffering may remain where supported.
+    what_it_may_cause: A temporary observation/evidence gap or delayed delivery.
+    what_it_does_not_prove: Device failure, engineering component failure, root cause, or building failure.
+    recovery_buffering_behavior: Buffered observations may be forwarded after connectivity restoration; original event_time is preserved and differs from received_time.
+    source_ref: "EC-03 §§21–24, 29 F-04"
+    confidence: HIGH
+    unresolved_items:
+      - precise ownership boundary
+      - RF thresholds and root cause
+      - retry, heartbeat and timeout values
+
+  - failure_id: F-05
+    name: OPERATOR TRANSPORT FAILURE
+    domain_owner: BEELINE
+    affected_function: Operator transport shared across potentially many devices or buildings.
+    observable_symptom: Correlated connectivity loss beyond a single building's pattern.
+    immediate_consequence: Observations across affected shared transport paths may be unavailable or delayed.
+    what_remains_operational: Last known building state and local observation/buffering may remain where supported.
+    what_it_may_cause: A broad temporary observation/evidence gap or delayed backlog.
+    what_it_does_not_prove: Device, component or building failure, or an engineering state change.
+    recovery_buffering_behavior: Buffered observations may be forwarded after transport recovery; delayed delivery preserves original event_time.
+    source_ref: "EC-03 §§22–24, 29 F-05"
+    confidence: HIGH
+    unresolved_items:
+      - operator delivery and recovery semantics
+      - retry intervals and SLA
+
+  - failure_id: F-06
+    name: HOUSEMASTER INTEGRATION EDGE FAILURE
+    domain_owner: HOUSEMASTER
+    affected_function: Ingestion of new observations at the HouseMaster integration edge.
+    observable_symptom: Referenced ingress/processing health signals; connectivity may remain healthy while ingestion fails.
+    immediate_consequence: New observations cannot be ingested.
+    what_remains_operational: Existing already-ingested building state remains; upstream device/connectivity functions may remain operational.
+    what_it_may_cause: An ingestion-side observation/evidence gap and delayed acceptance.
+    what_it_does_not_prove: Beeline transport failure, device failure, component failure or building failure.
+    recovery_buffering_behavior: No integration-edge-specific recovery is designed; any delayed buffered delivery must retain original event_time.
+    source_ref: "EC-03 §§9a, 23, 29 F-06"
+    confidence: HIGH
+    unresolved_items:
+      - implementation, monitoring and recovery mechanism
+      - retention and retry behavior
+
+  - failure_id: F-07
+    name: HOUSEMASTER PROCESSING FAILURE
+    domain_owner: HOUSEMASTER
+    affected_function: Domain interpretation of already-ingested observations.
+    observable_symptom: Processing backlog or latency.
+    immediate_consequence: Domain interpretation may be delayed.
+    what_remains_operational: Raw ingested observations may remain if durably stored; existing building state remains.
+    what_it_may_cause: Delayed domain interpretation and workflow progression.
+    what_it_does_not_prove: Device/connectivity failure, engineering component failure or building failure.
+    recovery_buffering_behavior: Processing recovery mechanics are not defined; source only preserves raw ingested observations conditionally on durable storage.
+    source_ref: "EC-03 §29 F-07"
+    confidence: HIGH
+    unresolved_items:
+      - durable-storage implementation
+      - backlog processing and recovery behavior
+
+connectivity_state_model:
+  model_owner: HOUSEMASTER_INTEGRATION
+  asserted_as_beeline_internal_states: false
+  states:
+    - state: UNKNOWN
+      meaning: No connectivity information has ever been received for the device/profile.
+      does_not_mean: A root cause or engineering state is known.
+      source_ref: "EC-03 §21"
+    - state: PROVISIONED
+      meaning: A connectivity profile is conceptually associated, but reachability is not confirmed.
+      does_not_mean: The path is reachable or an engineering state is trusted.
+      source_ref: "EC-03 §21"
+    - state: REACHABLE
+      meaning: The device connectivity path is currently confirmed responsive.
+      does_not_mean: The device, component or building is healthy.
+      source_ref: "EC-03 §§21, 24"
+    - state: UNREACHABLE
+      meaning: The expected connectivity path is currently not responding.
+      does_not_mean: Root cause, device failure, component failure or building failure is identified.
+      source_ref: "EC-03 §§21, 22, 24"
+    - state: DEGRADED
+      meaning: The path responds with reduced quality, such as delayed delivery.
+      does_not_mean: The observation is wrong or an engineering defect exists.
+      source_ref: "EC-03 §§21, 22"
+    - state: SUSPENDED
+      meaning: Connectivity is intentionally paused by administrative action.
+      does_not_mean: A fault or engineering failure exists.
+      source_ref: "EC-03 §21"
+    - state: DECOMMISSIONED
+      meaning: The device/connectivity profile is retired and no longer expected to report.
+      does_not_mean: The engineering component or building is decommissioned.
+      source_ref: "EC-03 §21"
+
+timing_model:
+  event_time_definition: Time the observation was created.
+  received_time_definition: Time HouseMaster receives the observation.
+  event_time_distinct_from_received_time_when_buffered: true
+  delayed_delivery_rewrites_event_time: false
+  housemaster_processes_using_original_event_time: true
+  source_ref: "EC-03 §§22–23"
+
+store_and_forward_model:
+  source_supported: true
+  local_observation_may_survive_temporary_connectivity_loss: true
+  buffered_observations_may_forward_after_recovery: true
+  connectivity_loss_may_create_temporary_evidence_gap: true
+  connectivity_loss_proves_engineering_failure: false
+  buffer_size: NOT_DEFINED
+  retention_period: NOT_DEFINED
+  retry_interval: NOT_DEFINED
+  source_ref: "EC-03 §23"
+
+guardrails:
+  - DEVICE OFFLINE ≠ COMPONENT FAILED
+  - EDGE OFFLINE ≠ BUILDING FAILURE
+  - NETWORK HEALTH ≠ BUILDING HEALTH
+  - CONNECTIVITY STATE ≠ ENGINEERING STATE
+
+supporting_distinctions:
+  - OBSERVATION GAP ≠ ENGINEERING DEFECT
+  - DELAYED DELIVERY ≠ LATE EVENT CREATION
+
+counts:
+  failure_domains: 7
+  connectivity_states: 7
+  guardrails: 4
+
+forbidden_actions:
+  - read_ec01
+  - read_ec02
+  - invent_beeline_internal_network_topology
+  - invent_rf_thresholds
+  - invent_retry_intervals
+  - invent_sla
+  - invent_monitoring_products
+  - invent_alarms
+  - invent_device_hardware
+  - infer_component_failure_from_device_or_connectivity_failure
+  - infer_building_condition_from_network_health
+  - create_drawio
+  - create_pdf
+  - create_3d

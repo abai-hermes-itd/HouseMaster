@@ -1,0 +1,46 @@
+﻿Структура папок
+Серийный номер тома: 00000045 8C29:34A6
+C:\ABAY-GERMES\HOUSEMASTER\ENGINEERING_CASE
+│   PROJECT_RUBRICATION.csv
+│   
+├───00_GOVERNANCE
+│       ENGINEERING_CASE_TREE_CURRENT.txt
+│       
+├───01_SOURCE_GATES
+│   ├───EC00
+│   ├───EC01
+│   │       EC-01_REAL_MCD_BASELINE_SEM-MCD-001_v0.3_REVIEW.md
+│   │       
+│   ├───EC02
+│   │       EC-02_PHYSICAL_TO_OBSERVATION_SEM-MCD-001_v0.3_REVIEW.md
+│   │       
+│   └───EC03
+│           EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md
+│           
+├───02_ARCHITECTURE_BASELINE
+│   │   ARCHITECTURE_BASELINE_INTAKE.md
+│   │   ARCHITECTURE_BASELINE_INVENTORY.csv
+│   │   
+│   ├───BUILDING
+│   └───TECH
+├───03_REAL_MCD
+│   └───SEM-MCD-001
+├───99_ARCHIVE
+└───A3_PRODUCTION
+    ├───A3-P0
+    │       A3-P0_CASE_DESIGN_SYSTEM_v0.4_REVIEW.md
+    │       A3-P0_PAGE_REGISTRY_v0.4.csv
+    │       A3-P0_PAGE_REGISTRY_v0.4_REVIEW.md
+    │       A3-P0_PAGE_SPEC_TEMPLATE_v0.4.md
+    │       
+    ├───P1_VISUAL_GRAMMAR_PILOT
+    │   ├───DRAWIO
+    │   ├───PAGE_SPECS
+    │   ├───PDF_REVIEW
+    │   ├───QA
+    │   └───SOURCE_EXTRACTS
+    ├───P2_CONTEXT_REAL_BUILDING
+    ├───P3_OBSERVABILITY_COMPLETION
+    ├───P4_CONNECTIVITY_COMPLETION
+    ├───P5_VALIDATION_UNKNOWNS
+    └───P6_CASE_ASSEMBLY_QA

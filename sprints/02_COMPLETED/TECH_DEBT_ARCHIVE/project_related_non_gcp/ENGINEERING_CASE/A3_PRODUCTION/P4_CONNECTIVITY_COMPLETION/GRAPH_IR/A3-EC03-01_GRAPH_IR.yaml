@@ -1,0 +1,284 @@
+graph_id: A3-EC03-01
+page_id: A3-EC03-01
+production_no: P4-01
+case_assembly_no: "013"
+stage: P4_CONNECTIVITY_COMPLETION
+title: Connectivity Entry Architecture
+page_type: ARCHITECTURE_CONNECTIVITY_ENTRY_MODEL
+status: FROZEN
+freeze_status: OWNER_APPROVED
+semantic_change_requires_gate: true
+rendering_may_change_semantics: false
+upstream_reread_policy: ON_HASH_CHANGE_ONLY
+confidence: SOURCE_BACKED_CONCEPTUAL
+
+reference_building:
+  id: SEM-MCD-001
+  label: "Semey, Shakarima 13A"
+  canonical_label: "г. Семей, пр. Шакарима, 13 «А»"
+  role: REFERENCE_CONTEXT_ONLY
+  deployment_evidence: NOT_ESTABLISHED
+  source_refs: ["EC-03 §1", "EC-03 §34"]
+
+architectural_domains:
+  - id: DOM-01
+    name: BUILDING_FIELD_DOMAIN
+    responsibility_domain: BUILDING_FIELD
+    meaning: Physical building and engineering observation context.
+  - id: DOM-02
+    name: OBSERVATION_DEVICE_SIDE_DOMAIN
+    responsibility_domain: BUILDING_FIELD
+    meaning: Observation requirement, machine-capable candidate and conceptual device role/identity.
+  - id: DOM-03
+    name: CONNECTIVITY_ENTRY
+    responsibility_domain: BUILDING_FIELD_TO_BEELINE_BOUNDARY
+    meaning: Evidence-gated handoff from validated device-side need to a connectivity requirement.
+  - id: DOM-04
+    name: BEELINE_CONNECTIVITY_TRANSPORT_DOMAIN
+    responsibility_domain: BEELINE
+    meaning: Connectivity, SIM, network, transport and connectivity status.
+  - id: DOM-05
+    name: HOUSEMASTER_INTEGRATION_EDGE
+    responsibility_domain: HOUSEMASTER
+    meaning: Trust/API crossing and conceptual authenticate, validate, normalize and map functions.
+  - id: DOM-06
+    name: HOUSEMASTER_DOMAIN_SYSTEM_OF_RECORD
+    responsibility_domain: HOUSEMASTER
+    meaning: Building, system, component, observation, evidence, interpretation, defect, workflow and building state.
+
+actors:
+  - id: ACT-01
+    name: BUILDING_FIELD
+    role: Physical context and future observation/device-side installation context.
+  - id: ACT-02
+    name: BEELINE
+    role: CONNECTIVITY_TRANSPORT_PARTNER
+  - id: ACT-03
+    name: HOUSEMASTER
+    role: INDEPENDENT_DOMAIN_LAYER_AND_SYSTEM_OF_RECORD
+
+responsibility_domains:
+  - id: RESP-01
+    owner: BUILDING_FIELD
+    includes: [physical_context, observation_need, site_validation, device_side_context]
+  - id: RESP-02
+    owner: BEELINE
+    includes: [connectivity, SIM, network, transport, connectivity_status]
+    excludes: [engineering_interpretation, defect_classification, evidence_validity, building_state]
+  - id: RESP-03
+    owner: HOUSEMASTER
+    includes: [ingestion, domain_mapping, interpretation, evidence, defect, workflow, building_state]
+
+nodes:
+  - id: N-01
+    label: SEM-MCD-001 — PHYSICAL BUILDING CONTEXT
+    domain: DOM-01
+    status: REFERENCE_ONLY
+    source_refs: ["EC-03 header", "EC-03 §1"]
+  - id: N-02
+    label: ENGINEERING OBSERVATION NEED
+    domain: DOM-01
+    status: SOURCE_BACKED_CONCEPT
+    source_refs: ["EC-03 §1", "EC-03 §34"]
+  - id: N-03
+    label: MACHINE-CAPABLE OBSERVATION CANDIDATE
+    domain: DOM-02
+    status: L1_CONCEPTUAL
+    source_refs: ["EC-03 §1", "EC-03 §5"]
+  - id: N-04
+    label: FIELD / SITE VALIDATION
+    domain: DOM-02
+    status: REQUIRED_TBD
+    source_refs: ["EC-03 §10", "EC-03 §32"]
+  - id: N-05
+    label: CONCEPTUAL DEVICE ROLE / IDENTITY
+    domain: DOM-02
+    status: NOT_INSTANTIATED
+    source_refs: ["EC-03 §4", "EC-03 §8"]
+  - id: N-06
+    label: CONNECTIVITY PATH OPTION — DIRECT OR EDGE
+    domain: DOM-03
+    status: ALTERNATIVES_CO_APPLICABLE_NOT_SELECTED
+    source_refs: ["EC-03 §3", "EC-03 §6"]
+  - id: N-07
+    label: CONNECTIVITY ENTRY / REQUIREMENT
+    domain: DOM-03
+    status: CONCEPTUAL
+    source_refs: ["EC-03 §9", "EC-03 §9a"]
+  - id: N-08
+    label: BEELINE CONNECTIVITY / TRANSPORT
+    domain: DOM-04
+    status: PARTNER_DOMAIN
+    source_refs: ["EC-03 §9a", "EC-03 §9a.1"]
+  - id: N-09
+    label: BEELINE / HOUSEMASTER TRUST & API BOUNDARY
+    domain: DOM-05
+    status: REFERENCED_NOT_DESIGNED
+    source_refs: ["EC-03 §9a", "EC-03 §9a.1"]
+  - id: N-10
+    label: HOUSEMASTER INTEGRATION EDGE
+    domain: DOM-05
+    status: CONCEPTUAL_EXISTING_REFERENCE
+    conceptual_functions: [authenticate, validate, normalize, map]
+    function_responsibility: HOUSEMASTER
+    source_refs: ["EC-03 §9a", "EC-03 §29"]
+  - id: N-11
+    label: OBSERVATION / EVIDENCE / DOMAIN INTERPRETATION
+    domain: DOM-06
+    status: HOUSEMASTER_OWNED
+    source_refs: ["EC-03 §9a.1", "EC-03 §22"]
+  - id: N-12
+    label: BUILDING STATE / SYSTEM OF RECORD
+    domain: DOM-06
+    status: HOUSEMASTER_OWNED
+    source_refs: ["EC-03 §9a", "EC-03 §22"]
+
+edges:
+  - {id: E-01, from: N-01, to: N-02, label: anchors, status: SOURCE_BACKED}
+  - {id: E-02, from: N-02, to: N-03, label: defines_machine_capable_candidate, status: CONCEPTUAL}
+  - {id: E-03, from: N-03, to: N-04, label: requires_field_validation, status: REQUIRED}
+  - {id: E-04, from: N-04, to: N-05, label: gates_device_role_and_identity, status: TBD}
+  - {id: E-05, from: N-05, to: N-06, label: may_use_connectivity_path, status: OPTION_NOT_DECISION}
+  - {id: E-06, from: N-06, to: N-07, label: establishes_connectivity_requirement, status: CONCEPTUAL}
+  - {id: E-07, from: N-07, to: N-08, label: enters_partner_transport_domain, status: BOUNDARY_HANDOFF}
+  - {id: E-08, from: N-08, to: N-09, label: delivers_reading_state_and_status, status: INTERFACE_TBD}
+  - {id: E-09, from: N-09, to: N-10, label: crosses_trust_api_boundary_into_housemaster_integration_edge, status: REFERENCED_NOT_DESIGNED}
+  - {id: E-10, from: N-10, to: N-11, label: creates_domain_context_for_interpretation, status: HOUSEMASTER}
+  - {id: E-11, from: N-11, to: N-12, label: evidence_gated_state_update, status: HOUSEMASTER}
+
+boundary_crossings:
+  - id: BND-01
+    name: OBSERVABILITY_TO_CONNECTIVITY_HANDOFF
+    between: [DOM-02, DOM-03]
+    condition: FIELD_SITE_VALIDATION_REQUIRED
+    guardrails: ["OBSERVATION POINT ≠ DEVICE", "CANDIDATE ≠ INSTALLED DEVICE"]
+  - id: BND-02
+    name: BEELINE_RESPONSIBILITY_ENTRY
+    between: [DOM-03, DOM-04]
+    condition: AGREED_CONNECTIVITY_SERVICE_BOUNDARY_TBD
+  - id: BND-03
+    name: BEELINE_HOUSEMASTER_TRUST_ACCESS_GATE
+    between: [DOM-04, DOM-05]
+    condition: REFERENCED_NOT_DESIGNED
+  - id: BND-04
+    name: HOUSEMASTER_DOMAIN_ENTRY
+    between: [DOM-05, DOM-06]
+    condition: VALIDATION_NORMALIZATION_MAPPING
+
+planes:
+  - id: PLANE-DATA
+    name: DATA_PLANE
+    status: IN_SCOPE_CONCEPTUAL
+    carries: [scalar_reading, event, state, counter, event_time]
+  - id: PLANE-CONTROL
+    name: CONTROL_PLANE
+    status: NOT_ENABLED_BY_DEFAULT
+    carries: []
+    excludes: [valve_actuation, pump_control, electrical_switching, lift_control, remote_engineering_commands, autonomous_control]
+  - id: PLANE-OPERATIONS
+    name: OPERATIONS_PLANE
+    status: CONCEPTUAL_TBD_WITH_BEELINE
+    carries: [connectivity_status, reachability_state, lifecycle_signal, diagnostics_context]
+
+trust_access_gate:
+  included: true
+  id: BND-03
+  label: BEELINE / HOUSEMASTER TRUST & API BOUNDARY
+  status: REFERENCED_NOT_DESIGNED
+  responsibility: NEUTRAL_CROSSING_BOUNDARY
+  performs_integration_functions: false
+  forbidden_inferences: [credential_design, certificate_design, key_design, IAM_design, VPN_design, APN_design]
+
+minimum_integration_surface:
+  included: true
+  status: CONCEPTUAL_NO_SCHEMA_NO_ENDPOINT
+  items:
+    - {id: MIS-01, name: observation_event_content, detail: scalar_event_state_or_counter}
+    - {id: MIS-02, name: source_identity_references, detail: device_and_connectivity_profile_references_TBD}
+    - {id: MIS-03, name: connectivity_delivery_status, detail: exposed_state_mapping_TBD_WITH_BEELINE}
+    - {id: MIS-04, name: temporal_provenance, detail: event_time_distinct_from_received_time}
+    - {id: MIS-05, name: integration_outcome, detail: validation_normalization_mapping_outcome_without_payload_schema}
+
+direct_edge_status:
+  direct: PLAUSIBLE_ALTERNATIVE
+  edge: PLAUSIBLE_ALTERNATIVE
+  relationship: CO_APPLICABLE_NOT_SEQUENTIAL
+  selection: NOT_SELECTED
+  deployment_decision: TBD_AFTER_SITE_AND_PARTNER_VALIDATION
+
+provenance_time_semantics:
+  - id: TIME-01
+    rule: event_time != received_time
+    meaning: Original observation time is preserved across buffered/delayed delivery.
+    source_refs: ["EC-03 §23"]
+  - id: PROV-01
+    rule: delivered_observation_requires_domain_validation
+    meaning: Network delivery does not establish evidence validity or engineering truth.
+    source_refs: ["EC-03 §22", "EC-03 §24"]
+
+failure_unknown_boundaries:
+  - {id: F-01, name: PHYSICAL_DEVICE_FAILURE, responsibility: BUILDING_FIELD}
+  - {id: F-02, name: LOCAL_POWER_FAILURE, responsibility: BUILDING_FIELD}
+  - {id: F-03, name: LOCAL_EDGE_AGGREGATION_FAILURE, responsibility: BUILDING_FIELD_OR_JOINT_TBD}
+  - {id: F-04, name: ACCESS_RADIO_CONNECTIVITY_FAILURE, responsibility: TBD_WITH_BEELINE}
+  - {id: F-05, name: OPERATOR_TRANSPORT_FAILURE, responsibility: BEELINE}
+  - {id: F-06, name: HOUSEMASTER_INTEGRATION_EDGE_FAILURE, responsibility: HOUSEMASTER}
+  - {id: F-07, name: HOUSEMASTER_PROCESSING_FAILURE, responsibility: HOUSEMASTER}
+  - {id: U-01, rule: "NO MESSAGE ≠ NORMAL ENGINEERING CONDITION"}
+  - {id: U-02, rule: "CONNECTIVITY LOSS ≠ ENGINEERING DEFECT"}
+  - {id: U-03, rule: "DELIVERY FAILURE ≠ PHYSICAL FAILURE"}
+  - {id: U-04, rule: "UNKNOWN ≠ ABSENT"}
+
+open_tbd_items:
+  - {id: TBD-EC03-01, theme: power_availability, status: TBD}
+  - {id: TBD-EC03-02, theme: physical_access_installation_maintenance, status: TBD}
+  - {id: TBD-EC03-03, theme: RF_connectivity_environment, status: TBD_WITH_BEELINE}
+  - {id: TBD-EC03-04, theme: Direct_vs_Edge_preference, status: TBD}
+  - {id: TBD-EC03-05, theme: metering_interface_existence, status: TBD}
+  - {id: Q-CONN-01, theme: pilot_machine_connectivity_service_models, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-02, theme: SIM_eSIM_lifecycle_capabilities, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-03, theme: externally_exposed_connectivity_states, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-04, theme: delivery_semantics, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-05, theme: retry_reconnect_ownership, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-06, theme: authentication_security_models, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-07, theme: private_connectivity_options, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-08, theme: basement_technical_room_RF_support, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-09, theme: operator_side_observability, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-10, theme: connectivity_incident_exposure, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-11, theme: service_provisioning_interfaces, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-12, theme: SIM_eSIM_lifecycle_events, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-13, theme: device_gateway_onboarding_role, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-14, theme: edge_gateway_ownership_patterns, status: TBD_WITH_BEELINE}
+  - {id: Q-CONN-15, theme: pilot_monitoring_escalation_model, status: TBD_WITH_BEELINE}
+
+guardrails:
+  - "CONNECTIVITY STATE ≠ ENGINEERING STATE"
+  - "TRANSPORT ≠ DOMAIN INTERPRETATION"
+  - "OBSERVATION POINT ≠ DEVICE"
+  - "CANDIDATE ≠ INSTALLED DEVICE"
+  - "ARCHITECTURAL OPTION ≠ DEPLOYMENT DECISION"
+  - "DEVICE OFFLINE ≠ COMPONENT FAILED"
+  - "NETWORK HEALTH ≠ BUILDING HEALTH"
+  - "CONNECTIVITY RESTORED ≠ ENGINEERING DEFECT CLOSED"
+  - "FAILURE DOMAIN ≠ ENGINEERING DEFECT DOMAIN"
+  - "CONNECTIVITY ≠ CONTROL AUTHORITY"
+  - "event_time ≠ received_time"
+
+source_refs:
+  - id: SRC-01
+    file: EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md
+    sections: ["§1", "§3", "§4", "§6", "§8", "§9", "§9a", "§9a.1", "§9b", "§10", "§12", "§20", "§21", "§22", "§23", "§24", "§29", "§30", "§32", "§34"]
+  - id: SRC-02
+    file: A3-EC03-02_PAGE_SPEC.md
+    usage: APPROVED_P1_PAGE_SPEC_STRUCTURE_ONLY
+
+constraints:
+  installed_device_count: 0
+  selected_topology: NONE
+  concrete_payload_schema: NONE
+  api_endpoints: NONE
+  network_technology_selection: NONE
+  remote_actuation: PROHIBITED
+  alau_ai: EXCLUDED
+  drawio: NOT_CREATED
+  pdf: NOT_CREATED

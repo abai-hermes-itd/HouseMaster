@@ -1,0 +1,267 @@
+schema_version: "1.0"
+graph_id: A3-EC03-04
+page_id: A3-EC03-04
+production_no: P4-02
+case_assembly_no: "018"
+stage: P4_CONNECTIVITY_COMPLETION
+canonical_title: Direct vs Edge Matrix
+page_type: PT-05_COMPARISON
+primary_semantic_model: CRITERION_BY_ALTERNATIVE_COMPARISON_MATRIX
+source_sections: ["EC-03 §28"]
+status: FROZEN
+confidence: SOURCE_BACKED_CONCEPTUAL
+source_linkage_status: LINKED
+
+primary_engineering_question: >-
+  How do Direct Connectivity and Edge Aggregation compare across the fifteen
+  canonical criteria, while preserving both as unselected architectural alternatives?
+
+what_it_means: >-
+  The matrix exposes criterion-specific differences between two plausible,
+  co-applicable conceptual topology alternatives so later validation and decision
+  work can be evidence-led.
+
+what_it_does_not_mean: >-
+  It does not recommend a winner, select a topology, establish deployment,
+  instantiate identities or equipment, or provide a cost comparison.
+
+reference_building:
+  id: SEM-MCD-001
+  label: "Semey, Shakarima 13A"
+  role: REFERENCE_CONTEXT_ONLY
+  installed_devices_confirmed: 0
+  actual_installed_device_presence: NOT_ESTABLISHED
+  zero_confirmed_means_proved_absence: false
+
+semantic_entities:
+  alternatives:
+    - id: ALT-DIRECT
+      name: DIRECT CONNECTIVITY
+      status: PLAUSIBLE_ALTERNATIVE
+      selected: false
+    - id: ALT-EDGE
+      name: EDGE AGGREGATION
+      status: PLAUSIBLE_ALTERNATIVE
+      selected: false
+  rating_vocabulary:
+    canonical: [LOW, MEDIUM, HIGH, TBD]
+    source_preserved_qualifiers: [MEDIUM_HIGH, HIGHER, NONE, NOT_APPLICABLE]
+  alternative_relationship:
+    co_applicable: true
+    sequential: false
+    selection: NOT_SELECTED
+    winner_declared: false
+
+comparison_rows:
+  - row_id: CMP-01
+    criterion: Operator-facing connectivity identity count
+    direct: "HIGH — one per device"
+    edge: "LOW — one per aggregation group"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-02
+    criterion: Device independence
+    direct: "HIGH — each device operates without dependency on another local device"
+    edge: "LOW — devices depend on the shared aggregation function's availability"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-03
+    criterion: Local power dependency
+    direct: "LOW — only the device itself needs power"
+    edge: "MEDIUM–HIGH — aggregation function also needs power; exact value TBD pending site survey"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-04
+    criterion: Buffering
+    direct: "Per-device (distributed)"
+    edge: "Centralized at aggregation function or still per-device — TBD"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-05
+    criterion: Aggregation
+    direct: "Not applicable"
+    edge: "Native to this pattern"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-06
+    criterion: Physical distribution
+    direct: "Devices spread across building without a common local node"
+    edge: "Devices cluster around a common local node"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-07
+    criterion: Maintenance complexity
+    direct: "MEDIUM — more individual connectivity endpoints to manage"
+    edge: "MEDIUM — fewer connectivity endpoints, one added local component to maintain"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-08
+    criterion: Lifecycle complexity
+    direct: "MEDIUM — device lifecycle only"
+    edge: "MEDIUM–HIGH — device plus aggregation-function lifecycle"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-09
+    criterion: Failure-domain size
+    direct: "LOW per device — isolated failure"
+    edge: "HIGHER for group — aggregation-function failure affects all devices behind it"
+    cross_ref: "EC-03 §29 F-03"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-10
+    criterion: Single-point-of-failure exposure
+    direct: LOW
+    edge: "HIGHER — aggregation function is a candidate single point of failure for its group"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-11
+    criterion: Local protocol dependency
+    direct: "NONE — no local link required"
+    edge: "TBD — unspecified local link required between devices and aggregation function"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-12
+    criterion: Operator visibility
+    direct: "Per-device connectivity state"
+    edge: "Per-aggregation-group connectivity state; device-level detail potentially reduced"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-13
+    criterion: Site-survey dependency
+    direct: "Per-device location only"
+    edge: "Per-device location plus aggregation-function location and local-link feasibility"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-14
+    criterion: Scalability
+    direct: "MEDIUM — each additional device adds its own connectivity identity"
+    edge: "HIGH within cluster — devices can join existing aggregation function without new external connectivity identities"
+    source_ref: "EC-03 §28"
+  - row_id: CMP-15
+    criterion: Replacement impact
+    direct: "LOW — replacing one device does not affect others"
+    edge: "MEDIUM — replacing aggregation function could affect all devices behind it; replacing one device does not"
+    source_ref: "EC-03 §28"
+
+relationships:
+  - {relationship_id: REL-01, row_ref: CMP-01, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-02, row_ref: CMP-02, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-03, row_ref: CMP-03, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-04, row_ref: CMP-04, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-05, row_ref: CMP-05, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-06, row_ref: CMP-06, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-07, row_ref: CMP-07, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-08, row_ref: CMP-08, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-09, row_ref: CMP-09, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-10, row_ref: CMP-10, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-11, row_ref: CMP-11, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-12, row_ref: CMP-12, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-13, row_ref: CMP-13, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-14, row_ref: CMP-14, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+  - {relationship_id: REL-15, row_ref: CMP-15, from: ALT-DIRECT, to: ALT-EDGE, type: COMPARED_UNDER_CRITERION}
+
+identity_boundaries:
+  - id: IDB-01
+    rule: OPERATOR_FACING_CONNECTIVITY_IDENTITY_COUNT_IS_NOT_PHYSICAL_INVENTORY
+    direct_context: one_per_device_conceptually
+    edge_context: one_per_aggregation_group_conceptually
+  - id: IDB-02
+    rule: CANDIDATE_DOES_NOT_EQUAL_INSTALLED_DEVICE
+    physical_instantiation: NOT_ESTABLISHED
+  - id: IDB-03
+    rule: AGGREGATION_FUNCTION_DOES_NOT_EQUAL_INSTANTIATED_GATEWAY
+    edge_01: NOT_CREATED_OR_PLACED
+
+responsibility_boundaries:
+  - id: RESP-01
+    owner: BEELINE
+    role: CONNECTIVITY_TRANSPORT_PARTNER
+    page_relevance: operator_facing_connectivity_identity_and_operator_visibility
+    excluded_ownership: [engineering_interpretation, evidence_validity, defect_classification]
+  - id: RESP-02
+    owner: HOUSEMASTER
+    role: INDEPENDENT_DOMAIN_LAYER_SYSTEM_OF_RECORD
+    page_relevance: preserves_domain_ownership_while_topology_options_are_compared
+
+partner_boundary:
+  beeline_domain_included: true
+  trust_access_boundary_included: false
+  reason: "EC-03 §28 compares operator-facing topology effects but does not model the Trust/API crossing"
+
+housemaster_boundary:
+  housemaster_domain_included: true
+  integration_functions_shown: false
+  reason: "Domain ownership is preserved contextually; authenticate/validate/normalize/map are not part of the §28 comparison"
+
+data_control_operations_distinctions:
+  data_plane: NOT_PRIMARY_ON_THIS_PAGE
+  control_plane: NOT_ENABLED_BY_DEFAULT
+  operations_plane_relevance: [maintenance_complexity, lifecycle_complexity, operator_visibility, replacement_impact]
+  remote_actuation: OUT_OF_SCOPE
+
+provenance_time_semantics:
+  applicable: false
+  reason: "EC-03 §28 contains no event_time/received_time comparison field"
+
+open_tbd_items:
+  - item_id: EC03-04-TBD-01
+    subject: Edge local-power dependency exact value
+    current_status: TBD_PENDING_SITE_SURVEY
+    source_ref: "EC-03 §28 criterion 03"
+    validation_owner: SITE_SURVEY_ENGINEERING_VALIDATION
+    required_closure: Confirm aggregation-function power conditions
+    downstream_restriction: No physical Edge feasibility or deployment conclusion
+    what_it_does_not_mean: Edge is not proved infeasible
+  - item_id: EC03-04-TBD-02
+    subject: Edge buffering placement
+    current_status: TBD_CENTRALIZED_OR_PER_DEVICE
+    source_ref: "EC-03 §28 criterion 04"
+    validation_owner: JOINT_DEVICE_INTEGRATION_ARCHITECTURE_VALIDATION
+    required_closure: Determine buffering responsibility
+    downstream_restriction: No buffer implementation or retention design
+    what_it_does_not_mean: Buffering is not proved absent
+  - item_id: EC03-04-TBD-03
+    subject: Edge local-link dependency
+    current_status: TBD_UNSPECIFIED_LOCAL_LINK
+    source_ref: "EC-03 §28 criteria 11 and 13"
+    validation_owner: JOINT_VALIDATION_WITH_BEELINE_WHERE_TRANSPORT_BOUNDARY_IS_AFFECTED
+    required_closure: Validate local-link and site feasibility
+    downstream_restriction: No protocol, RF, gateway or topology selection
+    what_it_does_not_mean: No local protocol is established
+  - item_id: EC03-04-TBD-04
+    subject: Direct versus Edge selection
+    current_status: NOT_SELECTED
+    source_ref: "EC-03 §28 final statement"
+    validation_owner: JOINT_ARCHITECTURE_SITE_DECISION_GATE
+    required_closure: Close evidence and decision criteria at a later gate
+    downstream_restriction: Neither alternative may be rendered as default or deployed
+    what_it_does_not_mean: Both alternatives are not required to be deployed
+
+guardrails:
+  - {guardrail_id: GR-01, text: "NO TOPOLOGY WINNER DECLARED", source_ref: "EC-03 §28"}
+  - {guardrail_id: GR-02, text: "NO TOPOLOGY RECOMMENDED OR SELECTED", source_ref: "EC-03 §28"}
+  - {guardrail_id: GR-03, text: "NO COST FIGURE USED", source_ref: "EC-03 §28"}
+  - {guardrail_id: GR-04, text: "ARCHITECTURAL OPTION ≠ DEPLOYMENT DECISION", source_ref: "EC-03 §28 + frozen P4 baseline"}
+
+adjacent_page_relationships:
+  - {page_id: A3-EC03-01, relationship: connectivity_entry_and_responsibility_architecture_not_repeated}
+  - {page_id: A3-EC03-02, relationship: direct_reference_pattern_compared_not_selected}
+  - {page_id: A3-EC03-03, relationship: edge_reference_pattern_compared_not_instantiated}
+  - {page_id: A3-EC03-06, relationship: detailed_failure_domains_not_duplicated}
+
+downstream_restrictions:
+  - NO_TOPOLOGY_SELECTION
+  - NO_DEPLOYMENT_INFERENCE
+  - NO_COST_MODEL
+  - NO_DEVICE_SIM_GATEWAY_OR_EDGE01_INSTANTIATION
+  - NO_NETWORK_TECHNOLOGY_PROTOCOL_API_OR_SCHEMA
+  - NO_FAILURE_DOMAIN_PAGE_DUPLICATION
+
+source_refs:
+  - id: SRC-REGISTRY
+    file: A3-P0_PAGE_REGISTRY_v0.4_REVIEW.md
+    entry: A3-EC03-04
+  - id: SRC-REGISTRY-CSV
+    file: A3-P0_PAGE_REGISTRY_v0.4.csv
+    entry: A3-EC03-04
+  - id: SRC-EC03-28
+    file: EC-03_DEVICE_CONNECTIVITY_SEM-MCD-001_v0.3_REVIEW.md
+    section: "§28"
+  - id: SRC-PAGE-SPEC-TEMPLATE
+    file: A3-P0_PAGE_SPEC_TEMPLATE_v0.4.md
+    usage: STRUCTURE_ONLY
+
+exclusions:
+  drawio: NOT_CREATED
+  pdf: NOT_CREATED
+  three_d: EXCLUDED
+  alau_ai: EXCLUDED
+  finance_marketing_monetization: EXCLUDED
+  installed_inventory: NOT_ESTABLISHED
