@@ -1,0 +1,64 @@
+﻿
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # google_compute_backend_service.next_web_iap_backend will be created
+  + resource "google_compute_backend_service" "next_web_iap_backend" {
+      + connection_draining_timeout_sec = 300
+      + creation_timestamp              = (known after apply)
+      + fingerprint                     = (known after apply)
+      + generated_id                    = (known after apply)
+      + id                              = (known after apply)
+      + load_balancing_scheme           = "EXTERNAL_MANAGED"
+      + name                            = "next-web-iap-backend"
+      + port_name                       = (known after apply)
+      + project                         = "housemaster-dev-503409"
+      + protocol                        = "HTTP"
+      + self_link                       = (known after apply)
+      + session_affinity                = (known after apply)
+      + timeout_sec                     = (known after apply)
+
+      + backend {
+          + balancing_mode               = "UTILIZATION"
+          + capacity_scaler              = 1
+          + group                        = (known after apply)
+          + max_connections              = (known after apply)
+          + max_connections_per_endpoint = (known after apply)
+          + max_connections_per_instance = (known after apply)
+          + max_rate                     = (known after apply)
+          + max_rate_per_endpoint        = (known after apply)
+          + max_rate_per_instance        = (known after apply)
+          + max_utilization              = (known after apply)
+            # (2 unchanged attributes hidden)
+        }
+
+      + cdn_policy (known after apply)
+
+      + iap {
+          + enabled                     = true
+          + oauth2_client_secret_sha256 = (sensitive value)
+        }
+
+      + log_config (known after apply)
+    }
+
+  # google_compute_region_network_endpoint_group.next_web_serverless_neg will be created
+  + resource "google_compute_region_network_endpoint_group" "next_web_serverless_neg" {
+      + id                    = (known after apply)
+      + name                  = "next-web-serverless-neg"
+      + network_endpoint_type = "SERVERLESS"
+      + project               = "housemaster-dev-503409"
+      + region                = "europe-west1"
+      + self_link             = (known after apply)
+
+      + cloud_run {
+          + service = "next-web"
+        }
+
+      + psc_data (known after apply)
+    }
+
+Plan: 2 to add, 0 to change, 0 to destroy.
