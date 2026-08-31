@@ -1,0 +1,98 @@
+﻿
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # google_compute_global_address.iap_dev_lb_ip will be created
+  + resource "google_compute_global_address" "iap_dev_lb_ip" {
+      + address            = (known after apply)
+      + creation_timestamp = (known after apply)
+      + effective_labels   = {
+          + "goog-terraform-provisioned" = "true"
+        }
+      + id                 = (known after apply)
+      + label_fingerprint  = (known after apply)
+      + name               = "iap-dev-lb-ip"
+      + prefix_length      = (known after apply)
+      + project            = "housemaster-dev-503409"
+      + self_link          = (known after apply)
+      + terraform_labels   = {
+          + "goog-terraform-provisioned" = "true"
+        }
+    }
+
+  # google_compute_global_forwarding_rule.next_web_iap_https_forwarding_rule will be created
+  + resource "google_compute_global_forwarding_rule" "next_web_iap_https_forwarding_rule" {
+      + base_forwarding_rule  = (known after apply)
+      + effective_labels      = (known after apply)
+      + forwarding_rule_id    = (known after apply)
+      + id                    = (known after apply)
+      + ip_address            = (known after apply)
+      + ip_protocol           = (known after apply)
+      + label_fingerprint     = (known after apply)
+      + load_balancing_scheme = "EXTERNAL_MANAGED"
+      + name                  = "next-web-iap-https-fr"
+      + network               = (known after apply)
+      + network_tier          = (known after apply)
+      + port_range            = "443"
+      + project               = "housemaster-dev-503409"
+      + psc_connection_id     = (known after apply)
+      + psc_connection_status = (known after apply)
+      + self_link             = (known after apply)
+      + subnetwork            = (known after apply)
+      + target                = (known after apply)
+      + terraform_labels      = (known after apply)
+
+      + service_directory_registrations (known after apply)
+    }
+
+  # google_compute_managed_ssl_certificate.iap_dev_cert will be created
+  + resource "google_compute_managed_ssl_certificate" "iap_dev_cert" {
+      + certificate_id            = (known after apply)
+      + creation_timestamp        = (known after apply)
+      + expire_time               = (known after apply)
+      + id                        = (known after apply)
+      + name                      = "iap-dev-housemaster-cert"
+      + project                   = "housemaster-dev-503409"
+      + self_link                 = (known after apply)
+      + subject_alternative_names = (known after apply)
+      + type                      = "MANAGED"
+
+      + managed {
+          + domains = [
+              + "iap-dev.housemaster.kz",
+            ]
+        }
+    }
+
+  # google_compute_target_https_proxy.next_web_iap_https_proxy will be created
+  + resource "google_compute_target_https_proxy" "next_web_iap_https_proxy" {
+      + creation_timestamp = (known after apply)
+      + fingerprint        = (known after apply)
+      + id                 = (known after apply)
+      + name               = "next-web-iap-https-proxy"
+      + project            = "housemaster-dev-503409"
+      + proxy_bind         = (known after apply)
+      + proxy_id           = (known after apply)
+      + quic_override      = "NONE"
+      + self_link          = (known after apply)
+      + ssl_certificates   = (known after apply)
+      + tls_early_data     = (known after apply)
+      + url_map            = (known after apply)
+    }
+
+  # google_compute_url_map.next_web_iap_url_map will be created
+  + resource "google_compute_url_map" "next_web_iap_url_map" {
+      + creation_timestamp = (known after apply)
+      + default_service    = "projects/housemaster-dev-503409/global/backendServices/next-web-iap-backend"
+      + fingerprint        = (known after apply)
+      + id                 = (known after apply)
+      + map_id             = (known after apply)
+      + name               = "next-web-iap-url-map"
+      + project            = "housemaster-dev-503409"
+      + self_link          = (known after apply)
+    }
+
+Plan: 5 to add, 0 to change, 0 to destroy.
