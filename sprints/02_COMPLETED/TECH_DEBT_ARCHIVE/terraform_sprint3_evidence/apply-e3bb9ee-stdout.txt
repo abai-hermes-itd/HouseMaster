@@ -1,0 +1,32 @@
+google_cloud_run_v2_service.web[0]: Modifying... [id=projects/housemaster-dev-503409/locations/europe-west1/services/next-web]
+google_cloud_run_v2_service.web[0]: Still modifying... [id=projects/housemaster-dev-503409/locations/europe-west1/services/next-web, 00m10s elapsed]
+google_cloud_run_v2_service.web[0]: Still modifying... [id=projects/housemaster-dev-503409/locations/europe-west1/services/next-web, 00m20s elapsed]
+google_cloud_run_v2_service.web[0]: Modifications complete after 22s [id=projects/housemaster-dev-503409/locations/europe-west1/services/next-web]
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+Outputs:
+
+artifact_registry_repository = "europe-west1-docker.pkg.dev/housemaster-dev-503409/housemaster"
+bucket_names = {
+  "documents" = "housemaster-dev-documents"
+  "images" = "housemaster-dev-images"
+  "media" = "housemaster-dev-media"
+}
+cloud_run_service_url = "https://next-web-bbqvhnfzta-ew.a.run.app"
+logging_metric_app_errors = "housemaster-app-errors"
+monitoring_alert_policies = []
+pubsub_topic_knowledge_indexing = "knowledge-indexing"
+secret_ids = [
+  "auth-secret",
+  "database-url",
+  "google-client-id",
+  "google-client-secret",
+]
+service_account_emails = {
+  "cicd_deployer" = "sa-deployer-dev@housemaster-dev-503409.iam.gserviceaccount.com"
+  "cloud_build" = "sa-cloudbuild-dev@housemaster-dev-503409.iam.gserviceaccount.com"
+  "cloud_run" = "sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com"
+  "vertex_worker" = "sa-ai-worker-dev@housemaster-dev-503409.iam.gserviceaccount.com"
+}
+vertex_staging_bucket = "housemaster-dev-503409-vertex-staging"

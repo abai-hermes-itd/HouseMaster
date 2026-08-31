@@ -1,0 +1,101 @@
+data.google_project.current: Reading...
+google_project_service.apis["artifactregistry.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/artifactregistry.googleapis.com]
+google_project_service.apis["run.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/run.googleapis.com]
+google_project_service.apis["secretmanager.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/secretmanager.googleapis.com]
+google_project_service.apis["aiplatform.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/aiplatform.googleapis.com]
+google_project_service.apis["cloudresourcemanager.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/cloudresourcemanager.googleapis.com]
+google_project_service.apis["logging.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/logging.googleapis.com]
+google_project_service.apis["pubsub.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/pubsub.googleapis.com]
+google_project_service.apis["storage.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/storage.googleapis.com]
+google_sql_database_instance.main: Refreshing state... [id=housemaster-db]
+google_project_service.apis["iam.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/iam.googleapis.com]
+data.google_project.current: Read complete after 2s [id=projects/housemaster-dev-503409]
+google_project_service.apis["sqladmin.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/sqladmin.googleapis.com]
+google_project_service.apis["cloudbuild.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/cloudbuild.googleapis.com]
+google_project_service.apis["monitoring.googleapis.com"]: Refreshing state... [id=housemaster-dev-503409/monitoring.googleapis.com]
+google_service_account.cloud_run: Refreshing state... [id=projects/housemaster-dev-503409/serviceAccounts/sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_service_account.cicd_deployer: Refreshing state... [id=projects/housemaster-dev-503409/serviceAccounts/sa-deployer-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_secret_manager_secret.runtime["google-client-id"]: Refreshing state... [id=projects/housemaster-dev-503409/secrets/google-client-id]
+google_secret_manager_secret.runtime["database-url"]: Refreshing state... [id=projects/housemaster-dev-503409/secrets/database-url]
+google_secret_manager_secret.runtime["auth-secret"]: Refreshing state... [id=projects/housemaster-dev-503409/secrets/auth-secret]
+google_secret_manager_secret.runtime["google-client-secret"]: Refreshing state... [id=projects/housemaster-dev-503409/secrets/google-client-secret]
+google_pubsub_topic.knowledge_indexing: Refreshing state... [id=projects/housemaster-dev-503409/topics/knowledge-indexing]
+google_artifact_registry_repository.docker: Refreshing state... [id=projects/housemaster-dev-503409/locations/europe-west1/repositories/housemaster]
+google_storage_bucket.vertex_staging: Refreshing state... [id=housemaster-dev-503409-vertex-staging]
+google_logging_metric.app_errors: Refreshing state... [id=housemaster-app-errors]
+google_pubsub_topic.knowledge_indexing_dlq: Refreshing state... [id=projects/housemaster-dev-503409/topics/knowledge-indexing-dlq]
+google_service_account.cloud_build: Refreshing state... [id=projects/housemaster-dev-503409/serviceAccounts/sa-cloudbuild-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_service_account.vertex_worker: Refreshing state... [id=projects/housemaster-dev-503409/serviceAccounts/sa-ai-worker-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_storage_bucket.buckets["images"]: Refreshing state... [id=housemaster-dev-images]
+google_storage_bucket.buckets["media"]: Refreshing state... [id=housemaster-dev-media]
+google_storage_bucket.buckets["documents"]: Refreshing state... [id=housemaster-dev-documents]
+google_logging_project_bucket_config.default: Refreshing state... [id=projects/housemaster-dev-503409/locations/global/buckets/_Default]
+google_pubsub_topic_iam_member.pubsub_service_dlq_publisher: Refreshing state... [id=projects/housemaster-dev-503409/topics/knowledge-indexing-dlq/roles/pubsub.publisher/serviceAccount:service-1084024721838@gcp-sa-pubsub.iam.gserviceaccount.com]
+google_pubsub_subscription.knowledge_indexing_worker: Refreshing state... [id=projects/housemaster-dev-503409/subscriptions/knowledge-indexing-worker]
+google_artifact_registry_repository_iam_member.deployer_registry_read[0]: Refreshing state... [id=projects/housemaster-dev-503409/locations/europe-west1/repositories/housemaster/roles/artifactregistry.reader/serviceAccount:sa-deployer-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_service_account_iam_member.deployer_act_as_web: Refreshing state... [id=projects/housemaster-dev-503409/serviceAccounts/sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com/roles/iam.serviceAccountUser/serviceAccount:sa-deployer-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_secret_manager_secret_iam_member.web_secret_access["google-client-id"]: Refreshing state... [id=projects/housemaster-dev-503409/secrets/google-client-id/roles/secretmanager.secretAccessor/serviceAccount:sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_secret_manager_secret_iam_member.web_secret_access["database-url"]: Refreshing state... [id=projects/housemaster-dev-503409/secrets/database-url/roles/secretmanager.secretAccessor/serviceAccount:sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_secret_manager_secret_iam_member.web_secret_access["google-client-secret"]: Refreshing state... [id=projects/housemaster-dev-503409/secrets/google-client-secret/roles/secretmanager.secretAccessor/serviceAccount:sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_secret_manager_secret_iam_member.web_secret_access["auth-secret"]: Refreshing state... [id=projects/housemaster-dev-503409/secrets/auth-secret/roles/secretmanager.secretAccessor/serviceAccount:sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_project_iam_member.web_vertex_user: Refreshing state... [id=housemaster-dev-503409/roles/aiplatform.user/serviceAccount:sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_storage_bucket_iam_member.web_bucket_rw["media"]: Refreshing state... [id=b/housemaster-dev-media/roles/storage.objectAdmin/serviceAccount:sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_storage_bucket_iam_member.web_bucket_rw["documents"]: Refreshing state... [id=b/housemaster-dev-documents/roles/storage.objectAdmin/serviceAccount:sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_storage_bucket_iam_member.web_bucket_rw["images"]: Refreshing state... [id=b/housemaster-dev-images/roles/storage.objectAdmin/serviceAccount:sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_project_iam_member.web_cloudsql_client: Refreshing state... [id=housemaster-dev-503409/roles/cloudsql.client/serviceAccount:sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_pubsub_topic_iam_member.web_publish_indexing: Refreshing state... [id=projects/housemaster-dev-503409/topics/knowledge-indexing/roles/pubsub.publisher/serviceAccount:sa-web-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_storage_bucket_iam_member.worker_vertex_staging_rw: Refreshing state... [id=b/housemaster-dev-503409-vertex-staging/roles/storage.objectAdmin/serviceAccount:sa-ai-worker-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_project_iam_member.worker_vertex_user: Refreshing state... [id=housemaster-dev-503409/roles/aiplatform.user/serviceAccount:sa-ai-worker-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_storage_bucket_iam_member.worker_docs_read["documents"]: Refreshing state... [id=b/housemaster-dev-documents/roles/storage.objectViewer/serviceAccount:sa-ai-worker-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_storage_bucket_iam_member.worker_docs_read["images"]: Refreshing state... [id=b/housemaster-dev-images/roles/storage.objectViewer/serviceAccount:sa-ai-worker-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_project_iam_member.build_storage: Refreshing state... [id=housemaster-dev-503409/roles/storage.objectAdmin/serviceAccount:sa-cloudbuild-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_project_iam_member.build_registry_read: Refreshing state... [id=housemaster-dev-503409/roles/artifactregistry.reader/serviceAccount:sa-cloudbuild-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_artifact_registry_repository_iam_member.build_push: Refreshing state... [id=projects/housemaster-dev-503409/locations/europe-west1/repositories/housemaster/roles/artifactregistry.writer/serviceAccount:sa-cloudbuild-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_project_iam_member.build_logs: Refreshing state... [id=housemaster-dev-503409/roles/logging.logWriter/serviceAccount:sa-cloudbuild-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_service_account_iam_member.build_impersonate_deployer[0]: Refreshing state... [id=projects/housemaster-dev-503409/serviceAccounts/sa-deployer-dev@housemaster-dev-503409.iam.gserviceaccount.com/roles/iam.serviceAccountTokenCreator/serviceAccount:sa-cloudbuild-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_cloud_run_v2_service.web[0]: Refreshing state... [id=projects/housemaster-dev-503409/locations/europe-west1/services/next-web]
+google_pubsub_subscription_iam_member.pubsub_service_dlq_subscriber: Refreshing state... [id=projects/housemaster-dev-503409/subscriptions/knowledge-indexing-worker/roles/pubsub.subscriber/serviceAccount:service-1084024721838@gcp-sa-pubsub.iam.gserviceaccount.com]
+google_pubsub_subscription_iam_member.worker_subscribe: Refreshing state... [id=projects/housemaster-dev-503409/subscriptions/knowledge-indexing-worker/roles/pubsub.subscriber/serviceAccount:sa-ai-worker-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+google_cloud_run_v2_service_iam_member.deployer_run[0]: Refreshing state... [id=projects/housemaster-dev-503409/locations/europe-west1/services/next-web/roles/run.developer/serviceAccount:sa-deployer-dev@housemaster-dev-503409.iam.gserviceaccount.com]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # google_cloud_run_v2_service.web[0] will be updated in-place
+  ~ resource "google_cloud_run_v2_service" "web" {
+        id                      = "projects/housemaster-dev-503409/locations/europe-west1/services/next-web"
+        name                    = "next-web"
+        # (33 unchanged attributes hidden)
+
+      ~ template {
+            # (10 unchanged attributes hidden)
+
+          ~ containers {
+                name           = null
+                # (7 unchanged attributes hidden)
+
+              + env {
+                  + name  = "ALLOWED_WORKSPACE_DOMAIN"
+                  + value = "abay-germes.kz"
+                }
+
+                # (17 unchanged blocks hidden)
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+
+        # (2 unchanged blocks hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Saved the plan to: preview-e3bb9ee-allowed-workspace-domain.plan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "preview-e3bb9ee-allowed-workspace-domain.plan"
