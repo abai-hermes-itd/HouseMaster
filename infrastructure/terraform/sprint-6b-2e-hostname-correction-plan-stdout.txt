@@ -1,0 +1,37 @@
+﻿
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+-/+ destroy and then create replacement
+
+Terraform will perform the following actions:
+
+  # google_compute_managed_ssl_certificate.iap_dev_cert must be replaced
+-/+ resource "google_compute_managed_ssl_certificate" "iap_dev_cert" {
+      ~ certificate_id            = 2599759031735736131 -> (known after apply)
+      ~ creation_timestamp        = "2026-08-31T04:46:52.869-07:00" -> (known after apply)
+      + expire_time               = (known after apply)
+      ~ id                        = "projects/housemaster-dev-503409/global/sslCertificates/iap-dev-housemaster-cert" -> (known after apply)
+        name                      = "iap-dev-housemaster-cert"
+      ~ self_link                 = "https://www.googleapis.com/compute/v1/projects/housemaster-dev-503409/global/sslCertificates/iap-dev-housemaster-cert" -> (known after apply)
+      ~ subject_alternative_names = [] -> (known after apply)
+        # (3 unchanged attributes hidden)
+
+      ~ managed {
+          ~ domains = [ # forces replacement
+              ~ "iap-dev.housemaster.kz" -> "iap-dev.housemasters.kz",
+            ]
+        }
+    }
+
+  # google_compute_target_https_proxy.next_web_iap_https_proxy will be updated in-place
+  ~ resource "google_compute_target_https_proxy" "next_web_iap_https_proxy" {
+        id                               = "projects/housemaster-dev-503409/global/targetHttpsProxies/next-web-iap-https-proxy"
+        name                             = "next-web-iap-https-proxy"
+      ~ ssl_certificates                 = [
+          - "https://www.googleapis.com/compute/v1/projects/housemaster-dev-503409/global/sslCertificates/iap-dev-housemaster-cert",
+        ] -> (known after apply)
+        # (15 unchanged attributes hidden)
+    }
+
+Plan: 1 to add, 1 to change, 1 to destroy.

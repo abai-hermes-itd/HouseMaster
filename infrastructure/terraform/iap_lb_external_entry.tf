@@ -2,7 +2,7 @@
 #
 # Plan-only contour:
 # - global static IP
-# - Google-managed SSL certificate for iap-dev.housemaster.kz
+# - Google-managed SSL certificate for iap-dev.housemasters.kz
 # - URL map to existing IAP backend service
 # - HTTPS target proxy
 # - global forwarding rule
@@ -18,7 +18,7 @@ resource "google_compute_managed_ssl_certificate" "iap_dev_cert" {
   name = "iap-dev-housemaster-cert"
 
   managed {
-    domains = ["iap-dev.housemaster.kz"]
+    domains = ["iap-dev.housemasters.kz"]
   }
 }
 
