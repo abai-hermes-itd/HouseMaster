@@ -18,6 +18,13 @@ resource "google_compute_managed_ssl_certificate" "iap_dev_cert" {
   name = "iap-dev-housemaster-cert"
 
   managed {
+    domains = ["iap-dev.housemaster.kz"]
+  }
+}
+resource "google_compute_managed_ssl_certificate" "iap_dev_housemasters_cert" {
+  name = "iap-dev-housemasters-cert"
+
+  managed {
     domains = ["iap-dev.housemasters.kz"]
   }
 }
@@ -30,7 +37,7 @@ resource "google_compute_url_map" "next_web_iap_url_map" {
 resource "google_compute_target_https_proxy" "next_web_iap_https_proxy" {
   name             = "next-web-iap-https-proxy"
   url_map          = google_compute_url_map.next_web_iap_url_map.id
-  ssl_certificates = [google_compute_managed_ssl_certificate.iap_dev_cert.id]
+  ssl_certificates = [google_compute_managed_ssl_certificate.iap_dev_housemasters_cert.id]
 }
 
 resource "google_compute_global_forwarding_rule" "next_web_iap_https_forwarding_rule" {
@@ -40,3 +47,5 @@ resource "google_compute_global_forwarding_rule" "next_web_iap_https_forwarding_
   load_balancing_scheme = "EXTERNAL_MANAGED"
   target                = google_compute_target_https_proxy.next_web_iap_https_proxy.id
 }
+
+
