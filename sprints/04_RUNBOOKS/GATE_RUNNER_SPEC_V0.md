@@ -81,3 +81,10 @@ Drafts a `TEMPLATE_GATE_CLOSURE_RECORD.md`-shaped request (either its successful
 ## 7. Readiness classification
 
 Specification only. Not implemented. This document does not authorize building or running any Gate Runner code — a future implementation task requires its own separate, explicit approval gate.
+
+## 8. Update — 2026-09-02: ENDPOINT_IAM_RETEST fill rule implemented
+
+- The `ENDPOINT_IAM_RETEST` fill rule is now implemented in `sprints/04_RUNBOOKS/tools/fill-rules.json`, per `sprints/04_RUNBOOKS/TEMPLATE_FILL_HELPER_SPEC_V0.md` §5.1.
+- It has passed a render + hard-rule validator smoke test (`fill-gate-template.mjs --template ENDPOINT_IAM_RETEST` against fake example values, then `validate-gate-request.mjs --template endpoint-iam-retest` against the rendered output — both PASS).
+- It remains standalone and not wired into `package.json`, hooks, chat, CI, or `pnpm hm:gate` — this update does not change §4.2's mode list or the `fill` mode's own passthrough behavior; a `gate-runner.mjs` mode wrapping `fill --template ENDPOINT_IAM_RETEST` is not implemented by this note.
+- Other template-fill candidates (`DOCS_ONLY_GATE`, `EXECUTION_GATE`, `SECRET_EXECUTION_GATE`, `GATE_CLOSURE_RECORD` — see `TEMPLATE_FILL_HELPER_SPEC_V0.md` §5.2–§5.3) remain future work and require their own separate, explicit approval before implementation.
