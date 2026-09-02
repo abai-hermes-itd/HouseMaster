@@ -17,6 +17,18 @@
       "placeholders": {
         "<WHAT>": "what"
       }
+    },
+    "ENDPOINT_IAM_RETEST": {
+      "sourceFile": "TEMPLATE_ENDPOINT_IAM_RETEST_CYCLE.md",
+      "requiredFlags": ["endpoint-path", "revision-name", "principal", "service-name", "full-url", "gate-id"],
+      "placeholders": {
+        "<ENDPOINT_PATH>": "endpoint-path",
+        "<REVISION_NAME>": "revision-name",
+        "<PRINCIPAL>": "principal",
+        "<SERVICE_NAME>": "service-name",
+        "<FULL_URL>": "full-url",
+        "<GATE_ID>": "gate-id"
+      }
     }
   }
 }
