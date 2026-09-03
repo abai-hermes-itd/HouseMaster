@@ -1,0 +1,8 @@
+{
+  "gateType": "commit",
+  "target": "sprints/04_RUNBOOKS/GATE_RUNNER_DRY_RUN_V0.md",
+  "expectedBranch": "feat/hm-gcp-003d-cloud-sql-import",
+  "forbiddenPaths": [
+    "gplay/pwa/**"
+  ]
+}
