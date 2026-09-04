@@ -17,6 +17,13 @@ locals {
     "sqladmin.googleapis.com",   # Cloud SQL — уже включён в GCP вручную (HM-004);
     # раскомментировано в HM-GCP-003D.1 для синхронизации
     # кода с реальностью, см. HM-GCP-003B Diff Report
+    "iap.googleapis.com", # Identity-Aware Proxy — SPRINT-6B-2Q. Не был включён
+    # здесь ранее; отсутствие явного enable — вероятная причина, по которой
+    # service-<PROJECT_NUMBER>@gcp-sa-iap.iam.gserviceaccount.com ещё не
+    # существовал при попытке apply в SPRINT-6B-2P ("Service account ...
+    # does not exist"). Включение API обычно провижининг service agent'а
+    # как побочный эффект — это не подтверждено apply в этой задаче,
+    # только код.
   ]
 }
 
