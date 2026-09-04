@@ -52,3 +52,38 @@ resource "google_iap_web_backend_service_iam_member" "next_web_iap_domain_access
   role                = "roles/iap.httpsResourceAccessor"
   member              = "domain:abay-germes.kz"
 }
+
+# Cloud Run invoker grant for the IAP service agent — SPRINT-6B-2N.
+#
+# Confirmed missing (SPRINT-6B-2N diagnosis, after the domain accessor
+# binding above went live): the IAP service agent had never been
+# provisioned for this project (`gcloud iam service-accounts describe
+# service-<PROJECT_NUMBER>@gcp-sa-iap.iam.gserviceaccount.com` -> NOT_FOUND),
+# and even once it exists, nothing grants it roles/run.invoker on
+# `next-web` — the binding IAP itself needs to actually reach the Cloud Run
+# backend on an authenticated user's behalf. This is separate from
+# roles/iap.httpsResourceAccessor above, which only controls who may
+# authenticate TO IAP, not whether IAP can reach the backend.
+#
+# No explicit provisioning resource: google_project_service_identity
+# requires the google-beta provider, which is not configured in this repo
+# (terraform validate confirmed "hashicorp/google does not support resource
+# type"). Following the same pattern this repo already uses for another
+# Google-managed service agent (pubsub.tf's gcp-sa-pubsub grant): reference
+# the well-known deterministic service-agent email directly via the
+# existing `data.google_project.current` (defined in pubsub.tf) — granting
+# an IAM role to it is expected to provision the agent as a side effect,
+# same as any other Google-managed service agent grant in this codebase.
+#
+# Code only: not planned or applied by this commit (hard gate — no
+# terraform plan/apply, no `gcloud services identity create`, no IAM
+# mutation outside Terraform, in this task).
+resource "google_cloud_run_v2_service_iam_member" "iap_invoker" {
+  count = var.deploy_cloud_run ? 1 : 0
+
+  project  = var.project_id
+  location = var.region
+  name     = google_cloud_run_v2_service.web[0].name
+  role     = "roles/run.invoker"
+  member   = "serviceAccount:service-${data.google_project.current.number}@gcp-sa-iap.iam.gserviceaccount.com"
+}
